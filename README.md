@@ -649,13 +649,13 @@ Links: [Paper](https://arxiv.org/abs/2512.18571)
 
 ESearch-R1 trains agents to balance asking questions, retrieving memory, and physically navigating in AI2-THOR. Its cost-aware GRPO objective rewards trajectories that solve ambiguous search tasks while reducing expensive exploration and human-attention costs.
 
-### Verifier-Guided Action Selection for Embodied Agents
+### Think Twice, Act Once: Verifier-Guided Action Selection for Embodied Agents
 
-`2026` `arXiv` `EB-ALFRED` `verifier`
+`2026` `CVPR (Findings)` `ALFRED` `verifier`
 
 Links: [Paper](https://arxiv.org/abs/2605.12620)
 
-Verifier-Guided Action Selection uses a verifier to score and choose actions for embodied agents. It is included because its evaluation uses EmbodiedBench's EB-ALFRED implementation, which is derived from ALFRED and AI2-THOR.
+VegAS samples an ensemble of candidate actions at test time and uses a generative verifier, trained on synthesized failure cases, to select the most reliable one. It is in scope because its embodied evaluation spans ALFRED (AI2-THOR) alongside Habitat, reporting sizable gains on long-horizon tasks.
 
 ## Perception, Physics, and Scene Graphs
 
