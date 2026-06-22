@@ -75,9 +75,17 @@ Phone2Proc conditions procedural scene generation on a quick phone scan of a tar
 
 `2024` `CVPR` `language-guided generation` `Objaverse`
 
-Links: [Paper](https://arxiv.org/abs/2312.09067)
+Links: [Paper](https://arxiv.org/abs/2312.09067) · [Project](https://yueyang1996.github.io/holodeck/) · [Code](https://github.com/allenai/Holodeck)
 
 Holodeck uses language prompts, LLM-based scene planning, Objaverse assets, and AI2-THOR-compatible interaction to generate embodied AI environments. It targets open-ended scene types and semantic layouts that are difficult to cover with hand-authored procedural rules alone.
+
+### SPOC: Imitating Shortest Paths in Simulation Enables Effective Navigation and Manipulation in the Real World
+
+`2024` `CVPR` `ProcTHOR` `sim-to-real`
+
+Links: [Paper](https://openaccess.thecvf.com/content/CVPR2024/html/Ehsani_SPOC_Imitating_Shortest_Paths_in_Simulation_Enables_Effective_Navigation_and_CVPR_2024_paper.html) · [Project](https://spoc-robot.github.io/) · [Code](https://github.com/allenai/spoc-robot-training)
+
+SPOC uses AI2-THOR and ProcTHOR to generate large-scale shortest-path demonstrations for navigation and manipulation, then transfers the resulting policies to real robots. It is an important sim-to-real example of scaling training data through the AI2-THOR ecosystem.
 
 ### Beyond Needle(s) in the Embodied Haystack
 
@@ -93,9 +101,17 @@ This work introduces infinity-THOR, a long-horizon embodied task framework for e
 
 `2018` `CVPR` `interactive QA` `AI2-THOR`
 
-Links: [Paper](https://arxiv.org/abs/1712.03316) · [Code](https://github.com/danielgordon10/thor-iqa-cvpr-2018)
+Links: [Paper](https://openaccess.thecvf.com/content_cvpr_2018/html/Gordon_IQA_Visual_Question_CVPR_2018_paper.html) · [Project](https://prior.allenai.org/projects/iqa) · [Code](https://github.com/danielgordon10/thor-iqa-cvpr-2018)
 
 IQA asks agents to answer questions that require active navigation and object interaction, such as checking inside containers. Built on AI2-THOR, it was one of the early benchmarks to move visual question answering from static images into embodied, interactive environments.
+
+### Two Body Problem: Collaborative Visual Task Completion
+
+`2019` `CVPR` `multi-agent` `AI2-THOR`
+
+Links: [Paper](https://openaccess.thecvf.com/content_CVPR_2019/html/Jain_Two_Body_Problem_Collaborative_Visual_Task_Completion_CVPR_2019_paper.html)
+
+Two Body Problem extends AI2-THOR to collaborative visual task completion with multiple agents that communicate and act in the same environment. It is an early example of multi-agent embodied interaction inside the AI2-THOR simulator.
 
 ### ALFRED: A Benchmark for Interpreting Grounded Instructions for Everyday Tasks
 
@@ -125,7 +141,7 @@ TEACh extends AI2-THOR household tasks with human-human dialogue between a Comma
 
 `2022` `IEEE RA-L` `dialogue` `ALFRED`
 
-Links: [Paper](https://arxiv.org/abs/2202.13330)
+Links: [Paper](https://arxiv.org/abs/2202.13330) · [Challenge](https://eval.ai/web/challenges/challenge-page/1859/overview) · [Code](https://github.com/xfgao/DialFRED)
 
 DialFRED augments ALFRED with agent-initiated clarification questions and human answers. It is useful for studying when an embodied agent should ask for missing information instead of blindly executing an underspecified instruction.
 
@@ -149,7 +165,7 @@ Embodied Agent Interface defines a common interface for evaluating LLMs as embod
 
 `2025` `ICML` `MLLM agents` `benchmark`
 
-Links: [Paper](https://arxiv.org/abs/2502.09560) · [Project](https://embodiedbench.github.io/)
+Links: [Paper](https://openreview.net/forum?id=DgGF2LEBPS) · [Project](https://embodiedbench.github.io/) · [Code](https://github.com/EmbodiedBench/EmbodiedBench)
 
 EmbodiedBench evaluates multimodal large language models as closed-loop embodied agents across EB-ALFRED, EB-Habitat, EB-Navigation, and EB-Manipulation. The benchmark makes the gap between high-level semantic planning and low-level visual/action grounding explicit.
 
@@ -168,6 +184,22 @@ The AI2-THOR Rearrangement Challenge provides datasets, task samplers, evaluatio
 Links: [Paper](https://arxiv.org/abs/2604.19638) · [Code](https://github.com/sled-group/SafetyALFRED)
 
 SafetyALFRED builds on ALFRED with kitchen hazards and safety-conscious planning tasks. It evaluates whether MLLM agents can move beyond recognizing hazards in QA form and actively plan corrective embodied actions in an interactive household setting.
+
+### CL-ALFRED: Online Continual Learning for Interactive Instruction Following Agents
+
+`2024` `ICLR` `continual learning` `ALFRED`
+
+Links: [Paper](https://openreview.net/forum?id=7M0EzjugaN) · [Project](https://bhkim94.github.io/projects/CL-ALFRED/) · [Code](https://github.com/snumprlab/cl-alfred)
+
+CL-ALFRED turns ALFRED into a continual-learning benchmark with behavior-incremental and environment-incremental streams. It measures whether embodied instruction-following agents can adapt to new tasks and scenes without catastrophically forgetting prior household skills.
+
+### ReALFRED: An Embodied Instruction Following Benchmark in Photo-Realistic Environments
+
+`2024` `ECCV` `ALFRED-derived` `photo-realistic benchmark`
+
+Links: [Paper](https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/1610_ECCV_2024_paper.php) · [Project](https://twoongg.github.io/projects/realfred/) · [Code](https://github.com/snumprlab/realfred)
+
+ReALFRED extends ALFRED-style instruction following to photo-realistic scanned multi-room environments. It is included as direct ALFRED lineage, but it should be read as ALFRED-derived rather than a native AI2-THOR benchmark.
 
 ## Instruction Following and Household Tasks
 
@@ -207,7 +239,7 @@ Look Wide and Interpret Twice improves ALFRED instruction following with two-sta
 
 `2021` `Findings of ACL` `ALFRED` `hierarchical planning`
 
-Links: [Paper](https://arxiv.org/abs/2106.03427)
+Links: [Paper](https://aclanthology.org/2021.findings-acl.368/) · [Code](https://github.com/594zyc/HiTUT)
 
 HiTUT decomposes ALFRED into subgoal planning, navigation, and object manipulation while using unified transformer modules across the hierarchy. Its self-monitoring and task-structure modeling make failures easier to diagnose than in purely flat sequence policies.
 
@@ -223,9 +255,17 @@ Embodied BERT applies transformer modeling to long-horizon ALFRED histories with
 
 `2021` `CoRL` `ALFRED` `semantic maps`
 
-Links: [Project](https://hlsm-alfred.github.io/)
+Links: [Paper](https://arxiv.org/abs/2107.05612) · [Project](https://hlsm-alfred.github.io/) · [Code](https://github.com/valtsblukis/hlsm)
 
 HLSM represents ALFRED tasks through persistent semantic spatial maps and hierarchical control. It helped establish the importance of explicit spatial memory for long-horizon instruction following, rather than relying only on recurrent hidden states or end-to-end sequence policies.
+
+### Agent with the Big Picture
+
+`2021` `CVPR Embodied AI Workshop` `ALFRED` `wide-view observation`
+
+Links: [Workshop](https://askforalfred.com/EAI21/) · [Code](https://github.com/snumprlab/abp) · [Dataset](https://huggingface.co/datasets/byeonghwikim/abp_dataset)
+
+Agent with the Big Picture augments ALFRED agents with additional observations from navigable directions, giving the policy a wider spatial context than a single egocentric frame. It is useful as a compact example of improving ALFRED execution through better observation design.
 
 ### FILM: Following Instructions in Language with Modular Methods
 
@@ -234,6 +274,14 @@ HLSM represents ALFRED tasks through persistent semantic spatial maps and hierar
 Links: [Paper](https://arxiv.org/abs/2110.07342) · [Code](https://github.com/soyeonm/FILM)
 
 FILM decomposes instruction following into language parsing, semantic map construction, semantic search, and execution. Its strong ALFRED performance with less training data showed that explicit maps and modular priors can be highly competitive with end-to-end imitation learning.
+
+### Embodied Concept Learner: Self-supervised Learning of Concepts and Mapping for Instruction Following
+
+`2023` `CoRL` `ALFRED` `self-supervised concepts`
+
+Links: [Paper](https://proceedings.mlr.press/v205/ding23b.html) · [Project](https://dingmyu.github.io/ecl/)
+
+Embodied Concept Learner learns semantic and geometric concepts from embodied interaction before applying them to ALFRED instruction following. It targets the perception and mapping bottleneck in long-horizon household tasks, especially when supervised labels are limited.
 
 ### DANLI: Deliberative Agent for Following Natural Language Instructions
 
@@ -251,11 +299,19 @@ Links: [Paper](https://arxiv.org/abs/2310.12344) · [ACL Anthology](https://acla
 
 LACMA improves ALFRED generalization by explicitly aligning language instructions with agent hidden states and introducing meta-actions as an intermediate semantic layer. The work targets the gap between natural language goals and low-level action sequences.
 
+### SPRINT: Scalable Policy Pre-Training via Language Instruction Relabeling
+
+`2024` `ICRA` `ALFRED` `policy pretraining`
+
+Links: [Paper](https://arxiv.org/abs/2306.11886) · [Project](https://clvrai.github.io/sprint/) · [Code](https://github.com/clvrai/sprint)
+
+SPRINT relabels and chains ALFRED trajectories to pretrain reusable household skills at scale. Its ALFRED-RL setup connects offline instruction relabeling with downstream long-horizon execution in the ALFRED simulator.
+
 ### LLM-Planner: Few-Shot Grounded Planning for Embodied Agents with Large Language Models
 
 `2023` `ICCV` `LLM planning`
 
-Links: [Paper](https://arxiv.org/abs/2212.04088) · [Project](https://dki-lab.github.io/LLM-Planner/) · [Code](https://github.com/OSU-NLP-Group/LLM-Planner)
+Links: [Paper](https://openaccess.thecvf.com/content/ICCV2023/html/Song_LLM-Planner_Few-Shot_Grounded_Planning_for_Embodied_Agents_with_Large_Language_Models_ICCV_2023_paper.html) · [Project](https://dki-lab.github.io/LLM-Planner/) · [Code](https://github.com/OSU-NLP-Group/LLM-Planner)
 
 LLM-Planner uses few-shot prompting to turn large language models into grounded high-level planners for embodied agents. It provides prompt-generation and end-to-end examples that connect language model plans to executable embodied task steps.
 
@@ -279,7 +335,7 @@ DISCO combines differentiable scene semantics with dual-level coarse-to-fine con
 
 `2025` `ICLR` `ALFRED` `reasoning`
 
-Links: [Paper](https://arxiv.org/abs/2312.07062) · [Project](https://guanxinglu.github.io/thinkbot/) · [OpenReview](https://openreview.net/forum?id=tFDTHA3odg)
+Links: [Paper](https://openreview.net/forum?id=tFDTHA3odg) · [Project](https://guanxinglu.github.io/thinkbot/) · [arXiv](https://arxiv.org/abs/2312.07062)
 
 ThinkBot uses LLM-based thought-chain reasoning to fill in implicit intermediate subgoals that human instructions often omit. It pairs this instruction completion with object localization so that recovered subgoals can be grounded in partially observed environments.
 
@@ -299,13 +355,29 @@ Links: [Paper](https://arxiv.org/abs/2605.25851)
 
 RePlan-Bot performs continuous multi-level replanning for ALFRED-style embodied instruction following. It combines an LLM-based high-level auditor, commonsense-guided object search, instance-map localization, and a lightweight low-level corrector to reduce long-horizon failures and risky irreversible actions.
 
+### Recurrent Reasoning with Vision-Language Models for Estimating Long-Horizon Embodied Task Progress
+
+`2026` `CVPR` `ALFRED-RL` `progress estimation`
+
+Links: [Paper](https://openaccess.thecvf.com/content/CVPR2026/html/Zhang_Recurrent_Reasoning_with_Vision-Language_Models_for_Estimating_Long-Horizon_Embodied_Task_CVPR_2026_paper.html)
+
+This work uses recurrent VLM reasoning to estimate task progress for long-horizon embodied instruction following. Its ALFRED-RL experiments use AI2-THOR-based execution to turn progress estimates into denser reward signals for policy improvement.
+
+### RoboAgent: Chaining Basic Capabilities for Embodied Task Planning
+
+`2026` `CVPR` `ALFRED` `capability chaining`
+
+Links: [Paper](https://openaccess.thecvf.com/content/CVPR2026/html/Xu_RoboAgent_Chaining_Basic_Capabilities_for_Embodied_Task_Planning_CVPR_2026_paper.html)
+
+RoboAgent trains embodied task planning by chaining basic capabilities into longer household procedures. It is relevant here because it trains and evaluates on ALFRED and EB-ALFRED-style AI2-THOR-derived tasks.
+
 ## Navigation
 
 ### Target-driven Visual Navigation in Indoor Scenes using Deep Reinforcement Learning
 
 `2017` `ICRA` `AI2-THOR` `deep RL`
 
-Links: [Paper](https://arxiv.org/abs/1609.05143)
+Links: [Paper](https://arxiv.org/abs/1609.05143) · [Project](https://prior.allenai.org/projects/target-driven-visual-navigation) · [Code](https://github.com/caomw/icra2017-visual-navigation-1)
 
 This early target-conditioned navigation work trains agents to reach visual goals from egocentric observations using deep reinforcement learning. It helped establish AI2-THOR as a practical environment for studying embodied visual navigation under realistic indoor variation.
 
@@ -316,6 +388,14 @@ This early target-conditioned navigation work trains agents to reach visual goal
 Links: [Paper](https://arxiv.org/abs/1810.06543)
 
 Visual Semantic Navigation uses graph-based semantic priors to guide object-goal search in unseen indoor scenes. The core idea is that object co-occurrence and spatial context can help an agent search more intelligently than random exploration or purely reactive policies.
+
+### Search for or Navigate to? Dual Adaptive Thinking for Object Navigation
+
+`2023` `ICCV` `AI2-THOR` `RoboTHOR`
+
+Links: [Paper](https://openaccess.thecvf.com/content/ICCV2023/html/Dang_Search_for_or_Navigate_to_Dual_Adaptive_Thinking_for_Object_ICCV_2023_paper.html)
+
+Dual Adaptive Thinking separates object navigation into searching and goal-reaching modes, switching behavior based on whether a target has been discovered. It reports experiments on both AI2-THOR and RoboTHOR, making it a direct bridge between iTHOR-style ObjectNav and sim-to-real navigation.
 
 ### SAVN: Self-Adaptive Visual Navigation Using Meta-Learning
 
@@ -385,7 +465,7 @@ This work learns task-conditioned filters over general visual representations, r
 
 `2024` `arXiv` `ProcTHOR` `ObjectNav`
 
-Links: [Paper](https://arxiv.org/abs/2406.20083) · [Project](https://poliformer.allen.ai/)
+Links: [Paper](https://arxiv.org/abs/2406.20083) · [Project](https://poliformer.allen.ai/) · [Code](https://github.com/allenai/PoliFormer)
 
 PoliFormer scales on-policy reinforcement learning with transformer policies for ObjectNav. It uses large ProcTHOR training corpora and studies how model scale, environment scale, and embodiment choices affect navigation performance.
 
@@ -397,7 +477,23 @@ Links: [Paper](https://arxiv.org/abs/2507.11334) · [Project](https://yuehaohuan
 
 CogDDN frames navigation around implicit human demands rather than fixed object categories. It combines object detection, semantic demand matching, heuristic decision making, analytic reflection, and a knowledge base to navigate ProcTHOR scenes from egocentric visual input.
 
+### From Reactive to Map-Based AI: Tuned Local LLMs for Semantic Zone Inference in Object-Goal Navigation
+
+`2026` `arXiv` `AI2-THOR` `semantic mapping`
+
+Links: [Paper](https://arxiv.org/abs/2603.08086)
+
+This work studies ObjectNav with local LLMs and topological-grid memory for semantic zone inference. It belongs in the AI2-THOR navigation line because evaluation is performed directly in AI2-THOR ObjectNav environments.
+
 ## Planning, Memory, and Multi-Agent Systems
+
+### Visual Semantic Planning using Deep Successor Representations
+
+`2017` `ICCV` `THOR` `visual semantic planning`
+
+Links: [Paper](https://arxiv.org/abs/1705.08080) · [Project](https://prior.allenai.org/projects/visual-semantic-planning)
+
+Visual Semantic Planning learns to predict action sequences that change object states in THOR. It is an early precursor to household interaction benchmarks because it goes beyond navigation into planning around object affordances and state-changing actions.
 
 ### MaSS: A Simple Approach for Visual Rearrangement
 
@@ -414,6 +510,14 @@ MaSS tackles the AI2-THOR Rearrangement Challenge with a simple modular pipeline
 Links: [Paper](https://arxiv.org/abs/2207.10761) · [Project](https://tidee-agent.github.io/) · [Code](https://github.com/Gabesarch/TIDEE)
 
 TIDEE studies open-ended room tidying in AI2-THOR. Instead of copying a reference goal state, it uses visuo-semantic commonsense priors, graph memory, and visual search to identify out-of-place objects and move them to plausible receptacles or surfaces.
+
+### Towards Disturbance-Free Visual Mobile Manipulation
+
+`2022` `ICRA` `ManipulaTHOR` `mobile manipulation`
+
+Links: [Paper](https://arxiv.org/abs/2112.12612)
+
+This work studies mobile manipulation policies that complete ManipulaTHOR tasks while avoiding unnecessary collisions and environmental disturbance. It adds a safety and physical-side-effect lens to ArmPointNav-style visual mobile manipulation.
 
 ### JARVIS: A Neuro-Symbolic Commonsense Reasoning Framework for Conversational Embodied Agents
 
@@ -439,11 +543,19 @@ Links: [Paper](https://arxiv.org/abs/2211.03267)
 
 Prompter uses large-language-model prompting to inject object-landmark relationships and task constraints into ALFRED agents. It is representative of early attempts to use LLM world knowledge for data-efficient embodied instruction following before full VLM-agent pipelines became common.
 
+### DialMAT: Dialogue-Enabled Transformer with Moment-Based Adversarial Training
+
+`2023` `CVPR Embodied AI Workshop` `DialFRED` `dialogue`
+
+Links: [Paper](https://arxiv.org/abs/2311.06855)
+
+DialMAT trains a dialogue-enabled transformer for DialFRED using moment-based adversarial training. It is a direct DialFRED follow-up and is useful for tracking methods that turn clarification dialogue into better ALFRED-derived task execution.
+
 ### CAPEAM: Context-Aware Planning and Environment-Aware Memory
 
 `2023` `arXiv` `ALFRED` `memory` `planning`
 
-Links: [Paper](https://arxiv.org/abs/2308.07241)
+Links: [Paper](https://openaccess.thecvf.com/content/ICCV2023/html/Kim_Context-Aware_Planning_and_Environment-Aware_Memory_for_Instruction_Following_Embodied_Agents_ICCV_2023_paper.html) · [Project](https://bhkim94.github.io/projects/CAPEAM/) · [Code](https://github.com/snumprlab/capeam)
 
 CAPEAM improves ALFRED execution by tracking action consequences, object states, and environment changes across time. Its context-aware planning and memory design target common long-horizon failures such as stale assumptions after object interaction.
 
@@ -467,7 +579,7 @@ Smart Help defines an assistive-agent challenge in AI2-THOR where a robot must p
 
 `2024` `NeurIPS` `multi-agent` `MAP-THOR`
 
-Links: [Paper](https://arxiv.org/abs/2407.10031) · [Code](https://github.com/nsidn98/LLaMAR)
+Links: [Paper](https://proceedings.neurips.cc/paper_files/paper/2024/hash/7d6e85e88495104442af94c98e899659-Abstract-Conference.html) · [Project](https://nsidn98.github.io/LLaMAR/) · [Code](https://github.com/nsidn98/LLaMAR)
 
 LLaMAR uses a plan-act-correct-verify loop for language-model-based multi-agent planning under partial observability. It introduces MAP-THOR, an AI2-THOR-based multi-agent household test suite for long-horizon collaborative planning.
 
@@ -494,6 +606,14 @@ HELPER-X extends memory-augmented LLM planning across ALFRED, TEACh, DialFRED, a
 Links: [Paper](https://arxiv.org/abs/2508.11286)
 
 This method compares current scene graphs against reference graphs from successful demonstrations and triggers replanning before execution failures occur. It targets common household-task failures such as stale assumptions about object state or spatial relations.
+
+### AgentSpec: Understanding Embodied Agent Scaffolds Through Controlled Composition
+
+`2026` `arXiv` `ALFRED` `RoboTHOR`
+
+Links: [Paper](https://arxiv.org/abs/2606.14674) · [Project](https://agentspec-embodied.github.io/)
+
+AgentSpec studies how reasoning, memory, reflection, and learning modules compose inside embodied agent scaffolds. It is in scope because its controlled evaluations instantiate agents in both ALFRED and RoboTHOR.
 
 ## RL-Trained VLM Agents
 
@@ -529,7 +649,23 @@ Links: [Paper](https://arxiv.org/abs/2512.18571)
 
 ESearch-R1 trains agents to balance asking questions, retrieving memory, and physically navigating in AI2-THOR. Its cost-aware GRPO objective rewards trajectories that solve ambiguous search tasks while reducing expensive exploration and human-attention costs.
 
+### Verifier-Guided Action Selection for Embodied Agents
+
+`2026` `arXiv` `EB-ALFRED` `verifier`
+
+Links: [Paper](https://arxiv.org/abs/2605.12620)
+
+Verifier-Guided Action Selection uses a verifier to score and choose actions for embodied agents. It is included because its evaluation uses EmbodiedBench's EB-ALFRED implementation, which is derived from ALFRED and AI2-THOR.
+
 ## Perception, Physics, and Scene Graphs
+
+### Learning About Objects by Learning to Interact with Them
+
+`2020` `NeurIPS` `AI2-THOR` `self-supervised interaction`
+
+Links: [Paper](https://proceedings.neurips.cc/paper/2020/hash/291597a100aadd814d197af4f4bab3a7-Abstract.html) · [Code](https://github.com/allenai/learning_from_interaction)
+
+This work learns object extent and physical properties through unsupervised interaction in AI2-THOR. It broadens the ecosystem beyond navigation and instruction following by showing how embodied agents can acquire object knowledge through active manipulation.
 
 ### Integrating Vision Foundation Models with Reinforcement Learning for Enhanced Object Interaction
 
@@ -622,6 +758,54 @@ AI2-THOR Docker packages the simulator rendering stack for reproducible headless
 Links: [Code](https://github.com/allenai/procthor-rl)
 
 ProcTHOR RL contains training and evaluation scripts for ObjectNav agents in ProcTHOR. It is useful both as official infrastructure for ProcTHOR experiments and as a concrete reference for large-scale AI2-THOR-family reinforcement learning.
+
+### AI2-THOR Colab
+
+`tool` `Colab` `runtime helper`
+
+Links: [Code](https://github.com/allenai/ai2thor-colab)
+
+AI2-THOR Colab provides helper utilities for running AI2-THOR in Google Colab, including display and X-server setup. It is useful for lightweight demos, tutorials, and quick experiments without a full local Unity setup.
+
+### ai2thor-web
+
+`tool` `web control` `data collection`
+
+Links: [Code](https://github.com/zkytony/ai2thor-web)
+
+ai2thor-web provides a browser-based interface for remotely controlling AI2-THOR and collecting user-study data. It is useful when experiments require humans to interact with simulator scenes through a web UI.
+
+### RL-THOR
+
+`tool` `Gymnasium-style wrapper` `RL`
+
+Links: [Code](https://github.com/Kajiih/rl_thor)
+
+RL-THOR is a lightweight reinforcement-learning wrapper around AI2-THOR with customizable tasks and a Gym-like API. It is another practical option for building small AI2-THOR RL experiments without adopting a larger framework.
+
+### Indoor Scene Generation for EAI / Luminous-for-ALFRED
+
+`tool` `scene generation` `ALFRED`
+
+Links: [Code](https://github.com/amazon-science/indoor-scene-generation-eai)
+
+This Amazon Science project provides indoor scene generation and ALFRED task/trajectory generation tooling. It is useful for expanding ALFRED-style household task data and studying how generated scenes affect embodied instruction following.
+
+### TEACh TATC
+
+`tool` `TEACh` `two-agent challenge`
+
+Links: [Code](https://github.com/GLAMOR-USC/teach_tatc)
+
+TEACh TATC adapts TEACh into a two-agent task-completion setting with Commander/Follower collaboration. It is useful for experiments that separate instruction generation, communication, and embodied execution within the TEACh lineage.
+
+### ALFRED-RL
+
+`tool` `ALFRED` `RL environment`
+
+Links: [Code](https://github.com/clvrai/sprint)
+
+ALFRED-RL is the reinforcement-learning environment and training stack released inside SPRINT. It connects ALFRED task execution with online/offline RL workflows and is used by later ALFRED policy-training work.
 
 ### ProcTHOR-Nav-Vis
 
