@@ -1,0 +1,10 @@
+max_retries = 3
+timeout = 30
+max_concurrency = 8
+accept = [200, 202, 204, 206, 429]
+
+# CSDN often rate-limits automated requests; these are secondary community notes.
+exclude = [
+  "https://blog.csdn.net/u010705932/article/details/104472316",
+  "https://blog.csdn.net/muyulingfengye/article/details/144618712",
+]

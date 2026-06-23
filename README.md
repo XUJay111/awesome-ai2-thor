@@ -1,12 +1,15 @@
 # Awesome AI2-THOR
 
-[![AI2-THOR](https://img.shields.io/badge/AI2--THOR-ecosystem-blue)](https://ai2thor.allenai.org/)
-[![Papers](https://img.shields.io/badge/papers-curated-success)](#contents)
-[![Contributions](https://img.shields.io/badge/contributions-welcome-informational)](CONTRIBUTING.md)
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+[![License: CC0-1.0](https://img.shields.io/badge/license-CC0--1.0-lightgrey.svg)](LICENSE)
+[![Link Check](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/link-check.yml/badge.svg)](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/link-check.yml)
+[![Data Validation](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/validate-data.yml/badge.svg)](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/validate-data.yml)
+
+Maintained as a curated research index. Last verified: 2026-06.
 
 A curated map of papers, benchmarks, datasets, environments, and tools built on top of [AI2-THOR](https://ai2thor.allenai.org/) and its ecosystem, including iTHOR, RoboTHOR, ProcTHOR, ManipulaTHOR, ArchitecTHOR, ALFRED, TEACh, and EmbodiedBench.
 
-The list focuses on work with a clear AI2-THOR-family connection. Each entry includes primary paper/project links and open-source repositories when they are available.
+This is an AI2-THOR-family index, not a general embodied AI awesome list. Each entry should make its AI2-THOR-family connection clear through primary paper, project, or code links whenever possible.
 
 ## Contents
 
@@ -22,6 +25,8 @@ The list focuses on work with a clear AI2-THOR-family connection. Each entry inc
 - [Tutorials and Notes](#tutorials-and-notes)
 
 ## Platforms and Environment Generation
+
+*Core simulators, generated environments, and official ecosystem extensions.*
 
 ### AI2-THOR: An Interactive 3D Environment for Visual AI
 
@@ -97,6 +102,8 @@ This work introduces infinity-THOR, a long-horizon embodied task framework for e
 
 ## Benchmarks and Evaluation
 
+*Benchmarks, challenges, and evaluation interfaces with a concrete AI2-THOR-family connection.*
+
 ### IQA: Visual Question Answering in Interactive Environments
 
 `2018` `CVPR` `interactive QA` `AI2-THOR`
@@ -141,7 +148,7 @@ TEACh extends AI2-THOR household tasks with human-human dialogue between a Comma
 
 `2022` `IEEE RA-L` `dialogue` `ALFRED`
 
-Links: [Paper](https://arxiv.org/abs/2202.13330) · [Challenge](https://eval.ai/web/challenges/challenge-page/1859/overview) · [Code](https://github.com/xfgao/DialFRED)
+Links: [Paper](https://arxiv.org/abs/2202.13330) · [Code](https://github.com/xfgao/DialFRED) · [Challenge](https://eval.ai/web/challenges/challenge-page/1859/overview)
 
 DialFRED augments ALFRED with agent-initiated clarification questions and human answers. It is useful for studying when an embodied agent should ask for missing information instead of blindly executing an underspecified instruction.
 
@@ -203,6 +210,8 @@ ReALFRED extends ALFRED-style instruction following to photo-realistic scanned m
 
 ## Instruction Following and Household Tasks
 
+*Instruction-following, household-task, and language-grounded execution methods using ALFRED, TEACh, or AI2-THOR-style tasks.*
+
 ### Are We There Yet? Learning to Localize in Embodied Instruction Following
 
 `2021` `AAAI HAI` `ALFRED` `localization`
@@ -263,7 +272,7 @@ HLSM represents ALFRED tasks through persistent semantic spatial maps and hierar
 
 `2021` `CVPR Embodied AI Workshop` `ALFRED` `wide-view observation`
 
-Links: [Workshop](https://askforalfred.com/EAI21/) · [Code](https://github.com/snumprlab/abp) · [Dataset](https://huggingface.co/datasets/byeonghwikim/abp_dataset)
+Links: [Code](https://github.com/snumprlab/abp) · [Dataset](https://huggingface.co/datasets/byeonghwikim/abp_dataset) · [Workshop](https://askforalfred.com/EAI21/)
 
 Agent with the Big Picture augments ALFRED agents with additional observations from navigable directions, giving the policy a wider spatial context than a single egocentric frame. It is useful as a compact example of improving ALFRED execution through better observation design.
 
@@ -287,7 +296,7 @@ Embodied Concept Learner learns semantic and geometric concepts from embodied in
 
 `2022` `EMNLP` `TEACh` `neuro-symbolic planning`
 
-Links: [Paper](https://arxiv.org/abs/2210.12485) · [ACL Anthology](https://aclanthology.org/2022.emnlp-main.83/) · [Code](https://github.com/sled-group/DANLI)
+Links: [Paper](https://arxiv.org/abs/2210.12485) · [Code](https://github.com/sled-group/DANLI) · [ACL Anthology](https://aclanthology.org/2022.emnlp-main.83/)
 
 DANLI introduces a deliberative neuro-symbolic agent for following natural-language instructions. It maintains task progress and symbolic state to reason about preconditions and subgoals, reducing purely reactive behavior in long-horizon household tasks.
 
@@ -295,7 +304,7 @@ DANLI introduces a deliberative neuro-symbolic agent for following natural-langu
 
 `2023` `EMNLP` `ALFRED` `contrastive learning`
 
-Links: [Paper](https://arxiv.org/abs/2310.12344) · [ACL Anthology](https://aclanthology.org/2023.emnlp-main.77/) · [Code](https://github.com/joeyy5588/LACMA)
+Links: [Paper](https://arxiv.org/abs/2310.12344) · [Code](https://github.com/joeyy5588/LACMA) · [ACL Anthology](https://aclanthology.org/2023.emnlp-main.77/)
 
 LACMA improves ALFRED generalization by explicitly aligning language instructions with agent hidden states and introducing meta-actions as an intermediate semantic layer. The work targets the gap between natural language goals and low-level action sequences.
 
@@ -372,6 +381,8 @@ Links: [Paper](https://openaccess.thecvf.com/content/CVPR2026/html/Xu_RoboAgent_
 RoboAgent trains embodied task planning by chaining basic capabilities into longer household procedures. It is relevant here because it trains and evaluates on ALFRED and EB-ALFRED-style AI2-THOR-derived tasks.
 
 ## Navigation
+
+*ObjectNav, semantic navigation, and navigation-analysis work evaluated in AI2-THOR-family environments.*
 
 ### Target-driven Visual Navigation in Indoor Scenes using Deep Reinforcement Learning
 
@@ -486,6 +497,8 @@ Links: [Paper](https://arxiv.org/abs/2603.08086)
 This work studies ObjectNav with local LLMs and topological-grid memory for semantic zone inference. It belongs in the AI2-THOR navigation line because evaluation is performed directly in AI2-THOR ObjectNav environments.
 
 ## Planning, Memory, and Multi-Agent Systems
+
+*Planning, memory, dialogue, assistance, and multi-agent systems grounded in AI2-THOR-derived tasks.*
 
 ### Visual Semantic Planning using Deep Successor Representations
 
@@ -617,6 +630,8 @@ AgentSpec studies how reasoning, memory, reflection, and learning modules compos
 
 ## RL-Trained VLM Agents
 
+*VLM-agent training and reinforcement-learning work whose evaluation includes AI2-THOR-family benchmarks.*
+
 ### ERA: Transforming VLMs into Embodied Agents via Embodied Prior Learning and Online Reinforcement Learning
 
 `2025` `arXiv` `online RL` `EmbodiedBench`
@@ -659,6 +674,8 @@ VegAS samples an ensemble of candidate actions at test time and uses a generativ
 
 ## Perception, Physics, and Scene Graphs
 
+*Perception, physical reasoning, and scene-graph work relevant to AI2-THOR-style embodied interaction.*
+
 ### Learning About Objects by Learning to Interact with Them
 
 `2020` `NeurIPS` `AI2-THOR` `self-supervised interaction`
@@ -693,6 +710,8 @@ ESCA uses spatial-temporal scene graphs as a perception layer for embodied agent
 
 ## Datasets and Assets
 
+*Datasets, assets, and derived benchmark resources for AI2-THOR-family workflows.*
+
 ### Objaverse-THOR / Objathor
 
 `dataset` `assets` `Objaverse` `ProcTHOR`
@@ -717,15 +736,9 @@ Links: [Paper](https://arxiv.org/abs/2407.10031) · [Code](https://github.com/ns
 
 MAP-THOR is the multi-agent household planning test suite introduced with LLaMAR. It extends the AI2-THOR task setting toward partial observability, multi-agent coordination, information asymmetry, and long-horizon household collaboration.
 
-### infinity-THOR
-
-`benchmark` `long-context` `long-horizon`
-
-Links: [Paper](https://arxiv.org/abs/2505.16928)
-
-infinity-THOR is the long-horizon task generation framework introduced in Beyond Needle(s) in the Embodied Haystack. It is designed for testing long-context embodied reasoning over extended trajectories and multi-step QA-style tasks.
-
 ## Tools and Environments
+
+*Wrappers, infrastructure, visualization tools, and community environments for AI2-THOR-family research.*
 
 ### AllenAct
 
@@ -851,7 +864,7 @@ ai2thor-task-planner executes tasks in iTHOR using automated planning and neural
 
 `codebase` `ERA` `online RL`
 
-Links: [Code](https://github.com/Embodied-Reasoning-Agent/Embodied-Reasoning-Agent) · [Paper](https://arxiv.org/abs/2510.12693)
+Links: [Code](https://github.com/Embodied-Reasoning-Agent/Embodied-Reasoning-Agent)
 
 This is the released codebase for ERA, including embodied prior learning and online reinforcement learning components for VLM-based embodied agents.
 
@@ -864,6 +877,8 @@ Links: [Code](https://github.com/ds199895/DualTHOR)
 DualTHOR extends AI2-THOR into a dual-arm humanoid environment with richer action execution, contingency modeling, task replay, inverse-kinematics-based motion, and more detailed object state transitions. It is especially relevant for studying bimanual planning and failure recovery.
 
 ## Tutorials and Notes
+
+*Secondary and community learning resources. Prefer primary paper, project, or code links for academic entries.*
 
 ### CSDN AI2-THOR tutorial
 
@@ -879,16 +894,23 @@ A secondary Chinese note about Cook2LTL. Prefer citing the official paper and re
 
 ## Contributing
 
-Use primary sources where possible and keep each entry compact:
+Edit `data.yml` first, then regenerate this README:
+
+```bash
+python scripts/validate_data.py
+python scripts/generate_readme.py
+```
+
+Entry format:
 
 ```markdown
-### Paper or Project Title
+### Title
 
-`year` `venue/status` `topic`
+`year` `venue/status` `topic` `ecosystem`
 
 Links: [Paper](paper-url) · [Project](project-url) · [Code](repo-url)
 
-One concise paragraph explaining how the work uses or extends AI2-THOR.
+One concise paragraph explaining how the work uses, extends, benchmarks, or supports AI2-THOR-family systems.
 ```
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for verification rules and suggested categories.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for scope, verification rules, status labels, and review policy.

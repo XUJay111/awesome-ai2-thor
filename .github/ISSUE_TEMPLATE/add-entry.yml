@@ -1,0 +1,41 @@
+name: Suggest an entry
+description: Recommend a paper, project, dataset, tool, or tutorial for the index.
+title: "Add entry: "
+labels: ["entry"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      description: Paper or project title.
+    validations:
+      required: true
+  - type: textarea
+    id: connection
+    attributes:
+      label: AI2-THOR-family connection
+      description: Explain how this uses, extends, benchmarks, or supports AI2-THOR, iTHOR, RoboTHOR, ProcTHOR, ManipulaTHOR, ArchitecTHOR, ALFRED, TEACh, or EmbodiedBench.
+    validations:
+      required: true
+  - type: input
+    id: primary-link
+    attributes:
+      label: Primary link
+      description: Prefer paper, official project page, or official code.
+    validations:
+      required: true
+  - type: input
+    id: category
+    attributes:
+      label: Suggested category
+      description: Use one of the README section names.
+    validations:
+      required: true
+  - type: input
+    id: verified
+    attributes:
+      label: Verification date
+      description: Use YYYY-MM-DD.
+      placeholder: "2026-06-23"
+    validations:
+      required: true

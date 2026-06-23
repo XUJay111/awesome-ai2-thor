@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Add an entry
+    url: https://github.com/xuruijie/AI2-THOR/issues/new?template=add-entry.yml
+    about: Suggest a paper, project, dataset, tool, or tutorial.

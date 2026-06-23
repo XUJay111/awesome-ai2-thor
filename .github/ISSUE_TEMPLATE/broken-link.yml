@@ -1,0 +1,25 @@
+name: Report a broken link
+description: Report a stale, redirected, or unavailable link.
+title: "Broken link: "
+labels: ["broken-link"]
+body:
+  - type: input
+    id: entry
+    attributes:
+      label: Entry title
+      description: Which README entry contains the problem?
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Broken URL
+    validations:
+      required: true
+  - type: textarea
+    id: replacement
+    attributes:
+      label: Suggested replacement
+      description: Add a working paper, project, code, or archived link if available.
+    validations:
+      required: false
