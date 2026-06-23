@@ -167,6 +167,24 @@ entries:
     scalable trajectories and a Needle(s) in the Embodied Haystack task where agents must reason over long action-observation
     histories.
   last_verified: '2026-06-23'
+- title: DualTHOR
+  year: '2025'
+  status: verified-project
+  venue: arXiv withdrawn
+  category: Platforms and Environment Generation
+  tags:
+  - '2025'
+  - environment
+  - dual-arm humanoid
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2506.16012
+    code: https://github.com/ds199895/DualTHOR
+  ai2thor_connection: AI2-THOR
+  summary: DualTHOR is a lightweight dual-arm humanoid simulation environment built on AI2-THOR. Its repository adds dual-arm
+    task setup, parallel arm execution, task replay, contingency modeling, inverse-kinematics-based actions, and more detailed
+    object state transitions; the linked arXiv record is currently withdrawn, so this entry is tracked as a verified project.
+  last_verified: '2026-06-23'
 - title: 'IQA: Visual Question Answering in Interactive Environments'
   year: '2018'
   status: verified-paper
@@ -1023,6 +1041,24 @@ entries:
   summary: This work studies ObjectNav with local LLMs and topological-grid memory for semantic zone inference. It belongs
     in the AI2-THOR navigation line because evaluation is performed directly in AI2-THOR ObjectNav environments.
   last_verified: '2026-06-23'
+- title: 'AION: Aerial Indoor Object-Goal Navigation Using Dual-Policy Reinforcement Learning'
+  year: '2026'
+  status: verified-paper
+  venue: IROS
+  category: Navigation
+  tags:
+  - '2026'
+  - IROS
+  - AI2-THOR
+  - aerial ObjectNav
+  links:
+    paper: https://arxiv.org/abs/2601.15614
+    code: https://github.com/Zichen-Yan/AION
+  ai2thor_connection: AI2-THOR
+  summary: AION studies vision-based aerial ObjectNav with a dual-policy reinforcement-learning framework that separates
+    exploration from goal reaching. It evaluates the method on AI2-THOR ObjectNav and also tests real-time drone execution
+    in IsaacSim.
+  last_verified: '2026-06-23'
 - title: Visual Semantic Planning using Deep Successor Representations
   year: '2017'
   status: verified-paper
@@ -1304,6 +1340,39 @@ entries:
   ai2thor_connection: RoboTHOR
   summary: AgentSpec studies how reasoning, memory, reflection, and learning modules compose inside embodied agent scaffolds.
     It is in scope because its controlled evaluations instantiate agents in both ALFRED and RoboTHOR.
+  last_verified: '2026-06-23'
+- title: 'Emergence: Overcoming Privileged Information Bias in Asymmetric Embodied Agents via Active Querying'
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2025'
+  - arXiv
+  - multi-agent
+  - active querying
+  links:
+    paper: https://arxiv.org/abs/2512.15776
+  ai2thor_connection: AI2-THOR
+  summary: Emergence introduces an asymmetric assistive reasoning setup in AI2-THOR where a knowledgeable leader must guide
+    a sensor-limited follower. It studies privileged-information bias and compares push-style instruction with pull-style
+    active querying for collaborative embodied tasks.
+  last_verified: '2026-06-23'
+- title: 'Scale-Plan: Scalable Language-Enabled Task Planning for Heterogeneous Multi-Robot Teams'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2026'
+  - arXiv
+  - multi-robot planning
+  - MAT2-THOR
+  links:
+    paper: https://arxiv.org/abs/2603.08814
+  ai2thor_connection: AI2-THOR
+  summary: Scale-Plan uses LLM-guided graph search to filter task-relevant actions and objects before multi-robot planning.
+    It introduces MAT2-THOR, a cleaned AI2-THOR-based benchmark for evaluating heterogeneous multi-robot planning systems.
   last_verified: '2026-06-23'
 - title: 'ERA: Transforming VLMs into Embodied Agents via Embodied Prior Learning and Online Reinforcement Learning'
   year: '2025'
@@ -1771,22 +1840,6 @@ entries:
   ai2thor_connection: AI2-THOR-family
   summary: This is the released codebase for ERA, including embodied prior learning and online reinforcement learning components
     for VLM-based embodied agents.
-  last_verified: '2026-06-23'
-- title: DualTHOR
-  year: null
-  status: verified-project
-  venue: null
-  category: Tools and Environments
-  tags:
-  - environment
-  - dual-arm humanoid
-  - interaction
-  links:
-    code: https://github.com/ds199895/DualTHOR
-  ai2thor_connection: AI2-THOR
-  summary: DualTHOR extends AI2-THOR into a dual-arm humanoid environment with richer action execution, contingency modeling,
-    task replay, inverse-kinematics-based motion, and more detailed object state transitions. It is especially relevant for
-    studying bimanual planning and failure recovery.
   last_verified: '2026-06-23'
 - title: CSDN AI2-THOR tutorial
   year: null

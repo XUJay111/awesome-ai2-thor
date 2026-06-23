@@ -100,6 +100,14 @@ Links: [Paper](https://arxiv.org/abs/2505.16928)
 
 This work introduces infinity-THOR, a long-horizon embodied task framework for extreme-context reasoning. It generates scalable trajectories and a Needle(s) in the Embodied Haystack task where agents must reason over long action-observation histories.
 
+### DualTHOR
+
+`2025` `environment` `dual-arm humanoid` `AI2-THOR`
+
+Links: [Code](https://github.com/ds199895/DualTHOR) · [arXiv](https://arxiv.org/abs/2506.16012)
+
+DualTHOR is a lightweight dual-arm humanoid simulation environment built on AI2-THOR. Its repository adds dual-arm task setup, parallel arm execution, task replay, contingency modeling, inverse-kinematics-based actions, and more detailed object state transitions; the linked arXiv record is currently withdrawn, so this entry is tracked as a verified project.
+
 ## Benchmarks and Evaluation
 
 *Benchmarks, challenges, and evaluation interfaces with a concrete AI2-THOR-family connection.*
@@ -496,6 +504,14 @@ Links: [Paper](https://arxiv.org/abs/2603.08086)
 
 This work studies ObjectNav with local LLMs and topological-grid memory for semantic zone inference. It belongs in the AI2-THOR navigation line because evaluation is performed directly in AI2-THOR ObjectNav environments.
 
+### AION: Aerial Indoor Object-Goal Navigation Using Dual-Policy Reinforcement Learning
+
+`2026` `IROS` `AI2-THOR` `aerial ObjectNav`
+
+Links: [Paper](https://arxiv.org/abs/2601.15614) · [Code](https://github.com/Zichen-Yan/AION)
+
+AION studies vision-based aerial ObjectNav with a dual-policy reinforcement-learning framework that separates exploration from goal reaching. It evaluates the method on AI2-THOR ObjectNav and also tests real-time drone execution in IsaacSim.
+
 ## Planning, Memory, and Multi-Agent Systems
 
 *Planning, memory, dialogue, assistance, and multi-agent systems grounded in AI2-THOR-derived tasks.*
@@ -627,6 +643,22 @@ This method compares current scene graphs against reference graphs from successf
 Links: [Paper](https://arxiv.org/abs/2606.14674) · [Project](https://agentspec-embodied.github.io/)
 
 AgentSpec studies how reasoning, memory, reflection, and learning modules compose inside embodied agent scaffolds. It is in scope because its controlled evaluations instantiate agents in both ALFRED and RoboTHOR.
+
+### Emergence: Overcoming Privileged Information Bias in Asymmetric Embodied Agents via Active Querying
+
+`2025` `arXiv` `multi-agent` `active querying`
+
+Links: [Paper](https://arxiv.org/abs/2512.15776)
+
+Emergence introduces an asymmetric assistive reasoning setup in AI2-THOR where a knowledgeable leader must guide a sensor-limited follower. It studies privileged-information bias and compares push-style instruction with pull-style active querying for collaborative embodied tasks.
+
+### Scale-Plan: Scalable Language-Enabled Task Planning for Heterogeneous Multi-Robot Teams
+
+`2026` `arXiv` `multi-robot planning` `MAT2-THOR`
+
+Links: [Paper](https://arxiv.org/abs/2603.08814)
+
+Scale-Plan uses LLM-guided graph search to filter task-relevant actions and objects before multi-robot planning. It introduces MAT2-THOR, a cleaned AI2-THOR-based benchmark for evaluating heterogeneous multi-robot planning systems.
 
 ## RL-Trained VLM Agents
 
@@ -867,14 +899,6 @@ ai2thor-task-planner executes tasks in iTHOR using automated planning and neural
 Links: [Code](https://github.com/Embodied-Reasoning-Agent/Embodied-Reasoning-Agent)
 
 This is the released codebase for ERA, including embodied prior learning and online reinforcement learning components for VLM-based embodied agents.
-
-### DualTHOR
-
-`environment` `dual-arm humanoid` `interaction`
-
-Links: [Code](https://github.com/ds199895/DualTHOR)
-
-DualTHOR extends AI2-THOR into a dual-arm humanoid environment with richer action execution, contingency modeling, task replay, inverse-kinematics-based motion, and more detailed object state transitions. It is especially relevant for studying bimanual planning and failure recovery.
 
 ## Tutorials and Notes
 
