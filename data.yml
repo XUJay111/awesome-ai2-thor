@@ -107,6 +107,7 @@ entries:
   links:
     paper: https://arxiv.org/abs/2212.04819
     project: https://allenai.org/project/phone2proc
+    code: https://github.com/allenai/phone2proc
   ai2thor_connection: AI2-THOR-family
   summary: Phone2Proc conditions procedural scene generation on a quick phone scan of a target real-world environment. The
     generated training scenes preserve large-scale layout while randomizing clutter, materials, lighting, and object placement,
@@ -312,6 +313,25 @@ entries:
     It adds a pragmatic dialogue layer to AI2-THOR household tasks, making it easier to analyze instructions, questions, confirmations,
     corrections, and action-relevant utterances.
   last_verified: '2026-06-23'
+- title: 'ACT-Thor: A Controlled Benchmark for Embodied Action Understanding in Simulated Environments'
+  year: '2022'
+  status: verified-paper
+  venue: COLING
+  category: Benchmarks and Evaluation
+  tags:
+  - '2022'
+  - COLING
+  - action understanding
+  - AI2-THOR
+  links:
+    paper: https://aclanthology.org/2022.coling-1.495/
+    code: https://github.com/hannamw/ACT-Thor
+    dataset: https://huggingface.co/datasets/mwhanna/ACT-Thor
+  ai2thor_connection: AI2-THOR
+  summary: ACT-Thor uses AI2-THOR to create controlled before-action and after-action visual reasoning examples for grounded
+    verb and action-effect understanding. It evaluates whether models can infer how embodied actions transform objects and
+    scenes, rather than only recognizing static visual categories.
+  last_verified: '2026-06-25'
 - title: 'Embodied Agent Interface: Benchmarking LLMs for Embodied Decision Making'
   year: '2024'
   status: verified-paper
@@ -329,6 +349,26 @@ entries:
     reporting only final task success, it decomposes embodied decision making into interpretable stages such as goal interpretation,
     subgoal decomposition, action generation, and state transition modeling.
   last_verified: '2026-06-23'
+- title: 'LoTa-Bench: Benchmarking Language-oriented Task Planners for Embodied Agents'
+  year: '2024'
+  status: verified-paper
+  venue: ICLR
+  category: Benchmarks and Evaluation
+  tags:
+  - '2024'
+  - ICLR
+  - LLM planning
+  - ALFRED
+  links:
+    paper: https://openreview.net/forum?id=ADSxCpCu9s
+    arxiv: https://arxiv.org/abs/2402.08178
+    project: https://choi-jaewoo.github.io/LoTa-Bench/
+    code: https://github.com/lbaa2022/LLMTaskPlanning
+  ai2thor_connection: ALFRED
+  summary: LoTa-Bench evaluates language-oriented task planners in two embodied setups, including ALFRED with the AI2-THOR
+    simulator. It provides an automated benchmark for comparing LLM-based planners, prompt strategies, replanning, and fine-tuning
+    in household task execution.
+  last_verified: '2026-06-25'
 - title: 'EmbodiedBench: Comprehensive Benchmarking MLLMs for Vision-Driven Embodied Agents'
   year: '2025'
   status: verified-paper
@@ -382,6 +422,99 @@ entries:
     agents can move beyond recognizing hazards in QA form and actively plan corrective embodied actions in an interactive
     household setting.
   last_verified: '2026-06-23'
+- title: 'SafeAgentBench: A Benchmark for Safe Task Planning of Embodied LLM Agents'
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Benchmarks and Evaluation
+  tags:
+  - '2024'
+  - arXiv
+  - safety
+  - AI2-THOR
+  links:
+    paper: https://arxiv.org/abs/2412.13178
+    project: https://safeagentbench.github.io/
+    code: https://github.com/shengyin1224/SafeAgentBench
+    dataset: https://huggingface.co/datasets/safeagentbench/SafeAgentBench
+  ai2thor_connection: AI2-THOR
+  summary: SafeAgentBench introduces safety-aware task-planning evaluation for embodied LLM agents with hazardous and safe
+    household tasks. Its SafeAgentEnv is based on AI2-THOR and adds high-level actions, multi-agent execution, and both execution-based
+    and semantic evaluation for physical-risk scenarios.
+  last_verified: '2026-06-25'
+- title: 'AGENTSAFE: Benchmarking the Safety of Embodied Agents on Hazardous Instructions'
+  year: '2026'
+  status: verified-paper
+  venue: CVPR
+  category: Benchmarks and Evaluation
+  tags:
+  - '2026'
+  - CVPR
+  - safety
+  - SAFE-THOR
+  links:
+    paper: https://openaccess.thecvf.com/content/CVPR2026/papers/Ying_AGENTSAFE_Benchmarking_the_Safety_of_Embodied_Agents_on_Hazardous_Instructions_CVPR_2026_paper.pdf
+    arxiv: https://arxiv.org/abs/2506.14697
+  ai2thor_connection: AI2-THOR
+  summary: AGENTSAFE evaluates embodied VLM agents under hazardous instructions with SAFE-THOR, a sandbox built on AI2-THOR.
+    It combines adversarial scenarios, risk-aware instruction variants, and fine-grained diagnosis across perception, planning,
+    and execution safety.
+  last_verified: '2026-06-25'
+- title: AsgardBench
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Benchmarks and Evaluation
+  tags:
+  - '2026'
+  - arXiv
+  - visually grounded planning
+  - AI2-THOR
+  links:
+    paper: https://arxiv.org/abs/2603.15888
+    project: https://www.microsoft.com/en-us/research/blog/asgardbench-a-benchmark-for-visually-grounded-interactive-planning/
+    code: https://github.com/microsoft/AsgardBench
+  ai2thor_connection: AI2-THOR
+  summary: AsgardBench evaluates whether multimodal agents can adapt high-level household action plans from egocentric visual
+    observations and minimal success/failure feedback. It is built on AI2-THOR scenes and isolates visually grounded interactive
+    planning from navigation and low-level control noise.
+  last_verified: '2026-06-25'
+- title: 'Where to Look: Can Foundation Models Reach a Target Viewpoint Through Active Exploration?'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Benchmarks and Evaluation
+  tags:
+  - '2026'
+  - arXiv
+  - active perception
+  - TVRBench
+  links:
+    paper: https://arxiv.org/abs/2606.01247
+    code: https://github.com/aim-uofa/TVRBench
+  ai2thor_connection: AI2-THOR
+  summary: This work introduces Target Viewpoint Reproduction and TVRBench, a closed-loop active perception benchmark where
+    agents move until their observation matches a target image. TVRBench uses AI2-THOR for single-room scenes and ProcTHOR-10K
+    for multi-room scenes, exposing spatial memory and perception-to-action bottlenecks in foundation models.
+  last_verified: '2026-06-25'
+- title: Embodied Web Agents
+  year: '2025'
+  status: verified-paper
+  venue: NeurIPS Datasets and Benchmarks
+  category: Benchmarks and Evaluation
+  tags:
+  - '2025'
+  - NeurIPS Datasets and Benchmarks
+  - web agents
+  - AI2-THOR
+  links:
+    paper: https://arxiv.org/abs/2506.15677
+    project: https://embodied-web-agent.github.io/
+  ai2thor_connection: AI2-THOR
+  summary: Embodied Web Agents studies agents that coordinate physical embodied interaction with web-scale information access.
+    Its task environments include AI2-THOR indoor scenes for embodied cooking and navigation-style tasks, coupled with web
+    interfaces for cross-domain reasoning.
+  last_verified: '2026-06-25'
 - title: 'CL-ALFRED: Online Continual Learning for Interactive Instruction Following Agents'
   year: '2024'
   status: verified-paper
@@ -618,6 +751,24 @@ entries:
     task progress and symbolic state to reason about preconditions and subgoals, reducing purely reactive behavior in long-horizon
     household tasks.
   last_verified: '2026-06-23'
+- title: 'VLM-Act: A Benchmark for Vision-Language-Action Models'
+  year: '2024'
+  status: verified-paper
+  venue: ICLR Workshop
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2024'
+  - ICLR Workshop
+  - VLA benchmark
+  - ALFRED
+  links:
+    paper: https://arxiv.org/abs/2404.08700
+    code: https://github.com/OSU-NLP-Group/VLM-Act
+  ai2thor_connection: ALFRED
+  summary: VLM-Act evaluates vision-language-action models on action prediction and long-horizon embodied task execution.
+    It includes ALFRED as one of its central benchmarks, using AI2-THOR-style household instruction following to test whether
+    VLM representations transfer into executable actions.
+  last_verified: '2026-06-25'
 - title: 'LACMA: Language-Aligning Contrastive Learning with Meta-Actions'
   year: '2023'
   status: verified-paper
@@ -673,6 +824,24 @@ entries:
     agents. It provides prompt-generation and end-to-end examples that connect language model plans to executable embodied
     task steps.
   last_verified: '2026-06-23'
+- title: 'Wonderful Team: Zero-Shot Physical Task Planning with Visual LLMs'
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2024'
+  - arXiv
+  - zero-shot planning
+  - AI2-THOR
+  links:
+    paper: https://arxiv.org/abs/2407.19094
+    code: https://github.com/jeongeun980906/Wonderful-Team
+  ai2thor_connection: AI2-THOR
+  summary: Wonderful Team studies zero-shot physical task planning with visual LLMs, using AI2-THOR to evaluate whether agents
+    can infer object states and feasible household action sequences from visual observations. It is useful for comparing direct
+    multimodal planning against more modular embodied pipelines.
+  last_verified: '2026-06-25'
 - title: 'Cook2LTL: Translating Cooking Recipes to LTL Formulae using Large Language Models'
   year: '2024'
   status: verified-paper
@@ -729,6 +898,24 @@ entries:
     often omit. It pairs this instruction completion with object localization so that recovered subgoals can be grounded in
     partially observed environments.
   last_verified: '2026-06-23'
+- title: 'Dual Preference Optimization for Embodied Multimodal Agent'
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2025'
+  - arXiv
+  - preference optimization
+  - ALFRED
+  links:
+    paper: https://arxiv.org/abs/2502.02024
+    code: https://github.com/7pinkdylan/DeMo
+  ai2thor_connection: ALFRED
+  summary: This work applies dual preference optimization to embodied multimodal agents, combining action-level and trajectory-level
+    preferences for instruction following. Its evaluation includes ALFRED, making it relevant to preference-aligned policies
+    for AI2-THOR household task execution.
+  last_verified: '2026-06-25'
 - title: 'Hindsight Planner: A Closed-Loop Few-Shot Planner for Embodied Instruction Following'
   year: '2024'
   status: verified-paper
@@ -1041,6 +1228,25 @@ entries:
   summary: This work studies ObjectNav with local LLMs and topological-grid memory for semantic zone inference. It belongs
     in the AI2-THOR navigation line because evaluation is performed directly in AI2-THOR ObjectNav environments.
   last_verified: '2026-06-23'
+- title: 'Visual Reaction: Learning to Play Catch with Your Drone'
+  year: '2025'
+  status: verified-paper
+  venue: ICRA
+  category: Navigation
+  tags:
+  - '2025'
+  - ICRA
+  - drone navigation
+  - AI2-THOR
+  links:
+    paper: https://arxiv.org/abs/2403.11705
+    project: https://visualreaction.github.io/
+    code: https://github.com/RuohanGao/visualreaction
+  ai2thor_connection: AI2-THOR
+  summary: Visual Reaction uses AI2-THOR-style indoor scenes to train and evaluate reactive aerial navigation for a drone
+    catching task. It broadens the navigation coverage beyond ground robots and ObjectNav toward fast visual control and
+    dynamic target interception.
+  last_verified: '2026-06-25'
 - title: 'AION: Aerial Indoor Object-Goal Navigation Using Dual-Policy Reinforcement Learning'
   year: '2026'
   status: verified-paper
@@ -1077,6 +1283,25 @@ entries:
     to household interaction benchmarks because it goes beyond navigation into planning around object affordances and state-changing
     actions.
   last_verified: '2026-06-23'
+- title: 'PIGLeT: Language Grounding Through Neuro-Symbolic Interaction in a 3D World'
+  year: '2021'
+  status: verified-paper
+  venue: ACL
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2021'
+  - ACL
+  - language grounding
+  - AI2-THOR
+  links:
+    paper: https://arxiv.org/abs/2106.00188
+    project: https://piglet.cs.umass.edu/
+    code: https://github.com/rowanz/piglet
+  ai2thor_connection: AI2-THOR
+  summary: PIGLeT learns grounded language and action consequences by interacting with objects in AI2-THOR. It combines symbolic
+    object-state reasoning with neural language models, making it an early bridge between embodied interaction and language-grounded
+    commonsense prediction.
+  last_verified: '2026-06-25'
 - title: 'MaSS: A Simple Approach for Visual Rearrangement'
   year: '2023'
   status: verified-paper
@@ -1478,6 +1703,25 @@ entries:
     the ecosystem beyond navigation and instruction following by showing how embodied agents can acquire object knowledge
     through active manipulation.
   last_verified: '2026-06-23'
+- title: 'ActioNet: A Multimodal Dataset for Human Activities Using AI2-THOR'
+  year: '2023'
+  status: verified-paper
+  venue: ICIP
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2023'
+  - ICIP
+  - activity recognition
+  - AI2-THOR
+  links:
+    paper: https://ieeexplore.ieee.org/document/10222876
+    arxiv: https://arxiv.org/abs/2306.04692
+    code: https://github.com/Alee08/ActioNet
+  ai2thor_connection: AI2-THOR
+  summary: ActioNet uses AI2-THOR to generate multimodal egocentric observations for human activity recognition, including
+    RGB, depth, segmentation, and metadata-style signals. It is useful for perception-focused work that needs controlled
+    household activities rather than only navigation or task-success labels.
+  last_verified: '2026-06-25'
 - title: Integrating Vision Foundation Models with Reinforcement Learning for Enhanced Object Interaction
   year: '2025'
   status: verified-paper
@@ -1581,6 +1825,38 @@ entries:
   summary: MAP-THOR is the multi-agent household planning test suite introduced with LLaMAR. It extends the AI2-THOR task
     setting toward partial observability, multi-agent coordination, information asymmetry, and long-horizon household collaboration.
   last_verified: '2026-06-23'
+- title: ProcTHOR-10K
+  year: null
+  status: verified-project
+  venue: dataset
+  category: Datasets and Assets
+  tags:
+  - dataset
+  - ProcTHOR
+  - scenes
+  links:
+    dataset: https://huggingface.co/datasets/allenai/procthor-10k
+    code: https://github.com/allenai/procthor
+  ai2thor_connection: ProcTHOR
+  summary: ProcTHOR-10K is an official release of procedurally generated interactive household scenes for ProcTHOR. It is
+    useful as a compact, citable scene corpus for navigation, rearrangement, active perception, and embodied-agent evaluation.
+  last_verified: '2026-06-25'
+- title: AI2-THOR ObjectNav Evaluation Datasets
+  year: null
+  status: verified-project
+  venue: dataset
+  category: Datasets and Assets
+  tags:
+  - dataset
+  - ObjectNav
+  - evaluation
+  links:
+    dataset: https://ai2thor.allenai.org/robothor/objectnav-dataset/
+    code: https://github.com/allenai/robothor-challenge
+  ai2thor_connection: RoboTHOR
+  summary: The official ObjectNav evaluation datasets support RoboTHOR and AI2-THOR-family ObjectNav challenge workflows.
+    They provide the task instances and split definitions needed to compare navigation agents under standard evaluation conditions.
+  last_verified: '2026-06-25'
 - title: infinity-THOR
   year: null
   status: needs-verification
@@ -1659,6 +1935,38 @@ entries:
   summary: ProcTHOR RL contains training and evaluation scripts for ObjectNav agents in ProcTHOR. It is useful both as official
     infrastructure for ProcTHOR experiments and as a concrete reference for large-scale AI2-THOR-family reinforcement learning.
   last_verified: '2026-06-23'
+- title: AI2-THOR Examples
+  year: null
+  status: verified-project
+  venue: documentation
+  category: Tools and Environments
+  tags:
+  - examples
+  - documentation
+  - controller API
+  links:
+    project: https://ai2thor.allenai.org/examples/
+    code: https://github.com/allenai/ai2thor
+  ai2thor_connection: AI2-THOR
+  summary: The official AI2-THOR examples page gives runnable snippets for controller setup, navigation, object metadata,
+    image observations, and interaction actions. It is one of the best practical entry points for new users learning the simulator
+    API.
+  last_verified: '2026-06-25'
+- title: AI2-THOR Publications Index
+  year: null
+  status: verified-project
+  venue: documentation
+  category: Tools and Environments
+  tags:
+  - bibliography
+  - official index
+  - publications
+  links:
+    project: https://ai2thor.allenai.org/publications/
+  ai2thor_connection: AI2-THOR
+  summary: The official AI2-THOR publications page tracks papers across the simulator ecosystem. It is a useful companion
+    resource for this curated list because it helps verify whether a candidate work has an explicit AI2-THOR-family connection.
+  last_verified: '2026-06-25'
 - title: AI2-THOR Colab
   year: null
   status: verified-project
@@ -1853,6 +2161,55 @@ entries:
   summary: A community tutorial for getting familiar with AI2-THOR usage. Keep this as a learning resource rather than a paper
     citation.
   last_verified: '2026-06-23'
+- title: AI2-THOR Documentation
+  year: null
+  status: tutorial
+  venue: official docs
+  category: Tutorials and Notes
+  tags:
+  - official docs
+  - API
+  - getting started
+  links:
+    tutorial: https://ai2thor.allenai.org/ithor/documentation/
+    code: https://github.com/allenai/ai2thor
+  ai2thor_connection: AI2-THOR
+  summary: The official AI2-THOR documentation covers installation, controller usage, actions, event metadata, scenes, and
+    object interaction APIs. It is the most reliable starting point for reproducing papers or building new simulator experiments.
+  last_verified: '2026-06-25'
+- title: AllenAct ObjectNav Tutorial
+  year: null
+  status: tutorial
+  venue: official docs
+  category: Tutorials and Notes
+  tags:
+  - tutorial
+  - AllenAct
+  - ObjectNav
+  links:
+    tutorial: https://allenact.org/tutorials/robothor-tutorial/
+    code: https://github.com/allenai/allenact
+  ai2thor_connection: RoboTHOR
+  summary: This AllenAct tutorial walks through RoboTHOR ObjectNav training and evaluation with the AllenAct framework. It
+    is useful for readers who want to move from the curated paper list to a concrete reproducible navigation baseline.
+  last_verified: '2026-06-25'
+- title: ALFRED Documentation and Leaderboards
+  year: null
+  status: tutorial
+  venue: official docs
+  category: Tutorials and Notes
+  tags:
+  - ALFRED
+  - documentation
+  - leaderboard
+  links:
+    tutorial: https://askforalfred.com/
+    code: https://github.com/askforalfred/alfred
+  ai2thor_connection: ALFRED
+  summary: The official ALFRED site links the benchmark paper, dataset, leaderboard, challenge information, and implementation
+    resources. It is a practical reference for understanding the AI2-THOR-based instruction-following benchmark and its evaluation
+    protocol.
+  last_verified: '2026-06-25'
 - title: Cook2LTL CSDN note
   year: null
   status: tutorial
