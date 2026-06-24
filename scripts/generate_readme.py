@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import re
+from collections import Counter
 from pathlib import Path
 
 import yaml
@@ -60,6 +61,40 @@ LINK_LABELS = {
     "sgclip_code": "SGCLIP Code",
 }
 
+ECOSYSTEM_PATTERNS = {
+    "AI2-THOR / iTHOR": ["ai2-thor", "ithor"],
+    "RoboTHOR": ["robothor"],
+    "ProcTHOR": ["procthor"],
+    "ManipulaTHOR": ["manipulathor"],
+    "ArchitecTHOR": ["architecthor"],
+    "ALFRED": ["alfred"],
+    "TEACh": ["teach"],
+    "EmbodiedBench": ["embodiedbench", "eb-alfred", "eb-navigation", "eb-manipulation"],
+    "MAP-THOR / MAT-THOR": ["map-thor", "mat-thor", "mat2-thor"],
+    "Other THOR variants": ["dualthor", "infinity-thor"],
+}
+
+TASK_PATTERNS = {
+    "Instruction following": ["instruction", "alfred", "household task"],
+    "Navigation / ObjectNav": ["navigation", "objectnav", "object-goal"],
+    "Planning and memory": ["planning", "planner", "memory", "replanning"],
+    "Multi-agent collaboration": ["multi-agent", "multi agent", "collaborative", "collaboration"],
+    "Manipulation": ["manipulation", "mobile manipulation", "arm"],
+    "Rearrangement / tidying": ["rearrangement", "tidying", "tidy"],
+    "Dialogue and assistance": ["dialogue", "chat", "assistive", "assistance"],
+    "Safety and physical reasoning": ["safety", "hazard", "physics", "physical"],
+    "Scene generation and assets": ["generation", "procedural", "asset", "objaverse"],
+}
+
+RESOURCE_TYPES = {
+    "papers": ["paper", "arxiv", "acl_anthology"],
+    "project pages": ["project"],
+    "code repositories": ["code", "official_code", "sgclip_code"],
+    "datasets": ["dataset", "dataset_tools"],
+    "challenges/workshops": ["challenge", "workshop"],
+    "tutorials/notes": ["tutorial", "note"],
+}
+
 
 def slugify(heading: str) -> str:
     slug = heading.lower()
@@ -89,6 +124,72 @@ def render_links(links: dict) -> str:
             label = key.replace("_", " ").title()
             parts.append(f"[{label}]({value})")
     return " · ".join(parts)
+
+
+def entry_search_text(entry: dict) -> str:
+    fields = [
+        entry.get("title", ""),
+        entry.get("category", ""),
+        entry.get("ai2thor_connection", ""),
+        entry.get("summary", ""),
+        " ".join(entry.get("tags") or []),
+    ]
+    return " ".join(fields).lower()
+
+
+def count_patterns(entries: list[dict], patterns: dict[str, list[str]]) -> Counter:
+    counts: Counter = Counter()
+    for entry in entries:
+        text = entry_search_text(entry)
+        for label, terms in patterns.items():
+            if any(term in text for term in terms):
+                counts[label] += 1
+    return counts
+
+
+def render_count_list(counts: Counter, order: list[str] | None = None) -> str:
+    labels = order or [label for label, _ in counts.most_common()]
+    return ", ".join(f"{label} ({counts[label]})" for label in labels if counts.get(label))
+
+
+def render_project_index(entries: list[dict], categories: list[str]) -> list[str]:
+    category_counts = Counter(entry["category"] for entry in entries)
+    status_counts = Counter(entry["status"] for entry in entries)
+    year_counts = Counter(str(entry.get("year") or "unknown") for entry in entries)
+    ecosystem_counts = count_patterns(entries, ECOSYSTEM_PATTERNS)
+    task_counts = count_patterns(entries, TASK_PATTERNS)
+    resource_counts = Counter()
+    for entry in entries:
+        links = entry.get("links") or {}
+        for label, keys in RESOURCE_TYPES.items():
+            if any(key in links for key in keys):
+                resource_counts[label] += 1
+
+    known_years = sorted(year for year in year_counts if year.isdigit())
+    unknown_years = year_counts.get("unknown", 0)
+    year_text = ", ".join(f"{year} ({year_counts[year]})" for year in known_years)
+    if unknown_years:
+        year_text = f"{year_text}, unknown ({unknown_years})" if year_text else f"unknown ({unknown_years})"
+
+    lines = [
+        "## Project Index",
+        "",
+        f"- Coverage: {len(entries)} active entries across {len(categories)} sections.",
+        f"- Status mix: {render_count_list(status_counts)}.",
+        f"- Timeline: {year_text}.",
+        f"- Ecosystems: {render_count_list(ecosystem_counts, list(ECOSYSTEM_PATTERNS))}.",
+        f"- Task themes: {render_count_list(task_counts, list(TASK_PATTERNS))}.",
+        f"- Resources: {render_count_list(resource_counts, list(RESOURCE_TYPES))}.",
+        "",
+        "Section counts:",
+        "",
+    ]
+    lines.extend(
+        f"- [{category}](#{slugify(category)}): {category_counts[category]}"
+        for category in categories
+    )
+    lines.append("")
+    return lines
 
 
 def render_entry(entry: dict) -> list[str]:
@@ -123,6 +224,7 @@ def render_readme(data: dict) -> str:
         "",
         "[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)",
         "[![License: CC0-1.0](https://img.shields.io/badge/license-CC0--1.0-lightgrey.svg)](LICENSE)",
+        "[![Markdown](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/markdown.yml/badge.svg)](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/markdown.yml)",
         "[![Link Check](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/link-check.yml/badge.svg)](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/link-check.yml)",
         "[![Data Validation](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/validate-data.yml/badge.svg)](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/validate-data.yml)",
         "",
@@ -132,10 +234,10 @@ def render_readme(data: dict) -> str:
         "",
         "This is an AI2-THOR-family index, not a general embodied AI awesome list. Each entry should make its AI2-THOR-family connection clear through primary paper, project, or code links whenever possible.",
         "",
-        "## Contents",
-        "",
     ]
 
+    lines.extend(render_project_index(entries, categories))
+    lines.extend(["## Contents", ""])
     lines.extend(f"- [{category}](#{slugify(category)})" for category in categories)
     lines.append("")
 

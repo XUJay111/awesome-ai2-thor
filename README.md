@@ -2,6 +2,7 @@
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![License: CC0-1.0](https://img.shields.io/badge/license-CC0--1.0-lightgrey.svg)](LICENSE)
+[![Markdown](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/markdown.yml/badge.svg)](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/markdown.yml)
 [![Link Check](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/link-check.yml/badge.svg)](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/link-check.yml)
 [![Data Validation](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/validate-data.yml/badge.svg)](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/validate-data.yml)
 
@@ -10,6 +11,28 @@ Maintained as a curated research index. Last verified: 2026-06.
 A curated map of papers, benchmarks, datasets, environments, and tools built on top of [AI2-THOR](https://ai2thor.allenai.org/) and its ecosystem, including iTHOR, RoboTHOR, ProcTHOR, ManipulaTHOR, ArchitecTHOR, ALFRED, TEACh, and EmbodiedBench.
 
 This is an AI2-THOR-family index, not a general embodied AI awesome list. Each entry should make its AI2-THOR-family connection clear through primary paper, project, or code links whenever possible.
+
+## Project Index
+
+- Coverage: 107 active entries across 10 sections.
+- Status mix: verified-paper (86), verified-project (19), tutorial (2).
+- Timeline: 2017 (3), 2018 (2), 2019 (3), 2020 (5), 2021 (13), 2022 (13), 2023 (10), 2024 (15), 2025 (13), 2026 (10), unknown (20).
+- Ecosystems: AI2-THOR / iTHOR (66), RoboTHOR (5), ProcTHOR (8), ManipulaTHOR (3), ArchitecTHOR (1), ALFRED (35), TEACh (7), EmbodiedBench (4), MAP-THOR / MAT-THOR (3), Other THOR variants (2).
+- Task themes: Instruction following (48), Navigation / ObjectNav (35), Planning and memory (41), Multi-agent collaboration (21), Manipulation (13), Rearrangement / tidying (6), Dialogue and assistance (8), Safety and physical reasoning (10), Scene generation and assets (21).
+- Resources: papers (86), project pages (36), code repositories (67), datasets (2), challenges/workshops (2), tutorials/notes (2).
+
+Section counts:
+
+- [Platforms and Environment Generation](#platforms-and-environment-generation): 10
+- [Benchmarks and Evaluation](#benchmarks-and-evaluation): 13
+- [Instruction Following and Household Tasks](#instruction-following-and-household-tasks): 21
+- [Navigation](#navigation): 15
+- [Planning, Memory, and Multi-Agent Systems](#planning-memory-and-multi-agent-systems): 18
+- [RL-Trained VLM Agents](#rl-trained-vlm-agents): 5
+- [Perception, Physics, and Scene Graphs](#perception-physics-and-scene-graphs): 4
+- [Datasets and Assets](#datasets-and-assets): 3
+- [Tools and Environments](#tools-and-environments): 16
+- [Tutorials and Notes](#tutorials-and-notes): 2
 
 ## Contents
 
