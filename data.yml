@@ -898,7 +898,7 @@ entries:
     often omit. It pairs this instruction completion with object localization so that recovered subgoals can be grounded in
     partially observed environments.
   last_verified: '2026-06-23'
-- title: 'Dual Preference Optimization for Embodied Multimodal Agent'
+- title: Dual Preference Optimization for Embodied Multimodal Agent
   year: '2025'
   status: verified-paper
   venue: arXiv
@@ -1244,8 +1244,8 @@ entries:
     code: https://github.com/RuohanGao/visualreaction
   ai2thor_connection: AI2-THOR
   summary: Visual Reaction uses AI2-THOR-style indoor scenes to train and evaluate reactive aerial navigation for a drone
-    catching task. It broadens the navigation coverage beyond ground robots and ObjectNav toward fast visual control and
-    dynamic target interception.
+    catching task. It broadens the navigation coverage beyond ground robots and ObjectNav toward fast visual control and dynamic
+    target interception.
   last_verified: '2026-06-25'
 - title: 'AION: Aerial Indoor Object-Goal Navigation Using Dual-Policy Reinforcement Learning'
   year: '2026'
@@ -1261,9 +1261,8 @@ entries:
     paper: https://arxiv.org/abs/2601.15614
     code: https://github.com/Zichen-Yan/AION
   ai2thor_connection: AI2-THOR
-  summary: AION studies vision-based aerial ObjectNav with a dual-policy reinforcement-learning framework that separates
-    exploration from goal reaching. It evaluates the method on AI2-THOR ObjectNav and also tests real-time drone execution
-    in IsaacSim.
+  summary: AION studies vision-based aerial ObjectNav with a dual-policy reinforcement-learning framework that separates exploration
+    from goal reaching. It evaluates the method on AI2-THOR ObjectNav and also tests real-time drone execution in IsaacSim.
   last_verified: '2026-06-23'
 - title: Visual Semantic Planning using Deep Successor Representations
   year: '2017'
@@ -1719,8 +1718,8 @@ entries:
     code: https://github.com/Alee08/ActioNet
   ai2thor_connection: AI2-THOR
   summary: ActioNet uses AI2-THOR to generate multimodal egocentric observations for human activity recognition, including
-    RGB, depth, segmentation, and metadata-style signals. It is useful for perception-focused work that needs controlled
-    household activities rather than only navigation or task-success labels.
+    RGB, depth, segmentation, and metadata-style signals. It is useful for perception-focused work that needs controlled household
+    activities rather than only navigation or task-success labels.
   last_verified: '2026-06-25'
 - title: Integrating Vision Foundation Models with Reinforcement Learning for Enhanced Object Interaction
   year: '2025'
@@ -1869,8 +1868,8 @@ entries:
   links:
     paper: https://arxiv.org/abs/2505.16928
   ai2thor_connection: infinity-THOR
-  summary: infinity-THOR is the long-horizon task generation framework introduced in Beyond Needle(s) in the Embodied Haystack.
-    It is designed for testing long-context embodied reasoning over extended trajectories and multi-step QA-style tasks.
+  summary: Verify whether infinity-THOR should remain separate from the already listed Beyond Needle(s) paper entry. The
+    framework appears to provide long-horizon task generation for testing long-context embodied reasoning over extended trajectories.
   last_verified: '2026-06-23'
 - title: AllenAct
   year: '2020'
@@ -2149,12 +2148,3096 @@ entries:
   summary: This is the released codebase for ERA, including embodied prior learning and online reinforcement learning components
     for VLM-based embodied agents.
   last_verified: '2026-06-23'
+- title: 'ReCAPA: Hierarchical Predictive Correction to Mitigate Cascading Failures'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2026'
+  - arXiv
+  - planning
+  - benchmark
+  links:
+    arxiv: https://arxiv.org/abs/2604.21232
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv
+    entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Pre-Execution Safety Gate & Task Safety Contracts for LLM-Controlled Robot Systems
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Benchmarks and Evaluation
+  tags:
+  - '2026'
+  - arXiv
+  - safety
+  - benchmark
+  links:
+    arxiv: https://arxiv.org/abs/2604.05427
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for embodied safety evaluation and planning. It is included as a primary arXiv
+    entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'FunFact: Building Probabilistic Functional 3D Scene Graphs via Factor-Graph Reasoning'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2026'
+  - arXiv
+  - scene graph
+  - benchmark
+  links:
+    arxiv: https://arxiv.org/abs/2604.03696
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for scene-graph and spatial reasoning. It is included as a primary arXiv entry
+    because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'RenderMem: Rendering as Spatial Memory Retrieval'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: RL-Trained VLM Agents
+  tags:
+  - '2026'
+  - arXiv
+  - memory
+  - VLM
+  links:
+    arxiv: https://arxiv.org/abs/2603.14669
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for embodied memory and spatial reasoning. It is included as a primary arXiv entry because
+    the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'See, Symbolize, Act: Grounding VLMs with Spatial Representations for Better Gameplay'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2026'
+  - arXiv
+  - VLM
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2603.11601
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for embodied perception. It is included as a primary arXiv entry because the abstract explicitly
+    connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'SVLL: Staged Vision-Language Learning for Physically Grounded Embodied Task Planning'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2026'
+  - arXiv
+  - planning
+  - benchmark
+  links:
+    arxiv: https://arxiv.org/abs/2603.11563
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for embodied task planning. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'Toward Agentic AI: Task-Oriented Communication for Hierarchical Planning of Long-Horizon Tasks'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: RL-Trained VLM Agents
+  tags:
+  - '2026'
+  - arXiv
+  - planning
+  - benchmark
+  links:
+    arxiv: https://arxiv.org/abs/2601.13685
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv
+    entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Towards Zero-Knowledge Task Planning via a Language-based Approach
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2026'
+  - arXiv
+  - planning
+  - LLM
+  links:
+    arxiv: https://arxiv.org/abs/2601.03398
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for embodied task planning. It is included as a primary arXiv entry because the abstract
+    explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Detecting Non-Optimal Decisions of Embodied Agents via Diversity-Guided Metamorphic Testing
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Benchmarks and Evaluation
+  tags:
+  - '2025'
+  - arXiv
+  - planning
+  - benchmark
+  links:
+    arxiv: https://arxiv.org/abs/2512.20083
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for embodied task planning. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'MADRA: Multi-Agent Debate for Risk-Aware Embodied Planning'
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2025'
+  - arXiv
+  - planning
+  - memory
+  links:
+    arxiv: https://arxiv.org/abs/2511.21460
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for embodied task planning. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'SENTINEL: A Multi-Level Formal Framework for Safety Evaluation of Foundation Model-based Embodied Agents'
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Benchmarks and Evaluation
+  tags:
+  - '2025'
+  - arXiv
+  - planning
+  - safety
+  links:
+    arxiv: https://arxiv.org/abs/2510.12985
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for embodied safety evaluation and planning. It is included as a primary arXiv
+    entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'GRIP: A Unified Framework for Grid-Based Relay and Co-Occurrence-Aware Planning in Dynamic Environments'
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2025'
+  - arXiv
+  - navigation
+  - planning
+  links:
+    arxiv: https://arxiv.org/abs/2510.10865
+  ai2thor_connection: AI2-THOR / RoboTHOR
+  summary: This work evaluates in AI2-THOR / RoboTHOR for embodied memory and spatial reasoning. It is included as a primary
+    arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Flexible Agent Alignment with Goal Inference from Open-Ended Dialog
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2025'
+  - arXiv
+  - LLM
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2508.15119
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because
+    the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: A Unified Framework for Real-Time Failure Handling in Robotics Using Vision-Language Models, Reactive Planner and
+    Behavior Trees
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2025'
+  - arXiv
+  - planning
+  - scene graph
+  links:
+    arxiv: https://arxiv.org/abs/2503.15202
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for scene-graph and spatial reasoning. It is included as a primary arXiv entry
+    because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Enhancing Multi-Agent Systems via Reinforcement Learning with LLM-based Planner and Graph-based Policy
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Platforms and Environment Generation
+  tags:
+  - '2025'
+  - arXiv
+  - planning
+  - multi-agent
+  links:
+    arxiv: https://arxiv.org/abs/2503.10049
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for embodied safety evaluation and planning. It is included as a primary arXiv entry because
+    the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'Graphormer-Guided Task Planning: Beyond Static Rules with LLM Safety Perception'
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2025'
+  - arXiv
+  - planning
+  - safety
+  links:
+    arxiv: https://arxiv.org/abs/2503.06866
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for embodied task planning. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Collision-Aware Object-Goal Visual Navigation via Two-Stage Deep Reinforcement Learning
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2025'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2502.13498
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'Planning with affordances: Integrating learned affordance models and symbolic planning'
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2025'
+  - arXiv
+  - planning
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2502.02768
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because
+    the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'The One RING: a Robotic Indoor Navigation Generalist'
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2024'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2412.14401
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'SplatR : Experience Goal Visual Rearrangement with 3D Gaussian Splatting and Dense Feature Matching'
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: RL-Trained VLM Agents
+  tags:
+  - '2024'
+  - arXiv
+  - memory
+  - rearrangement
+  links:
+    arxiv: https://arxiv.org/abs/2411.14322
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for visual rearrangement. It is included as a primary arXiv entry because the abstract
+    explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'SELU: Self-Learning Embodied MLLMs in Unknown Environments'
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: RL-Trained VLM Agents
+  tags:
+  - '2024'
+  - arXiv
+  - VLM
+  - LLM
+  links:
+    arxiv: https://arxiv.org/abs/2410.03303
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because
+    the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'MM-Conv: A Multi-modal Conversational Dataset for Virtual Humans'
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Datasets and Assets
+  tags:
+  - '2024'
+  - arXiv
+  - scene graph
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2410.00253
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for scene-graph and spatial reasoning. It is included as a primary arXiv entry because
+    the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'LaMMA-P: Generalizable Multi-Agent Long-Horizon Task Allocation and Planning with LM-Driven PDDL Planner'
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2024'
+  - arXiv
+  - planning
+  - multi-agent
+  links:
+    arxiv: https://arxiv.org/abs/2409.20560
+    code: https://github.com/tasl-lab/LaMMA-P
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for embodied task planning. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Discovering Object Attributes by Prompting Large Language Models with Perception-Action APIs
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2024'
+  - arXiv
+  - VLM
+  - LLM
+  links:
+    arxiv: https://arxiv.org/abs/2409.15505
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for embodied perception. It is included as a primary arXiv entry because the abstract explicitly
+    connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Automating Transfer of Robot Task Plans using Functorial Data Migrations
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: RL-Trained VLM Agents
+  tags:
+  - '2024'
+  - arXiv
+  - planning
+  - benchmark
+  links:
+    arxiv: https://arxiv.org/abs/2406.15961
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv
+    entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Efficient Strategy Learning by Decoupling Searching and Pathfinding for Object Navigation
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2024'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2406.14103
+  ai2thor_connection: AI2-THOR / RoboTHOR
+  summary: This work evaluates in AI2-THOR / RoboTHOR for object-goal navigation. It is included as a primary arXiv entry
+    because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'TDANet: Target-Directed Attention Network For Object-Goal Visual Navigation With Zero-Shot Ability'
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2024'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2404.08353
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Advancing Object Goal Navigation Through LLM-enhanced Object Affinities Transfer
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2024'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2403.09971
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Aligning Knowledge Graph with Visual Perception for Object-goal Navigation
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2024'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2402.18892
+    code: https://github.com/nuoxu/AKGVP
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Building Category Graphs Representation with Spatial and Temporal Attention for Visual Navigation
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2023'
+  - arXiv
+  - navigation
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2312.03327
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv
+    entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'SegmATRon: Embodied Adaptive Semantic Segmentation for Indoor Environment'
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2023'
+  - arXiv
+  - segmentation
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2310.12031
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for embodied perception. It is included as a primary arXiv entry because the abstract explicitly
+    connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Zero-Shot Object Goal Visual Navigation With Class-Independent Relationship Network
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2023'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2310.09883
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Learning Concept-Based Causal Transition and Symbolic Reasoning for Visual Planning
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2023'
+  - arXiv
+  - planning
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2310.03325
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for embodied task planning. It is included as a primary arXiv entry because the abstract
+    explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Implicit Obstacle Map-driven Indoor Navigation Model for Robust Obstacle Avoidance
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2023'
+  - arXiv
+  - navigation
+  - memory
+  links:
+    arxiv: https://arxiv.org/abs/2308.12845
+  ai2thor_connection: AI2-THOR / RoboTHOR
+  summary: This work evaluates in AI2-THOR / RoboTHOR for embodied memory and spatial reasoning. It is included as a primary
+    arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'Moving Forward by Moving Backward: Embedding Action Impact over Action Semantics'
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2023'
+  - arXiv
+  - navigation
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2304.12289
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because
+    the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Implicit and Explicit Commonsense for Multi-sentence Video Captioning
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2023'
+  - arXiv
+  - ALFRED
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2303.07545
+  ai2thor_connection: AI2-THOR / ALFRED
+  summary: This work uses AI2-THOR / ALFRED for embodied instruction following. It is included as a primary arXiv entry because
+    the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Zero-Shot Object Searching Using Large-scale Object Relationship Prior
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2023'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2303.06228
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the abstract
+    explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Multiple Thinking Achieving Meta-Ability Decoupling for Object Navigation
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2023'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2302.01520
+  ai2thor_connection: AI2-THOR / RoboTHOR
+  summary: This work evaluates in AI2-THOR / RoboTHOR for object-goal navigation. It is included as a primary arXiv entry
+    because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Generalized Object Search
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2023'
+  - arXiv
+  - planning
+  - benchmark
+  links:
+    arxiv: https://arxiv.org/abs/2301.10121
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv
+    entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Embodied Referring Expression for Manipulation Question Answering in Interactive Environment
+  year: '2022'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2022'
+  - arXiv
+  - benchmark
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2210.02709
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv
+    entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Role of reward shaping in object-goal navigation
+  year: '2022'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2022'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2207.08021
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the abstract
+    explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Zero-shot object goal visual navigation
+  year: '2022'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2022'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2206.07423
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Unbiased Directed Object Attention Graph for Object Navigation
+  year: '2022'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2022'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2204.04421
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the abstract
+    explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'ASC me to Do Anything: Multi-task Training for Embodied AI'
+  year: '2022'
+  status: verified-paper
+  venue: arXiv
+  category: RL-Trained VLM Agents
+  tags:
+  - '2022'
+  - arXiv
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2202.06987
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv
+    entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Agent-Centric Relation Graph for Object Visual Navigation
+  year: '2021'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2021'
+  - arXiv
+  - navigation
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2111.14422
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because
+    the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Towards Optimal Correlational Object Search
+  year: '2021'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2021'
+  - arXiv
+  - planning
+  - benchmark
+  links:
+    arxiv: https://arxiv.org/abs/2110.09991
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv
+    entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Hierarchical Object-to-Zone Graph for Object Navigation
+  year: '2021'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2021'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2109.02066
+    code: https://github.com/sx-zhang/HOZ
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'VTNet: Visual Transformer Network for Object Goal Navigation'
+  year: '2021'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2021'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2105.09447
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the abstract
+    explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'GridToPix: Training Embodied Agents with Minimal Supervision'
+  year: '2021'
+  status: verified-paper
+  venue: arXiv
+  category: RL-Trained VLM Agents
+  tags:
+  - '2021'
+  - arXiv
+  - navigation
+  - RL
+  links:
+    arxiv: https://arxiv.org/abs/2105.00931
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv
+    entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Dynamic Value Estimation for Single-Task Multi-Scene Reinforcement Learning
+  year: '2020'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2020'
+  - arXiv
+  - navigation
+  - RL
+  links:
+    arxiv: https://arxiv.org/abs/2005.12254
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv
+    entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Improving Target-driven Visual Navigation with Attention on 3D Spatial Relationships
+  year: '2020'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2020'
+  - arXiv
+  - navigation
+  - RL
+  links:
+    arxiv: https://arxiv.org/abs/2005.02153
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because
+    the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Reinforcement Learning-based Visual Navigation with Information-Theoretic Regularization
+  year: '2019'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2019'
+  - arXiv
+  - navigation
+  - benchmark
+  links:
+    arxiv: https://arxiv.org/abs/1912.04078
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv
+    entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Vision-based Navigation Using Deep Reinforcement Learning
+  year: '2019'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2019'
+  - arXiv
+  - navigation
+  - segmentation
+  links:
+    arxiv: https://arxiv.org/abs/1908.03627
+  ai2thor_connection: AI2-THOR
+  summary: This work evaluates in AI2-THOR for embodied perception. It is included as a primary arXiv entry because the abstract
+    explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'Active Object Perceiver: Recognition-guided Policy Learning for Object Searching on Mobile Robots'
+  year: '2018'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2018'
+  - arXiv
+  - navigation
+  - RL
+  links:
+    arxiv: https://arxiv.org/abs/1807.11174
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because
+    the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'Neural Task Graphs: Generalizing to Unseen Tasks from a Single Video Demonstration'
+  year: '2018'
+  status: verified-paper
+  venue: arXiv
+  category: RL-Trained VLM Agents
+  tags:
+  - '2018'
+  - arXiv
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/1807.03480
+  ai2thor_connection: AI2-THOR
+  summary: This work uses AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because
+    the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'SAGE-Nav: Leveraging LLM Planning and Alignment Fusion for Hierarchical Scene Graph-Guided Navigation'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2026'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2606.25497
+  ai2thor_connection: RoboTHOR
+  summary: This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'eMEM: A Hybrid Spatio-Temporal Memory System For Embodied Agents'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2026'
+  - arXiv
+  - memory
+  - benchmark
+  links:
+    arxiv: https://arxiv.org/abs/2606.03374
+  ai2thor_connection: ProcTHOR
+  summary: This work evaluates in ProcTHOR for embodied memory and spatial reasoning. It is included as a primary arXiv entry
+    because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Do LLMs Build World Models From Text? A Multilingual Diagnostic of Spatial Reasoning
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Benchmarks and Evaluation
+  tags:
+  - '2026'
+  - arXiv
+  - memory
+  - benchmark
+  links:
+    arxiv: https://arxiv.org/abs/2605.28277
+  ai2thor_connection: ProcTHOR
+  summary: This work evaluates in ProcTHOR for embodied memory and spatial reasoning. It is included as a primary arXiv entry
+    because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'SPREAD: Spatial-Physical REasoning via geometry Aware Diffusion'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Platforms and Environment Generation
+  tags:
+  - '2026'
+  - arXiv
+  - ProcTHOR
+  links:
+    arxiv: https://arxiv.org/abs/2603.27573
+  ai2thor_connection: ProcTHOR
+  summary: This work uses ProcTHOR for scene generation and environment design. It is included as a primary arXiv entry because
+    the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'StateLinFormer: Stateful Training Enhancing Long-term Memory in Navigation'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2026'
+  - arXiv
+  - navigation
+  - memory
+  links:
+    arxiv: https://arxiv.org/abs/2603.23571
+  ai2thor_connection: ProcTHOR
+  summary: This work uses ProcTHOR for embodied memory and spatial reasoning. It is included as a primary arXiv entry because
+    the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Multi-Robot Learning-Informed Task Planning Under Uncertainty
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2026'
+  - arXiv
+  - planning
+  - ProcTHOR
+  links:
+    arxiv: https://arxiv.org/abs/2603.20544
+  ai2thor_connection: ProcTHOR
+  summary: This work uses ProcTHOR for embodied task planning. It is included as a primary arXiv entry because the abstract
+    explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'CoReLIN: Constraint-based Reasoning for Zero-shot Lifelong Interactive Navigation'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2026'
+  - arXiv
+  - navigation
+  - planning
+  links:
+    arxiv: https://arxiv.org/abs/2602.20055
+  ai2thor_connection: ProcTHOR
+  summary: This work uses ProcTHOR for scene-graph and spatial reasoning. It is included as a primary arXiv entry because
+    the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Effective Task Planning with Missing Objects using Learning-Informed Object Search
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2026'
+  - arXiv
+  - planning
+  - ProcTHOR
+  links:
+    arxiv: https://arxiv.org/abs/2602.11468
+  ai2thor_connection: ProcTHOR
+  summary: This work uses ProcTHOR for embodied task planning. It is included as a primary arXiv entry because the abstract
+    explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'VISTAv2: World Imagination for Indoor Vision-and-Language Navigation'
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2025'
+  - arXiv
+  - navigation
+  - planning
+  links:
+    arxiv: https://arxiv.org/abs/2512.00041
+  ai2thor_connection: RoboTHOR
+  summary: This work uses RoboTHOR for vision-and-language navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Investigating Domain Gaps for Indoor 3D Object Detection
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2025'
+  - arXiv
+  - benchmark
+  - ProcTHOR
+  links:
+    arxiv: https://arxiv.org/abs/2508.17439
+  ai2thor_connection: ProcTHOR
+  summary: This work evaluates in ProcTHOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv
+    entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'STRIVE: Structured Representation Integrating VLM Reasoning for Efficient Object Navigation'
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2025'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2505.06729
+  ai2thor_connection: RoboTHOR
+  summary: This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'VISTA: Generative Visual Imagination for Vision-and-Language Navigation'
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2025'
+  - arXiv
+  - navigation
+  - benchmark
+  links:
+    arxiv: https://arxiv.org/abs/2505.07868
+  ai2thor_connection: RoboTHOR
+  summary: This work evaluates in RoboTHOR for vision-and-language navigation. It is included as a primary arXiv entry because
+    the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'CogNav: Cognitive Process Modeling for Object Goal Navigation with LLMs'
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2024'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2412.10439
+  ai2thor_connection: RoboTHOR
+  summary: This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Exploring the Reliability of Foundation Model-Based Frontier Selection in Zero-Shot Object Goal Navigation
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2024'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2410.21037
+  ai2thor_connection: RoboTHOR
+  summary: This work uses RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract
+    explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Zero-shot Object Navigation with Vision-Language Models Reasoning
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2024'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2410.18570
+  ai2thor_connection: RoboTHOR
+  summary: This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'SG-Nav: Online 3D Scene Graph Prompting for LLM-based Zero-shot Object Navigation'
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2024'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2410.08189
+  ai2thor_connection: RoboTHOR
+  summary: This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'DStruct2Design: Data and Benchmarks for Data Structure Driven Generative Floor Plan Design'
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Datasets and Assets
+  tags:
+  - '2024'
+  - arXiv
+  - benchmark
+  - LLM
+  links:
+    arxiv: https://arxiv.org/abs/2407.15723
+  ai2thor_connection: ProcTHOR
+  summary: This work evaluates in ProcTHOR for scene generation and environment design. It is included as a primary arXiv
+    entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Leveraging Unknown Objects to Construct Labeled-Unlabeled Meta-Relationships for Zero-Shot Object Navigation
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2024'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2405.15222
+  ai2thor_connection: RoboTHOR
+  summary: This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'Promptable Behaviors: Personalizing Multi-Objective Rewards from Human Preferences'
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2023'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2312.09337
+  ai2thor_connection: RoboTHOR / ProcTHOR
+  summary: This work uses RoboTHOR / ProcTHOR for object-goal navigation. It is included as a primary arXiv entry because
+    the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'Find What You Want: Learning Demand-conditioned Object Attribute Space for Demand-driven Navigation'
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2023'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2309.08138
+    code: https://github.com/whcpumpkin/Demand-driven-navigation
+  ai2thor_connection: ProcTHOR
+  summary: This work uses ProcTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract
+    explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'SayNav: Grounding Large Language Models for Dynamic Planning to Navigation in New Environments'
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2023'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2309.04077
+    code: https://github.com/arajv/SayNav
+  ai2thor_connection: ProcTHOR
+  summary: This work evaluates in ProcTHOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Heterogeneous Embodied Multi-Agent Collaboration
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2023'
+  - arXiv
+  - planning
+  - multi-agent
+  links:
+    arxiv: https://arxiv.org/abs/2307.13957
+  ai2thor_connection: ProcTHOR
+  summary: This work evaluates in ProcTHOR for embodied task planning. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'When Learning Is Out of Reach, Reset: Generalization in Autonomous Visuomotor Reinforcement Learning'
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2023'
+  - arXiv
+  - ObjectNav
+  - benchmark
+  links:
+    arxiv: https://arxiv.org/abs/2303.17600
+    code: https://github.com/zcczhang/rmrl
+  ai2thor_connection: RoboTHOR
+  summary: This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Can an Embodied Agent Find Your "Cat-shaped Mug"? LLM-Guided Exploration for Zero-Shot Object Navigation
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2023'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2303.03480
+  ai2thor_connection: RoboTHOR
+  summary: This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'ESC: Exploration with Soft Commonsense Constraints for Zero-shot Object Navigation'
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2023'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2301.13166
+  ai2thor_connection: RoboTHOR
+  summary: This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'CoWs on Pasture: Baselines and Benchmarks for Language-Driven Zero-Shot Object Navigation'
+  year: '2022'
+  status: verified-paper
+  venue: arXiv
+  category: Benchmarks and Evaluation
+  tags:
+  - '2022'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2203.10421
+    code: https://github.com/real-stanford/cow
+  ai2thor_connection: RoboTHOR
+  summary: This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the
+    abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'Simple but Effective: CLIP Embeddings for Embodied AI'
+  year: '2021'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2021'
+  - arXiv
+  - ObjectNav
+  - navigation
+  links:
+    arxiv: https://arxiv.org/abs/2111.09888
+    code: https://github.com/allenai/embodied-clip
+  ai2thor_connection: iTHOR / RoboTHOR
+  summary: This work evaluates in iTHOR / RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because
+    the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'GroundControl: Anticipating Navigation Failures in Vision-Language Agents via Trajectory-Consistent Uncertainty
+    Estimates'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Benchmarks and Evaluation
+  tags:
+  - '2026'
+  - arXiv
+  - navigation
+  - safety
+  links:
+    arxiv: https://arxiv.org/abs/2606.20479
+  ai2thor_connection: EmbodiedBench / EB-Navigation
+  summary: This work evaluates in EmbodiedBench / EB-Navigation for embodied safety evaluation and planning. It is included
+    as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family
+    ecosystem.
+  last_verified: '2026-07-01'
+- title: Enabling Extensible Embodied Capabilities with Tools
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2026'
+  - arXiv
+  - navigation
+  - planning
+  links:
+    arxiv: https://arxiv.org/abs/2605.26637
+  ai2thor_connection: EmbodiedBench / ALFRED / EB-ALFRED / EB-Navigation
+  summary: This work evaluates in EmbodiedBench / ALFRED / EB-ALFRED / EB-Navigation for embodied instruction following. It
+    is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the
+    AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'EmbodiSkill: Skill-Aware Reflection for Self-Evolving Embodied Agents'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2026'
+  - arXiv
+  - benchmarks
+  links:
+    arxiv: https://arxiv.org/abs/2605.10332
+  ai2thor_connection: EmbodiedBench
+  summary: This work evaluates in EmbodiedBench for AI2-THOR-family embodied-agent workflows. It is included as a primary
+    arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'MemCompiler: Compile, Don''t Inject -- State-Conditioned Memory for Embodied Agents'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: RL-Trained VLM Agents
+  tags:
+  - '2026'
+  - arXiv
+  - memory
+  links:
+    arxiv: https://arxiv.org/abs/2605.07594
+  ai2thor_connection: EmbodiedBench
+  summary: This work evaluates in EmbodiedBench for embodied memory and spatial reasoning. It is included as a primary arXiv
+    entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'ELITE: Experiential Learning and Intent-Aware Transfer for Self-improving Embodied Agents'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2026'
+  - arXiv
+  - benchmark
+  - VLM
+  links:
+    arxiv: https://arxiv.org/abs/2603.24018
+  ai2thor_connection: EmbodiedBench / ALFRED / EB-ALFRED
+  summary: This work evaluates in EmbodiedBench / ALFRED / EB-ALFRED for embodied instruction following. It is included as
+    a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family
+    ecosystem.
+  last_verified: '2026-07-01'
+- title: 'BrainMem: Brain-Inspired Evolving Memory for Embodied Agent Task Planning'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2026'
+  - arXiv
+  - navigation
+  - planning
+  links:
+    arxiv: https://arxiv.org/abs/2604.16331
+  ai2thor_connection: EmbodiedBench / ALFRED / EB-ALFRED / EB-Navigation
+  summary: This work evaluates in EmbodiedBench / ALFRED / EB-ALFRED / EB-Navigation for embodied instruction following. It
+    is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the
+    AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'MemCtrl: Using MLLMs as Active Memory Controllers on Embodied Agents'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: RL-Trained VLM Agents
+  tags:
+  - '2026'
+  - arXiv
+  - memory
+  - benchmark
+  links:
+    arxiv: https://arxiv.org/abs/2601.20831
+  ai2thor_connection: EmbodiedBench
+  summary: This work evaluates in EmbodiedBench for embodied memory and spatial reasoning. It is included as a primary arXiv
+    entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: Aligning Agentic World Models via Knowledgeable Experience Learning
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2026'
+  - arXiv
+  - memory
+  - LLM
+  links:
+    arxiv: https://arxiv.org/abs/2601.13247
+  ai2thor_connection: EmbodiedBench / ALFRED / EB-ALFRED
+  summary: This work evaluates in EmbodiedBench / ALFRED / EB-ALFRED for embodied instruction following. It is included as
+    a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family
+    ecosystem.
+  last_verified: '2026-07-01'
+- title: 'SeeNav-Agent: Enhancing Vision-Language Navigation with Visual Prompt and Step-Level Policy Optimization'
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2025'
+  - arXiv
+  - navigation
+  - planning
+  links:
+    arxiv: https://arxiv.org/abs/2512.02631
+  ai2thor_connection: EmbodiedBench
+  summary: This work evaluates in EmbodiedBench for vision-and-language navigation. It is included as a primary arXiv entry
+    because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: 'RoboMemory: A Brain-inspired Multi-memory Agentic Framework for Interactive Environmental Learning in Physical Embodied
+    Systems'
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: RL-Trained VLM Agents
+  tags:
+  - '2025'
+  - arXiv
+  - planning
+  - memory
+  links:
+    arxiv: https://arxiv.org/abs/2508.01415
+  ai2thor_connection: EmbodiedBench
+  summary: This work evaluates in EmbodiedBench for embodied memory and spatial reasoning. It is included as a primary arXiv
+    entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
+  last_verified: '2026-07-01'
+- title: World-aware Planning Narratives Enhance Large Vision-Language Model Planner
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2025'
+  - arXiv
+  - planning
+  - benchmark
+  links:
+    arxiv: https://arxiv.org/abs/2506.21230
+  ai2thor_connection: EmbodiedBench / ALFRED / EB-ALFRED
+  summary: This work evaluates in EmbodiedBench / ALFRED / EB-ALFRED for embodied instruction following. It is included as
+    a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family
+    ecosystem.
+  last_verified: '2026-07-01'
+- title: 'On-Device Robotic Planning: Eliminating Inference Redundancy for Efficient Decision-Making'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2026'
+  - arXiv
+  - ALFRED
+  - efficient planning
+  links:
+    arxiv: https://arxiv.org/abs/2605.31460
+  ai2thor_connection: ALFRED
+  summary: This work studies efficient robotic decision-making on ALFRED, focusing on reducing redundant reasoning calls while
+    preserving embodied planning performance. It is relevant to AI2-THOR-family instruction-following systems because ALFRED
+    is built on AI2-THOR household tasks.
+  last_verified: '2026-07-01'
+- title: Environmental Understanding Vision-Language Model for Embodied Agent
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2026'
+  - arXiv
+  - VLM
+  - ALFRED
+  links:
+    arxiv: https://arxiv.org/abs/2604.19839
+  ai2thor_connection: ALFRED
+  summary: This work targets environmental understanding for vision-language embodied agents and evaluates in ALFRED-style
+    instruction-following settings. It is included because the benchmark connection grounds the method in the AI2-THOR-family
+    ecosystem.
+  last_verified: '2026-07-01'
+- title: 'GaLa: Hypergraph-Guided Visual Language Models for Procedural Planning'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2026'
+  - arXiv
+  - procedural planning
+  - ALFRED
+  links:
+    arxiv: https://arxiv.org/abs/2604.17241
+  ai2thor_connection: ALFRED
+  summary: GaLa uses hypergraph-guided visual-language reasoning for procedural planning in embodied tasks. Its ALFRED evaluation
+    makes it relevant to AI2-THOR-family instruction following and household task execution.
+  last_verified: '2026-07-01'
+- title: 'ESCAPE: Episodic Spatial Memory and Adaptive Execution Policy for Long-Horizon Mobile Manipulation'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2026'
+  - arXiv
+  - memory
+  - mobile manipulation
+  links:
+    arxiv: https://arxiv.org/abs/2604.13633
+  ai2thor_connection: ALFRED
+  summary: ESCAPE studies episodic spatial memory and adaptive execution for long-horizon mobile manipulation. It is included
+    because the work reports ALFRED-family embodied task evaluation, connecting it to AI2-THOR household workflows.
+  last_verified: '2026-07-01'
+- title: When Should a Robot Think? Resource-Aware Reasoning via Reinforcement Learning for Embodied Robotic Decision-Making
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: RL-Trained VLM Agents
+  tags:
+  - '2026'
+  - arXiv
+  - RL
+  - reasoning
+  links:
+    arxiv: https://arxiv.org/abs/2603.16673
+  ai2thor_connection: ALFRED
+  summary: This work studies when an embodied agent should invoke expensive reasoning during robotic decision-making. Its
+    ALFRED evaluation makes it relevant to AI2-THOR-family planning agents with resource-aware reasoning policies.
+  last_verified: '2026-07-01'
+- title: 'KEEP: A KV-Cache-Centric Memory Management System for Efficient Embodied Planning'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2026'
+  - arXiv
+  - memory
+  - planning
+  links:
+    arxiv: https://arxiv.org/abs/2602.23592
+  ai2thor_connection: ALFRED
+  summary: KEEP proposes KV-cache-centric memory management for long-horizon embodied planning. It is relevant here because
+    the evaluation includes ALFRED-style embodied planning, tying the method to AI2-THOR-family tasks.
+  last_verified: '2026-07-01'
+- title: thortils
+  year: null
+  status: verified-project
+  venue: null
+  category: Tools and Environments
+  tags:
+  - tool
+  - AI2-THOR
+  - utilities
+  links:
+    code: https://github.com/zkytony/thortils
+  ai2thor_connection: AI2-THOR
+  summary: thortils provides utility functions for working with AI2-THOR, aiming to make common simulator operations reusable
+    across projects. It is a practical support library for AI2-THOR experimentation and scripting.
+  last_verified: '2026-07-01'
+- title: AI2Thor Keyboard Player
+  year: null
+  status: verified-project
+  venue: null
+  category: Tools and Environments
+  tags:
+  - tool
+  - AI2-THOR
+  - data collection
+  links:
+    code: https://github.com/ByZ0e/AI2Thor_keyboard_player
+  ai2thor_connection: AI2-THOR
+  summary: AI2Thor Keyboard Player is a keyboard-based interaction and data-collection tool for AI2-THOR. It can help users
+    manually inspect scenes, collect demonstrations, or debug simulator actions.
+  last_verified: '2026-07-01'
+- title: Cordial Sync
+  year: '2024'
+  status: verified-project
+  venue: code
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2024'
+  - multi-agent
+  - AI2-THOR
+  - code
+  links:
+    code: https://github.com/allenai/cordial-sync
+  ai2thor_connection: AI2-THOR
+  summary: cordial-sync is AllenAI code for reproducing A Cordial Sync, a multi-agent embodied task project. It belongs in
+    the AI2-THOR ecosystem because the repository supports experiments on multi-agent embodied tasks.
+  last_verified: '2026-07-01'
+- title: AI2 ObjectNav Evaluation
+  year: null
+  status: verified-project
+  venue: null
+  category: Tools and Environments
+  tags:
+  - ObjectNav
+  - evaluation
+  - RoboTHOR
+  links:
+    code: https://github.com/allenai/object-nav-eval
+  ai2thor_connection: RoboTHOR / AI2-THOR
+  summary: object-nav-eval provides evaluation tasks for ObjectNav models in the AllenAI embodied-AI ecosystem. It is useful
+    infrastructure for benchmarking AI2-THOR-family navigation agents.
+  last_verified: '2026-07-01'
+- title: RobustNav
+  year: null
+  status: verified-project
+  venue: null
+  category: Tools and Environments
+  tags:
+  - navigation
+  - corruptions
+  - RoboTHOR
+  links:
+    code: https://github.com/allenai/robustnav
+  ai2thor_connection: RoboTHOR
+  summary: RobustNav evaluates pretrained navigation agents under visual corruptions and distribution shifts. It is relevant
+    to AI2-THOR-family navigation because it builds on RoboTHOR-style embodied evaluation.
+  last_verified: '2026-07-01'
+- title: Ask4Help
+  year: null
+  status: verified-project
+  venue: null
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - help-seeking
+  - navigation
+  - RoboTHOR
+  links:
+    code: https://github.com/allenai/ask4help
+  ai2thor_connection: RoboTHOR
+  summary: Ask4Help releases code for studying when embodied navigation agents should ask for help. It is part of the RoboTHOR
+    research ecosystem around navigation, uncertainty, and assistance.
+  last_verified: '2026-07-01'
+- title: ADVISOR
+  year: null
+  status: verified-project
+  venue: null
+  category: Tools and Environments
+  tags:
+  - AllenAI
+  - training
+  - RoboTHOR
+  links:
+    code: https://github.com/allenai/advisor
+  ai2thor_connection: RoboTHOR / AI2-THOR
+  summary: ADVISOR is an AllenAI embodied-agent training codebase associated with AI2-THOR-family navigation research. It
+    is useful for readers looking for training infrastructure beyond the core simulator.
+  last_verified: '2026-07-01'
+- title: 'OGAMUS: Online Grounding of Action Models in Unknown Situations'
+  year: null
+  status: verified-project
+  venue: null
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - planning
+  - grounding
+  - AI2-THOR
+  links:
+    code: https://github.com/LamannaLeonardo/OGAMUS
+  ai2thor_connection: AI2-THOR-family
+  summary: OGAMUS provides code for online grounding of action models in unknown situations. It is relevant as a planning
+    and grounding project that appears in AI2-THOR-family embodied-agent search results.
+  last_verified: '2026-07-01'
+- title: TaPA
+  year: '2023'
+  status: verified-project
+  venue: code
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2023'
+  - LLM
+  - task planning
+  links:
+    code: https://github.com/Gary3410/TaPA
+  ai2thor_connection: AI2-THOR-family
+  summary: TaPA is code for Embodied Task Planning with Large Language Models. The repository is relevant to AI2-THOR-family
+    planning workflows because it targets embodied task planning and appears in AI2-THOR search results with released code.
+  last_verified: '2026-07-01'
+- title: SMART-LLM
+  year: '2023'
+  status: verified-project
+  venue: code
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2023'
+  - LLM
+  - multi-agent
+  links:
+    code: https://github.com/SMARTlab-Purdue/SMART-LLM
+  ai2thor_connection: AI2-THOR-family
+  summary: SMART-LLM is a codebase for Smart Multi-Agent Robot Task Planning using Large Language Models. It is useful for
+    readers tracking LLM-based planning systems that overlap with AI2-THOR-style household task environments.
+  last_verified: '2026-07-01'
+- title: Embodied-Reasoner
+  year: '2024'
+  status: verified-project
+  venue: code
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2024'
+  - reasoning
+  - interactive tasks
+  links:
+    code: https://github.com/zwq2018/embodied_reasoner
+  ai2thor_connection: AI2-THOR-family
+  summary: Embodied-Reasoner releases code for synergizing visual search, reasoning, and action in embodied interactive tasks.
+    It is included as a project resource for AI2-THOR-family embodied reasoning workflows.
+  last_verified: '2026-07-01'
+- title: 'LGX: Language-Guided Exploration'
+  year: '2023'
+  status: verified-project
+  venue: code
+  category: Navigation
+  tags:
+  - '2023'
+  - zero-shot ObjectNav
+  - RoboTHOR
+  links:
+    code: https://github.com/vdorbala/LGX
+  ai2thor_connection: RoboTHOR
+  summary: LGX is code for language-guided exploration in zero-shot object navigation. It complements the L-ZSON and RoboTHOR
+    navigation entries with a concrete implementation.
+  last_verified: '2026-07-01'
+- title: RDMAE-Nav
+  year: '2024'
+  status: verified-project
+  venue: code
+  category: Navigation
+  tags:
+  - navigation
+  - robustness
+  - RoboTHOR
+  links:
+    code: https://github.com/danelpeng/RDMAE_Nav
+  ai2thor_connection: RoboTHOR
+  summary: RDMAE-Nav is a robust embodied-navigation project focused on visual corruptions and robustness. It is included
+    as a RoboTHOR-related implementation resource for robust navigation research.
+  last_verified: '2026-07-01'
+- title: STRIVE project page
+  year: '2025'
+  status: verified-project
+  venue: code
+  category: Navigation
+  tags:
+  - '2025'
+  - VLM
+  - ObjectNav
+  links:
+    code: https://github.com/igzat1no/STRIVE
+  ai2thor_connection: RoboTHOR / ProcTHOR
+  summary: STRIVE provides project resources for Structured Representation Integrating VLM Reasoning for Efficient Object
+    Navigation. It complements the arXiv entry with implementation or project-page materials.
+  last_verified: '2026-07-01'
+- title: 'NOLO: Navigate Only Look Once'
+  year: '2025'
+  status: verified-project
+  venue: code
+  category: Navigation
+  tags:
+  - '2025'
+  - IROS
+  - ObjectNav
+  links:
+    code: https://github.com/zhoubohan0/NOLO
+  ai2thor_connection: RoboTHOR-family
+  summary: NOLO is the official implementation of Navigate Only Look Once, an object-navigation project. It is relevant as
+    a recent embodied-navigation resource connected to RoboTHOR-style evaluation.
+  last_verified: '2026-07-01'
+- title: ProcTHOR-10K Repository
+  year: '2022'
+  status: verified-project
+  venue: code
+  category: Datasets and Assets
+  tags:
+  - ProcTHOR
+  - dataset
+  - houses
+  links:
+    code: https://github.com/allenai/procthor-10k
+  ai2thor_connection: ProcTHOR
+  summary: The ProcTHOR-10K repository provides dataset files and tooling for the generated house corpus. It complements the
+    Hugging Face dataset entry with a GitHub resource for ProcTHOR scene data.
+  last_verified: '2026-07-01'
+- title: PRIOR Data Package
+  year: '2022'
+  status: verified-project
+  venue: code
+  category: Tools and Environments
+  tags:
+  - AllenAI
+  - dataset distribution
+  - ProcTHOR
+  links:
+    code: https://github.com/allenai/prior
+  ai2thor_connection: AI2-THOR-family
+  summary: PRIOR is AllenAI infrastructure for seamless data distribution in AI workflows. It is useful around AI2-THOR-family
+    datasets such as ProcTHOR resources and embodied-agent assets.
+  last_verified: '2026-07-01'
+- title: Automata-Guided Hierarchical Reinforcement Learning for Skill Composition
+  year: '2017'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2017'
+  - arXiv
+  - planning
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/1711.00129
+  ai2thor_connection: AI2-THOR
+  summary: Automata-Guided Hierarchical Reinforcement Learning for Skill Composition reports experiments connected to AI2-THOR
+    for planning. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator,
+    benchmark, or derived environment.
+  last_verified: '2026-07-01'
+- title: Leveraging Semantics for Incremental Learning in Multi-Relational Embeddings
+  year: '2019'
+  status: verified-paper
+  venue: arXiv
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2019'
+  - arXiv
+  - perception
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/1905.12181
+  ai2thor_connection: AI2-THOR
+  summary: Leveraging Semantics for Incremental Learning in Multi-Relational Embeddings reports experiments connected to AI2-THOR
+    for perception. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family
+    simulator, benchmark, or derived environment.
+  last_verified: '2026-07-01'
+- title: 'RoboCSE: Robot Common Sense Embedding'
+  year: '2019'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2019'
+  - arXiv
+  - memory
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/1903.00412
+  ai2thor_connection: AI2-THOR
+  summary: 'RoboCSE: Robot Common Sense Embedding reports experiments connected to AI2-THOR for memory. It is included from
+    the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.'
+  last_verified: '2026-07-01'
+- title: VUSFA:Variational Universal Successor Features Approximator to Improve Transfer DRL for Target Driven Visual Navigation
+  year: '2019'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2019'
+  - arXiv
+  - navigation
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/1908.06376
+  ai2thor_connection: AI2-THOR
+  summary: VUSFA:Variational Universal Successor Features Approximator to Improve Transfer DRL for Target Driven Visual Navigation
+    reports experiments connected to AI2-THOR for navigation. It is included from the primary arXiv record because the abstract
+    explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
+  last_verified: '2026-07-01'
+- title: Learning Affordance Landscapes for Interaction Exploration in 3D Environments
+  year: '2020'
+  status: verified-paper
+  venue: arXiv
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2020'
+  - arXiv
+  - perception
+  - iTHOR
+  links:
+    arxiv: https://arxiv.org/abs/2008.09241
+  ai2thor_connection: iTHOR
+  summary: Learning Affordance Landscapes for Interaction Exploration in 3D Environments reports experiments connected to
+    iTHOR for perception. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family
+    simulator, benchmark, or derived environment.
+  last_verified: '2026-07-01'
+- title: 'Optimistic Agent: Accurate Graph-Based Value Estimation for More Successful Visual Navigation'
+  year: '2020'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2020'
+  - arXiv
+  - navigation
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2004.03222
+  ai2thor_connection: AI2-THOR
+  summary: 'Optimistic Agent: Accurate Graph-Based Value Estimation for More Successful Visual Navigation reports experiments
+    connected to AI2-THOR for navigation. It is included from the primary arXiv record because the abstract explicitly names
+    the AI2-THOR-family simulator, benchmark, or derived environment.'
+  last_verified: '2026-07-01'
+- title: Reinforcement Learning for Sparse-Reward Object-Interaction Tasks in a First-person Simulated 3D Environment
+  year: '2020'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2020'
+  - arXiv
+  - interaction
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2010.15195
+  ai2thor_connection: AI2-THOR
+  summary: Reinforcement Learning for Sparse-Reward Object-Interaction Tasks in a First-person Simulated 3D Environment reports
+    experiments connected to AI2-THOR for interaction. It is included from the primary arXiv record because the abstract explicitly
+    names the AI2-THOR-family simulator, benchmark, or derived environment.
+  last_verified: '2026-07-01'
+- title: Towards Embodied Scene Description
+  year: '2020'
+  status: verified-paper
+  venue: arXiv
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2020'
+  - arXiv
+  - perception
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2004.14638
+  ai2thor_connection: AI2-THOR
+  summary: Towards Embodied Scene Description reports experiments connected to AI2-THOR for perception. It is included from
+    the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
+  last_verified: '2026-07-01'
+- title: 'IFR-Explore: Learning Inter-object Functional Relationships in 3D Indoor Scenes'
+  year: '2021'
+  status: verified-paper
+  venue: arXiv
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2021'
+  - arXiv
+  - perception
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2112.05298
+  ai2thor_connection: AI2-THOR
+  summary: 'IFR-Explore: Learning Inter-object Functional Relationships in 3D Indoor Scenes reports experiments connected
+    to AI2-THOR for perception. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family
+    simulator, benchmark, or derived environment.'
+  last_verified: '2026-07-01'
+- title: Learning Embeddings that Capture Spatial Semantics for Indoor Navigation
+  year: '2021'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2021'
+  - arXiv
+  - navigation
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2108.00159
+  ai2thor_connection: AI2-THOR
+  summary: Learning Embeddings that Capture Spatial Semantics for Indoor Navigation reports experiments connected to AI2-THOR
+    for navigation. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family
+    simulator, benchmark, or derived environment.
+  last_verified: '2026-07-01'
+- title: Learning for Visual Navigation by Imagining the Success
+  year: '2021'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2021'
+  - arXiv
+  - navigation
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2103.00446
+  ai2thor_connection: AI2-THOR
+  summary: Learning for Visual Navigation by Imagining the Success reports experiments connected to AI2-THOR for navigation.
+    It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark,
+    or derived environment.
+  last_verified: '2026-07-01'
+- title: Shaping embodied agent behavior with activity-context priors from egocentric video
+  year: '2021'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2021'
+  - arXiv
+  - planning
+  - iTHOR
+  links:
+    arxiv: https://arxiv.org/abs/2110.07692
+  ai2thor_connection: iTHOR
+  summary: Shaping embodied agent behavior with activity-context priors from egocentric video reports experiments connected
+    to iTHOR for planning. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family
+    simulator, benchmark, or derived environment.
+  last_verified: '2026-07-01'
+- title: 'DoRO: Disambiguation of referred object for embodied agents'
+  year: '2022'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2022'
+  - arXiv
+  - embodied agents
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2207.14205
+  ai2thor_connection: AI2-THOR
+  summary: 'DoRO: Disambiguation of referred object for embodied agents reports experiments connected to AI2-THOR for embodied
+    agents. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator,
+    benchmark, or derived environment.'
+  last_verified: '2026-07-01'
+- title: Learning to Act with Affordance-Aware Multimodal Neural SLAM
+  year: '2022'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2022'
+  - arXiv
+  - navigation
+  - ALFRED
+  links:
+    arxiv: https://arxiv.org/abs/2201.09862
+  ai2thor_connection: ALFRED
+  summary: Learning to Act with Affordance-Aware Multimodal Neural SLAM uses ALFRED as an embodied household-task benchmark
+    for navigation. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following
+    research in the AI2-THOR ecosystem.
+  last_verified: '2026-07-01'
+- title: 'LEBP -- Language Expectation & Binding Policy: A Two-Stream Framework for Embodied Vision-and-Language Interaction
+    Task Learning Agents'
+  year: '2022'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2022'
+  - arXiv
+  - navigation
+  - ALFRED
+  links:
+    arxiv: https://arxiv.org/abs/2203.04637
+  ai2thor_connection: ALFRED
+  summary: 'LEBP -- Language Expectation & Binding Policy: A Two-Stream Framework for Embodied Vision-and-Language Interaction
+    Task Learning Agents uses ALFRED as an embodied household-task benchmark for navigation. Because ALFRED tasks are grounded
+    in AI2-THOR scenes and interactions, the paper is relevant to instruction-following research in the AI2-THOR ecosystem.'
+  last_verified: '2026-07-01'
+- title: Matching options to tasks using Option-Indexed Hierarchical Reinforcement Learning
+  year: '2022'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2022'
+  - arXiv
+  - memory
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2206.05750
+  ai2thor_connection: AI2-THOR
+  summary: Matching options to tasks using Option-Indexed Hierarchical Reinforcement Learning reports experiments connected
+    to AI2-THOR for memory. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family
+    simulator, benchmark, or derived environment.
+  last_verified: '2026-07-01'
+- title: Moment-based Adversarial Training for Embodied Language Comprehension
+  year: '2022'
+  status: verified-paper
+  venue: arXiv
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2022'
+  - arXiv
+  - perception
+  - ALFRED
+  links:
+    arxiv: https://arxiv.org/abs/2204.00889
+  ai2thor_connection: ALFRED
+  summary: Moment-based Adversarial Training for Embodied Language Comprehension uses ALFRED as an embodied household-task
+    benchmark for perception. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant
+    to instruction-following research in the AI2-THOR ecosystem.
+  last_verified: '2026-07-01'
+- title: On the Limits of Evaluating Embodied Agent Model Generalization Using Validation Sets
+  year: '2022'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2022'
+  - arXiv
+  - navigation
+  - ALFRED
+  links:
+    arxiv: https://arxiv.org/abs/2205.09249
+  ai2thor_connection: ALFRED
+  summary: On the Limits of Evaluating Embodied Agent Model Generalization Using Validation Sets uses ALFRED as an embodied
+    household-task benchmark for navigation. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper
+    is relevant to instruction-following research in the AI2-THOR ecosystem.
+  last_verified: '2026-07-01'
+- title: 'SGL: Symbolic Goal Learning in a Hybrid, Modular Framework for Human Instruction Following'
+  year: '2022'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2022'
+  - arXiv
+  - planning
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2202.12912
+  ai2thor_connection: AI2-THOR
+  summary: 'SGL: Symbolic Goal Learning in a Hybrid, Modular Framework for Human Instruction Following reports experiments
+    connected to AI2-THOR for planning. It is included from the primary arXiv record because the abstract explicitly names
+    the AI2-THOR-family simulator, benchmark, or derived environment.'
+  last_verified: '2026-07-01'
+- title: 'CARTIER: Cartographic lAnguage Reasoning Targeted at Instruction Execution for Robots'
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2023'
+  - arXiv
+  - navigation
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2307.11865
+  ai2thor_connection: AI2-THOR
+  summary: 'CARTIER: Cartographic lAnguage Reasoning Targeted at Instruction Execution for Robots reports experiments connected
+    to AI2-THOR for navigation. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family
+    simulator, benchmark, or derived environment.'
+  last_verified: '2026-07-01'
+- title: Egocentric Planning for Scalable Embodied Task Achievement
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2023'
+  - arXiv
+  - planning
+  - ALFRED
+  links:
+    arxiv: https://arxiv.org/abs/2306.01295
+  ai2thor_connection: ALFRED
+  summary: Egocentric Planning for Scalable Embodied Task Achievement uses ALFRED as an embodied household-task benchmark
+    for planning. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following
+    research in the AI2-THOR ecosystem.
+  last_verified: '2026-07-01'
+- title: 'ELBA: Learning by Asking for Embodied Visual Navigation and Task Completion'
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2023'
+  - arXiv
+  - navigation
+  - TEACh
+  links:
+    arxiv: https://arxiv.org/abs/2302.04865
+  ai2thor_connection: TEACh
+  summary: 'ELBA: Learning by Asking for Embodied Visual Navigation and Task Completion studies navigation in TEACh-style
+    embodied task completion. TEACh extends AI2-THOR household tasks with situated dialogue, making the work relevant to conversational
+    instruction-following agents.'
+  last_verified: '2026-07-01'
+- title: 'Embodied Concept Learner: Self-supervised Learning of Concepts and Mapping through Instruction Following'
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2023'
+  - arXiv
+  - planning
+  - ALFRED
+  links:
+    arxiv: https://arxiv.org/abs/2304.03767
+  ai2thor_connection: ALFRED
+  summary: 'Embodied Concept Learner: Self-supervised Learning of Concepts and Mapping through Instruction Following uses
+    ALFRED as an embodied household-task benchmark for planning. Because ALFRED tasks are grounded in AI2-THOR scenes and
+    interactions, the paper is relevant to instruction-following research in the AI2-THOR ecosystem.'
+  last_verified: '2026-07-01'
+- title: 'Habitat Synthetic Scenes Dataset (HSSD-200): An Analysis of 3D Scene Scale and Realism Tradeoffs for ObjectGoal
+    Navigation'
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Datasets and Assets
+  tags:
+  - '2023'
+  - arXiv
+  - navigation
+  - ProcTHOR
+  links:
+    arxiv: https://arxiv.org/abs/2306.11290
+  ai2thor_connection: ProcTHOR
+  summary: 'Habitat Synthetic Scenes Dataset (HSSD-200): An Analysis of 3D Scene Scale and Realism Tradeoffs for ObjectGoal
+    Navigation reports experiments connected to ProcTHOR for navigation. It is included from the primary arXiv record because
+    the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.'
+  last_verified: '2026-07-01'
+- title: 'MAEA: Multimodal Attribution for Embodied AI'
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Benchmarks and Evaluation
+  tags:
+  - '2023'
+  - arXiv
+  - safety
+  - ALFRED
+  links:
+    arxiv: https://arxiv.org/abs/2307.13850
+  ai2thor_connection: ALFRED
+  summary: 'MAEA: Multimodal Attribution for Embodied AI uses ALFRED as an embodied household-task benchmark for safety. Because
+    ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following research
+    in the AI2-THOR ecosystem.'
+  last_verified: '2026-07-01'
+- title: Multimodal Contextualized Plan Prediction for Embodied Task Completion
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2023'
+  - arXiv
+  - planning
+  - TEACh
+  links:
+    arxiv: https://arxiv.org/abs/2305.06485
+  ai2thor_connection: TEACh
+  summary: Multimodal Contextualized Plan Prediction for Embodied Task Completion studies planning in TEACh-style embodied
+    task completion. TEACh extends AI2-THOR household tasks with situated dialogue, making the work relevant to conversational
+    instruction-following agents.
+  last_verified: '2026-07-01'
+- title: Multimodal Speech Recognition for Language-Guided Embodied Agents
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2023'
+  - arXiv
+  - planning
+  - ALFRED
+  links:
+    arxiv: https://arxiv.org/abs/2302.14030
+  ai2thor_connection: ALFRED
+  summary: Multimodal Speech Recognition for Language-Guided Embodied Agents uses ALFRED as an embodied household-task benchmark
+    for planning. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following
+    research in the AI2-THOR ecosystem.
+  last_verified: '2026-07-01'
+- title: Privacy Risks in Reinforcement Learning for Household Robots
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2023'
+  - arXiv
+  - navigation
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2306.09273
+  ai2thor_connection: AI2-THOR
+  summary: Privacy Risks in Reinforcement Learning for Household Robots reports experiments connected to AI2-THOR for navigation.
+    It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark,
+    or derived environment.
+  last_verified: '2026-07-01'
+- title: 'RoboGPT: an intelligent agent of making embodied long-term decisions for daily instruction tasks'
+  year: '2023'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2023'
+  - arXiv
+  - navigation
+  - ALFRED
+  links:
+    arxiv: https://arxiv.org/abs/2311.15649
+  ai2thor_connection: ALFRED
+  summary: 'RoboGPT: an intelligent agent of making embodied long-term decisions for daily instruction tasks uses ALFRED as
+    an embodied household-task benchmark for navigation. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions,
+    the paper is relevant to instruction-following research in the AI2-THOR ecosystem.'
+  last_verified: '2026-07-01'
+- title: 'Behind the Veil: Enhanced Indoor 3D Scene Reconstruction with Occluded Surfaces Completion'
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2024'
+  - arXiv
+  - perception
+  - iTHOR
+  links:
+    arxiv: https://arxiv.org/abs/2404.03070
+  ai2thor_connection: iTHOR
+  summary: 'Behind the Veil: Enhanced Indoor 3D Scene Reconstruction with Occluded Surfaces Completion reports experiments
+    connected to iTHOR for perception. It is included from the primary arXiv record because the abstract explicitly names
+    the AI2-THOR-family simulator, benchmark, or derived environment.'
+  last_verified: '2026-07-01'
+- title: Commonsense Scene Graph-based Target Localization for Object Search
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2024'
+  - arXiv
+  - navigation
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2404.00343
+  ai2thor_connection: AI2-THOR
+  summary: Commonsense Scene Graph-based Target Localization for Object Search reports experiments connected to AI2-THOR for
+    navigation. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator,
+    benchmark, or derived environment.
+  last_verified: '2026-07-01'
+- title: Efficient Policy Adaptation with Contrastive Prompt Ensemble for Embodied Agents
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2024'
+  - arXiv
+  - navigation
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2412.11484
+  ai2thor_connection: AI2-THOR
+  summary: Efficient Policy Adaptation with Contrastive Prompt Ensemble for Embodied Agents reports experiments connected
+    to AI2-THOR for navigation. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family
+    simulator, benchmark, or derived environment.
+  last_verified: '2026-07-01'
+- title: Embodied CoT Distillation From LLM To Off-the-shelf Agents
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2024'
+  - arXiv
+  - planning
+  - ALFRED
+  links:
+    arxiv: https://arxiv.org/abs/2412.11499
+  ai2thor_connection: ALFRED
+  summary: Embodied CoT Distillation From LLM To Off-the-shelf Agents uses ALFRED as an embodied household-task benchmark
+    for planning. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following
+    research in the AI2-THOR ecosystem.
+  last_verified: '2026-07-01'
+- title: 'EmbodiedRAG: Dynamic 3D Scene Graph Retrieval for Efficient and Scalable Robot Task Planning'
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2024'
+  - arXiv
+  - memory
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2410.23968
+  ai2thor_connection: AI2-THOR
+  summary: 'EmbodiedRAG: Dynamic 3D Scene Graph Retrieval for Efficient and Scalable Robot Task Planning reports experiments
+    connected to AI2-THOR for memory. It is included from the primary arXiv record because the abstract explicitly names the
+    AI2-THOR-family simulator, benchmark, or derived environment.'
+  last_verified: '2026-07-01'
+- title: Goal Inference from Open-Ended Dialog
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2024'
+  - arXiv
+  - interaction
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2410.13957
+  ai2thor_connection: AI2-THOR
+  summary: Goal Inference from Open-Ended Dialog reports experiments connected to AI2-THOR for interaction. It is included
+    from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived
+    environment.
+  last_verified: '2026-07-01'
+- title: Grounding Video Models to Actions through Goal Conditioned Exploration
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2024'
+  - arXiv
+  - navigation
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2411.07223
+  ai2thor_connection: AI2-THOR
+  summary: Grounding Video Models to Actions through Goal Conditioned Exploration reports experiments connected to AI2-THOR
+    for navigation. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family
+    simulator, benchmark, or derived environment.
+  last_verified: '2026-07-01'
+- title: Multi-Agent Planning Using Visual Language Models
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2024'
+  - arXiv
+  - planning
+  - ALFRED
+  links:
+    arxiv: https://arxiv.org/abs/2408.05478
+  ai2thor_connection: ALFRED
+  summary: Multi-Agent Planning Using Visual Language Models uses ALFRED as an embodied household-task benchmark for planning.
+    Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following
+    research in the AI2-THOR ecosystem.
+  last_verified: '2026-07-01'
+- title: 'ODIN: A Single Model for 2D and 3D Segmentation'
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2024'
+  - arXiv
+  - perception
+  - TEACh
+  links:
+    arxiv: https://arxiv.org/abs/2401.02416
+  ai2thor_connection: TEACh
+  summary: 'ODIN: A Single Model for 2D and 3D Segmentation studies perception in TEACh-style embodied task completion. TEACh
+    extends AI2-THOR household tasks with situated dialogue, making the work relevant to conversational instruction-following
+    agents.'
+  last_verified: '2026-07-01'
+- title: 'Recover: A Neuro-Symbolic Framework for Failure Detection and Recovery'
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2024'
+  - arXiv
+  - planning
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2404.00756
+  ai2thor_connection: AI2-THOR
+  summary: 'Recover: A Neuro-Symbolic Framework for Failure Detection and Recovery reports experiments connected to AI2-THOR
+    for planning. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator,
+    benchmark, or derived environment.'
+  last_verified: '2026-07-01'
+- title: Robustness Testing of Multi-Modal Models in Varied Home Environments for Assistive Robots
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Benchmarks and Evaluation
+  tags:
+  - '2024'
+  - arXiv
+  - safety
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2406.12443
+  ai2thor_connection: AI2-THOR
+  summary: Robustness Testing of Multi-Modal Models in Varied Home Environments for Assistive Robots reports experiments connected
+    to AI2-THOR for safety. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family
+    simulator, benchmark, or derived environment.
+  last_verified: '2026-07-01'
+- title: 'Segment Any Object Model (SAOM): Real-to-Simulation Fine-Tuning Strategy for Multi-Class Multi-Instance Segmentation'
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2024'
+  - arXiv
+  - perception
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2403.10780
+  ai2thor_connection: AI2-THOR
+  summary: 'Segment Any Object Model (SAOM): Real-to-Simulation Fine-Tuning Strategy for Multi-Class Multi-Instance Segmentation
+    reports experiments connected to AI2-THOR for perception. It is included from the primary arXiv record because the abstract
+    explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.'
+  last_verified: '2026-07-01'
+- title: Simulating User Agents for Embodied Conversational-AI
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2024'
+  - arXiv
+  - planning
+  - TEACh
+  links:
+    arxiv: https://arxiv.org/abs/2410.23535
+  ai2thor_connection: TEACh
+  summary: Simulating User Agents for Embodied Conversational-AI studies planning in TEACh-style embodied task completion.
+    TEACh extends AI2-THOR household tasks with situated dialogue, making the work relevant to conversational instruction-following
+    agents.
+  last_verified: '2026-07-01'
+- title: 'VideoAgent: Self-Improving Video Generation'
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2024'
+  - arXiv
+  - planning
+  - iTHOR
+  links:
+    arxiv: https://arxiv.org/abs/2410.10076
+  ai2thor_connection: iTHOR
+  summary: 'VideoAgent: Self-Improving Video Generation reports experiments connected to iTHOR for planning. It is included
+    from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived
+    environment.'
+  last_verified: '2026-07-01'
+- title: 'VLM Agents Generate Their Own Memories: Distilling Experience into Embodied Programs of Thought'
+  year: '2024'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2024'
+  - arXiv
+  - memory
+  - TEACh
+  links:
+    arxiv: https://arxiv.org/abs/2406.14596
+  ai2thor_connection: TEACh
+  summary: 'VLM Agents Generate Their Own Memories: Distilling Experience into Embodied Programs of Thought studies memory
+    in TEACh-style embodied task completion. TEACh extends AI2-THOR household tasks with situated dialogue, making the work
+    relevant to conversational instruction-following agents.'
+  last_verified: '2026-07-01'
+- title: Exploratory Retrieval-Augmented Planning For Continual Embodied Instruction Following
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2025'
+  - arXiv
+  - memory
+  - ALFRED
+  links:
+    arxiv: https://arxiv.org/abs/2509.08222
+  ai2thor_connection: ALFRED
+  summary: Exploratory Retrieval-Augmented Planning For Continual Embodied Instruction Following uses ALFRED as an embodied
+    household-task benchmark for memory. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper
+    is relevant to instruction-following research in the AI2-THOR ecosystem.
+  last_verified: '2026-07-01'
+- title: 'LLaPa: A Vision-Language Model Framework for Counterfactual-Aware Procedural Planning'
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2025'
+  - arXiv
+  - memory
+  - ALFRED
+  links:
+    arxiv: https://arxiv.org/abs/2507.08496
+  ai2thor_connection: ALFRED
+  summary: 'LLaPa: A Vision-Language Model Framework for Counterfactual-Aware Procedural Planning uses ALFRED as an embodied
+    household-task benchmark for memory. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper
+    is relevant to instruction-following research in the AI2-THOR ecosystem.'
+  last_verified: '2026-07-01'
+- title: Plan Verification for LLM-Based Embodied Task Completion Agents
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2025'
+  - arXiv
+  - navigation
+  - TEACh
+  links:
+    arxiv: https://arxiv.org/abs/2509.02761
+  ai2thor_connection: TEACh
+  summary: Plan Verification for LLM-Based Embodied Task Completion Agents studies navigation in TEACh-style embodied task
+    completion. TEACh extends AI2-THOR household tasks with situated dialogue, making the work relevant to conversational
+    instruction-following agents.
+  last_verified: '2026-07-01'
+- title: 'ReAcTree: Hierarchical LLM Agent Trees with Control Flow for Long-Horizon Task Planning'
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2025'
+  - arXiv
+  - memory
+  - ALFRED
+  links:
+    arxiv: https://arxiv.org/abs/2511.02424
+  ai2thor_connection: ALFRED
+  summary: 'ReAcTree: Hierarchical LLM Agent Trees with Control Flow for Long-Horizon Task Planning uses ALFRED as an embodied
+    household-task benchmark for memory. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper
+    is relevant to instruction-following research in the AI2-THOR ecosystem.'
+  last_verified: '2026-07-01'
+- title: 'Spatial Policy: Guiding Visuomotor Robotic Manipulation with Spatial-Aware Modeling and Reasoning'
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2025'
+  - arXiv
+  - planning
+  - iTHOR
+  links:
+    arxiv: https://arxiv.org/abs/2508.15874
+  ai2thor_connection: iTHOR
+  summary: 'Spatial Policy: Guiding Visuomotor Robotic Manipulation with Spatial-Aware Modeling and Reasoning reports experiments
+    connected to iTHOR for planning. It is included from the primary arXiv record because the abstract explicitly names the
+    AI2-THOR-family simulator, benchmark, or derived environment.'
+  last_verified: '2026-07-01'
+- title: 'Video2Layout: Recall and Reconstruct Metric-Grounded Cognitive Map for Spatial Reasoning'
+  year: '2025'
+  status: verified-paper
+  venue: arXiv
+  category: Datasets and Assets
+  tags:
+  - '2025'
+  - arXiv
+  - perception
+  - AI2-THOR
+  links:
+    arxiv: https://arxiv.org/abs/2511.16160
+  ai2thor_connection: AI2-THOR
+  summary: 'Video2Layout: Recall and Reconstruct Metric-Grounded Cognitive Map for Spatial Reasoning reports experiments connected
+    to AI2-THOR for perception. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family
+    simulator, benchmark, or derived environment.'
+  last_verified: '2026-07-01'
+- title: 'ATOD: Annealed Turn-aware On-policy Distillation for Multi-turn Autonomous Agents'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2026'
+  - arXiv
+  - rl
+  - ALFWorld
+  links:
+    arxiv: https://arxiv.org/abs/2606.27814
+  ai2thor_connection: ALFWorld / ALFRED-derived
+  summary: 'ATOD: Annealed Turn-aware On-policy Distillation for Multi-turn Autonomous Agents evaluates agent methods on ALFWorld,
+    the text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and
+    evaluation entry rather than as direct AI2-THOR simulator execution.'
+  last_verified: '2026-07-01'
+- title: 'BiPACE: Bisimulation-Guided Policy Optimization with Action Counterfactual Estimation for LLM Agents'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2026'
+  - arXiv
+  - planning
+  - ALFWorld
+  links:
+    arxiv: https://arxiv.org/abs/2606.25556
+  ai2thor_connection: ALFWorld / ALFRED-derived
+  summary: 'BiPACE: Bisimulation-Guided Policy Optimization with Action Counterfactual Estimation for LLM Agents evaluates
+    agent methods on ALFWorld, the text-game environment aligned with ALFRED and THOR household tasks. It is included as an
+    ALFRED-derived planning and evaluation entry rather than as direct AI2-THOR simulator execution.'
+  last_verified: '2026-07-01'
+- title: 'DuoMem: Towards Capable On-Device Memory Agents via Dual-Space Distillation'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2026'
+  - arXiv
+  - memory
+  - ALFWorld
+  links:
+    arxiv: https://arxiv.org/abs/2606.29961
+  ai2thor_connection: ALFWorld / ALFRED-derived
+  summary: 'DuoMem: Towards Capable On-Device Memory Agents via Dual-Space Distillation evaluates agent methods on ALFWorld,
+    the text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and
+    evaluation entry rather than as direct AI2-THOR simulator execution.'
+  last_verified: '2026-07-01'
+- title: Group-Graph Policy Optimization for Long-Horizon Agentic Reinforcement Learning
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2026'
+  - arXiv
+  - planning
+  - ALFWorld
+  links:
+    arxiv: https://arxiv.org/abs/2606.22995
+  ai2thor_connection: ALFWorld / ALFRED-derived
+  summary: Group-Graph Policy Optimization for Long-Horizon Agentic Reinforcement Learning evaluates agent methods on ALFWorld,
+    the text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and
+    evaluation entry rather than as direct AI2-THOR simulator execution.
+  last_verified: '2026-07-01'
+- title: Machine Intelligence that Understands Visual and Linguistic Information and Interacts with Humans and Environments
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Instruction Following and Household Tasks
+  tags:
+  - '2026'
+  - arXiv
+  - interaction
+  - ALFRED
+  links:
+    arxiv: https://arxiv.org/abs/2605.24020
+  ai2thor_connection: ALFRED
+  summary: Machine Intelligence that Understands Visual and Linguistic Information and Interacts with Humans and Environments
+    uses ALFRED as an embodied household-task benchmark for interaction. Because ALFRED tasks are grounded in AI2-THOR scenes
+    and interactions, the paper is relevant to instruction-following research in the AI2-THOR ecosystem.
+  last_verified: '2026-07-01'
+- title: 'OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2026'
+  - arXiv
+  - memory
+  - ALFWorld
+  links:
+    arxiv: https://arxiv.org/abs/2606.26790
+  ai2thor_connection: ALFWorld / ALFRED-derived
+  summary: 'OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning evaluates agent methods on ALFWorld, the
+    text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and evaluation
+    entry rather than as direct AI2-THOR simulator execution.'
+  last_verified: '2026-07-01'
+- title: Selective Memory Retention for Long-Horizon LLM Agents
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2026'
+  - arXiv
+  - memory
+  - ALFWorld
+  links:
+    arxiv: https://arxiv.org/abs/2606.29178
+  ai2thor_connection: ALFWorld / ALFRED-derived
+  summary: Selective Memory Retention for Long-Horizon LLM Agents evaluates agent methods on ALFWorld, the text-game environment
+    aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and evaluation entry rather
+    than as direct AI2-THOR simulator execution.
+  last_verified: '2026-07-01'
+- title: Self-Evolving World Models for LLM Agent Planning
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2026'
+  - arXiv
+  - memory
+  - ALFWorld
+  links:
+    arxiv: https://arxiv.org/abs/2606.30639
+  ai2thor_connection: ALFWorld / ALFRED-derived
+  summary: Self-Evolving World Models for LLM Agent Planning evaluates agent methods on ALFWorld, the text-game environment
+    aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and evaluation entry rather
+    than as direct AI2-THOR simulator execution.
+  last_verified: '2026-07-01'
+- title: Semantic Consistency Policy Optimization for Reinforcement Learning of LLM Agents
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2026'
+  - arXiv
+  - perception
+  - ALFWorld
+  links:
+    arxiv: https://arxiv.org/abs/2606.25852
+  ai2thor_connection: ALFWorld / ALFRED-derived
+  summary: Semantic Consistency Policy Optimization for Reinforcement Learning of LLM Agents evaluates agent methods on ALFWorld,
+    the text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and
+    evaluation entry rather than as direct AI2-THOR simulator execution.
+  last_verified: '2026-07-01'
+- title: 'SKILL-DISCO: Distilling and Compiling Agent Traces into Reusable Procedural Skills'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2026'
+  - arXiv
+  - planning
+  - ALFWorld
+  links:
+    arxiv: https://arxiv.org/abs/2606.26669
+  ai2thor_connection: ALFWorld / ALFRED-derived
+  summary: 'SKILL-DISCO: Distilling and Compiling Agent Traces into Reusable Procedural Skills evaluates agent methods on
+    ALFWorld, the text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived
+    planning and evaluation entry rather than as direct AI2-THOR simulator execution.'
+  last_verified: '2026-07-01'
+- title: The Interplay of Harness Design and Post-Training in LLM Agents
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2026'
+  - arXiv
+  - planning
+  - ALFWorld
+  links:
+    arxiv: https://arxiv.org/abs/2606.25447
+  ai2thor_connection: ALFWorld / ALFRED-derived
+  summary: The Interplay of Harness Design and Post-Training in LLM Agents evaluates agent methods on ALFWorld, the text-game
+    environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and evaluation
+    entry rather than as direct AI2-THOR simulator execution.
+  last_verified: '2026-07-01'
+- title: 'TRIAGE: Role-Typed Credit Assignment for Agentic Reinforcement Learning'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Navigation
+  tags:
+  - '2026'
+  - arXiv
+  - navigation
+  - ALFWorld
+  links:
+    arxiv: https://arxiv.org/abs/2606.32017
+  ai2thor_connection: ALFWorld / ALFRED-derived
+  summary: 'TRIAGE: Role-Typed Credit Assignment for Agentic Reinforcement Learning evaluates agent methods on ALFWorld, the
+    text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and evaluation
+    entry rather than as direct AI2-THOR simulator execution.'
+  last_verified: '2026-07-01'
+- title: 'UCOB: Learning to Utilize and Evolve Agentic Skills via Credit-Aware On-Policy Bidirectional Self-Distillation'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2026'
+  - arXiv
+  - memory
+  - ALFWorld
+  links:
+    arxiv: https://arxiv.org/abs/2606.29502
+  ai2thor_connection: ALFWorld / ALFRED-derived
+  summary: 'UCOB: Learning to Utilize and Evolve Agentic Skills via Credit-Aware On-Policy Bidirectional Self-Distillation
+    evaluates agent methods on ALFWorld, the text-game environment aligned with ALFRED and THOR household tasks. It is included
+    as an ALFRED-derived planning and evaluation entry rather than as direct AI2-THOR simulator execution.'
+  last_verified: '2026-07-01'
+- title: ConceptGraphs
+  year: null
+  status: needs-verification
+  venue: null
+  category: Tools and Environments
+  tags:
+  - candidate
+  - needs verification
+  links:
+    code: https://github.com/concept-graphs/concept-graphs
+  ai2thor_connection: AI2-THOR-family candidate
+  summary: Potential ProcTHOR/AI2-THOR adjacent 3D scene-graph code; verify direct simulator use before promoting.
+  last_verified: '2026-07-01'
+- title: SpatialWorld
+  year: null
+  status: needs-verification
+  venue: null
+  category: Tools and Environments
+  tags:
+  - candidate
+  - needs verification
+  links:
+    code: https://github.com/Hongcheng-Gao/SpatialWorld
+  ai2thor_connection: AI2-THOR-family candidate
+  summary: Benchmarking interactive spatial reasoning; verify whether AI2-THOR-family assets are used directly.
+  last_verified: '2026-07-01'
+- title: GSI-Bench
+  year: null
+  status: needs-verification
+  venue: null
+  category: Tools and Environments
+  tags:
+  - candidate
+  - needs verification
+  links:
+    code: https://github.com/aim-uofa/GSI-Bench
+  ai2thor_connection: AI2-THOR-family candidate
+  summary: Spatial intelligence benchmark candidate from RoboTHOR search results; verify direct RoboTHOR or AI2-THOR connection.
+  last_verified: '2026-07-01'
+- title: OctoNav-R1
+  year: null
+  status: needs-verification
+  venue: null
+  category: Tools and Environments
+  tags:
+  - candidate
+  - needs verification
+  links:
+    code: https://github.com/buaa-colalab/OctoNav-R1
+  ai2thor_connection: AI2-THOR-family candidate
+  summary: Navigation benchmark/code candidate from AI2-THOR search results; verify simulator coverage before promotion.
+  last_verified: '2026-07-01'
+- title: FLaRe
+  year: null
+  status: needs-verification
+  venue: null
+  category: Tools and Environments
+  tags:
+  - candidate
+  - needs verification
+  links:
+    code: https://github.com/JiahengHu/FLaRe
+  ai2thor_connection: AI2-THOR-family candidate
+  summary: Large-scale RL fine-tuning for robot policies; verify AI2-THOR-family evaluation details before adding to README.
+  last_verified: '2026-07-01'
+- title: SceneFoundry
+  year: null
+  status: needs-verification
+  venue: null
+  category: Tools and Environments
+  tags:
+  - candidate
+  - needs verification
+  links:
+    code: https://github.com/anc891203/SceneFoundry
+  ai2thor_connection: AI2-THOR-family candidate
+  summary: Scene generation candidate from ProcTHOR search results; verify whether ProcTHOR assets or evaluation are direct.
+  last_verified: '2026-07-01'
+- title: VG-AVS
+  year: null
+  status: needs-verification
+  venue: null
+  category: Tools and Environments
+  tags:
+  - candidate
+  - needs verification
+  links:
+    code: https://github.com/KAIST-Visual-AI-Group/VG-AVS
+  ai2thor_connection: AI2-THOR-family candidate
+  summary: Active view selection candidate from ProcTHOR search results; verify direct AI2-THOR-family usage.
+  last_verified: '2026-07-01'
+- title: PSL-InstanceNav
+  year: null
+  status: needs-verification
+  venue: null
+  category: Tools and Environments
+  tags:
+  - candidate
+  - needs verification
+  links:
+    code: https://github.com/XinyuSun/PSL-InstanceNav
+  ai2thor_connection: AI2-THOR-family candidate
+  summary: Instance navigation candidate from ProcTHOR search results; verify ProcTHOR/RoboTHOR evaluation before promotion.
+  last_verified: '2026-07-01'
+- title: eif_unknown
+  year: null
+  status: needs-verification
+  venue: null
+  category: Tools and Environments
+  tags:
+  - candidate
+  - needs verification
+  links:
+    code: https://github.com/Gary3410/eif_unknown
+  ai2thor_connection: AI2-THOR-family candidate
+  summary: Embodied instruction following in unknown environments; verify ALFRED/AI2-THOR-family task usage.
+  last_verified: '2026-07-01'
+- title: Good Time to Ask
+  year: null
+  status: needs-verification
+  venue: null
+  category: Tools and Environments
+  tags:
+  - candidate
+  - needs verification
+  links:
+    code: https://github.com/jennyzzt/good_time_to_ask
+  ai2thor_connection: AI2-THOR-family candidate
+  summary: Help-seeking navigation code from RoboTHOR search results; verify paper/source details before promotion.
+  last_verified: '2026-07-01'
+- title: Genus OS
+  year: null
+  status: needs-verification
+  venue: null
+  category: Tools and Environments
+  tags:
+  - candidate
+  - needs verification
+  links:
+    code: https://github.com/Ironsail-llc/genus-os
+  ai2thor_connection: AI2-THOR-family candidate
+  summary: AI operating system candidate appearing in RoboTHOR search; likely tangential, verify before inclusion.
+  last_verified: '2026-07-01'
+- title: AI2-THOR Tools of Navigation
+  year: null
+  status: needs-verification
+  venue: null
+  category: Tools and Environments
+  tags:
+  - candidate
+  - needs verification
+  links:
+    code: https://github.com/sx-zhang/some-tools-of-navigation
+  ai2thor_connection: AI2-THOR-family candidate
+  summary: Navigation utility candidate from RoboTHOR search; verify scope and maintenance status before promotion.
+  last_verified: '2026-07-01'
 - title: CSDN AI2-THOR tutorial
   year: null
   status: tutorial
   venue: null
   category: Tutorials and Notes
-  tags: []
+  tags:
+  - tutorial
+  - community note
+  - AI2-THOR
   links:
     tutorial: https://blog.csdn.net/u010705932/article/details/104472316
   ai2thor_connection: AI2-THOR
@@ -2215,7 +5298,10 @@ entries:
   status: tutorial
   venue: null
   category: Tutorials and Notes
-  tags: []
+  tags:
+  - tutorial
+  - community note
+  - Cook2LTL
   links:
     note: https://blog.csdn.net/muyulingfengye/article/details/144618712
     official_code: https://github.com/angmavrogiannis/Cook2LTL

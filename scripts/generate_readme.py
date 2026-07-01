@@ -9,6 +9,8 @@ from pathlib import Path
 
 import yaml
 
+from link_schema import LINK_LABELS, LINK_ORDER, RESOURCE_TYPES
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data.yml"
@@ -27,38 +29,6 @@ CATEGORY_NOTES = {
     "Datasets and Assets": "Datasets, assets, and derived benchmark resources for AI2-THOR-family workflows.",
     "Tools and Environments": "Wrappers, infrastructure, visualization tools, and community environments for AI2-THOR-family research.",
     "Tutorials and Notes": "Secondary and community learning resources. Prefer primary paper, project, or code links for academic entries.",
-}
-
-LINK_ORDER = [
-    "paper",
-    "project",
-    "code",
-    "dataset",
-    "challenge",
-    "workshop",
-    "acl_anthology",
-    "arxiv",
-    "tutorial",
-    "note",
-    "official_code",
-    "dataset_tools",
-    "sgclip_code",
-]
-
-LINK_LABELS = {
-    "paper": "Paper",
-    "project": "Project",
-    "code": "Code",
-    "dataset": "Dataset",
-    "challenge": "Challenge",
-    "workshop": "Workshop",
-    "acl_anthology": "ACL Anthology",
-    "arxiv": "arXiv",
-    "tutorial": "Tutorial",
-    "note": "Note",
-    "official_code": "Official code",
-    "dataset_tools": "Dataset tools",
-    "sgclip_code": "SGCLIP Code",
 }
 
 ECOSYSTEM_PATTERNS = {
@@ -86,14 +56,77 @@ TASK_PATTERNS = {
     "Scene generation and assets": ["generation", "procedural", "asset", "objaverse"],
 }
 
-RESOURCE_TYPES = {
-    "papers": ["paper", "arxiv", "acl_anthology"],
-    "project pages": ["project"],
-    "code repositories": ["code", "official_code", "sgclip_code"],
-    "datasets": ["dataset", "dataset_tools"],
-    "challenges/workshops": ["challenge", "workshop"],
-    "tutorials/notes": ["tutorial", "note"],
-}
+
+RESEARCH_MAP = [
+    (
+        "Simulators and generated worlds",
+        "AI2-THOR, RoboTHOR, ProcTHOR, ManipulaTHOR, ArchitecTHOR, and generated-scene extensions.",
+        ["Platforms and Environment Generation", "Datasets and Assets"],
+    ),
+    (
+        "Benchmarks and safety",
+        "Shared tasks, challenge infrastructure, robustness checks, and safety-oriented evaluations.",
+        ["Benchmarks and Evaluation"],
+    ),
+    (
+        "ObjectNav and RoboTHOR",
+        "Object-goal navigation, zero-shot navigation, semantic maps, and sim-to-real navigation analysis.",
+        ["Navigation", "Tools and Environments"],
+    ),
+    (
+        "ALFRED and TEACh",
+        "Instruction following, dialogue-grounded household tasks, and long-horizon execution.",
+        ["Instruction Following and Household Tasks", "Benchmarks and Evaluation"],
+    ),
+    (
+        "LLM/VLM embodied agents",
+        "Foundation-model agents, RL-trained VLM agents, prompting, reasoning, and closed-loop evaluation.",
+        ["RL-Trained VLM Agents", "Planning, Memory, and Multi-Agent Systems"],
+    ),
+    (
+        "Planning, memory, and collaboration",
+        "Search, replanning, memory systems, multi-agent coordination, and human-agent assistance.",
+        ["Planning, Memory, and Multi-Agent Systems"],
+    ),
+    (
+        "Perception and physical reasoning",
+        "Scene graphs, affordances, spatial understanding, physics, reconstruction, and interaction perception.",
+        ["Perception, Physics, and Scene Graphs"],
+    ),
+    (
+        "Tools and reproducibility",
+        "Simulator wrappers, training code, evaluation harnesses, documentation, and community utilities.",
+        ["Tools and Environments", "Tutorials and Notes"],
+    ),
+]
+
+CURATED_ROUTES = [
+    (
+        "New to AI2-THOR",
+        "Start with the simulator, official docs, and a benchmark overview before diving into task-specific papers.",
+        ["AI2-THOR: An Interactive 3D Environment for Visual AI", "AI2-THOR Documentation", "EmbodiedBench: Comprehensive Benchmarking MLLMs for Vision-Driven Embodied Agents"],
+    ),
+    (
+        "ObjectNav and RoboTHOR",
+        "Follow the path from sim-to-real navigation to ObjectNav evaluation and modern zero-shot navigation methods.",
+        ["RoboTHOR: An Open Simulation-to-Real Embodied AI Platform", "AllenAct ObjectNav Tutorial", "Simple but Effective: CLIP Embeddings for Embodied AI"],
+    ),
+    (
+        "ALFRED / TEACh instruction following",
+        "Use the benchmark papers and official resources to understand household task execution and dialogue-grounded agents.",
+        ["ALFRED: A Benchmark for Interpreting Grounded Instructions for Everyday Tasks", "TEACh: Task-driven Embodied Agents that Chat", "ALFRED Documentation and Leaderboards"],
+    ),
+    (
+        "ProcTHOR and scene generation",
+        "Track procedural scale, generated assets, and language-guided environment creation.",
+        ["ProcTHOR: Large-Scale Embodied AI Using Procedural Generation", "ProcTHOR-10K Repository", "Holodeck: Language Guided Generation of 3D Embodied AI Environments"],
+    ),
+    (
+        "LLM/VLM embodied agents",
+        "Compare planner benchmarks, foundation-model agents, memory, and RL-based embodied reasoning.",
+        ["LoTa-Bench: Benchmarking Language-oriented Task Planners for Embodied Agents", "Embodied Agent Interface: Benchmarking LLMs for Embodied Decision Making", "Embodied-Reasoner"],
+    ),
+]
 
 
 def slugify(heading: str) -> str:
@@ -152,7 +185,105 @@ def render_count_list(counts: Counter, order: list[str] | None = None) -> str:
     return ", ".join(f"{label} ({counts[label]})" for label in labels if counts.get(label))
 
 
-def render_project_index(entries: list[dict], categories: list[str]) -> list[str]:
+def make_entry_anchor(entry: dict) -> str:
+    return slugify(entry["title"])
+
+
+def entry_link(entry: dict) -> str:
+    return f"[{entry['title']}](#{make_entry_anchor(entry)})"
+
+
+def entry_recency_key(entry: dict) -> tuple[str, str]:
+    links = entry.get("links") or {}
+    link_text = " ".join(str(value) for value in links.values())
+    arxiv_match = re.search(r"arxiv\.org/(?:abs|pdf)/(\d{4})\.(\d{4,5})(?:v\d+)?", link_text)
+    if arxiv_match:
+        return (arxiv_match.group(1), arxiv_match.group(2))
+    year = str(entry.get("year") or "")
+    return (year if year.isdigit() else "0000", entry["title"].lower())
+
+
+def render_at_a_glance(entries: list[dict], total_entries: int) -> list[str]:
+    paper_count = sum(
+        1
+        for entry in entries
+        if any(key in (entry.get("links") or {}) for key in RESOURCE_TYPES["papers"])
+    )
+    code_count = sum(
+        1
+        for entry in entries
+        if any(key in (entry.get("links") or {}) for key in RESOURCE_TYPES["code repositories"])
+    )
+    recent_count = sum(
+        1
+        for entry in entries
+        if str(entry.get("year") or "").isdigit() and int(entry["year"]) >= 2024
+    )
+    ecosystem_count = len(count_patterns(entries, ECOSYSTEM_PATTERNS))
+
+    return [
+        "## At a Glance",
+        "",
+        "| Metric | Count |",
+        "| --- | ---: |",
+        f"| Active README entries | {len(entries)} |",
+        f"| Total tracked entries | {total_entries} |",
+        f"| Paper entries | {paper_count} |",
+        f"| Entries with code repositories | {code_count} |",
+        f"| 2024-2026 entries | {recent_count} |",
+        f"| AI2-THOR-family ecosystems represented | {ecosystem_count} |",
+        "",
+    ]
+
+
+def render_research_map() -> list[str]:
+    lines = [
+        "## Research Map",
+        "",
+        "| Direction | Use This For | Sections |",
+        "| --- | --- | --- |",
+    ]
+    for direction, description, sections in RESEARCH_MAP:
+        section_links = ", ".join(f"[{section}](#{slugify(section)})" for section in sections)
+        lines.append(f"| {direction} | {description} | {section_links} |")
+    lines.append("")
+    return lines
+
+
+def render_curated_routes(entries: list[dict]) -> list[str]:
+    by_title = {entry["title"]: entry for entry in entries}
+    lines = ["## Curated Routes", ""]
+    for route, description, titles in CURATED_ROUTES:
+        route_entries = [by_title[title] for title in titles if title in by_title]
+        if not route_entries:
+            continue
+        links = " -> ".join(entry_link(entry) for entry in route_entries)
+        lines.extend([f"### {route}", "", description, "", links, ""])
+    return lines
+
+
+def render_recent_frontier(entries: list[dict]) -> list[str]:
+    recent_entries = sorted(
+        [
+            entry
+            for entry in entries
+            if str(entry.get("year") or "") in {"2025", "2026"}
+        ],
+        key=entry_recency_key,
+        reverse=True,
+    )[:12]
+    if not recent_entries:
+        return []
+    lines = ["## Recent Frontier", ""]
+    lines.extend(
+        f"- {entry.get('year')}: {entry_link(entry)}"
+        for entry in recent_entries
+    )
+    lines.append("")
+    return lines
+
+
+def render_project_index(entries: list[dict], total_entries: int, categories: list[str]) -> list[str]:
     category_counts = Counter(entry["category"] for entry in entries)
     status_counts = Counter(entry["status"] for entry in entries)
     year_counts = Counter(str(entry.get("year") or "unknown") for entry in entries)
@@ -174,7 +305,7 @@ def render_project_index(entries: list[dict], categories: list[str]) -> list[str
     lines = [
         "## Project Index",
         "",
-        f"- Coverage: {len(entries)} active entries across {len(categories)} sections.",
+        f"- Coverage: {len(entries)} active entries across {len(categories)} sections ({total_entries} total tracked entries).",
         f"- Status mix: {render_count_list(status_counts)}.",
         f"- Timeline: {year_text}.",
         f"- Ecosystems: {render_count_list(ecosystem_counts, list(ECOSYSTEM_PATTERNS))}.",
@@ -236,7 +367,11 @@ def render_readme(data: dict) -> str:
         "",
     ]
 
-    lines.extend(render_project_index(entries, categories))
+    lines.extend(render_at_a_glance(entries, len(data["entries"])))
+    lines.extend(render_research_map())
+    lines.extend(render_curated_routes(entries))
+    lines.extend(render_recent_frontier(entries))
+    lines.extend(render_project_index(entries, len(data["entries"]), categories))
     lines.extend(["## Contents", ""])
     lines.extend(f"- [{category}](#{slugify(category)})" for category in categories)
     lines.append("")

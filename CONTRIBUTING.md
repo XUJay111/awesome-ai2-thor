@@ -46,6 +46,20 @@ Rules:
 - Keep the tag order as `year`, `venue/status`, `task/domain`, `AI2-THOR connection` where possible.
 - Put venue/status in tags, not buried in the summary paragraph.
 - Prefer `Paper`, `Project`, and `Code` labels for primary links.
+- Keep `tags` non-empty, even for tutorials and notes.
+- Include `year` and `venue` fields for every entry. Use `null` only when the value is genuinely unknown or not applicable.
+
+## Generated README Portal
+
+`README.md` is generated from `data.yml`; do not hand-edit portal sections in the README. The generator builds:
+
+- `At a Glance`: active entries, total tracked entries, papers, code repositories, recent entries, and ecosystem coverage.
+- `Research Map`: major directions linked to the relevant README sections.
+- `Curated Routes`: fixed learning paths for new users, ObjectNav/RoboTHOR, ALFRED/TEACh, ProcTHOR, and LLM/VLM agents.
+- `Recent Frontier`: the newest active 2025-2026 entries.
+- The full category index and entry list.
+
+After any data or generator change, run both validation and README generation and confirm a second generator run is stable.
 
 ## Status Labels
 
@@ -91,10 +105,14 @@ Rules:
 - Entries without an AI2-THOR-family connection explanation are not accepted.
 - Broken-link fixes take priority over new entries.
 - If venue/status is uncertain, use `arXiv` or `needs-verification`; do not infer acceptance.
+- Prefer primary paper, proceedings, project, dataset, or official repository links over secondary blogs and broad paper lists.
 
 ## Maintenance Notes
 
 - `data.yml` is the source of truth.
 - `README.md` is generated and should stay stable after repeated generator runs.
-- `data.md` is retained as historical draft data for now.
+- `archive/data.md` is retained as historical draft data only.
 - Link-check allowlists should include comments explaining unstable or rate-limited sites.
+- Keep the generated README at or above 300 active entries. Active entries are `verified-paper`, `verified-project`, and `tutorial`; `needs-verification` and `out-of-scope` entries do not count.
+- Preserve a candidate pool for uncertain or tangential items by using `needs-verification`. Candidate summaries must state exactly what needs to be verified before promotion.
+- Do not promote a candidate just to maintain the count. Add verified primary-source entries first, then rerun validation to confirm the active count.

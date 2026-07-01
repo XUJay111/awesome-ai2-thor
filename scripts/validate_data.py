@@ -11,6 +11,8 @@ from urllib.parse import urlparse
 
 import yaml
 
+from link_schema import DUPLICATE_CHECK_LINKS, PRIMARY_LINKS
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data.yml"
@@ -36,11 +38,11 @@ VALID_CATEGORIES = {
     "Tutorials and Notes",
 }
 
-PRIMARY_LINKS = {"paper", "project", "code", "dataset", "challenge", "workshop", "arxiv", "tutorial", "note"}
-DUPLICATE_CHECK_LINKS = {"paper", "arxiv"}
 REQUIRED_FIELDS = {
     "title",
+    "year",
     "status",
+    "venue",
     "category",
     "tags",
     "links",
@@ -49,7 +51,13 @@ REQUIRED_FIELDS = {
     "last_verified",
 }
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+MONTH_RE = re.compile(r"^\d{4}-\d{2}$")
 YEAR_RE = re.compile(r"^\d{4}$")
+ARXIV_RE = re.compile(r"arxiv\.org/(?:abs|pdf)/(\d{4}\.\d{4,5})(?:v\d+)?")
+
+
+def active_entry(entry: dict) -> bool:
+    return entry.get("status") not in {"needs-verification", "out-of-scope"}
 
 
 def load_data() -> dict:
@@ -68,7 +76,24 @@ def is_url(value: str) -> bool:
     return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
 
 
-def validate_entry(index: int, entry: dict) -> list[str]:
+def minimum_last_verified(data: dict) -> str | None:
+    value = data.get("last_verified")
+    if isinstance(value, str):
+        if DATE_RE.match(value):
+            return value
+        if MONTH_RE.match(value):
+            return f"{value}-01"
+    return None
+
+
+def normalized_arxiv_id(url: str) -> str | None:
+    match = ARXIV_RE.search(url)
+    if match:
+        return match.group(1)
+    return None
+
+
+def validate_entry(index: int, entry: dict, minimum_verified: str | None) -> list[str]:
     label = entry.get("title", f"entry #{index + 1}")
     errors: list[str] = []
 
@@ -92,8 +117,16 @@ def validate_entry(index: int, entry: dict) -> list[str]:
     if category not in VALID_CATEGORIES:
         errors.append(f"{label}: invalid category {category!r}")
 
+    venue = entry.get("venue")
+    if venue is not None and (not isinstance(venue, str) or not venue.strip()):
+        errors.append(f"{label}: venue must be a non-empty string or null")
+
     tags = entry.get("tags")
-    if not isinstance(tags, list) or not all(isinstance(tag, str) and tag.strip() for tag in tags):
+    if (
+        not isinstance(tags, list)
+        or not tags
+        or not all(isinstance(tag, str) and tag.strip() for tag in tags)
+    ):
         errors.append(f"{label}: tags must be a non-empty list of strings")
 
     links = entry.get("links")
@@ -117,10 +150,20 @@ def validate_entry(index: int, entry: dict) -> list[str]:
         errors.append(f"{label}: summary must be non-empty")
     elif "\n" in summary.strip():
         errors.append(f"{label}: summary must be one paragraph")
+    elif status == "needs-verification":
+        summary_lower = summary.lower()
+        if "verify" not in summary_lower:
+            errors.append(f"{label}: needs-verification summary must state what to verify")
+        if len(summary.split()) < 8:
+            errors.append(f"{label}: needs-verification summary must explain the verification gap")
 
     last_verified = entry.get("last_verified")
     if not isinstance(last_verified, str) or not DATE_RE.match(last_verified):
         errors.append(f"{label}: last_verified must use YYYY-MM-DD")
+    elif active_entry(entry) and minimum_verified and last_verified < minimum_verified:
+        errors.append(
+            f"{label}: last_verified {last_verified} is older than top-level last_verified {minimum_verified}"
+        )
 
     if category == "Tutorials and Notes" and status != "tutorial":
         errors.append(f"{label}: Tutorials and Notes entries must use tutorial status")
@@ -138,29 +181,38 @@ def validate_duplicates(entries: list[dict]) -> list[str]:
             errors.append(f"duplicate title: {title}")
 
     primary_urls: list[str] = []
+    arxiv_ids: list[str] = []
     for entry in entries:
-        if entry.get("status") in {"needs-verification", "out-of-scope"}:
+        if not active_entry(entry):
             continue
         links = entry.get("links") or {}
         for key in DUPLICATE_CHECK_LINKS:
             if key in links:
                 primary_urls.append(links[key])
+                arxiv_id = normalized_arxiv_id(links[key])
+                if arxiv_id:
+                    arxiv_ids.append(arxiv_id)
     url_counts = Counter(primary_urls)
     for url, count in url_counts.items():
         if count > 1:
             errors.append(f"duplicate primary link: {url}")
+    arxiv_counts = Counter(arxiv_ids)
+    for arxiv_id, count in arxiv_counts.items():
+        if count > 1:
+            errors.append(f"duplicate arXiv id: {arxiv_id}")
     return errors
 
 
 def main() -> int:
     data = load_data()
     entries = data["entries"]
+    minimum_verified = minimum_last_verified(data)
     errors: list[str] = []
     for index, entry in enumerate(entries):
         if not isinstance(entry, dict):
             errors.append(f"entry #{index + 1}: must be a mapping")
             continue
-        errors.extend(validate_entry(index, entry))
+        errors.extend(validate_entry(index, entry, minimum_verified))
     errors.extend(validate_duplicates(entries))
 
     if errors:
@@ -168,7 +220,12 @@ def main() -> int:
             print(f"ERROR: {error}", file=sys.stderr)
         return 1
 
-    print(f"Validated {len(entries)} entries.")
+    active_entries = [
+        entry
+        for entry in entries
+        if isinstance(entry, dict) and active_entry(entry)
+    ]
+    print(f"Validated {len(entries)} total entries ({len(active_entries)} active).")
     return 0
 
 

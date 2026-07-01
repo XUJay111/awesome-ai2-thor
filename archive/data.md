@@ -1,5 +1,7 @@
 # Structured Draft Data
 
+Archived historical draft. `data.yml` is the source of truth for active maintenance.
+
 This file stores candidate entries in a more structured form for later conversion to JSON/YAML or a generated README.
 
 | Status | Year | Title / Project | Link | Category | Notes |
