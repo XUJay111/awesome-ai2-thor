@@ -1,2630 +1,848 @@
+<!-- Generated from data.yml. Run python scripts/generate_readme.py. -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/floorplan-dark.svg">
+  <img src="assets/floorplan-light.svg" alt="Floor plan of the list: each room is a section, sized by number of entries" width="1200">
+</picture>
+
 # Awesome AI2-THOR
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
-[![License: CC0-1.0](https://img.shields.io/badge/license-CC0--1.0-lightgrey.svg)](LICENSE)
-[![Markdown](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/markdown.yml/badge.svg)](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/markdown.yml)
-[![Link Check](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/link-check.yml/badge.svg)](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/link-check.yml)
-[![Data Validation](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/validate-data.yml/badge.svg)](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/validate-data.yml)
+A map of papers, benchmarks, and tools built on AI2-THOR and its family.
 
-Maintained as a curated research index. Last verified: 2026-06.
+[![Awesome](https://img.shields.io/badge/awesome-AI2--THOR-1F2A30?style=flat-square)](https://awesome.re) ![Entries](https://img.shields.io/badge/entries-318-1F2A30?style=flat-square) ![Papers through](https://img.shields.io/badge/papers%20through-2026--10-1F2A30?style=flat-square) [![Stars](https://img.shields.io/github/stars/XUJay111/awesome-ai2-thor?style=flat-square&color=1F2A30)](https://github.com/XUJay111/awesome-ai2-thor) [![Link check](https://img.shields.io/github/actions/workflow/status/XUJay111/awesome-ai2-thor/link-check.yml?branch=main&style=flat-square&label=link%20check&color=1F2A30)](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/link-check.yml)
 
-A curated map of papers, benchmarks, datasets, environments, and tools built on top of [AI2-THOR](https://ai2thor.allenai.org/) and its ecosystem, including iTHOR, RoboTHOR, ProcTHOR, ManipulaTHOR, ArchitecTHOR, ALFRED, TEACh, and EmbodiedBench.
+[Website](https://xujay111.github.io/awesome-ai2-thor/) / [中文](README.zh-CN.md) / [Contribute](CONTRIBUTING.md)
 
-This is an AI2-THOR-family index, not a general embodied AI awesome list. Each entry should make its AI2-THOR-family connection clear through primary paper, project, or code links whenever possible.
+## Start here
 
-## At a Glance
+**New to AI2-THOR**
 
-| Metric | Count |
-| --- | ---: |
-| Active README entries | 306 |
-| Total tracked entries | 319 |
-| Paper entries | 261 |
-| Entries with code repositories | 110 |
-| 2024-2026 entries | 151 |
-| AI2-THOR-family ecosystems represented | 10 |
+1. [AI2-THOR paper](#ai2-thor-an-interactive-3d-environment-for-visual-ai) — what the simulator is
+2. [Official docs](#ai2-thor-documentation) — run your first scene
+3. [EmbodiedBench](#embodiedbench-comprehensive-benchmarking-mllms-for-vision-driven-embodied-agents) — how visual agents are evaluated
 
-## Research Map
+**ObjectNav and RoboTHOR**
 
-| Direction | Use This For | Sections |
-| --- | --- | --- |
-| Simulators and generated worlds | AI2-THOR, RoboTHOR, ProcTHOR, ManipulaTHOR, ArchitecTHOR, and generated-scene extensions. | [Platforms and Environment Generation](#platforms-and-environment-generation), [Datasets and Assets](#datasets-and-assets) |
-| Benchmarks and safety | Shared tasks, challenge infrastructure, robustness checks, and safety-oriented evaluations. | [Benchmarks and Evaluation](#benchmarks-and-evaluation) |
-| ObjectNav and RoboTHOR | Object-goal navigation, zero-shot navigation, semantic maps, and sim-to-real navigation analysis. | [Navigation](#navigation), [Tools and Environments](#tools-and-environments) |
-| ALFRED and TEACh | Instruction following, dialogue-grounded household tasks, and long-horizon execution. | [Instruction Following and Household Tasks](#instruction-following-and-household-tasks), [Benchmarks and Evaluation](#benchmarks-and-evaluation) |
-| LLM/VLM embodied agents | Foundation-model agents, RL-trained VLM agents, prompting, reasoning, and closed-loop evaluation. | [RL-Trained VLM Agents](#rl-trained-vlm-agents), [Planning, Memory, and Multi-Agent Systems](#planning-memory-and-multi-agent-systems) |
-| Planning, memory, and collaboration | Search, replanning, memory systems, multi-agent coordination, and human-agent assistance. | [Planning, Memory, and Multi-Agent Systems](#planning-memory-and-multi-agent-systems) |
-| Perception and physical reasoning | Scene graphs, affordances, spatial understanding, physics, reconstruction, and interaction perception. | [Perception, Physics, and Scene Graphs](#perception-physics-and-scene-graphs) |
-| Tools and reproducibility | Simulator wrappers, training code, evaluation harnesses, documentation, and community utilities. | [Tools and Environments](#tools-and-environments), [Tutorials and Notes](#tutorials-and-notes) |
+1. [RoboTHOR paper](#robothor-an-open-simulation-to-real-embodied-ai-platform) — understand simulation-to-real evaluation
+2. [ObjectNav tutorial](#allenact-objectnav-tutorial) — train a baseline
+3. [CLIP for embodied AI](#simple-but-effective-clip-embeddings-for-embodied-ai) — compare visual representations
 
-## Curated Routes
+**ALFRED and TEACh**
 
-### New to AI2-THOR
+1. [ALFRED paper](#alfred-a-benchmark-for-interpreting-grounded-instructions-for-everyday-tasks) — ground instructions in actions
+2. [TEACh paper](#teach-task-driven-embodied-agents-that-chat) — add dialogue to household tasks
+3. [ALFRED resources](#alfred-documentation-and-leaderboards) — check the evaluation protocol
 
-Start with the simulator, official docs, and a benchmark overview before diving into task-specific papers.
+<details>
+<summary>Two more reading routes</summary>
 
-[AI2-THOR: An Interactive 3D Environment for Visual AI](#ai2-thor-an-interactive-3d-environment-for-visual-ai) -> [AI2-THOR Documentation](#ai2-thor-documentation) -> [EmbodiedBench: Comprehensive Benchmarking MLLMs for Vision-Driven Embodied Agents](#embodiedbench-comprehensive-benchmarking-mllms-for-vision-driven-embodied-agents)
+**ProcTHOR and scene generation**
 
-### ObjectNav and RoboTHOR
+1. [ProcTHOR paper](#procthor-large-scale-embodied-ai-using-procedural-generation) — generate interactive houses
+2. [ProcTHOR-10K repository](#procthor-10k-repository) — load the house corpus
+3. [Holodeck paper](#holodeck-language-guided-generation-of-3d-embodied-ai-environments) — generate scenes from language
 
-Follow the path from sim-to-real navigation to ObjectNav evaluation and modern zero-shot navigation methods.
+**LLM/VLM embodied agents**
 
-[RoboTHOR: An Open Simulation-to-Real Embodied AI Platform](#robothor-an-open-simulation-to-real-embodied-ai-platform) -> [AllenAct ObjectNav Tutorial](#allenact-objectnav-tutorial) -> [Simple but Effective: CLIP Embeddings for Embodied AI](#simple-but-effective-clip-embeddings-for-embodied-ai)
+1. [LoTa-Bench](#lota-bench-benchmarking-language-oriented-task-planners-for-embodied-agents) — compare language planners
+2. [Embodied Agent Interface](#embodied-agent-interface-benchmarking-llms-for-embodied-decision-making) — inspect decision stages
+3. [Embodied-Reasoner](#embodied-reasoner) — connect reasoning to interaction
 
-### ALFRED / TEACh instruction following
+</details>
 
-Use the benchmark papers and official resources to understand household task execution and dialogue-grounded agents.
+## The THOR family
 
-[ALFRED: A Benchmark for Interpreting Grounded Instructions for Everyday Tasks](#alfred-a-benchmark-for-interpreting-grounded-instructions-for-everyday-tasks) -> [TEACh: Task-driven Embodied Agents that Chat](#teach-task-driven-embodied-agents-that-chat) -> [ALFRED Documentation and Leaderboards](#alfred-documentation-and-leaderboards)
+```mermaid
+flowchart LR
+  A["AI2-THOR 2017"] --> B["iTHOR"]
+  A --> C["RoboTHOR 2020"]
+  A --> D["ManipulaTHOR 2021"]
+  A --> E["ProcTHOR 2022"]
+  A --> F["ArchitecTHOR"]
+  E --> G["Holodeck 2024"]
+  E --> H["SPOC 2024"]
+  A --> I["ALFRED 2020"]
+  A --> J["TEACh 2022"]
+  I --> K["ALFWorld 2021"]
+  A --> L["EmbodiedBench 2025"]
+  classDef platform fill:#E4E3DD,color:#1F2A30,stroke:#1F2A30
+  classDef navigation fill:#DCCFB8,color:#1F2A30,stroke:#1F2A30
+  classDef household fill:#B7CBB0,color:#1F2A30,stroke:#1F2A30
+  classDef evaluation fill:#DDBFC2,color:#1F2A30,stroke:#1F2A30
+  class A,B,D,E,F,G platform
+  class C,H navigation
+  class I,J,K household
+  class L evaluation
+```
 
-### ProcTHOR and scene generation
+[AI2-THOR / iTHOR](#ai2-thor-an-interactive-3d-environment-for-visual-ai) / [RoboTHOR](#robothor-an-open-simulation-to-real-embodied-ai-platform) / [ManipulaTHOR](#manipulathor-a-framework-for-visual-object-manipulation) / [ProcTHOR](#procthor-large-scale-embodied-ai-using-procedural-generation) / [ArchitecTHOR evaluation](#selective-visual-representations-improve-convergence-and-generalization-for-embodied-ai) / [Holodeck](#holodeck-language-guided-generation-of-3d-embodied-ai-environments) / [SPOC](#spoc-imitating-shortest-paths-in-simulation-enables-effective-navigation-and-manipulation-in-the-real-world) / [ALFRED](#alfred-a-benchmark-for-interpreting-grounded-instructions-for-everyday-tasks) / [TEACh](#teach-task-driven-embodied-agents-that-chat) / [ALFWorld](#alfworld-aligning-text-and-embodied-environments-for-interactive-learning) / [EmbodiedBench](#embodiedbench-comprehensive-benchmarking-mllms-for-vision-driven-embodied-agents)
 
-Track procedural scale, generated assets, and language-guided environment creation.
+Edges show simulator extensions or task lineage, rather than model inheritance.
 
-[ProcTHOR: Large-Scale Embodied AI Using Procedural Generation](#procthor-large-scale-embodied-ai-using-procedural-generation) -> [ProcTHOR-10K Repository](#procthor-10k-repository) -> [Holodeck: Language Guided Generation of 3D Embodied AI Environments](#holodeck-language-guided-generation-of-3d-embodied-ai-environments)
+## What's new
 
-### LLM/VLM embodied agents
+24 entries added on 2026-10-28, covering arXiv papers from 2026-07 to 2026-10.
 
-Compare planner benchmarks, foundation-model agents, memory, and RL-based embodied reasoning.
+| Paper | Room | Env | Links |
+| --- | :--: | :--: | --- |
+| [**F2A-ObjectNav: An Adaptive Agentic Architecture for Object-Goal Navigation**](#f2a-objectnav-an-adaptive-agentic-architecture-for-object-goal-navigation)<br><sub>Coordinate ObjectNav modules with a rule-based supervisor and mission memory</sub> | Navigation | AI2-THOR<br>RoboTHOR<br>ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.19618-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.19618) |
+| [**From Failures to Learnable Worlds: Policy-Conditioned Environment Generation for Navigation Agents**](#from-failures-to-learnable-worlds-policy-conditioned-environment-generation-for-navigation-agents)<br><sub>Generate training houses that target a navigation policy&#x27;s failures</sub> | Navigation | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.19420-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.19420) |
+| [**MIND: Instruction-Conditioned Incremental Grounding for Robots**](#mind-instruction-conditioned-incremental-grounding-for-robots)<br><sub>Revise target-room choices as instruction-relevant events unfold</sub> | Planning | ProcTHOR<br>AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.19262-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.19262) |
+| [**Towards a Systematic Study of Embodied System 2 over Full Task Execution Cycles**](#towards-a-systematic-study-of-embodied-system-2-over-full-task-execution-cycles)<br><sub>SCOPER-bench: planning, execution, and recovery across full task cycles</sub> | Benchmarks | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.17657-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.17657) |
+| [**SafeVantage: Vantage-Aware Memory for Reliable Embodied Decisions**](#safevantage-vantage-aware-memory-for-reliable-embodied-decisions)<br><sub>Viewpoint-aware memory for yes, no, or abstain decisions</sub> | Perception | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.36906-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.36906) [![Code](https://img.shields.io/badge/code-view-1F2A30?style=flat-square)](https://safevantage.github.io) |
+| [**SAGE: Symbolic Action-Gating and Editing for LLM Task Planners**](#sage-symbolic-action-gating-and-editing-for-llm-task-planners)<br><sub>Gate LLM household plans with symbolic precondition checks</sub> | Planning | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.34268-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.34268) [![Code](https://img.shields.io/github/stars/mtbui2010/sage_release?style=flat-square&label=code&color=1F2A30)](https://github.com/mtbui2010/sage_release) |
 
-[LoTa-Bench: Benchmarking Language-oriented Task Planners for Embodied Agents](#lota-bench-benchmarking-language-oriented-task-planners-for-embodied-agents) -> [Embodied Agent Interface: Benchmarking LLMs for Embodied Decision Making](#embodied-agent-interface-benchmarking-llms-for-embodied-decision-making) -> [Embodied-Reasoner](#embodied-reasoner)
+<details>
+<summary>18 more additions</summary>
 
-## Recent Frontier
+| Paper | Room | Env | Links |
+| --- | :--: | :--: | --- |
+| [**Strategic Transformer for Resource-Constrained Multi-Object Navigation in Ultra-Large-Scale Environments**](#strategic-transformer-for-resource-constrained-multi-object-navigation-in-ultra-large-scale-environments)<br><sub>Lightweight Transformer for multi-object navigation under resource limits</sub> | Navigation | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.20227-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.20227) |
+| [**EvoNav-Bench: Benchmarking Lifelong Navigation in Evolving Environments**](#evonav-bench-benchmarking-lifelong-navigation-in-evolving-environments)<br><sub>Lifelong navigation in ProcTHOR houses that change between tasks</sub> | Benchmarks | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.08292-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.08292) |
+| [**Seeing Less Is Not Seeing Safely: Privacy Leakage from Task-Scoped Robot Perception Exports**](#seeing-less-is-not-seeing-safely-privacy-leakage-from-task-scoped-robot-perception-exports)<br><sub>Measure privacy leakage from task-scoped robot perception exports</sub> | Benchmarks | AI2-THOR<br>ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.03055-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.03055) |
+| [**DSG: Dynamic 3D Scene Graph Construction for Embodied Agents in Changing Indoor Environments**](#dsg-dynamic-3d-scene-graph-construction-for-embodied-agents-in-changing-indoor-environments)<br><sub>Update 3D scene graphs as objects move, with the DynTHOR benchmark</sub> | Perception | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.00619-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.00619) |
+| [**PRACTICE: From Experience to Expertise in Self-Evolving Embodied Agents**](#practice-from-experience-to-expertise-in-self-evolving-embodied-agents)<br><sub>Grow a persistent skill library from past embodied trajectories</sub> | Planning | EmbodiedBench<br>ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.30760-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.30760) |
+| [**If, Then, Otherwise: Diagnosing Conditional Branching in Vision-Language Navigation**](#if-then-otherwise-diagnosing-conditional-branching-in-vision-language-navigation)<br><sub>Diagnose conditional branching in vision-language navigation instructions</sub> | Benchmarks | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2608.17318-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.17318) |
+| [**Breaking Planner Integrity Boundary: Enviroment State-Text Injection Attack on LLM-Driven Embodied Agents**](#breaking-planner-integrity-boundary-enviroment-state-text-injection-attack-on-llm-driven-embodied-agents)<br><sub>Attack LLM embodied agents by injecting false environment-state text</sub> | Benchmarks | AI2-THOR<br>iTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2608.16806-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.16806) |
+| [**Graph-MambaNav: Spatial-Temporal Graph Mamba Leveraging Object-Relation Knowledge for Object-Goal Navigation**](#graph-mambanav-spatial-temporal-graph-mamba-leveraging-object-relation-knowledge-for-object-goal-navigation)<br><sub>Graph Mamba that orders objects by relevance for ObjectNav</sub> | Navigation | AI2-THOR<br>RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2608.13723-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.13723) |
+| [**GraphThink: Graph-Enhanced LLM Thinking for Long-Horizon Embodied Task Planning**](#graphthink-graph-enhanced-llm-thinking-for-long-horizon-embodied-task-planning)<br><sub>Long-horizon household planning with task graphs and scene-graph replanning</sub> | Planning | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.07905-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.07905) |
+| [**TRACE: A Multi-Layer Benchmark for Human AI Controller Coordination Under Drift and Failure**](#trace-a-multi-layer-benchmark-for-human-ai-controller-coordination-under-drift-and-failure)<br><sub>Diagnose layer-wise drift in ALFRED-derived execution traces</sub> | Benchmarks | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.06657-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.06657) |
+| [**Mimir: A Neuro-Symbolic Memory System with Dynamic Grounding for Embodied Agents in Interactive Environments**](#mimir-a-neuro-symbolic-memory-system-with-dynamic-grounding-for-embodied-agents-in-interactive-environments)<br><sub>Neuro-symbolic memory that grounds goals before each action</sub> | Planning | EmbodiedBench<br>ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.04933-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.04933) |
+| [**Memory for Attention: Language-Conditioned Re-Perception with a Vision--Language--Motion Map**](#memory-for-attention-language-conditioned-re-perception-with-a-vision--language--motion-map)<br><sub>Re-perceive scenes by allocating attention over a vision-language-motion map</sub> | Perception | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.23797-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.23797) |
+| [**MEMENTO: Memory-Guided Memetic Code-as-Policy Evolution**](#memento-memory-guided-memetic-code-as-policy-evolution)<br><sub>Evolve code-as-policy programs with memory-guided search</sub> | Planning | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.22832-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.22832) [![Code](https://img.shields.io/github/stars/sygkounas/MEMENTO?style=flat-square&label=code&color=1F2A30)](https://github.com/sygkounas/MEMENTO) |
+| [**UniETP: Unifying Environments for Generalizable Embodied Task Planning**](#unietp-unifying-environments-for-generalizable-embodied-task-planning)<br><sub>Unify AI2-THOR, VirtualHome, Habitat, and BEHAVIOR for task planning</sub> | Benchmarks | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.18062-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.18062) [![Code](https://img.shields.io/github/stars/woyut/UniETP?style=flat-square&label=code&color=1F2A30)](https://github.com/woyut/UniETP) |
+| [**Vision-Language-Motion Maps: An Open-Vocabulary, Uncertainty-Aware, Queryable Motion Attribute for 3D Scene Maps**](#vision-language-motion-maps-an-open-vocabulary-uncertainty-aware-queryable-motion-attribute-for-3d-scene-maps)<br><sub>Open-vocabulary 3D maps with per-object motion attributes</sub> | Perception | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.16173-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.16173) |
+| [**Embodied Active Learning under Limited Annotation and Navigation Budget for Object Detection**](#embodied-active-learning-under-limited-annotation-and-navigation-budget-for-object-detection)<br><sub>Choose trajectories and images to retrain detectors on a budget</sub> | Perception | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.15974-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.15974) |
+| [**Difference-Based Relational Learning for Zero-Shot Object-Goal Visual Navigation With Direct Sim-to-Real Transfer**](#difference-based-relational-learning-for-zero-shot-object-goal-visual-navigation-with-direct-sim-to-real-transfer)<br><sub>Zero-shot object-goal navigation with Siamese difference features and sim-to-real transfer</sub> | Navigation | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.15642-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.15642) |
+| [**Mosaic: Runtime-Efficient Multi-Agent Embodied Planning**](#mosaic-runtime-efficient-multi-agent-embodied-planning)<br><sub>Faster multi-agent planning with shared memory and ILP action allocation</sub> | Planning | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.09603-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.09603) |
 
-- 2026: [TRIAGE: Role-Typed Credit Assignment for Agentic Reinforcement Learning](#triage-role-typed-credit-assignment-for-agentic-reinforcement-learning)
-- 2026: [Self-Evolving World Models for LLM Agent Planning](#self-evolving-world-models-for-llm-agent-planning)
-- 2026: [DuoMem: Towards Capable On-Device Memory Agents via Dual-Space Distillation](#duomem-towards-capable-on-device-memory-agents-via-dual-space-distillation)
-- 2026: [UCOB: Learning to Utilize and Evolve Agentic Skills via Credit-Aware On-Policy Bidirectional Self-Distillation](#ucob-learning-to-utilize-and-evolve-agentic-skills-via-credit-aware-on-policy-bidirectional-self-distillation)
-- 2026: [Selective Memory Retention for Long-Horizon LLM Agents](#selective-memory-retention-for-long-horizon-llm-agents)
-- 2026: [ATOD: Annealed Turn-aware On-policy Distillation for Multi-turn Autonomous Agents](#atod-annealed-turn-aware-on-policy-distillation-for-multi-turn-autonomous-agents)
-- 2026: [OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning](#opid-on-policy-skill-distillation-for-agentic-reinforcement-learning)
-- 2026: [SKILL-DISCO: Distilling and Compiling Agent Traces into Reusable Procedural Skills](#skill-disco-distilling-and-compiling-agent-traces-into-reusable-procedural-skills)
-- 2026: [Semantic Consistency Policy Optimization for Reinforcement Learning of LLM Agents](#semantic-consistency-policy-optimization-for-reinforcement-learning-of-llm-agents)
-- 2026: [BiPACE: Bisimulation-Guided Policy Optimization with Action Counterfactual Estimation for LLM Agents](#bipace-bisimulation-guided-policy-optimization-with-action-counterfactual-estimation-for-llm-agents)
-- 2026: [SAGE-Nav: Leveraging LLM Planning and Alignment Fusion for Hierarchical Scene Graph-Guided Navigation](#sage-nav-leveraging-llm-planning-and-alignment-fusion-for-hierarchical-scene-graph-guided-navigation)
-- 2026: [The Interplay of Harness Design and Post-Training in LLM Agents](#the-interplay-of-harness-design-and-post-training-in-llm-agents)
-
-## Project Index
-
-- Coverage: 306 active entries across 10 sections (319 total tracked entries).
-- Status mix: verified-paper (261), verified-project (40), tutorial (5).
-- Timeline: 2017 (4), 2018 (4), 2019 (8), 2020 (11), 2021 (24), 2022 (29), 2023 (41), 2024 (54), 2025 (41), 2026 (56), unknown (34).
-- Ecosystems: AI2-THOR / iTHOR (257), RoboTHOR (34), ProcTHOR (27), ManipulaTHOR (3), ArchitecTHOR (1), ALFRED (78), TEACh (13), EmbodiedBench (15), MAP-THOR / MAT-THOR (3), Other THOR variants (2).
-- Task themes: Instruction following (112), Navigation / ObjectNav (120), Planning and memory (136), Multi-agent collaboration (62), Manipulation (16), Rearrangement / tidying (8), Dialogue and assistance (16), Safety and physical reasoning (43), Scene generation and assets (35).
-- Resources: papers (261), project pages (44), code repositories (110), datasets (6), challenges/workshops (2), tutorials/notes (5).
-
-Section counts:
-
-- [Platforms and Environment Generation](#platforms-and-environment-generation): 12
-- [Benchmarks and Evaluation](#benchmarks-and-evaluation): 28
-- [Instruction Following and Household Tasks](#instruction-following-and-household-tasks): 54
-- [Navigation](#navigation): 80
-- [Planning, Memory, and Multi-Agent Systems](#planning-memory-and-multi-agent-systems): 53
-- [RL-Trained VLM Agents](#rl-trained-vlm-agents): 17
-- [Perception, Physics, and Scene Graphs](#perception-physics-and-scene-graphs): 23
-- [Datasets and Assets](#datasets-and-assets): 10
-- [Tools and Environments](#tools-and-environments): 24
-- [Tutorials and Notes](#tutorials-and-notes): 5
+</details>
 
 ## Contents
 
-- [Platforms and Environment Generation](#platforms-and-environment-generation)
-- [Benchmarks and Evaluation](#benchmarks-and-evaluation)
-- [Instruction Following and Household Tasks](#instruction-following-and-household-tasks)
-- [Navigation](#navigation)
-- [Planning, Memory, and Multi-Agent Systems](#planning-memory-and-multi-agent-systems)
-- [RL-Trained VLM Agents](#rl-trained-vlm-agents)
-- [Perception, Physics, and Scene Graphs](#perception-physics-and-scene-graphs)
-- [Datasets and Assets](#datasets-and-assets)
-- [Tools and Environments](#tools-and-environments)
-- [Tutorials and Notes](#tutorials-and-notes)
+- [Platforms and environment generation](#platforms-and-environment-generation) <sub>12</sub> — Simulators and generated worlds.
+- [Benchmarks and evaluation](#benchmarks-and-evaluation) <sub>35</sub> — Shared tasks, safety, and evaluation protocols.
+- [Instruction following and household tasks](#instruction-following-and-household-tasks) <sub>54</sub> — ALFRED, TEACh, and language-grounded execution.
+- [Navigation](#navigation) <sub>84</sub> — ObjectNav, exploration, and sim-to-real transfer.
+- [Planning, memory, and multi-agent systems](#planning-memory-and-multi-agent-systems) <sub>50</sub> — Replanning, spatial memory, and collaboration.
+- [RL-trained VLM agents](#rl-trained-vlm-agents) <sub>17</sub> — Policy training and embodied reasoning.
+- [Perception, physics, and scene graphs](#perception-physics-and-scene-graphs) <sub>27</sub> — Objects, affordances, and physical reasoning.
+- [Datasets and assets](#datasets-and-assets) <sub>10</sub> — Scene corpora, object assets, and task data.
+- [Tools and environments](#tools-and-environments) <sub>24</sub> — Training frameworks, wrappers, and utilities.
+- [Tutorials and notes](#tutorials-and-notes) <sub>5</sub> — Installation, first scenes, and reproducible baselines.
 
-## Platforms and Environment Generation
+318 simulator-family resources; 13 text-only ALFWorld papers appear in a separate appendix.
 
-*Core simulators, generated environments, and official ecosystem extensions.*
+<a id="platforms-and-environment-generation"></a>
 
-### AI2-THOR: An Interactive 3D Environment for Visual AI
+## <img src="assets/rooms/platforms.svg" width="88" height="28" alt="" align="absmiddle"> Platforms and environment generation
 
-`2017` `platform` `interactive simulation`
+Simulators and generated worlds. 12 entries.
 
-Links: [Paper](https://arxiv.org/abs/1712.05474) · [Project](https://ai2thor.allenai.org/) · [Code](https://github.com/allenai/ai2thor)
+#### AI2-THOR: An Interactive 3D Environment for Visual AI
 
-AI2-THOR is the base interactive simulator for household embodied AI. It provides visually rich indoor scenes, navigation, physics-enabled object interaction, metadata, and a Python controller API, making it the foundation for many later navigation, manipulation, rearrangement, and instruction-following benchmarks.
+2017 · AI2-THOR
 
-### RoboTHOR: An Open Simulation-to-Real Embodied AI Platform
+[![arXiv](https://img.shields.io/badge/arXiv-1712.05474-B31B1B?style=flat-square)](https://arxiv.org/abs/1712.05474) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://ai2thor.allenai.org/) [![Code](https://img.shields.io/github/stars/allenai/ai2thor?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/ai2thor)
 
-`2020` `CVPR` `sim-to-real` `navigation`
+Provides interactive indoor scenes in AI2-THOR with navigation, physics, and object actions, establishing a shared simulator for household agents.
 
-Links: [Paper](https://arxiv.org/abs/2004.06799) · [Project](https://ai2thor.allenai.org/robothor/) · [Code](https://github.com/allenai/ai2thor)
+#### RoboTHOR: An Open Simulation-to-Real Embodied AI Platform
 
-RoboTHOR extends AI2-THOR with paired simulated and real physical spaces, allowing researchers to quantify the transfer gap between simulation-trained navigation agents and real-world robot deployment. It helped turn sim-to-real generalization from an informal concern into a benchmarked research problem.
+CVPR 2020 · RoboTHOR
 
-### ManipulaTHOR: A Framework for Visual Object Manipulation
+[![arXiv](https://img.shields.io/badge/arXiv-2004.06799-B31B1B?style=flat-square)](https://arxiv.org/abs/2004.06799) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://ai2thor.allenai.org/robothor/) [![Code](https://img.shields.io/github/stars/allenai/ai2thor?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/ai2thor)
 
-`2021` `CVPR` `manipulation` `mobile arm`
+Pairs simulated and physical rooms in RoboTHOR, letting researchers measure how navigation policies transfer to real environments.
 
-Links: [Paper](https://arxiv.org/abs/2104.11213) · [Project](https://ai2thor.allenai.org/manipulathor/) · [Code](https://github.com/allenai/manipulathor)
+#### ProcTHOR: Large-Scale Embodied AI Using Procedural Generation
 
-ManipulaTHOR expands AI2-THOR from navigation-only agents to mobile manipulation. It introduces arm-based interaction tasks such as ArmPointNav, where agents must reason about visual observations, navigation, occlusion, obstacle avoidance, and object manipulation in one closed-loop setting.
+NeurIPS 2022 · ProcTHOR
 
-### Visual Room Rearrangement
+[![arXiv](https://img.shields.io/badge/arXiv-2206.06994-B31B1B?style=flat-square)](https://arxiv.org/abs/2206.06994) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://procthor.allenai.org/) [![Code](https://img.shields.io/github/stars/allenai/procthor?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/procthor)
 
-`2021` `CVPR` `rearrangement` `benchmark`
+Generates 10,000 interactive ProcTHOR houses procedurally, making scene diversity a scalable training resource for navigation and household interaction.
 
-Links: [Paper](https://arxiv.org/abs/2103.16544) · [Project](https://ai2thor.allenai.org/rearrangement/) · [Code](https://github.com/allenai/ai2thor-rearrangement)
+#### Holodeck: Language Guided Generation of 3D Embodied AI Environments
 
-Visual Room Rearrangement asks agents to observe a reference room state and then restore displaced objects and object states. The task moves beyond finding a target object: agents must remember, compare, navigate, interact, and repair a scene over a long sequence of actions.
+CVPR 2024 · ProcTHOR
 
-### ProcTHOR: Large-Scale Embodied AI Using Procedural Generation
+[![arXiv](https://img.shields.io/badge/arXiv-2312.09067-B31B1B?style=flat-square)](https://arxiv.org/abs/2312.09067) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://yueyang1996.github.io/holodeck/) [![Code](https://img.shields.io/github/stars/allenai/Holodeck?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/Holodeck)
 
-`2022` `NeurIPS` `procedural generation` `scaling`
+Builds interactive AI2-THOR-compatible scenes from language and Objaverse assets, extending environment generation beyond hand-authored layouts.
 
-Links: [Paper](https://arxiv.org/abs/2206.06994) · [Project](https://procthor.allenai.org/) · [Code](https://github.com/allenai/procthor)
+| Year | Paper / resource | Env | Links |
+| :--: | --- | :--: | --- |
+| 2026 | <a id="spread-spatial-physical-reasoning-via-geometry-aware-diffusion"></a>**SPREAD: Spatial-Physical REasoning via geometry Aware Diffusion**<br><sub>Generate spatial-physical structure with geometry-aware diffusion</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2603.27573-B31B1B?style=flat-square)](https://arxiv.org/abs/2603.27573) |
+| 2025 | <a id="dualthor"></a>**DualTHOR**<br><sub>Dual-arm task execution, replay, and contingency modeling</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2506.16012-B31B1B?style=flat-square)](https://arxiv.org/abs/2506.16012) [![Code](https://img.shields.io/github/stars/ds199895/DualTHOR?style=flat-square&label=code&color=1F2A30)](https://github.com/ds199895/DualTHOR) |
+| 2025 | <a id="beyond-needles-in-the-embodied-haystack"></a>**Beyond Needle(s) in the Embodied Haystack**<br><sub>Long trajectories for extreme-context embodied reasoning</sub> | infinity-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2505.16928-B31B1B?style=flat-square)](https://arxiv.org/abs/2505.16928) |
+| 2025 | <a id="enhancing-multi-agent-systems-via-reinforcement-learning-with-llm-based-planner-and-graph-based-policy"></a>**Enhancing Multi-Agent Systems via Reinforcement Learning with LLM-based Planner and Graph-based Policy**<br><sub>Combine language planning and graph policies in multi-agent reinforcement learning</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2503.10049-B31B1B?style=flat-square)](https://arxiv.org/abs/2503.10049) |
+| 2024 | <a id="spoc-imitating-shortest-paths-in-simulation-enables-effective-navigation-and-manipulation-in-the-real-world"></a>**SPOC: Imitating Shortest Paths in Simulation Enables Effective Navigation and Manipulation in the Real World**<br><sub>Transfer shortest-path imitation from simulation to real robots</sub> | ProcTHOR | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://openaccess.thecvf.com/content/CVPR2024/html/Ehsani_SPOC_Imitating_Shortest_Paths_in_Simulation_Enables_Effective_Navigation_and_CVPR_2024_paper.html) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://spoc-robot.github.io/) [![Code](https://img.shields.io/github/stars/allenai/spoc-robot-training?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/spoc-robot-training) |
+| 2022 | <a id="phone2proc-bringing-robust-robots-into-our-chaotic-world"></a>**Phone2Proc: Bringing Robust Robots Into Our Chaotic World**<br><sub>Generate training scenes conditioned on phone scans</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2212.04819-B31B1B?style=flat-square)](https://arxiv.org/abs/2212.04819) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://allenai.org/project/phone2proc) [![Code](https://img.shields.io/github/stars/allenai/phone2proc?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/phone2proc) |
+| 2021 | <a id="manipulathor-a-framework-for-visual-object-manipulation"></a>**ManipulaTHOR: A Framework for Visual Object Manipulation**<br><sub>Mobile-arm interaction and ArmPointNav tasks</sub> | ManipulaTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2104.11213-B31B1B?style=flat-square)](https://arxiv.org/abs/2104.11213) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://ai2thor.allenai.org/manipulathor/) [![Code](https://img.shields.io/github/stars/allenai/manipulathor?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/manipulathor) |
+| 2021 | <a id="visual-room-rearrangement"></a>**Visual Room Rearrangement**<br><sub>Restore displaced objects to a remembered room state</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2103.16544-B31B1B?style=flat-square)](https://arxiv.org/abs/2103.16544) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://ai2thor.allenai.org/rearrangement/) [![Code](https://img.shields.io/github/stars/allenai/ai2thor-rearrangement?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/ai2thor-rearrangement) |
 
-ProcTHOR brings large-scale procedural generation into the AI2-THOR ecosystem. It generates diverse, semantically plausible, interactive household environments and shows that environment scale and diversity can substantially improve generalization across navigation, rearrangement, and manipulation tasks.
+<a id="benchmarks-and-evaluation"></a>
 
-### Phone2Proc: Bringing Robust Robots Into Our Chaotic World
+## <img src="assets/rooms/benchmarks.svg" width="88" height="28" alt="" align="absmiddle"> Benchmarks and evaluation
 
-`2022` `arXiv` `sim-to-real` `conditional generation`
+Shared tasks, safety, and evaluation protocols. 35 entries.
 
-Links: [Paper](https://arxiv.org/abs/2212.04819) · [Project](https://allenai.org/project/phone2proc) · [Code](https://github.com/allenai/phone2proc)
+#### ALFRED: A Benchmark for Interpreting Grounded Instructions for Everyday Tasks
 
-Phone2Proc conditions procedural scene generation on a quick phone scan of a target real-world environment. The generated training scenes preserve large-scale layout while randomizing clutter, materials, lighting, and object placement, improving sim-to-real robustness for ObjectNav.
+CVPR 2020 · ALFRED
 
-### Holodeck: Language Guided Generation of 3D Embodied AI Environments
+[![arXiv](https://img.shields.io/badge/arXiv-1912.01734-B31B1B?style=flat-square)](https://arxiv.org/abs/1912.01734) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://askforalfred.com/) [![Code](https://img.shields.io/github/stars/askforalfred/alfred?style=flat-square&label=code&color=1F2A30)](https://github.com/askforalfred/alfred)
 
-`2024` `CVPR` `language-guided generation` `Objaverse`
+Pairs household instructions with visual demonstrations in ALFRED, testing language grounding, navigation, and irreversible object interactions together.
 
-Links: [Paper](https://arxiv.org/abs/2312.09067) · [Project](https://yueyang1996.github.io/holodeck/) · [Code](https://github.com/allenai/Holodeck)
+#### TEACh: Task-driven Embodied Agents that Chat
 
-Holodeck uses language prompts, LLM-based scene planning, Objaverse assets, and AI2-THOR-compatible interaction to generate embodied AI environments. It targets open-ended scene types and semantic layouts that are difficult to cover with hand-authored procedural rules alone.
+AAAI 2022 · TEACh
 
-### SPOC: Imitating Shortest Paths in Simulation Enables Effective Navigation and Manipulation in the Real World
+[![arXiv](https://img.shields.io/badge/arXiv-2110.00534-B31B1B?style=flat-square)](https://arxiv.org/abs/2110.00534) [![Code](https://img.shields.io/github/stars/alexa/teach?style=flat-square&label=code&color=1F2A30)](https://github.com/alexa/teach)
 
-`2024` `CVPR` `ProcTHOR` `sim-to-real`
+Adds Commander–Follower dialogue to AI2-THOR household tasks in TEACh, testing how conversation resolves missing information during execution.
 
-Links: [Paper](https://openaccess.thecvf.com/content/CVPR2024/html/Ehsani_SPOC_Imitating_Shortest_Paths_in_Simulation_Enables_Effective_Navigation_and_CVPR_2024_paper.html) · [Project](https://spoc-robot.github.io/) · [Code](https://github.com/allenai/spoc-robot-training)
+#### EmbodiedBench: Comprehensive Benchmarking MLLMs for Vision-Driven Embodied Agents
 
-SPOC uses AI2-THOR and ProcTHOR to generate large-scale shortest-path demonstrations for navigation and manipulation, then transfers the resulting policies to real robots. It is an important sim-to-real example of scaling training data through the AI2-THOR ecosystem.
+ICML 2025 · EmbodiedBench / ALFRED
 
-### Beyond Needle(s) in the Embodied Haystack
+[![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://openreview.net/forum?id=DgGF2LEBPS) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://embodiedbench.github.io/) [![Code](https://img.shields.io/github/stars/EmbodiedBench/EmbodiedBench?style=flat-square&label=code&color=1F2A30)](https://github.com/EmbodiedBench/EmbodiedBench)
 
-`2025` `arXiv` `long-horizon` `benchmark generation`
+Tests multimodal agents in EmbodiedBench, including EB-ALFRED, separating high-level plans from failures in visual grounding and executable actions.
 
-Links: [Paper](https://arxiv.org/abs/2505.16928)
+**Latest entries**
 
-This work introduces infinity-THOR, a long-horizon embodied task framework for extreme-context reasoning. It generates scalable trajectories and a Needle(s) in the Embodied Haystack task where agents must reason over long action-observation histories.
-
-### DualTHOR
-
-`2025` `environment` `dual-arm humanoid` `AI2-THOR`
-
-Links: [Code](https://github.com/ds199895/DualTHOR) · [arXiv](https://arxiv.org/abs/2506.16012)
-
-DualTHOR is a lightweight dual-arm humanoid simulation environment built on AI2-THOR. Its repository adds dual-arm task setup, parallel arm execution, task replay, contingency modeling, inverse-kinematics-based actions, and more detailed object state transitions; the linked arXiv record is currently withdrawn, so this entry is tracked as a verified project.
-
-### Enhancing Multi-Agent Systems via Reinforcement Learning with LLM-based Planner and Graph-based Policy
-
-`2025` `arXiv` `planning` `multi-agent`
-
-Links: [arXiv](https://arxiv.org/abs/2503.10049)
-
-This work uses AI2-THOR for embodied safety evaluation and planning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### SPREAD: Spatial-Physical REasoning via geometry Aware Diffusion
-
-`2026` `arXiv` `ProcTHOR`
-
-Links: [arXiv](https://arxiv.org/abs/2603.27573)
-
-This work uses ProcTHOR for scene generation and environment design. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-## Benchmarks and Evaluation
-
-*Benchmarks, challenges, and evaluation interfaces with a concrete AI2-THOR-family connection.*
-
-### IQA: Visual Question Answering in Interactive Environments
-
-`2018` `CVPR` `interactive QA` `AI2-THOR`
-
-Links: [Paper](https://openaccess.thecvf.com/content_cvpr_2018/html/Gordon_IQA_Visual_Question_CVPR_2018_paper.html) · [Project](https://prior.allenai.org/projects/iqa) · [Code](https://github.com/danielgordon10/thor-iqa-cvpr-2018)
-
-IQA asks agents to answer questions that require active navigation and object interaction, such as checking inside containers. Built on AI2-THOR, it was one of the early benchmarks to move visual question answering from static images into embodied, interactive environments.
-
-### Two Body Problem: Collaborative Visual Task Completion
-
-`2019` `CVPR` `multi-agent` `AI2-THOR`
-
-Links: [Paper](https://openaccess.thecvf.com/content_CVPR_2019/html/Jain_Two_Body_Problem_Collaborative_Visual_Task_Completion_CVPR_2019_paper.html)
-
-Two Body Problem extends AI2-THOR to collaborative visual task completion with multiple agents that communicate and act in the same environment. It is an early example of multi-agent embodied interaction inside the AI2-THOR simulator.
-
-### ALFRED: A Benchmark for Interpreting Grounded Instructions for Everyday Tasks
-
-`2020` `CVPR` `instruction following` `household tasks`
-
-Links: [Paper](https://arxiv.org/abs/1912.01734) · [Project](https://askforalfred.com/) · [Code](https://github.com/askforalfred/alfred)
-
-ALFRED pairs natural-language household instructions with expert demonstrations in AI2-THOR. It is one of the central benchmarks for embodied instruction following because it combines language grounding, egocentric vision, navigation, object interaction, and irreversible state changes.
-
-### ALFWorld: Aligning Text and Embodied Environments for Interactive Learning
-
-`2021` `ICLR` `text-to-embodied transfer` `ALFRED`
-
-Links: [Paper](https://arxiv.org/abs/2010.03768) · [Project](https://alfworld.github.io/) · [Code](https://github.com/alfworld/alfworld)
-
-ALFWorld aligns TextWorld-style abstract household tasks with concrete ALFRED execution in AI2-THOR. It lets agents learn language and planning policies in a lightweight text environment, then transfer those policies to visually grounded embodied execution.
-
-### TEACh: Task-driven Embodied Agents that Chat
-
-`2022` `AAAI` `dialogue` `task execution`
-
-Links: [Paper](https://arxiv.org/abs/2110.00534) · [Code](https://github.com/alexa/teach)
-
-TEACh extends AI2-THOR household tasks with human-human dialogue between a Commander and a Follower. It evaluates whether embodied agents can use conversation to understand ambiguous goals, recover missing information, and execute long-horizon household tasks.
-
-### DialFRED: Dialogue-Enabled Agents for Embodied Instruction Following
-
-`2022` `IEEE RA-L` `dialogue` `ALFRED`
-
-Links: [Paper](https://arxiv.org/abs/2202.13330) · [Code](https://github.com/xfgao/DialFRED) · [Challenge](https://eval.ai/web/challenges/challenge-page/1859/overview)
-
-DialFRED augments ALFRED with agent-initiated clarification questions and human answers. It is useful for studying when an embodied agent should ask for missing information instead of blindly executing an underspecified instruction.
-
-### Dialog Acts for Task-Driven Embodied Agents
-
-`2022` `SIGDIAL` `dialogue annotation` `TEACh`
-
-Links: [Paper](https://arxiv.org/abs/2209.12953) · [Code](https://github.com/alexa/teach)
-
-This work annotates TEACh dialogues with dialog acts and studies how those labels help embodied task execution. It adds a pragmatic dialogue layer to AI2-THOR household tasks, making it easier to analyze instructions, questions, confirmations, corrections, and action-relevant utterances.
-
-### ACT-Thor: A Controlled Benchmark for Embodied Action Understanding in Simulated Environments
-
-`2022` `COLING` `action understanding` `AI2-THOR`
-
-Links: [Paper](https://aclanthology.org/2022.coling-1.495/) · [Code](https://github.com/hannamw/ACT-Thor) · [Dataset](https://huggingface.co/datasets/mwhanna/ACT-Thor)
-
-ACT-Thor uses AI2-THOR to create controlled before-action and after-action visual reasoning examples for grounded verb and action-effect understanding. It evaluates whether models can infer how embodied actions transform objects and scenes, rather than only recognizing static visual categories.
-
-### Embodied Agent Interface: Benchmarking LLMs for Embodied Decision Making
-
-`2024` `NeurIPS Datasets and Benchmarks` `LLM evaluation`
-
-Links: [Paper](https://openreview.net/forum?id=iSwK1YqO7v) · [Project](https://embodied-agent-interface.github.io/)
-
-Embodied Agent Interface defines a common interface for evaluating LLMs as embodied decision modules. Instead of reporting only final task success, it decomposes embodied decision making into interpretable stages such as goal interpretation, subgoal decomposition, action generation, and state transition modeling.
-
-### LoTa-Bench: Benchmarking Language-oriented Task Planners for Embodied Agents
-
-`2024` `ICLR` `LLM planning` `ALFRED`
-
-Links: [Paper](https://openreview.net/forum?id=ADSxCpCu9s) · [Project](https://choi-jaewoo.github.io/LoTa-Bench/) · [Code](https://github.com/lbaa2022/LLMTaskPlanning) · [arXiv](https://arxiv.org/abs/2402.08178)
-
-LoTa-Bench evaluates language-oriented task planners in two embodied setups, including ALFRED with the AI2-THOR simulator. It provides an automated benchmark for comparing LLM-based planners, prompt strategies, replanning, and fine-tuning in household task execution.
-
-### EmbodiedBench: Comprehensive Benchmarking MLLMs for Vision-Driven Embodied Agents
-
-`2025` `ICML` `MLLM agents` `benchmark`
-
-Links: [Paper](https://openreview.net/forum?id=DgGF2LEBPS) · [Project](https://embodiedbench.github.io/) · [Code](https://github.com/EmbodiedBench/EmbodiedBench)
-
-EmbodiedBench evaluates multimodal large language models as closed-loop embodied agents across EB-ALFRED, EB-Habitat, EB-Navigation, and EB-Manipulation. The benchmark makes the gap between high-level semantic planning and low-level visual/action grounding explicit.
-
-### 2023 AI2-THOR Rearrangement Challenge
-
-`2023` `challenge` `rearrangement`
-
-Links: [Project](https://ai2thor.allenai.org/rearrangement/) · [Code](https://github.com/allenai/ai2thor-rearrangement)
-
-The AI2-THOR Rearrangement Challenge provides datasets, task samplers, evaluation metrics, and baselines for restoring object configurations. It is the practical challenge infrastructure around the Visual Room Rearrangement task.
-
-### SafetyALFRED: Evaluating Safety-Conscious Planning of Multimodal Large Language Models
-
-`2026` `ACL Findings` `safety` `ALFRED`
-
-Links: [Paper](https://arxiv.org/abs/2604.19638) · [Code](https://github.com/sled-group/SafetyALFRED)
-
-SafetyALFRED builds on ALFRED with kitchen hazards and safety-conscious planning tasks. It evaluates whether MLLM agents can move beyond recognizing hazards in QA form and actively plan corrective embodied actions in an interactive household setting.
-
-### SafeAgentBench: A Benchmark for Safe Task Planning of Embodied LLM Agents
-
-`2024` `arXiv` `safety` `AI2-THOR`
-
-Links: [Paper](https://arxiv.org/abs/2412.13178) · [Project](https://safeagentbench.github.io/) · [Code](https://github.com/shengyin1224/SafeAgentBench) · [Dataset](https://huggingface.co/datasets/safeagentbench/SafeAgentBench)
-
-SafeAgentBench introduces safety-aware task-planning evaluation for embodied LLM agents with hazardous and safe household tasks. Its SafeAgentEnv is based on AI2-THOR and adds high-level actions, multi-agent execution, and both execution-based and semantic evaluation for physical-risk scenarios.
-
-### AGENTSAFE: Benchmarking the Safety of Embodied Agents on Hazardous Instructions
-
-`2026` `CVPR` `safety` `SAFE-THOR`
-
-Links: [Paper](https://openaccess.thecvf.com/content/CVPR2026/papers/Ying_AGENTSAFE_Benchmarking_the_Safety_of_Embodied_Agents_on_Hazardous_Instructions_CVPR_2026_paper.pdf) · [arXiv](https://arxiv.org/abs/2506.14697)
-
-AGENTSAFE evaluates embodied VLM agents under hazardous instructions with SAFE-THOR, a sandbox built on AI2-THOR. It combines adversarial scenarios, risk-aware instruction variants, and fine-grained diagnosis across perception, planning, and execution safety.
-
-### AsgardBench
-
-`2026` `arXiv` `visually grounded planning` `AI2-THOR`
-
-Links: [Paper](https://arxiv.org/abs/2603.15888) · [Project](https://www.microsoft.com/en-us/research/blog/asgardbench-a-benchmark-for-visually-grounded-interactive-planning/) · [Code](https://github.com/microsoft/AsgardBench)
-
-AsgardBench evaluates whether multimodal agents can adapt high-level household action plans from egocentric visual observations and minimal success/failure feedback. It is built on AI2-THOR scenes and isolates visually grounded interactive planning from navigation and low-level control noise.
-
-### Where to Look: Can Foundation Models Reach a Target Viewpoint Through Active Exploration?
-
-`2026` `arXiv` `active perception` `TVRBench`
-
-Links: [Paper](https://arxiv.org/abs/2606.01247) · [Code](https://github.com/aim-uofa/TVRBench)
-
-This work introduces Target Viewpoint Reproduction and TVRBench, a closed-loop active perception benchmark where agents move until their observation matches a target image. TVRBench uses AI2-THOR for single-room scenes and ProcTHOR-10K for multi-room scenes, exposing spatial memory and perception-to-action bottlenecks in foundation models.
-
-### Embodied Web Agents
-
-`2025` `NeurIPS Datasets and Benchmarks` `web agents` `AI2-THOR`
-
-Links: [Paper](https://arxiv.org/abs/2506.15677) · [Project](https://embodied-web-agent.github.io/)
-
-Embodied Web Agents studies agents that coordinate physical embodied interaction with web-scale information access. Its task environments include AI2-THOR indoor scenes for embodied cooking and navigation-style tasks, coupled with web interfaces for cross-domain reasoning.
-
-### CL-ALFRED: Online Continual Learning for Interactive Instruction Following Agents
-
-`2024` `ICLR` `continual learning` `ALFRED`
-
-Links: [Paper](https://openreview.net/forum?id=7M0EzjugaN) · [Project](https://bhkim94.github.io/projects/CL-ALFRED/) · [Code](https://github.com/snumprlab/cl-alfred)
-
-CL-ALFRED turns ALFRED into a continual-learning benchmark with behavior-incremental and environment-incremental streams. It measures whether embodied instruction-following agents can adapt to new tasks and scenes without catastrophically forgetting prior household skills.
-
-### ReALFRED: An Embodied Instruction Following Benchmark in Photo-Realistic Environments
-
-`2024` `ECCV` `ALFRED-derived` `photo-realistic benchmark`
-
-Links: [Paper](https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/1610_ECCV_2024_paper.php) · [Project](https://twoongg.github.io/projects/realfred/) · [Code](https://github.com/snumprlab/realfred)
-
-ReALFRED extends ALFRED-style instruction following to photo-realistic scanned multi-room environments. It is included as direct ALFRED lineage, but it should be read as ALFRED-derived rather than a native AI2-THOR benchmark.
-
-### Pre-Execution Safety Gate & Task Safety Contracts for LLM-Controlled Robot Systems
-
-`2026` `arXiv` `safety` `benchmark`
-
-Links: [arXiv](https://arxiv.org/abs/2604.05427)
-
-This work evaluates in AI2-THOR for embodied safety evaluation and planning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Detecting Non-Optimal Decisions of Embodied Agents via Diversity-Guided Metamorphic Testing
-
-`2025` `arXiv` `planning` `benchmark`
-
-Links: [arXiv](https://arxiv.org/abs/2512.20083)
-
-This work evaluates in AI2-THOR for embodied task planning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### SENTINEL: A Multi-Level Formal Framework for Safety Evaluation of Foundation Model-based Embodied Agents
-
-`2025` `arXiv` `planning` `safety`
-
-Links: [arXiv](https://arxiv.org/abs/2510.12985)
-
-This work evaluates in AI2-THOR for embodied safety evaluation and planning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Do LLMs Build World Models From Text? A Multilingual Diagnostic of Spatial Reasoning
-
-`2026` `arXiv` `memory` `benchmark`
-
-Links: [arXiv](https://arxiv.org/abs/2605.28277)
-
-This work evaluates in ProcTHOR for embodied memory and spatial reasoning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### CoWs on Pasture: Baselines and Benchmarks for Language-Driven Zero-Shot Object Navigation
-
-`2022` `arXiv` `ObjectNav` `navigation`
-
-Links: [Code](https://github.com/real-stanford/cow) · [arXiv](https://arxiv.org/abs/2203.10421)
-
-This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### GroundControl: Anticipating Navigation Failures in Vision-Language Agents via Trajectory-Consistent Uncertainty Estimates
-
-`2026` `arXiv` `navigation` `safety`
-
-Links: [arXiv](https://arxiv.org/abs/2606.20479)
-
-This work evaluates in EmbodiedBench / EB-Navigation for embodied safety evaluation and planning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### MAEA: Multimodal Attribution for Embodied AI
-
-`2023` `arXiv` `safety` `ALFRED`
-
-Links: [arXiv](https://arxiv.org/abs/2307.13850)
-
-MAEA: Multimodal Attribution for Embodied AI uses ALFRED as an embodied household-task benchmark for safety. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following research in the AI2-THOR ecosystem.
-
-### Robustness Testing of Multi-Modal Models in Varied Home Environments for Assistive Robots
-
-`2024` `arXiv` `safety` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2406.12443)
-
-Robustness Testing of Multi-Modal Models in Varied Home Environments for Assistive Robots reports experiments connected to AI2-THOR for safety. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-## Instruction Following and Household Tasks
-
-*Instruction-following, household-task, and language-grounded execution methods using ALFRED, TEACh, or AI2-THOR-style tasks.*
-
-### Are We There Yet? Learning to Localize in Embodied Instruction Following
-
-`2021` `AAAI HAI` `ALFRED` `localization`
-
-Links: [Paper](https://arxiv.org/abs/2101.03431)
-
-This work focuses on localization and navigation subgoals in ALFRED. It augments the agent's field of view with multiple viewing angles, predicts relative spatial relations to target locations, and improves object grounding with pretrained detection.
-
-### MOCA: Factorizing Perception and Policy for Interactive Instruction Following
-
-`2021` `ICCV` `ALFRED` `object-centric policy`
-
-Links: [Paper](https://arxiv.org/abs/2012.03208) · [Code](https://github.com/gistvision/moca)
-
-MOCA factorizes ALFRED agents into interactive perception and action-policy streams. Its object-centric perception, language-conditioned grounding, and obstruction handling made it an important early modular baseline for interactive instruction following.
-
-### Episodic Transformer for Vision-and-Language Navigation
-
-`2021` `ICCV` `ALFRED` `episode memory`
-
-Links: [Paper](https://arxiv.org/abs/2105.06453) · [Project](https://sites.google.com/view/episodictransformer) · [Code](https://github.com/alexpashevich/E.T.)
-
-Episodic Transformer models full ALFRED episodes with a multimodal transformer over language, visual observations, and actions. It showed the value of long episode history and synthetic-instruction pretraining for compositional household tasks.
-
-### Look Wide and Interpret Twice
-
-`2021` `IJCAI` `ALFRED` `visual grounding`
-
-Links: [Paper](https://arxiv.org/abs/2106.00596) · [Code](https://github.com/quangvnai/lwit-alfred)
-
-Look Wide and Interpret Twice improves ALFRED instruction following with two-stage instruction interpretation and wider visual context. It first predicts tentative action/object structure from language, then refines decisions with panoramic and object-centric visual evidence.
-
-### HiTUT: Hierarchical Task Learning from Language Instructions with Unified Transformers and Self-Monitoring
-
-`2021` `Findings of ACL` `ALFRED` `hierarchical planning`
-
-Links: [Paper](https://aclanthology.org/2021.findings-acl.368/) · [Code](https://github.com/594zyc/HiTUT)
-
-HiTUT decomposes ALFRED into subgoal planning, navigation, and object manipulation while using unified transformer modules across the hierarchy. Its self-monitoring and task-structure modeling make failures easier to diagnose than in purely flat sequence policies.
-
-### Embodied BERT: A Transformer Model for Embodied, Language-guided Visual Task Completion
-
-`2021` `EMNLP NILLI` `ALFRED` `multimodal transformer`
-
-Links: [Paper](https://arxiv.org/abs/2108.04927)
-
-Embodied BERT applies transformer modeling to long-horizon ALFRED histories with language, panoramic object detections, and action context. It helped connect object-centric navigation targets with language-guided visual task completion.
-
-### HLSM: Hierarchical Language-conditioned Spatial Model for Embodied Instruction Following
-
-`2021` `CoRL` `ALFRED` `semantic maps`
-
-Links: [Paper](https://arxiv.org/abs/2107.05612) · [Project](https://hlsm-alfred.github.io/) · [Code](https://github.com/valtsblukis/hlsm)
-
-HLSM represents ALFRED tasks through persistent semantic spatial maps and hierarchical control. It helped establish the importance of explicit spatial memory for long-horizon instruction following, rather than relying only on recurrent hidden states or end-to-end sequence policies.
-
-### Agent with the Big Picture
-
-`2021` `CVPR Embodied AI Workshop` `ALFRED` `wide-view observation`
-
-Links: [Code](https://github.com/snumprlab/abp) · [Dataset](https://huggingface.co/datasets/byeonghwikim/abp_dataset) · [Workshop](https://askforalfred.com/EAI21/)
-
-Agent with the Big Picture augments ALFRED agents with additional observations from navigable directions, giving the policy a wider spatial context than a single egocentric frame. It is useful as a compact example of improving ALFRED execution through better observation design.
-
-### FILM: Following Instructions in Language with Modular Methods
-
-`2022` `ICLR` `ALFRED` `modular agent`
-
-Links: [Paper](https://arxiv.org/abs/2110.07342) · [Code](https://github.com/soyeonm/FILM)
-
-FILM decomposes instruction following into language parsing, semantic map construction, semantic search, and execution. Its strong ALFRED performance with less training data showed that explicit maps and modular priors can be highly competitive with end-to-end imitation learning.
-
-### Embodied Concept Learner: Self-supervised Learning of Concepts and Mapping for Instruction Following
-
-`2023` `CoRL` `ALFRED` `self-supervised concepts`
-
-Links: [Paper](https://proceedings.mlr.press/v205/ding23b.html) · [Project](https://dingmyu.github.io/ecl/)
-
-Embodied Concept Learner learns semantic and geometric concepts from embodied interaction before applying them to ALFRED instruction following. It targets the perception and mapping bottleneck in long-horizon household tasks, especially when supervised labels are limited.
-
-### DANLI: Deliberative Agent for Following Natural Language Instructions
-
-`2022` `EMNLP` `TEACh` `neuro-symbolic planning`
-
-Links: [Paper](https://arxiv.org/abs/2210.12485) · [Code](https://github.com/sled-group/DANLI) · [ACL Anthology](https://aclanthology.org/2022.emnlp-main.83/)
-
-DANLI introduces a deliberative neuro-symbolic agent for following natural-language instructions. It maintains task progress and symbolic state to reason about preconditions and subgoals, reducing purely reactive behavior in long-horizon household tasks.
-
-### VLM-Act: A Benchmark for Vision-Language-Action Models
-
-`2024` `ICLR Workshop` `VLA benchmark` `ALFRED`
-
-Links: [Paper](https://arxiv.org/abs/2404.08700) · [Code](https://github.com/OSU-NLP-Group/VLM-Act)
-
-VLM-Act evaluates vision-language-action models on action prediction and long-horizon embodied task execution. It includes ALFRED as one of its central benchmarks, using AI2-THOR-style household instruction following to test whether VLM representations transfer into executable actions.
-
-### LACMA: Language-Aligning Contrastive Learning with Meta-Actions
-
-`2023` `EMNLP` `ALFRED` `contrastive learning`
-
-Links: [Paper](https://arxiv.org/abs/2310.12344) · [Code](https://github.com/joeyy5588/LACMA) · [ACL Anthology](https://aclanthology.org/2023.emnlp-main.77/)
-
-LACMA improves ALFRED generalization by explicitly aligning language instructions with agent hidden states and introducing meta-actions as an intermediate semantic layer. The work targets the gap between natural language goals and low-level action sequences.
-
-### SPRINT: Scalable Policy Pre-Training via Language Instruction Relabeling
-
-`2024` `ICRA` `ALFRED` `policy pretraining`
-
-Links: [Paper](https://arxiv.org/abs/2306.11886) · [Project](https://clvrai.github.io/sprint/) · [Code](https://github.com/clvrai/sprint)
-
-SPRINT relabels and chains ALFRED trajectories to pretrain reusable household skills at scale. Its ALFRED-RL setup connects offline instruction relabeling with downstream long-horizon execution in the ALFRED simulator.
-
-### LLM-Planner: Few-Shot Grounded Planning for Embodied Agents with Large Language Models
-
-`2023` `ICCV` `LLM planning`
-
-Links: [Paper](https://openaccess.thecvf.com/content/ICCV2023/html/Song_LLM-Planner_Few-Shot_Grounded_Planning_for_Embodied_Agents_with_Large_Language_Models_ICCV_2023_paper.html) · [Project](https://dki-lab.github.io/LLM-Planner/) · [Code](https://github.com/OSU-NLP-Group/LLM-Planner)
-
-LLM-Planner uses few-shot prompting to turn large language models into grounded high-level planners for embodied agents. It provides prompt-generation and end-to-end examples that connect language model plans to executable embodied task steps.
-
-### Wonderful Team: Zero-Shot Physical Task Planning with Visual LLMs
-
-`2024` `arXiv` `zero-shot planning` `AI2-THOR`
-
-Links: [Paper](https://arxiv.org/abs/2407.19094) · [Code](https://github.com/jeongeun980906/Wonderful-Team)
-
-Wonderful Team studies zero-shot physical task planning with visual LLMs, using AI2-THOR to evaluate whether agents can infer object states and feasible household action sequences from visual observations. It is useful for comparing direct multimodal planning against more modular embodied pipelines.
-
-### Cook2LTL: Translating Cooking Recipes to LTL Formulae using Large Language Models
-
-`2024` `ICRA` `formal methods` `cooking tasks`
-
-Links: [Paper](https://arxiv.org/abs/2310.00163) · [Project](https://prg.cs.umd.edu/cook2ltl) · [Code](https://github.com/angmavrogiannis/Cook2LTL)
-
-Cook2LTL translates natural-language cooking recipes into linear temporal logic specifications and executes them in AI2-THOR. It connects LLM semantic parsing with formal task specifications, making recipe instructions more precise and verifiable.
-
-### DISCO: Embodied Navigation and Interaction via Differentiable Scene Semantics and Dual-level Control
-
-`2024` `ECCV` `ALFRED` `navigation and interaction`
-
-Links: [Paper](https://arxiv.org/abs/2407.14758) · [Code](https://github.com/AllenXuuu/DISCO)
-
-DISCO combines differentiable scene semantics with dual-level coarse-to-fine control for ALFRED. It uses structured scene representations for navigation while keeping local interaction policies focused, showing that carefully engineered modular control remains a strong baseline.
-
-### ThinkBot: Embodied Instruction Following with Thought Chain Reasoning
-
-`2025` `ICLR` `ALFRED` `reasoning`
-
-Links: [Paper](https://openreview.net/forum?id=tFDTHA3odg) · [Project](https://guanxinglu.github.io/thinkbot/) · [arXiv](https://arxiv.org/abs/2312.07062)
-
-ThinkBot uses LLM-based thought-chain reasoning to fill in implicit intermediate subgoals that human instructions often omit. It pairs this instruction completion with object localization so that recovered subgoals can be grounded in partially observed environments.
-
-### Dual Preference Optimization for Embodied Multimodal Agent
-
-`2025` `arXiv` `preference optimization` `ALFRED`
-
-Links: [Paper](https://arxiv.org/abs/2502.02024) · [Code](https://github.com/7pinkdylan/DeMo)
-
-This work applies dual preference optimization to embodied multimodal agents, combining action-level and trajectory-level preferences for instruction following. Its evaluation includes ALFRED, making it relevant to preference-aligned policies for AI2-THOR household task execution.
-
-### Hindsight Planner: A Closed-Loop Few-Shot Planner for Embodied Instruction Following
-
-`2024` `arXiv` `ALFRED` `few-shot planning`
-
-Links: [Paper](https://arxiv.org/abs/2412.19562)
-
-Hindsight Planner frames ALFRED instruction following as closed-loop few-shot planning under partial observability. It combines adaptation, actor-critic style feedback, and hindsight relabeling so the planner can recover from suboptimal intermediate actions.
-
-### RePlan-Bot: Multi-Level Replanning for Embodied Instruction Following
-
-`2026` `arXiv` `ALFRED` `replanning`
-
-Links: [Paper](https://arxiv.org/abs/2605.25851)
-
-RePlan-Bot performs continuous multi-level replanning for ALFRED-style embodied instruction following. It combines an LLM-based high-level auditor, commonsense-guided object search, instance-map localization, and a lightweight low-level corrector to reduce long-horizon failures and risky irreversible actions.
-
-### Recurrent Reasoning with Vision-Language Models for Estimating Long-Horizon Embodied Task Progress
-
-`2026` `CVPR` `ALFRED-RL` `progress estimation`
-
-Links: [Paper](https://openaccess.thecvf.com/content/CVPR2026/html/Zhang_Recurrent_Reasoning_with_Vision-Language_Models_for_Estimating_Long-Horizon_Embodied_Task_CVPR_2026_paper.html)
-
-This work uses recurrent VLM reasoning to estimate task progress for long-horizon embodied instruction following. Its ALFRED-RL experiments use AI2-THOR-based execution to turn progress estimates into denser reward signals for policy improvement.
-
-### RoboAgent: Chaining Basic Capabilities for Embodied Task Planning
-
-`2026` `CVPR` `ALFRED` `capability chaining`
-
-Links: [Paper](https://openaccess.thecvf.com/content/CVPR2026/html/Xu_RoboAgent_Chaining_Basic_Capabilities_for_Embodied_Task_Planning_CVPR_2026_paper.html)
-
-RoboAgent trains embodied task planning by chaining basic capabilities into longer household procedures. It is relevant here because it trains and evaluates on ALFRED and EB-ALFRED-style AI2-THOR-derived tasks.
-
-### ReCAPA: Hierarchical Predictive Correction to Mitigate Cascading Failures
-
-`2026` `arXiv` `planning` `benchmark`
-
-Links: [arXiv](https://arxiv.org/abs/2604.21232)
-
-This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### SVLL: Staged Vision-Language Learning for Physically Grounded Embodied Task Planning
-
-`2026` `arXiv` `planning` `benchmark`
-
-Links: [arXiv](https://arxiv.org/abs/2603.11563)
-
-This work evaluates in AI2-THOR for embodied task planning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Towards Zero-Knowledge Task Planning via a Language-based Approach
-
-`2026` `arXiv` `planning` `LLM`
-
-Links: [arXiv](https://arxiv.org/abs/2601.03398)
-
-This work uses AI2-THOR for embodied task planning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### MADRA: Multi-Agent Debate for Risk-Aware Embodied Planning
-
-`2025` `arXiv` `planning` `memory`
-
-Links: [arXiv](https://arxiv.org/abs/2511.21460)
-
-This work evaluates in AI2-THOR for embodied task planning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Graphormer-Guided Task Planning: Beyond Static Rules with LLM Safety Perception
-
-`2025` `arXiv` `planning` `safety`
-
-Links: [arXiv](https://arxiv.org/abs/2503.06866)
-
-This work evaluates in AI2-THOR for embodied task planning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Planning with affordances: Integrating learned affordance models and symbolic planning
-
-`2025` `arXiv` `planning` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2502.02768)
-
-This work uses AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### LaMMA-P: Generalizable Multi-Agent Long-Horizon Task Allocation and Planning with LM-Driven PDDL Planner
-
-`2024` `arXiv` `planning` `multi-agent`
-
-Links: [Code](https://github.com/tasl-lab/LaMMA-P) · [arXiv](https://arxiv.org/abs/2409.20560)
-
-This work evaluates in AI2-THOR for embodied task planning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Implicit and Explicit Commonsense for Multi-sentence Video Captioning
-
-`2023` `arXiv` `ALFRED` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2303.07545)
-
-This work uses AI2-THOR / ALFRED for embodied instruction following. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Multi-Robot Learning-Informed Task Planning Under Uncertainty
-
-`2026` `arXiv` `planning` `ProcTHOR`
-
-Links: [arXiv](https://arxiv.org/abs/2603.20544)
-
-This work uses ProcTHOR for embodied task planning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Heterogeneous Embodied Multi-Agent Collaboration
-
-`2023` `arXiv` `planning` `multi-agent`
-
-Links: [arXiv](https://arxiv.org/abs/2307.13957)
-
-This work evaluates in ProcTHOR for embodied task planning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Enabling Extensible Embodied Capabilities with Tools
-
-`2026` `arXiv` `navigation` `planning`
-
-Links: [arXiv](https://arxiv.org/abs/2605.26637)
-
-This work evaluates in EmbodiedBench / ALFRED / EB-ALFRED / EB-Navigation for embodied instruction following. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### ELITE: Experiential Learning and Intent-Aware Transfer for Self-improving Embodied Agents
-
-`2026` `arXiv` `benchmark` `VLM`
-
-Links: [arXiv](https://arxiv.org/abs/2603.24018)
-
-This work evaluates in EmbodiedBench / ALFRED / EB-ALFRED for embodied instruction following. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### BrainMem: Brain-Inspired Evolving Memory for Embodied Agent Task Planning
-
-`2026` `arXiv` `navigation` `planning`
-
-Links: [arXiv](https://arxiv.org/abs/2604.16331)
-
-This work evaluates in EmbodiedBench / ALFRED / EB-ALFRED / EB-Navigation for embodied instruction following. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Aligning Agentic World Models via Knowledgeable Experience Learning
-
-`2026` `arXiv` `memory` `LLM`
-
-Links: [arXiv](https://arxiv.org/abs/2601.13247)
-
-This work evaluates in EmbodiedBench / ALFRED / EB-ALFRED for embodied instruction following. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### World-aware Planning Narratives Enhance Large Vision-Language Model Planner
-
-`2025` `arXiv` `planning` `benchmark`
-
-Links: [arXiv](https://arxiv.org/abs/2506.21230)
-
-This work evaluates in EmbodiedBench / ALFRED / EB-ALFRED for embodied instruction following. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### On-Device Robotic Planning: Eliminating Inference Redundancy for Efficient Decision-Making
-
-`2026` `arXiv` `ALFRED` `efficient planning`
-
-Links: [arXiv](https://arxiv.org/abs/2605.31460)
-
-This work studies efficient robotic decision-making on ALFRED, focusing on reducing redundant reasoning calls while preserving embodied planning performance. It is relevant to AI2-THOR-family instruction-following systems because ALFRED is built on AI2-THOR household tasks.
-
-### Environmental Understanding Vision-Language Model for Embodied Agent
-
-`2026` `arXiv` `VLM` `ALFRED`
-
-Links: [arXiv](https://arxiv.org/abs/2604.19839)
-
-This work targets environmental understanding for vision-language embodied agents and evaluates in ALFRED-style instruction-following settings. It is included because the benchmark connection grounds the method in the AI2-THOR-family ecosystem.
-
-### GaLa: Hypergraph-Guided Visual Language Models for Procedural Planning
-
-`2026` `arXiv` `procedural planning` `ALFRED`
-
-Links: [arXiv](https://arxiv.org/abs/2604.17241)
-
-GaLa uses hypergraph-guided visual-language reasoning for procedural planning in embodied tasks. Its ALFRED evaluation makes it relevant to AI2-THOR-family instruction following and household task execution.
-
-### Egocentric Planning for Scalable Embodied Task Achievement
-
-`2023` `arXiv` `planning` `ALFRED`
-
-Links: [arXiv](https://arxiv.org/abs/2306.01295)
-
-Egocentric Planning for Scalable Embodied Task Achievement uses ALFRED as an embodied household-task benchmark for planning. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following research in the AI2-THOR ecosystem.
-
-### Embodied Concept Learner: Self-supervised Learning of Concepts and Mapping through Instruction Following
-
-`2023` `arXiv` `planning` `ALFRED`
-
-Links: [arXiv](https://arxiv.org/abs/2304.03767)
-
-Embodied Concept Learner: Self-supervised Learning of Concepts and Mapping through Instruction Following uses ALFRED as an embodied household-task benchmark for planning. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following research in the AI2-THOR ecosystem.
-
-### Multimodal Contextualized Plan Prediction for Embodied Task Completion
-
-`2023` `arXiv` `planning` `TEACh`
-
-Links: [arXiv](https://arxiv.org/abs/2305.06485)
-
-Multimodal Contextualized Plan Prediction for Embodied Task Completion studies planning in TEACh-style embodied task completion. TEACh extends AI2-THOR household tasks with situated dialogue, making the work relevant to conversational instruction-following agents.
-
-### Multimodal Speech Recognition for Language-Guided Embodied Agents
-
-`2023` `arXiv` `planning` `ALFRED`
-
-Links: [arXiv](https://arxiv.org/abs/2302.14030)
-
-Multimodal Speech Recognition for Language-Guided Embodied Agents uses ALFRED as an embodied household-task benchmark for planning. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following research in the AI2-THOR ecosystem.
-
-### Embodied CoT Distillation From LLM To Off-the-shelf Agents
-
-`2024` `arXiv` `planning` `ALFRED`
-
-Links: [arXiv](https://arxiv.org/abs/2412.11499)
-
-Embodied CoT Distillation From LLM To Off-the-shelf Agents uses ALFRED as an embodied household-task benchmark for planning. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following research in the AI2-THOR ecosystem.
-
-### Multi-Agent Planning Using Visual Language Models
-
-`2024` `arXiv` `planning` `ALFRED`
-
-Links: [arXiv](https://arxiv.org/abs/2408.05478)
-
-Multi-Agent Planning Using Visual Language Models uses ALFRED as an embodied household-task benchmark for planning. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following research in the AI2-THOR ecosystem.
-
-### Simulating User Agents for Embodied Conversational-AI
-
-`2024` `arXiv` `planning` `TEACh`
-
-Links: [arXiv](https://arxiv.org/abs/2410.23535)
-
-Simulating User Agents for Embodied Conversational-AI studies planning in TEACh-style embodied task completion. TEACh extends AI2-THOR household tasks with situated dialogue, making the work relevant to conversational instruction-following agents.
-
-### VLM Agents Generate Their Own Memories: Distilling Experience into Embodied Programs of Thought
-
-`2024` `arXiv` `memory` `TEACh`
-
-Links: [arXiv](https://arxiv.org/abs/2406.14596)
-
-VLM Agents Generate Their Own Memories: Distilling Experience into Embodied Programs of Thought studies memory in TEACh-style embodied task completion. TEACh extends AI2-THOR household tasks with situated dialogue, making the work relevant to conversational instruction-following agents.
-
-### Exploratory Retrieval-Augmented Planning For Continual Embodied Instruction Following
-
-`2025` `arXiv` `memory` `ALFRED`
-
-Links: [arXiv](https://arxiv.org/abs/2509.08222)
-
-Exploratory Retrieval-Augmented Planning For Continual Embodied Instruction Following uses ALFRED as an embodied household-task benchmark for memory. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following research in the AI2-THOR ecosystem.
-
-### LLaPa: A Vision-Language Model Framework for Counterfactual-Aware Procedural Planning
-
-`2025` `arXiv` `memory` `ALFRED`
-
-Links: [arXiv](https://arxiv.org/abs/2507.08496)
-
-LLaPa: A Vision-Language Model Framework for Counterfactual-Aware Procedural Planning uses ALFRED as an embodied household-task benchmark for memory. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following research in the AI2-THOR ecosystem.
-
-### ReAcTree: Hierarchical LLM Agent Trees with Control Flow for Long-Horizon Task Planning
-
-`2025` `arXiv` `memory` `ALFRED`
-
-Links: [arXiv](https://arxiv.org/abs/2511.02424)
-
-ReAcTree: Hierarchical LLM Agent Trees with Control Flow for Long-Horizon Task Planning uses ALFRED as an embodied household-task benchmark for memory. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following research in the AI2-THOR ecosystem.
-
-### Machine Intelligence that Understands Visual and Linguistic Information and Interacts with Humans and Environments
-
-`2026` `arXiv` `interaction` `ALFRED`
-
-Links: [arXiv](https://arxiv.org/abs/2605.24020)
-
-Machine Intelligence that Understands Visual and Linguistic Information and Interacts with Humans and Environments uses ALFRED as an embodied household-task benchmark for interaction. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following research in the AI2-THOR ecosystem.
-
-## Navigation
-
-*ObjectNav, semantic navigation, and navigation-analysis work evaluated in AI2-THOR-family environments.*
-
-### Target-driven Visual Navigation in Indoor Scenes using Deep Reinforcement Learning
-
-`2017` `ICRA` `AI2-THOR` `deep RL`
-
-Links: [Paper](https://arxiv.org/abs/1609.05143) · [Project](https://prior.allenai.org/projects/target-driven-visual-navigation) · [Code](https://github.com/caomw/icra2017-visual-navigation-1)
-
-This early target-conditioned navigation work trains agents to reach visual goals from egocentric observations using deep reinforcement learning. It helped establish AI2-THOR as a practical environment for studying embodied visual navigation under realistic indoor variation.
-
-### Visual Semantic Navigation using Scene Priors
-
-`2018` `arXiv` `AI2-THOR` `semantic priors`
-
-Links: [Paper](https://arxiv.org/abs/1810.06543)
-
-Visual Semantic Navigation uses graph-based semantic priors to guide object-goal search in unseen indoor scenes. The core idea is that object co-occurrence and spatial context can help an agent search more intelligently than random exploration or purely reactive policies.
-
-### Search for or Navigate to? Dual Adaptive Thinking for Object Navigation
-
-`2023` `ICCV` `AI2-THOR` `RoboTHOR`
-
-Links: [Paper](https://openaccess.thecvf.com/content/ICCV2023/html/Dang_Search_for_or_Navigate_to_Dual_Adaptive_Thinking_for_Object_ICCV_2023_paper.html)
-
-Dual Adaptive Thinking separates object navigation into searching and goal-reaching modes, switching behavior based on whether a target has been discovered. It reports experiments on both AI2-THOR and RoboTHOR, making it a direct bridge between iTHOR-style ObjectNav and sim-to-real navigation.
-
-### SAVN: Self-Adaptive Visual Navigation Using Meta-Learning
-
-`2019` `CVPR Oral` `AI2-THOR` `meta-learning`
-
-Links: [Paper](https://arxiv.org/abs/1812.00971) · [Code](https://github.com/allenai/savn)
-
-SAVN trains navigation agents that can adapt during test-time exploration using a self-supervised interaction loss. It is an important AI2-THOR navigation baseline because it studies online adaptation rather than assuming that a fixed policy will generalize to every new scene.
-
-### Unsupervised Reinforcement Learning of Transferable Meta-Skills for Embodied Navigation
-
-`2019` `arXiv` `AI2-THOR` `meta-skills`
-
-Links: [Paper](https://arxiv.org/abs/1911.07450)
-
-This work learns transferable navigation meta-skills from unannotated AI2-THOR environments before adapting them to object-goal navigation. It is useful for the low-resource setting where only a small number of scenes have target-object reward annotations.
-
-### Learning Object Relation Graph and Tentative Policy for Visual Navigation
-
-`2020` `arXiv` `AI2-THOR` `object relation graph`
-
-Links: [Paper](https://arxiv.org/abs/2007.11018) · [Code](https://github.com/xiaobaishu0097/ECCV-VN)
-
-This method combines object relation graphs, trial-driven imitation learning, and a memory-augmented tentative policy network for target-driven visual navigation. It uses AI2-THOR to evaluate whether object co-occurrence and spatial correlations help agents escape loops and navigate more efficiently.
-
-### Pushing it out of the Way: Interactive Visual Navigation
-
-`2021` `arXiv` `AI2-THOR` `interactive navigation`
-
-Links: [Paper](https://arxiv.org/abs/2104.14040)
-
-Interactive Visual Navigation studies cases where moving through the world is not enough: agents may need to push obstacles away or move objects to target locations. The Neural Interaction Engine predicts action effects in AI2-THOR so planning can account for physical scene changes.
-
-### Communicative Learning with Natural Gestures for Embodied Navigation Agents with Human-in-the-Scene
-
-`2021` `arXiv` `Ges-THOR` `gesture-guided navigation`
-
-Links: [Paper](https://arxiv.org/abs/2108.02846)
-
-This work introduces Ges-THOR, a VR-based extension of AI2-THOR where a human in the scene guides an embodied navigation agent using natural gestures. It broadens the AI2-THOR navigation setting from language-only instructions to multimodal human communication.
-
-### What Do Navigation Agents Learn About Their Environment?
-
-`2022` `CVPR` `analysis` `navigation`
-
-Links: [Paper](https://openaccess.thecvf.com/content/CVPR2022/papers/Dwivedi_What_Do_Navigation_Agents_Learn_About_Their_Environment_CVPR_2022_paper.pdf)
-
-This paper analyzes what information navigation agents encode about their environments, including object locations, layouts, traversability, and spatial structure. It is useful for understanding whether high task success reflects real environment understanding or exploitation of dataset shortcuts.
-
-### Object Memory Transformer for Object Goal Navigation
-
-`2022` `arXiv` `AI2-THOR` `object memory`
-
-Links: [Paper](https://arxiv.org/abs/2203.14708)
-
-Object Memory Transformer stores long-term object-scene observations and attends over them during object-goal navigation. Its AI2-THOR experiments emphasize that remembering previously observed object semantics can improve navigation efficiency in unknown environments.
-
-### Selective Visual Representations Improve Convergence and Generalization for Embodied AI
-
-`2023` `arXiv` `representation learning` `ProcTHOR`
-
-Links: [Paper](https://arxiv.org/abs/2311.04193) · [Project](https://embodied-codebook.github.io/) · [Code](https://github.com/allenai/procthor-rl)
-
-This work learns task-conditioned filters over general visual representations, reducing irrelevant visual noise for embodied policies. It evaluates across ProcTHOR, ArchitecTHOR, RoboTHOR, iTHOR, and ManipulaTHOR, showing that selective representation bottlenecks can improve convergence and generalization.
-
-### PoliFormer: Scaling On-Policy RL with Transformers Results in Masterful Navigators
-
-`2024` `arXiv` `ProcTHOR` `ObjectNav`
-
-Links: [Paper](https://arxiv.org/abs/2406.20083) · [Project](https://poliformer.allen.ai/) · [Code](https://github.com/allenai/PoliFormer)
-
-PoliFormer scales on-policy reinforcement learning with transformer policies for ObjectNav. It uses large ProcTHOR training corpora and studies how model scale, environment scale, and embodiment choices affect navigation performance.
-
-### CogDDN: A Cognitive Demand-Driven Navigation with Decision Optimization and Dual-Process Thinking
-
-`2025` `ACM MM` `ProcTHOR` `demand-driven navigation`
-
-Links: [Paper](https://arxiv.org/abs/2507.11334) · [Project](https://yuehaohuang.github.io/CogDDN/)
-
-CogDDN frames navigation around implicit human demands rather than fixed object categories. It combines object detection, semantic demand matching, heuristic decision making, analytic reflection, and a knowledge base to navigate ProcTHOR scenes from egocentric visual input.
-
-### From Reactive to Map-Based AI: Tuned Local LLMs for Semantic Zone Inference in Object-Goal Navigation
-
-`2026` `arXiv` `AI2-THOR` `semantic mapping`
-
-Links: [Paper](https://arxiv.org/abs/2603.08086)
-
-This work studies ObjectNav with local LLMs and topological-grid memory for semantic zone inference. It belongs in the AI2-THOR navigation line because evaluation is performed directly in AI2-THOR ObjectNav environments.
-
-### Visual Reaction: Learning to Play Catch with Your Drone
-
-`2025` `ICRA` `drone navigation` `AI2-THOR`
-
-Links: [Paper](https://arxiv.org/abs/2403.11705) · [Project](https://visualreaction.github.io/) · [Code](https://github.com/RuohanGao/visualreaction)
-
-Visual Reaction uses AI2-THOR-style indoor scenes to train and evaluate reactive aerial navigation for a drone catching task. It broadens the navigation coverage beyond ground robots and ObjectNav toward fast visual control and dynamic target interception.
-
-### AION: Aerial Indoor Object-Goal Navigation Using Dual-Policy Reinforcement Learning
-
-`2026` `IROS` `AI2-THOR` `aerial ObjectNav`
-
-Links: [Paper](https://arxiv.org/abs/2601.15614) · [Code](https://github.com/Zichen-Yan/AION)
-
-AION studies vision-based aerial ObjectNav with a dual-policy reinforcement-learning framework that separates exploration from goal reaching. It evaluates the method on AI2-THOR ObjectNav and also tests real-time drone execution in IsaacSim.
-
-### Collision-Aware Object-Goal Visual Navigation via Two-Stage Deep Reinforcement Learning
-
-`2025` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2502.13498)
-
-This work evaluates in AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### The One RING: a Robotic Indoor Navigation Generalist
-
-`2024` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2412.14401)
-
-This work evaluates in AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Efficient Strategy Learning by Decoupling Searching and Pathfinding for Object Navigation
-
-`2024` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2406.14103)
-
-This work evaluates in AI2-THOR / RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### TDANet: Target-Directed Attention Network For Object-Goal Visual Navigation With Zero-Shot Ability
-
-`2024` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2404.08353)
-
-This work evaluates in AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Advancing Object Goal Navigation Through LLM-enhanced Object Affinities Transfer
-
-`2024` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2403.09971)
-
-This work evaluates in AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Aligning Knowledge Graph with Visual Perception for Object-goal Navigation
-
-`2024` `arXiv` `ObjectNav` `navigation`
-
-Links: [Code](https://github.com/nuoxu/AKGVP) · [arXiv](https://arxiv.org/abs/2402.18892)
-
-This work evaluates in AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Building Category Graphs Representation with Spatial and Temporal Attention for Visual Navigation
-
-`2023` `arXiv` `navigation` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2312.03327)
-
-This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Zero-Shot Object Goal Visual Navigation With Class-Independent Relationship Network
-
-`2023` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2310.09883)
-
-This work evaluates in AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Implicit Obstacle Map-driven Indoor Navigation Model for Robust Obstacle Avoidance
-
-`2023` `arXiv` `navigation` `memory`
-
-Links: [arXiv](https://arxiv.org/abs/2308.12845)
-
-This work evaluates in AI2-THOR / RoboTHOR for embodied memory and spatial reasoning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Moving Forward by Moving Backward: Embedding Action Impact over Action Semantics
-
-`2023` `arXiv` `navigation` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2304.12289)
-
-This work uses AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Zero-Shot Object Searching Using Large-scale Object Relationship Prior
-
-`2023` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2303.06228)
-
-This work uses AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Multiple Thinking Achieving Meta-Ability Decoupling for Object Navigation
-
-`2023` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2302.01520)
-
-This work evaluates in AI2-THOR / RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Generalized Object Search
-
-`2023` `arXiv` `planning` `benchmark`
-
-Links: [arXiv](https://arxiv.org/abs/2301.10121)
-
-This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Role of reward shaping in object-goal navigation
-
-`2022` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2207.08021)
-
-This work uses AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Zero-shot object goal visual navigation
-
-`2022` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2206.07423)
-
-This work evaluates in AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Unbiased Directed Object Attention Graph for Object Navigation
-
-`2022` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2204.04421)
-
-This work uses AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Agent-Centric Relation Graph for Object Visual Navigation
-
-`2021` `arXiv` `navigation` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2111.14422)
-
-This work uses AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Towards Optimal Correlational Object Search
-
-`2021` `arXiv` `planning` `benchmark`
-
-Links: [arXiv](https://arxiv.org/abs/2110.09991)
-
-This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Hierarchical Object-to-Zone Graph for Object Navigation
-
-`2021` `arXiv` `ObjectNav` `navigation`
-
-Links: [Code](https://github.com/sx-zhang/HOZ) · [arXiv](https://arxiv.org/abs/2109.02066)
-
-This work evaluates in AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### VTNet: Visual Transformer Network for Object Goal Navigation
-
-`2021` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2105.09447)
-
-This work uses AI2-THOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Dynamic Value Estimation for Single-Task Multi-Scene Reinforcement Learning
-
-`2020` `arXiv` `navigation` `RL`
-
-Links: [arXiv](https://arxiv.org/abs/2005.12254)
-
-This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Improving Target-driven Visual Navigation with Attention on 3D Spatial Relationships
-
-`2020` `arXiv` `navigation` `RL`
-
-Links: [arXiv](https://arxiv.org/abs/2005.02153)
-
-This work uses AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Reinforcement Learning-based Visual Navigation with Information-Theoretic Regularization
-
-`2019` `arXiv` `navigation` `benchmark`
-
-Links: [arXiv](https://arxiv.org/abs/1912.04078)
-
-This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Vision-based Navigation Using Deep Reinforcement Learning
-
-`2019` `arXiv` `navigation` `segmentation`
-
-Links: [arXiv](https://arxiv.org/abs/1908.03627)
-
-This work evaluates in AI2-THOR for embodied perception. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Active Object Perceiver: Recognition-guided Policy Learning for Object Searching on Mobile Robots
-
-`2018` `arXiv` `navigation` `RL`
-
-Links: [arXiv](https://arxiv.org/abs/1807.11174)
-
-This work uses AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### SAGE-Nav: Leveraging LLM Planning and Alignment Fusion for Hierarchical Scene Graph-Guided Navigation
-
-`2026` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2606.25497)
-
-This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Effective Task Planning with Missing Objects using Learning-Informed Object Search
-
-`2026` `arXiv` `planning` `ProcTHOR`
-
-Links: [arXiv](https://arxiv.org/abs/2602.11468)
-
-This work uses ProcTHOR for embodied task planning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### VISTAv2: World Imagination for Indoor Vision-and-Language Navigation
-
-`2025` `arXiv` `navigation` `planning`
-
-Links: [arXiv](https://arxiv.org/abs/2512.00041)
-
-This work uses RoboTHOR for vision-and-language navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### STRIVE: Structured Representation Integrating VLM Reasoning for Efficient Object Navigation
-
-`2025` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2505.06729)
-
-This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### VISTA: Generative Visual Imagination for Vision-and-Language Navigation
-
-`2025` `arXiv` `navigation` `benchmark`
-
-Links: [arXiv](https://arxiv.org/abs/2505.07868)
-
-This work evaluates in RoboTHOR for vision-and-language navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### CogNav: Cognitive Process Modeling for Object Goal Navigation with LLMs
-
-`2024` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2412.10439)
-
-This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Exploring the Reliability of Foundation Model-Based Frontier Selection in Zero-Shot Object Goal Navigation
-
-`2024` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2410.21037)
-
-This work uses RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Zero-shot Object Navigation with Vision-Language Models Reasoning
-
-`2024` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2410.18570)
-
-This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### SG-Nav: Online 3D Scene Graph Prompting for LLM-based Zero-shot Object Navigation
-
-`2024` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2410.08189)
-
-This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Leveraging Unknown Objects to Construct Labeled-Unlabeled Meta-Relationships for Zero-Shot Object Navigation
-
-`2024` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2405.15222)
-
-This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Promptable Behaviors: Personalizing Multi-Objective Rewards from Human Preferences
-
-`2023` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2312.09337)
-
-This work uses RoboTHOR / ProcTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Find What You Want: Learning Demand-conditioned Object Attribute Space for Demand-driven Navigation
-
-`2023` `arXiv` `ObjectNav` `navigation`
-
-Links: [Code](https://github.com/whcpumpkin/Demand-driven-navigation) · [arXiv](https://arxiv.org/abs/2309.08138)
-
-This work uses ProcTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### SayNav: Grounding Large Language Models for Dynamic Planning to Navigation in New Environments
-
-`2023` `arXiv` `ObjectNav` `navigation`
-
-Links: [Code](https://github.com/arajv/SayNav) · [arXiv](https://arxiv.org/abs/2309.04077)
-
-This work evaluates in ProcTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### When Learning Is Out of Reach, Reset: Generalization in Autonomous Visuomotor Reinforcement Learning
-
-`2023` `arXiv` `ObjectNav` `benchmark`
-
-Links: [Code](https://github.com/zcczhang/rmrl) · [arXiv](https://arxiv.org/abs/2303.17600)
-
-This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Can an Embodied Agent Find Your "Cat-shaped Mug"? LLM-Guided Exploration for Zero-Shot Object Navigation
-
-`2023` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2303.03480)
-
-This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### ESC: Exploration with Soft Commonsense Constraints for Zero-shot Object Navigation
-
-`2023` `arXiv` `ObjectNav` `navigation`
-
-Links: [arXiv](https://arxiv.org/abs/2301.13166)
-
-This work evaluates in RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Simple but Effective: CLIP Embeddings for Embodied AI
-
-`2021` `arXiv` `ObjectNav` `navigation`
-
-Links: [Code](https://github.com/allenai/embodied-clip) · [arXiv](https://arxiv.org/abs/2111.09888)
-
-This work evaluates in iTHOR / RoboTHOR for object-goal navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### EmbodiSkill: Skill-Aware Reflection for Self-Evolving Embodied Agents
-
-`2026` `arXiv` `benchmarks`
-
-Links: [arXiv](https://arxiv.org/abs/2605.10332)
-
-This work evaluates in EmbodiedBench for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### SeeNav-Agent: Enhancing Vision-Language Navigation with Visual Prompt and Step-Level Policy Optimization
-
-`2025` `arXiv` `navigation` `planning`
-
-Links: [arXiv](https://arxiv.org/abs/2512.02631)
-
-This work evaluates in EmbodiedBench for vision-and-language navigation. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### LGX: Language-Guided Exploration
-
-`2023` `zero-shot ObjectNav` `RoboTHOR`
-
-Links: [Code](https://github.com/vdorbala/LGX)
-
-LGX is code for language-guided exploration in zero-shot object navigation. It complements the L-ZSON and RoboTHOR navigation entries with a concrete implementation.
-
-### RDMAE-Nav
-
-`navigation` `robustness` `RoboTHOR`
-
-Links: [Code](https://github.com/danelpeng/RDMAE_Nav)
-
-RDMAE-Nav is a robust embodied-navigation project focused on visual corruptions and robustness. It is included as a RoboTHOR-related implementation resource for robust navigation research.
-
-### STRIVE project page
-
-`2025` `VLM` `ObjectNav`
-
-Links: [Code](https://github.com/igzat1no/STRIVE)
-
-STRIVE provides project resources for Structured Representation Integrating VLM Reasoning for Efficient Object Navigation. It complements the arXiv entry with implementation or project-page materials.
-
-### NOLO: Navigate Only Look Once
-
-`2025` `IROS` `ObjectNav`
-
-Links: [Code](https://github.com/zhoubohan0/NOLO)
-
-NOLO is the official implementation of Navigate Only Look Once, an object-navigation project. It is relevant as a recent embodied-navigation resource connected to RoboTHOR-style evaluation.
-
-### VUSFA:Variational Universal Successor Features Approximator to Improve Transfer DRL for Target Driven Visual Navigation
-
-`2019` `arXiv` `navigation` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/1908.06376)
-
-VUSFA:Variational Universal Successor Features Approximator to Improve Transfer DRL for Target Driven Visual Navigation reports experiments connected to AI2-THOR for navigation. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### Optimistic Agent: Accurate Graph-Based Value Estimation for More Successful Visual Navigation
-
-`2020` `arXiv` `navigation` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2004.03222)
-
-Optimistic Agent: Accurate Graph-Based Value Estimation for More Successful Visual Navigation reports experiments connected to AI2-THOR for navigation. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### Learning Embeddings that Capture Spatial Semantics for Indoor Navigation
-
-`2021` `arXiv` `navigation` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2108.00159)
-
-Learning Embeddings that Capture Spatial Semantics for Indoor Navigation reports experiments connected to AI2-THOR for navigation. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### Learning for Visual Navigation by Imagining the Success
-
-`2021` `arXiv` `navigation` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2103.00446)
-
-Learning for Visual Navigation by Imagining the Success reports experiments connected to AI2-THOR for navigation. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### Learning to Act with Affordance-Aware Multimodal Neural SLAM
-
-`2022` `arXiv` `navigation` `ALFRED`
-
-Links: [arXiv](https://arxiv.org/abs/2201.09862)
-
-Learning to Act with Affordance-Aware Multimodal Neural SLAM uses ALFRED as an embodied household-task benchmark for navigation. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following research in the AI2-THOR ecosystem.
-
-### LEBP -- Language Expectation & Binding Policy: A Two-Stream Framework for Embodied Vision-and-Language Interaction Task Learning Agents
-
-`2022` `arXiv` `navigation` `ALFRED`
-
-Links: [arXiv](https://arxiv.org/abs/2203.04637)
-
-LEBP -- Language Expectation & Binding Policy: A Two-Stream Framework for Embodied Vision-and-Language Interaction Task Learning Agents uses ALFRED as an embodied household-task benchmark for navigation. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following research in the AI2-THOR ecosystem.
-
-### On the Limits of Evaluating Embodied Agent Model Generalization Using Validation Sets
-
-`2022` `arXiv` `navigation` `ALFRED`
-
-Links: [arXiv](https://arxiv.org/abs/2205.09249)
-
-On the Limits of Evaluating Embodied Agent Model Generalization Using Validation Sets uses ALFRED as an embodied household-task benchmark for navigation. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following research in the AI2-THOR ecosystem.
-
-### CARTIER: Cartographic lAnguage Reasoning Targeted at Instruction Execution for Robots
-
-`2023` `arXiv` `navigation` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2307.11865)
-
-CARTIER: Cartographic lAnguage Reasoning Targeted at Instruction Execution for Robots reports experiments connected to AI2-THOR for navigation. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### ELBA: Learning by Asking for Embodied Visual Navigation and Task Completion
-
-`2023` `arXiv` `navigation` `TEACh`
-
-Links: [arXiv](https://arxiv.org/abs/2302.04865)
-
-ELBA: Learning by Asking for Embodied Visual Navigation and Task Completion studies navigation in TEACh-style embodied task completion. TEACh extends AI2-THOR household tasks with situated dialogue, making the work relevant to conversational instruction-following agents.
-
-### Privacy Risks in Reinforcement Learning for Household Robots
-
-`2023` `arXiv` `navigation` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2306.09273)
-
-Privacy Risks in Reinforcement Learning for Household Robots reports experiments connected to AI2-THOR for navigation. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### RoboGPT: an intelligent agent of making embodied long-term decisions for daily instruction tasks
-
-`2023` `arXiv` `navigation` `ALFRED`
-
-Links: [arXiv](https://arxiv.org/abs/2311.15649)
-
-RoboGPT: an intelligent agent of making embodied long-term decisions for daily instruction tasks uses ALFRED as an embodied household-task benchmark for navigation. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following research in the AI2-THOR ecosystem.
-
-### Commonsense Scene Graph-based Target Localization for Object Search
-
-`2024` `arXiv` `navigation` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2404.00343)
-
-Commonsense Scene Graph-based Target Localization for Object Search reports experiments connected to AI2-THOR for navigation. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### Efficient Policy Adaptation with Contrastive Prompt Ensemble for Embodied Agents
-
-`2024` `arXiv` `navigation` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2412.11484)
-
-Efficient Policy Adaptation with Contrastive Prompt Ensemble for Embodied Agents reports experiments connected to AI2-THOR for navigation. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### Grounding Video Models to Actions through Goal Conditioned Exploration
-
-`2024` `arXiv` `navigation` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2411.07223)
-
-Grounding Video Models to Actions through Goal Conditioned Exploration reports experiments connected to AI2-THOR for navigation. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### Plan Verification for LLM-Based Embodied Task Completion Agents
-
-`2025` `arXiv` `navigation` `TEACh`
-
-Links: [arXiv](https://arxiv.org/abs/2509.02761)
-
-Plan Verification for LLM-Based Embodied Task Completion Agents studies navigation in TEACh-style embodied task completion. TEACh extends AI2-THOR household tasks with situated dialogue, making the work relevant to conversational instruction-following agents.
-
-### TRIAGE: Role-Typed Credit Assignment for Agentic Reinforcement Learning
-
-`2026` `arXiv` `navigation` `ALFWorld`
-
-Links: [arXiv](https://arxiv.org/abs/2606.32017)
-
-TRIAGE: Role-Typed Credit Assignment for Agentic Reinforcement Learning evaluates agent methods on ALFWorld, the text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and evaluation entry rather than as direct AI2-THOR simulator execution.
-
-## Planning, Memory, and Multi-Agent Systems
-
-*Planning, memory, dialogue, assistance, and multi-agent systems grounded in AI2-THOR-derived tasks.*
-
-### Visual Semantic Planning using Deep Successor Representations
-
-`2017` `ICCV` `THOR` `visual semantic planning`
-
-Links: [Paper](https://arxiv.org/abs/1705.08080) · [Project](https://prior.allenai.org/projects/visual-semantic-planning)
-
-Visual Semantic Planning learns to predict action sequences that change object states in THOR. It is an early precursor to household interaction benchmarks because it goes beyond navigation into planning around object affordances and state-changing actions.
-
-### PIGLeT: Language Grounding Through Neuro-Symbolic Interaction in a 3D World
-
-`2021` `ACL` `language grounding` `AI2-THOR`
-
-Links: [Paper](https://arxiv.org/abs/2106.00188) · [Project](https://piglet.cs.umass.edu/) · [Code](https://github.com/rowanz/piglet)
-
-PIGLeT learns grounded language and action consequences by interacting with objects in AI2-THOR. It combines symbolic object-state reasoning with neural language models, making it an early bridge between embodied interaction and language-grounded commonsense prediction.
-
-### MaSS: A Simple Approach for Visual Rearrangement
-
-`2023` `ICLR` `rearrangement` `semantic mapping`
-
-Links: [Paper](https://arxiv.org/abs/2206.13396) · [Code](https://github.com/brandontrabucco/mass)
-
-MaSS tackles the AI2-THOR Rearrangement Challenge with a simple modular pipeline based on semantic segmentation, voxel mapping, and semantic search. It is a strong example of how explicit spatial structure can compete in long-horizon rearrangement without relying on opaque end-to-end policies.
-
-### TIDEE: Tidying Up Novel Rooms using Visuo-Semantic Commonsense Priors
-
-`2022` `ECCV` `tidying` `rearrangement`
-
-Links: [Paper](https://arxiv.org/abs/2207.10761) · [Project](https://tidee-agent.github.io/) · [Code](https://github.com/Gabesarch/TIDEE)
-
-TIDEE studies open-ended room tidying in AI2-THOR. Instead of copying a reference goal state, it uses visuo-semantic commonsense priors, graph memory, and visual search to identify out-of-place objects and move them to plausible receptacles or surfaces.
-
-### Towards Disturbance-Free Visual Mobile Manipulation
-
-`2022` `ICRA` `ManipulaTHOR` `mobile manipulation`
-
-Links: [Paper](https://arxiv.org/abs/2112.12612)
-
-This work studies mobile manipulation policies that complete ManipulaTHOR tasks while avoiding unnecessary collisions and environmental disturbance. It adds a safety and physical-side-effect lens to ArmPointNav-style visual mobile manipulation.
-
-### JARVIS: A Neuro-Symbolic Commonsense Reasoning Framework for Conversational Embodied Agents
-
-`2022` `arXiv` `TEACh` `neuro-symbolic planning`
-
-Links: [Paper](https://arxiv.org/abs/2208.13266)
-
-JARVIS combines language understanding, semantic mapping, commonsense reasoning, and symbolic action generation for TEACh-style conversational embodied tasks. It focuses on using structured reasoning to bridge dialogue intent and executable household actions.
-
-### HELPER: Open-Ended Instructable Embodied Agents with Memory-Augmented Large Language Models
-
-`2023` `Findings of EMNLP` `TEACh` `memory-augmented LLM`
-
-Links: [Paper](https://arxiv.org/abs/2310.15127) · [Project](https://helper-agent-llm.github.io/) · [Code](https://github.com/Gabesarch/HELPER)
-
-HELPER uses retrieval-augmented memory over language-program pairs to personalize embodied task execution from open-ended human dialogue. It targets TEACh execution and shows how deployment-time memories can adapt an LLM planner to user-specific routines.
-
-### Prompter: Utilizing LLM Prompting for Data-Efficient Embodied Instruction Following
-
-`2022` `arXiv` `ALFRED` `LLM planning`
-
-Links: [Paper](https://arxiv.org/abs/2211.03267)
-
-Prompter uses large-language-model prompting to inject object-landmark relationships and task constraints into ALFRED agents. It is representative of early attempts to use LLM world knowledge for data-efficient embodied instruction following before full VLM-agent pipelines became common.
-
-### DialMAT: Dialogue-Enabled Transformer with Moment-Based Adversarial Training
-
-`2023` `CVPR Embodied AI Workshop` `DialFRED` `dialogue`
-
-Links: [Paper](https://arxiv.org/abs/2311.06855)
-
-DialMAT trains a dialogue-enabled transformer for DialFRED using moment-based adversarial training. It is a direct DialFRED follow-up and is useful for tracking methods that turn clarification dialogue into better ALFRED-derived task execution.
-
-### CAPEAM: Context-Aware Planning and Environment-Aware Memory
-
-`2023` `arXiv` `ALFRED` `memory` `planning`
-
-Links: [Paper](https://openaccess.thecvf.com/content/ICCV2023/html/Kim_Context-Aware_Planning_and_Environment-Aware_Memory_for_Instruction_Following_Embodied_Agents_ICCV_2023_paper.html) · [Project](https://bhkim94.github.io/projects/CAPEAM/) · [Code](https://github.com/snumprlab/capeam)
-
-CAPEAM improves ALFRED execution by tracking action consequences, object states, and environment changes across time. Its context-aware planning and memory design target common long-horizon failures such as stale assumptions after object interaction.
-
-### Socratic Planner: Inquiry-Based Zero-Shot Planning for Embodied Instruction Following
-
-`2024` `arXiv` `ALFRED` `zero-shot planning`
-
-Links: [Paper](https://arxiv.org/abs/2404.15190)
-
-Socratic Planner decomposes embodied instructions through self-questioning and uses visual feedback to revise plans during execution. It fits the ALFRED line of work that explores LLM planning without heavy benchmark-specific policy training.
-
-### Smart Help: Strategic Opponent Modeling for Proactive and Adaptive Robot Assistance in Households
-
-`2024` `arXiv` `assistance` `multi-agent`
-
-Links: [Paper](https://arxiv.org/abs/2404.09001)
-
-Smart Help defines an assistive-agent challenge in AI2-THOR where a robot must proactively adapt to humans with different abilities and dynamic goals. It emphasizes modeling the other agent's capability and intent rather than executing a fixed helper policy.
-
-### LLaMAR: Long-Horizon Planning for Multi-Agent Robots in Partially Observable Environments
-
-`2024` `NeurIPS` `multi-agent` `MAP-THOR`
-
-Links: [Paper](https://proceedings.neurips.cc/paper_files/paper/2024/hash/7d6e85e88495104442af94c98e899659-Abstract-Conference.html) · [Project](https://nsidn98.github.io/LLaMAR/) · [Code](https://github.com/nsidn98/LLaMAR)
-
-LLaMAR uses a plan-act-correct-verify loop for language-model-based multi-agent planning under partial observability. It introduces MAP-THOR, an AI2-THOR-based multi-agent household test suite for long-horizon collaborative planning.
-
-### KARMA: Augmenting Embodied AI Agents with Long-and-short Term Memory Systems
-
-`2024` `arXiv` `memory` `scene graphs`
-
-Links: [Paper](https://arxiv.org/abs/2409.14908) · [Code](https://github.com/WZX0Swarm0Robotics/KARMA)
-
-KARMA adds long-term and short-term memory modules to embodied agents. Long-term memory stores 3D scene-graph experience, while short-term memory tracks recent object state and position changes, helping LLM-based planners avoid repeated mistakes in household tasks.
-
-### HELPER-X: A Unified Instructable Embodied Agent
-
-`2024` `arXiv` `memory-augmented LLM` `multi-domain`
-
-Links: [Paper](https://arxiv.org/abs/2404.19065) · [Project](https://helper-agent-llm.github.io/)
-
-HELPER-X extends memory-augmented LLM planning across ALFRED, TEACh, DialFRED, and room reorganization tasks. It focuses on broad instructability through retrieved examples and shared memory, without requiring heavy in-domain training for every benchmark.
-
-### Scene Graph-Guided Proactive Replanning for Failure-Resilient Embodied Agent
-
-`2025` `arXiv` `replanning` `scene graphs`
-
-Links: [Paper](https://arxiv.org/abs/2508.11286)
-
-This method compares current scene graphs against reference graphs from successful demonstrations and triggers replanning before execution failures occur. It targets common household-task failures such as stale assumptions about object state or spatial relations.
-
-### AgentSpec: Understanding Embodied Agent Scaffolds Through Controlled Composition
-
-`2026` `arXiv` `ALFRED` `RoboTHOR`
-
-Links: [Paper](https://arxiv.org/abs/2606.14674) · [Project](https://agentspec-embodied.github.io/)
-
-AgentSpec studies how reasoning, memory, reflection, and learning modules compose inside embodied agent scaffolds. It is in scope because its controlled evaluations instantiate agents in both ALFRED and RoboTHOR.
-
-### Emergence: Overcoming Privileged Information Bias in Asymmetric Embodied Agents via Active Querying
-
-`2025` `arXiv` `multi-agent` `active querying`
-
-Links: [Paper](https://arxiv.org/abs/2512.15776)
-
-Emergence introduces an asymmetric assistive reasoning setup in AI2-THOR where a knowledgeable leader must guide a sensor-limited follower. It studies privileged-information bias and compares push-style instruction with pull-style active querying for collaborative embodied tasks.
-
-### Scale-Plan: Scalable Language-Enabled Task Planning for Heterogeneous Multi-Robot Teams
-
-`2026` `arXiv` `multi-robot planning` `MAT2-THOR`
-
-Links: [Paper](https://arxiv.org/abs/2603.08814)
-
-Scale-Plan uses LLM-guided graph search to filter task-relevant actions and objects before multi-robot planning. It introduces MAT2-THOR, a cleaned AI2-THOR-based benchmark for evaluating heterogeneous multi-robot planning systems.
-
-### Flexible Agent Alignment with Goal Inference from Open-Ended Dialog
-
-`2025` `arXiv` `LLM` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2508.15119)
-
-This work uses AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Embodied Referring Expression for Manipulation Question Answering in Interactive Environment
-
-`2022` `arXiv` `benchmark` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2210.02709)
-
-This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### eMEM: A Hybrid Spatio-Temporal Memory System For Embodied Agents
-
-`2026` `arXiv` `memory` `benchmark`
-
-Links: [arXiv](https://arxiv.org/abs/2606.03374)
-
-This work evaluates in ProcTHOR for embodied memory and spatial reasoning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### StateLinFormer: Stateful Training Enhancing Long-term Memory in Navigation
-
-`2026` `arXiv` `navigation` `memory`
-
-Links: [arXiv](https://arxiv.org/abs/2603.23571)
-
-This work uses ProcTHOR for embodied memory and spatial reasoning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### ESCAPE: Episodic Spatial Memory and Adaptive Execution Policy for Long-Horizon Mobile Manipulation
-
-`2026` `arXiv` `memory` `mobile manipulation`
-
-Links: [arXiv](https://arxiv.org/abs/2604.13633)
-
-ESCAPE studies episodic spatial memory and adaptive execution for long-horizon mobile manipulation. It is included because the work reports ALFRED-family embodied task evaluation, connecting it to AI2-THOR household workflows.
-
-### KEEP: A KV-Cache-Centric Memory Management System for Efficient Embodied Planning
-
-`2026` `arXiv` `memory` `planning`
-
-Links: [arXiv](https://arxiv.org/abs/2602.23592)
-
-KEEP proposes KV-cache-centric memory management for long-horizon embodied planning. It is relevant here because the evaluation includes ALFRED-style embodied planning, tying the method to AI2-THOR-family tasks.
-
-### Cordial Sync
-
-`2024` `multi-agent` `AI2-THOR` `code`
-
-Links: [Code](https://github.com/allenai/cordial-sync)
-
-cordial-sync is AllenAI code for reproducing A Cordial Sync, a multi-agent embodied task project. It belongs in the AI2-THOR ecosystem because the repository supports experiments on multi-agent embodied tasks.
-
-### Ask4Help
-
-`help-seeking` `navigation` `RoboTHOR`
-
-Links: [Code](https://github.com/allenai/ask4help)
-
-Ask4Help releases code for studying when embodied navigation agents should ask for help. It is part of the RoboTHOR research ecosystem around navigation, uncertainty, and assistance.
-
-### OGAMUS: Online Grounding of Action Models in Unknown Situations
-
-`planning` `grounding` `AI2-THOR`
-
-Links: [Code](https://github.com/LamannaLeonardo/OGAMUS)
-
-OGAMUS provides code for online grounding of action models in unknown situations. It is relevant as a planning and grounding project that appears in AI2-THOR-family embodied-agent search results.
-
-### TaPA
-
-`2023` `LLM` `task planning`
-
-Links: [Code](https://github.com/Gary3410/TaPA)
-
-TaPA is code for Embodied Task Planning with Large Language Models. The repository is relevant to AI2-THOR-family planning workflows because it targets embodied task planning and appears in AI2-THOR search results with released code.
-
-### SMART-LLM
-
-`2023` `LLM` `multi-agent`
-
-Links: [Code](https://github.com/SMARTlab-Purdue/SMART-LLM)
-
-SMART-LLM is a codebase for Smart Multi-Agent Robot Task Planning using Large Language Models. It is useful for readers tracking LLM-based planning systems that overlap with AI2-THOR-style household task environments.
-
-### Embodied-Reasoner
-
-`2024` `reasoning` `interactive tasks`
-
-Links: [Code](https://github.com/zwq2018/embodied_reasoner)
-
-Embodied-Reasoner releases code for synergizing visual search, reasoning, and action in embodied interactive tasks. It is included as a project resource for AI2-THOR-family embodied reasoning workflows.
-
-### Automata-Guided Hierarchical Reinforcement Learning for Skill Composition
-
-`2017` `arXiv` `planning` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/1711.00129)
-
-Automata-Guided Hierarchical Reinforcement Learning for Skill Composition reports experiments connected to AI2-THOR for planning. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### RoboCSE: Robot Common Sense Embedding
-
-`2019` `arXiv` `memory` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/1903.00412)
-
-RoboCSE: Robot Common Sense Embedding reports experiments connected to AI2-THOR for memory. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### Reinforcement Learning for Sparse-Reward Object-Interaction Tasks in a First-person Simulated 3D Environment
-
-`2020` `arXiv` `interaction` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2010.15195)
-
-Reinforcement Learning for Sparse-Reward Object-Interaction Tasks in a First-person Simulated 3D Environment reports experiments connected to AI2-THOR for interaction. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### Shaping embodied agent behavior with activity-context priors from egocentric video
-
-`2021` `arXiv` `planning` `iTHOR`
-
-Links: [arXiv](https://arxiv.org/abs/2110.07692)
-
-Shaping embodied agent behavior with activity-context priors from egocentric video reports experiments connected to iTHOR for planning. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### DoRO: Disambiguation of referred object for embodied agents
-
-`2022` `arXiv` `embodied agents` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2207.14205)
-
-DoRO: Disambiguation of referred object for embodied agents reports experiments connected to AI2-THOR for embodied agents. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### Matching options to tasks using Option-Indexed Hierarchical Reinforcement Learning
-
-`2022` `arXiv` `memory` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2206.05750)
-
-Matching options to tasks using Option-Indexed Hierarchical Reinforcement Learning reports experiments connected to AI2-THOR for memory. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### SGL: Symbolic Goal Learning in a Hybrid, Modular Framework for Human Instruction Following
-
-`2022` `arXiv` `planning` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2202.12912)
-
-SGL: Symbolic Goal Learning in a Hybrid, Modular Framework for Human Instruction Following reports experiments connected to AI2-THOR for planning. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### EmbodiedRAG: Dynamic 3D Scene Graph Retrieval for Efficient and Scalable Robot Task Planning
-
-`2024` `arXiv` `memory` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2410.23968)
-
-EmbodiedRAG: Dynamic 3D Scene Graph Retrieval for Efficient and Scalable Robot Task Planning reports experiments connected to AI2-THOR for memory. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### Goal Inference from Open-Ended Dialog
-
-`2024` `arXiv` `interaction` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2410.13957)
-
-Goal Inference from Open-Ended Dialog reports experiments connected to AI2-THOR for interaction. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### Recover: A Neuro-Symbolic Framework for Failure Detection and Recovery
-
-`2024` `arXiv` `planning` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2404.00756)
-
-Recover: A Neuro-Symbolic Framework for Failure Detection and Recovery reports experiments connected to AI2-THOR for planning. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### VideoAgent: Self-Improving Video Generation
-
-`2024` `arXiv` `planning` `iTHOR`
-
-Links: [arXiv](https://arxiv.org/abs/2410.10076)
-
-VideoAgent: Self-Improving Video Generation reports experiments connected to iTHOR for planning. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### Spatial Policy: Guiding Visuomotor Robotic Manipulation with Spatial-Aware Modeling and Reasoning
-
-`2025` `arXiv` `planning` `iTHOR`
-
-Links: [arXiv](https://arxiv.org/abs/2508.15874)
-
-Spatial Policy: Guiding Visuomotor Robotic Manipulation with Spatial-Aware Modeling and Reasoning reports experiments connected to iTHOR for planning. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### ATOD: Annealed Turn-aware On-policy Distillation for Multi-turn Autonomous Agents
-
-`2026` `arXiv` `rl` `ALFWorld`
-
-Links: [arXiv](https://arxiv.org/abs/2606.27814)
-
-ATOD: Annealed Turn-aware On-policy Distillation for Multi-turn Autonomous Agents evaluates agent methods on ALFWorld, the text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and evaluation entry rather than as direct AI2-THOR simulator execution.
-
-### BiPACE: Bisimulation-Guided Policy Optimization with Action Counterfactual Estimation for LLM Agents
-
-`2026` `arXiv` `planning` `ALFWorld`
-
-Links: [arXiv](https://arxiv.org/abs/2606.25556)
-
-BiPACE: Bisimulation-Guided Policy Optimization with Action Counterfactual Estimation for LLM Agents evaluates agent methods on ALFWorld, the text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and evaluation entry rather than as direct AI2-THOR simulator execution.
-
-### DuoMem: Towards Capable On-Device Memory Agents via Dual-Space Distillation
-
-`2026` `arXiv` `memory` `ALFWorld`
-
-Links: [arXiv](https://arxiv.org/abs/2606.29961)
-
-DuoMem: Towards Capable On-Device Memory Agents via Dual-Space Distillation evaluates agent methods on ALFWorld, the text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and evaluation entry rather than as direct AI2-THOR simulator execution.
-
-### Group-Graph Policy Optimization for Long-Horizon Agentic Reinforcement Learning
-
-`2026` `arXiv` `planning` `ALFWorld`
-
-Links: [arXiv](https://arxiv.org/abs/2606.22995)
-
-Group-Graph Policy Optimization for Long-Horizon Agentic Reinforcement Learning evaluates agent methods on ALFWorld, the text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and evaluation entry rather than as direct AI2-THOR simulator execution.
-
-### OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning
-
-`2026` `arXiv` `memory` `ALFWorld`
-
-Links: [arXiv](https://arxiv.org/abs/2606.26790)
-
-OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning evaluates agent methods on ALFWorld, the text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and evaluation entry rather than as direct AI2-THOR simulator execution.
-
-### Selective Memory Retention for Long-Horizon LLM Agents
-
-`2026` `arXiv` `memory` `ALFWorld`
-
-Links: [arXiv](https://arxiv.org/abs/2606.29178)
-
-Selective Memory Retention for Long-Horizon LLM Agents evaluates agent methods on ALFWorld, the text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and evaluation entry rather than as direct AI2-THOR simulator execution.
-
-### Self-Evolving World Models for LLM Agent Planning
-
-`2026` `arXiv` `memory` `ALFWorld`
-
-Links: [arXiv](https://arxiv.org/abs/2606.30639)
-
-Self-Evolving World Models for LLM Agent Planning evaluates agent methods on ALFWorld, the text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and evaluation entry rather than as direct AI2-THOR simulator execution.
-
-### SKILL-DISCO: Distilling and Compiling Agent Traces into Reusable Procedural Skills
-
-`2026` `arXiv` `planning` `ALFWorld`
-
-Links: [arXiv](https://arxiv.org/abs/2606.26669)
-
-SKILL-DISCO: Distilling and Compiling Agent Traces into Reusable Procedural Skills evaluates agent methods on ALFWorld, the text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and evaluation entry rather than as direct AI2-THOR simulator execution.
-
-### The Interplay of Harness Design and Post-Training in LLM Agents
-
-`2026` `arXiv` `planning` `ALFWorld`
-
-Links: [arXiv](https://arxiv.org/abs/2606.25447)
-
-The Interplay of Harness Design and Post-Training in LLM Agents evaluates agent methods on ALFWorld, the text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and evaluation entry rather than as direct AI2-THOR simulator execution.
-
-### UCOB: Learning to Utilize and Evolve Agentic Skills via Credit-Aware On-Policy Bidirectional Self-Distillation
-
-`2026` `arXiv` `memory` `ALFWorld`
-
-Links: [arXiv](https://arxiv.org/abs/2606.29502)
-
-UCOB: Learning to Utilize and Evolve Agentic Skills via Credit-Aware On-Policy Bidirectional Self-Distillation evaluates agent methods on ALFWorld, the text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and evaluation entry rather than as direct AI2-THOR simulator execution.
-
-## RL-Trained VLM Agents
-
-*VLM-agent training and reinforcement-learning work whose evaluation includes AI2-THOR-family benchmarks.*
-
-### ERA: Transforming VLMs into Embodied Agents via Embodied Prior Learning and Online Reinforcement Learning
-
-`2025` `arXiv` `online RL` `EmbodiedBench`
-
-Links: [Paper](https://arxiv.org/abs/2510.12693) · [Code](https://github.com/Embodied-Reasoning-Agent/Embodied-Reasoning-Agent)
-
-ERA turns smaller VLMs into embodied agents through embodied prior learning followed by online reinforcement learning. Its self-summarization, dense reward shaping, and turn-level policy optimization directly target long-horizon sparse-reward failures in EB-ALFRED and EB-Manipulation.
-
-### Reinforced Reasoning for Embodied Planning
-
-`2025` `arXiv` `GRPO` `embodied planning`
-
-Links: [Paper](https://arxiv.org/abs/2505.22050)
-
-This work brings R1-style reinforcement fine-tuning into embodied planning. It first distills structured decision-making data, then applies GRPO-style optimization with rule-based rewards for multi-step action quality, highlighting the value of SFT-to-RL pipelines for embodied agents.
-
-### RoboGPT-R1: Enhancing Robot Task Planning with Reinforcement Learning
-
-`2026` `AAMAS` `RL` `EmbodiedBench`
-
-Links: [Paper](https://arxiv.org/abs/2510.14828)
-
-RoboGPT-R1 uses expert-sequence SFT followed by reinforcement learning to improve robot task planning with Qwen2.5-VL-3B. Its reported gains on EmbodiedBench-style evaluation make it a useful comparison point for GRPO/RL-based embodied VLM training.
-
-### ESearch-R1: Learning Cost-Aware MLLM Agents for Interactive Embodied Search via Reinforcement Learning
-
-`2025` `arXiv` `AI2-THOR` `cost-aware GRPO`
-
-Links: [Paper](https://arxiv.org/abs/2512.18571)
-
-ESearch-R1 trains agents to balance asking questions, retrieving memory, and physically navigating in AI2-THOR. Its cost-aware GRPO objective rewards trajectories that solve ambiguous search tasks while reducing expensive exploration and human-attention costs.
-
-### Think Twice, Act Once: Verifier-Guided Action Selection for Embodied Agents
-
-`2026` `CVPR (Findings)` `ALFRED` `verifier`
-
-Links: [Paper](https://arxiv.org/abs/2605.12620)
-
-VegAS samples an ensemble of candidate actions at test time and uses a generative verifier, trained on synthesized failure cases, to select the most reliable one. It is in scope because its embodied evaluation spans ALFRED (AI2-THOR) alongside Habitat, reporting sizable gains on long-horizon tasks.
-
-### RenderMem: Rendering as Spatial Memory Retrieval
-
-`2026` `arXiv` `memory` `VLM`
-
-Links: [arXiv](https://arxiv.org/abs/2603.14669)
-
-This work uses AI2-THOR for embodied memory and spatial reasoning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Toward Agentic AI: Task-Oriented Communication for Hierarchical Planning of Long-Horizon Tasks
-
-`2026` `arXiv` `planning` `benchmark`
-
-Links: [arXiv](https://arxiv.org/abs/2601.13685)
-
-This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### SplatR : Experience Goal Visual Rearrangement with 3D Gaussian Splatting and Dense Feature Matching
-
-`2024` `arXiv` `memory` `rearrangement`
-
-Links: [arXiv](https://arxiv.org/abs/2411.14322)
-
-This work evaluates in AI2-THOR for visual rearrangement. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### SELU: Self-Learning Embodied MLLMs in Unknown Environments
-
-`2024` `arXiv` `VLM` `LLM`
-
-Links: [arXiv](https://arxiv.org/abs/2410.03303)
-
-This work uses AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Automating Transfer of Robot Task Plans using Functorial Data Migrations
-
-`2024` `arXiv` `planning` `benchmark`
-
-Links: [arXiv](https://arxiv.org/abs/2406.15961)
-
-This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### ASC me to Do Anything: Multi-task Training for Embodied AI
-
-`2022` `arXiv` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2202.06987)
-
-This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### GridToPix: Training Embodied Agents with Minimal Supervision
-
-`2021` `arXiv` `navigation` `RL`
-
-Links: [arXiv](https://arxiv.org/abs/2105.00931)
-
-This work evaluates in AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Neural Task Graphs: Generalizing to Unseen Tasks from a Single Video Demonstration
-
-`2018` `arXiv` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/1807.03480)
-
-This work uses AI2-THOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### MemCompiler: Compile, Don't Inject -- State-Conditioned Memory for Embodied Agents
-
-`2026` `arXiv` `memory`
-
-Links: [arXiv](https://arxiv.org/abs/2605.07594)
-
-This work evaluates in EmbodiedBench for embodied memory and spatial reasoning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### MemCtrl: Using MLLMs as Active Memory Controllers on Embodied Agents
-
-`2026` `arXiv` `memory` `benchmark`
-
-Links: [arXiv](https://arxiv.org/abs/2601.20831)
-
-This work evaluates in EmbodiedBench for embodied memory and spatial reasoning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### RoboMemory: A Brain-inspired Multi-memory Agentic Framework for Interactive Environmental Learning in Physical Embodied Systems
-
-`2025` `arXiv` `planning` `memory`
-
-Links: [arXiv](https://arxiv.org/abs/2508.01415)
-
-This work evaluates in EmbodiedBench for embodied memory and spatial reasoning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### When Should a Robot Think? Resource-Aware Reasoning via Reinforcement Learning for Embodied Robotic Decision-Making
-
-`2026` `arXiv` `RL` `reasoning`
-
-Links: [arXiv](https://arxiv.org/abs/2603.16673)
-
-This work studies when an embodied agent should invoke expensive reasoning during robotic decision-making. Its ALFRED evaluation makes it relevant to AI2-THOR-family planning agents with resource-aware reasoning policies.
-
-## Perception, Physics, and Scene Graphs
-
-*Perception, physical reasoning, and scene-graph work relevant to AI2-THOR-style embodied interaction.*
-
-### Learning About Objects by Learning to Interact with Them
-
-`2020` `NeurIPS` `AI2-THOR` `self-supervised interaction`
-
-Links: [Paper](https://proceedings.neurips.cc/paper/2020/hash/291597a100aadd814d197af4f4bab3a7-Abstract.html) · [Code](https://github.com/allenai/learning_from_interaction)
-
-This work learns object extent and physical properties through unsupervised interaction in AI2-THOR. It broadens the ecosystem beyond navigation and instruction following by showing how embodied agents can acquire object knowledge through active manipulation.
-
-### ActioNet: A Multimodal Dataset for Human Activities Using AI2-THOR
-
-`2023` `ICIP` `activity recognition` `AI2-THOR`
-
-Links: [Paper](https://ieeexplore.ieee.org/document/10222876) · [Code](https://github.com/Alee08/ActioNet) · [arXiv](https://arxiv.org/abs/2306.04692)
-
-ActioNet uses AI2-THOR to generate multimodal egocentric observations for human activity recognition, including RGB, depth, segmentation, and metadata-style signals. It is useful for perception-focused work that needs controlled household activities rather than only navigation or task-success labels.
-
-### Integrating Vision Foundation Models with Reinforcement Learning for Enhanced Object Interaction
-
-`2025` `RCVE` `AI2-THOR` `SAM/YOLO/PPO`
-
-Links: [Paper](https://arxiv.org/abs/2508.05838)
-
-This paper integrates vision foundation models such as SAM and YOLOv5 with PPO agents in AI2-THOR kitchen environments. It studies how stronger object detection and segmentation can improve navigation and interaction success for embodied agents.
-
-### PhysBench: Benchmarking and Enhancing Vision-Language Models for Physical World Understanding
-
-`2025` `ICLR` `physics` `VLM evaluation`
-
-Links: [Paper](https://arxiv.org/abs/2501.16411) · [Project](https://physbench.github.io/)
-
-PhysBench evaluates VLM physical-world understanding across object properties, relations, scenes, and dynamics. It is relevant to AI2-THOR-style embodied agents because physical commonsense errors often become interaction, manipulation, and planning failures.
-
-### ESCA: Contextualizing Embodied Agents via Scene-Graph Generation
-
-`2025` `NeurIPS` `scene graphs` `perception`
-
-Links: [Paper](https://arxiv.org/abs/2510.15963) · [Code](https://github.com/video-fm/ESCA) · [SGCLIP Code](https://github.com/video-fm/LASER)
-
-ESCA uses spatial-temporal scene graphs as a perception layer for embodied agents. It argues that many embodied failures are perception failures, and that grounding agents in structured object-relation graphs can reduce hallucination, missed objects, and incorrect context assumptions.
-
-### FunFact: Building Probabilistic Functional 3D Scene Graphs via Factor-Graph Reasoning
-
-`2026` `arXiv` `scene graph` `benchmark`
-
-Links: [arXiv](https://arxiv.org/abs/2604.03696)
-
-This work evaluates in AI2-THOR for scene-graph and spatial reasoning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### See, Symbolize, Act: Grounding VLMs with Spatial Representations for Better Gameplay
-
-`2026` `arXiv` `VLM` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2603.11601)
-
-This work uses AI2-THOR for embodied perception. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### GRIP: A Unified Framework for Grid-Based Relay and Co-Occurrence-Aware Planning in Dynamic Environments
-
-`2025` `arXiv` `navigation` `planning`
-
-Links: [arXiv](https://arxiv.org/abs/2510.10865)
-
-This work evaluates in AI2-THOR / RoboTHOR for embodied memory and spatial reasoning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### A Unified Framework for Real-Time Failure Handling in Robotics Using Vision-Language Models, Reactive Planner and Behavior Trees
-
-`2025` `arXiv` `planning` `scene graph`
-
-Links: [arXiv](https://arxiv.org/abs/2503.15202)
-
-This work evaluates in AI2-THOR for scene-graph and spatial reasoning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Discovering Object Attributes by Prompting Large Language Models with Perception-Action APIs
-
-`2024` `arXiv` `VLM` `LLM`
-
-Links: [arXiv](https://arxiv.org/abs/2409.15505)
-
-This work uses AI2-THOR for embodied perception. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### SegmATRon: Embodied Adaptive Semantic Segmentation for Indoor Environment
-
-`2023` `arXiv` `segmentation` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2310.12031)
-
-This work uses AI2-THOR for embodied perception. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Learning Concept-Based Causal Transition and Symbolic Reasoning for Visual Planning
-
-`2023` `arXiv` `planning` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2310.03325)
-
-This work uses AI2-THOR for embodied task planning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### CoReLIN: Constraint-based Reasoning for Zero-shot Lifelong Interactive Navigation
-
-`2026` `arXiv` `navigation` `planning`
-
-Links: [arXiv](https://arxiv.org/abs/2602.20055)
-
-This work uses ProcTHOR for scene-graph and spatial reasoning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Investigating Domain Gaps for Indoor 3D Object Detection
-
-`2025` `arXiv` `benchmark` `ProcTHOR`
-
-Links: [arXiv](https://arxiv.org/abs/2508.17439)
-
-This work evaluates in ProcTHOR for AI2-THOR-family embodied-agent workflows. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### Leveraging Semantics for Incremental Learning in Multi-Relational Embeddings
-
-`2019` `arXiv` `perception` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/1905.12181)
-
-Leveraging Semantics for Incremental Learning in Multi-Relational Embeddings reports experiments connected to AI2-THOR for perception. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### Learning Affordance Landscapes for Interaction Exploration in 3D Environments
-
-`2020` `arXiv` `perception` `iTHOR`
-
-Links: [arXiv](https://arxiv.org/abs/2008.09241)
-
-Learning Affordance Landscapes for Interaction Exploration in 3D Environments reports experiments connected to iTHOR for perception. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### Towards Embodied Scene Description
-
-`2020` `arXiv` `perception` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2004.14638)
-
-Towards Embodied Scene Description reports experiments connected to AI2-THOR for perception. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### IFR-Explore: Learning Inter-object Functional Relationships in 3D Indoor Scenes
-
-`2021` `arXiv` `perception` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2112.05298)
-
-IFR-Explore: Learning Inter-object Functional Relationships in 3D Indoor Scenes reports experiments connected to AI2-THOR for perception. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### Moment-based Adversarial Training for Embodied Language Comprehension
-
-`2022` `arXiv` `perception` `ALFRED`
-
-Links: [arXiv](https://arxiv.org/abs/2204.00889)
-
-Moment-based Adversarial Training for Embodied Language Comprehension uses ALFRED as an embodied household-task benchmark for perception. Because ALFRED tasks are grounded in AI2-THOR scenes and interactions, the paper is relevant to instruction-following research in the AI2-THOR ecosystem.
-
-### Behind the Veil: Enhanced Indoor 3D Scene Reconstruction with Occluded Surfaces Completion
-
-`2024` `arXiv` `perception` `iTHOR`
-
-Links: [arXiv](https://arxiv.org/abs/2404.03070)
-
-Behind the Veil: Enhanced Indoor 3D Scene Reconstruction with Occluded Surfaces Completion reports experiments connected to iTHOR for perception. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### ODIN: A Single Model for 2D and 3D Segmentation
-
-`2024` `arXiv` `perception` `TEACh`
-
-Links: [arXiv](https://arxiv.org/abs/2401.02416)
-
-ODIN: A Single Model for 2D and 3D Segmentation studies perception in TEACh-style embodied task completion. TEACh extends AI2-THOR household tasks with situated dialogue, making the work relevant to conversational instruction-following agents.
-
-### Segment Any Object Model (SAOM): Real-to-Simulation Fine-Tuning Strategy for Multi-Class Multi-Instance Segmentation
-
-`2024` `arXiv` `perception` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2403.10780)
-
-Segment Any Object Model (SAOM): Real-to-Simulation Fine-Tuning Strategy for Multi-Class Multi-Instance Segmentation reports experiments connected to AI2-THOR for perception. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### Semantic Consistency Policy Optimization for Reinforcement Learning of LLM Agents
-
-`2026` `arXiv` `perception` `ALFWorld`
-
-Links: [arXiv](https://arxiv.org/abs/2606.25852)
-
-Semantic Consistency Policy Optimization for Reinforcement Learning of LLM Agents evaluates agent methods on ALFWorld, the text-game environment aligned with ALFRED and THOR household tasks. It is included as an ALFRED-derived planning and evaluation entry rather than as direct AI2-THOR simulator execution.
-
-## Datasets and Assets
-
-*Datasets, assets, and derived benchmark resources for AI2-THOR-family workflows.*
-
-### Objaverse-THOR / Objathor
-
-`dataset` `assets` `Objaverse` `ProcTHOR`
-
-Links: [Code](https://github.com/allenai/objathor) · [Dataset tools](https://github.com/allenai/objathor/tree/main/objathor/dataset)
-
-Objathor provides tools and dataset utilities for importing, annotating, and preparing Objaverse-style 3D assets for AI2-THOR and ProcTHOR workflows. It supports the asset side of large-scale environment generation.
-
-### Semantic2Thor Dataset
-
-`dataset` `semantics` `affordances`
-
-Links: [Code](https://github.com/maxzuo/semantic-ai2thor-dataset)
-
-Semantic2Thor augments AI2-THOR pickupable objects with semantic embeddings, WordNet/ConceptNet links, Walmart category information, and affordance vectors. It is useful for object commonsense, semantic grounding, and affordance-aware planning.
-
-### MAP-THOR
-
-`benchmark` `multi-agent` `planning`
-
-Links: [Paper](https://arxiv.org/abs/2407.10031) · [Code](https://github.com/nsidn98/LLaMAR)
-
-MAP-THOR is the multi-agent household planning test suite introduced with LLaMAR. It extends the AI2-THOR task setting toward partial observability, multi-agent coordination, information asymmetry, and long-horizon household collaboration.
-
-### ProcTHOR-10K
-
-`dataset` `ProcTHOR` `scenes`
-
-Links: [Code](https://github.com/allenai/procthor) · [Dataset](https://huggingface.co/datasets/allenai/procthor-10k)
-
-ProcTHOR-10K is an official release of procedurally generated interactive household scenes for ProcTHOR. It is useful as a compact, citable scene corpus for navigation, rearrangement, active perception, and embodied-agent evaluation.
-
-### AI2-THOR ObjectNav Evaluation Datasets
-
-`dataset` `ObjectNav` `evaluation`
-
-Links: [Code](https://github.com/allenai/robothor-challenge) · [Dataset](https://ai2thor.allenai.org/robothor/objectnav-dataset/)
-
-The official ObjectNav evaluation datasets support RoboTHOR and AI2-THOR-family ObjectNav challenge workflows. They provide the task instances and split definitions needed to compare navigation agents under standard evaluation conditions.
-
-### MM-Conv: A Multi-modal Conversational Dataset for Virtual Humans
-
-`2024` `arXiv` `scene graph` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2410.00253)
-
-This work uses AI2-THOR for scene-graph and spatial reasoning. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### DStruct2Design: Data and Benchmarks for Data Structure Driven Generative Floor Plan Design
-
-`2024` `arXiv` `benchmark` `LLM`
-
-Links: [arXiv](https://arxiv.org/abs/2407.15723)
-
-This work evaluates in ProcTHOR for scene generation and environment design. It is included as a primary arXiv entry because the abstract explicitly connects the method, benchmark, or dataset to the AI2-THOR-family ecosystem.
-
-### ProcTHOR-10K Repository
-
-`ProcTHOR` `dataset` `houses`
-
-Links: [Code](https://github.com/allenai/procthor-10k)
-
-The ProcTHOR-10K repository provides dataset files and tooling for the generated house corpus. It complements the Hugging Face dataset entry with a GitHub resource for ProcTHOR scene data.
-
-### Habitat Synthetic Scenes Dataset (HSSD-200): An Analysis of 3D Scene Scale and Realism Tradeoffs for ObjectGoal Navigation
-
-`2023` `arXiv` `navigation` `ProcTHOR`
-
-Links: [arXiv](https://arxiv.org/abs/2306.11290)
-
-Habitat Synthetic Scenes Dataset (HSSD-200): An Analysis of 3D Scene Scale and Realism Tradeoffs for ObjectGoal Navigation reports experiments connected to ProcTHOR for navigation. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-### Video2Layout: Recall and Reconstruct Metric-Grounded Cognitive Map for Spatial Reasoning
-
-`2025` `arXiv` `perception` `AI2-THOR`
-
-Links: [arXiv](https://arxiv.org/abs/2511.16160)
-
-Video2Layout: Recall and Reconstruct Metric-Grounded Cognitive Map for Spatial Reasoning reports experiments connected to AI2-THOR for perception. It is included from the primary arXiv record because the abstract explicitly names the AI2-THOR-family simulator, benchmark, or derived environment.
-
-## Tools and Environments
-
-*Wrappers, infrastructure, visualization tools, and community environments for AI2-THOR-family research.*
-
-### AllenAct
-
-`2020` `framework` `embodied AI training`
-
-Links: [Paper](https://arxiv.org/abs/2008.12760) · [Project](https://allenact.org/) · [Code](https://github.com/allenai/allenact)
-
-AllenAct is a modular embodied-AI training framework from AI2. It includes abstractions and baselines for AI2-THOR-family tasks, making it useful infrastructure for reproducible navigation, manipulation, and instruction-following experiments.
-
-### RoboTHOR ObjectNav Challenge
-
-`challenge` `RoboTHOR` `ObjectNav`
-
-Links: [Code](https://github.com/allenai/robothor-challenge)
-
-The RoboTHOR ObjectNav Challenge repository provides official datasets, baselines, metrics, challenge scripts, and submission tooling for navigation in RoboTHOR. It is the practical infrastructure companion to the RoboTHOR sim-to-real benchmark.
-
-### AI2-THOR Docker
-
-`tool` `infrastructure` `rendering`
-
-Links: [Code](https://github.com/allenai/ai2thor-docker)
-
-AI2-THOR Docker packages the simulator rendering stack for reproducible headless or GPU-backed execution. It is useful when running AI2-THOR experiments on servers, clusters, or containerized training pipelines.
-
-### ProcTHOR RL
-
-`tool` `ProcTHOR` `ObjectNav training`
-
-Links: [Code](https://github.com/allenai/procthor-rl)
-
-ProcTHOR RL contains training and evaluation scripts for ObjectNav agents in ProcTHOR. It is useful both as official infrastructure for ProcTHOR experiments and as a concrete reference for large-scale AI2-THOR-family reinforcement learning.
-
-### AI2-THOR Examples
-
-`examples` `documentation` `controller API`
-
-Links: [Project](https://ai2thor.allenai.org/examples/) · [Code](https://github.com/allenai/ai2thor)
-
-The official AI2-THOR examples page gives runnable snippets for controller setup, navigation, object metadata, image observations, and interaction actions. It is one of the best practical entry points for new users learning the simulator API.
-
-### AI2-THOR Publications Index
-
-`bibliography` `official index` `publications`
-
-Links: [Project](https://ai2thor.allenai.org/publications/)
-
-The official AI2-THOR publications page tracks papers across the simulator ecosystem. It is a useful companion resource for this curated list because it helps verify whether a candidate work has an explicit AI2-THOR-family connection.
-
-### AI2-THOR Colab
-
-`tool` `Colab` `runtime helper`
-
-Links: [Code](https://github.com/allenai/ai2thor-colab)
-
-AI2-THOR Colab provides helper utilities for running AI2-THOR in Google Colab, including display and X-server setup. It is useful for lightweight demos, tutorials, and quick experiments without a full local Unity setup.
-
-### ai2thor-web
-
-`tool` `web control` `data collection`
-
-Links: [Code](https://github.com/zkytony/ai2thor-web)
-
-ai2thor-web provides a browser-based interface for remotely controlling AI2-THOR and collecting user-study data. It is useful when experiments require humans to interact with simulator scenes through a web UI.
-
-### RL-THOR
-
-`tool` `Gymnasium-style wrapper` `RL`
-
-Links: [Code](https://github.com/Kajiih/rl_thor)
-
-RL-THOR is a lightweight reinforcement-learning wrapper around AI2-THOR with customizable tasks and a Gym-like API. It is another practical option for building small AI2-THOR RL experiments without adopting a larger framework.
-
-### Indoor Scene Generation for EAI / Luminous-for-ALFRED
-
-`tool` `scene generation` `ALFRED`
-
-Links: [Code](https://github.com/amazon-science/indoor-scene-generation-eai)
-
-This Amazon Science project provides indoor scene generation and ALFRED task/trajectory generation tooling. It is useful for expanding ALFRED-style household task data and studying how generated scenes affect embodied instruction following.
-
-### TEACh TATC
-
-`tool` `TEACh` `two-agent challenge`
-
-Links: [Code](https://github.com/GLAMOR-USC/teach_tatc)
-
-TEACh TATC adapts TEACh into a two-agent task-completion setting with Commander/Follower collaboration. It is useful for experiments that separate instruction generation, communication, and embodied execution within the TEACh lineage.
-
-### ALFRED-RL
-
-`tool` `ALFRED` `RL environment`
-
-Links: [Code](https://github.com/clvrai/sprint)
-
-ALFRED-RL is the reinforcement-learning environment and training stack released inside SPRINT. It connects ALFRED task execution with online/offline RL workflows and is used by later ALFRED policy-training work.
-
-### ProcTHOR-Nav-Vis
-
-`tool` `visualization` `ProcTHOR`
-
-Links: [Code](https://github.com/khm159/ProcthorNavVis)
-
-ProcTHOR-Nav-Vis is a visualization and demo-video generation toolkit for ProcTHOR environments. It supports interactive coordinate/action annotation and scripted replay from multiple camera perspectives.
-
-### thor2blender
-
-`tool` `Blender` `scene export`
-
-Links: [Code](https://github.com/Tomoya-Matsubara/thor2blender)
-
-thor2blender helps move AI2-THOR scene information into Blender workflows. It is useful for rendering, visualization, dataset generation, and multi-view synthetic data pipelines outside the default AI2-THOR renderer.
-
-### ai2thor-gym
-
-`tool` `Gymnasium wrapper` `RL`
-
-Links: [Code](https://github.com/m-barker/ai2thor-gym)
-
-ai2thor-gym wraps AI2-THOR with a Gymnasium-style interface. The included egg-cooking example demonstrates task progress rewards over object search, interaction, and cooking actions in a kitchen scene.
-
-### cups-rl
-
-`tool` `RL` `transfer learning`
-
-Links: [Code](https://github.com/TheMTank/cups-rl)
-
-cups-rl contains reinforcement-learning experiments for domain and task transfer in AI2-THOR household tasks. It focuses on learning transferable object interaction behavior, such as picking up cups under varying conditions.
-
-### ai2thor-task-planner
-
-`tool` `PDDL` `planning`
-
-Links: [Code](https://github.com/xHugo21/ai2thor-task-planner)
-
-ai2thor-task-planner executes tasks in iTHOR using automated planning and neural perception components. It can generate PDDL problems from simulator metadata or perception, produce plans, and translate them back into executable simulator actions.
-
-### Embodied Reasoning Agent
-
-`codebase` `ERA` `online RL`
-
-Links: [Code](https://github.com/Embodied-Reasoning-Agent/Embodied-Reasoning-Agent)
-
-This is the released codebase for ERA, including embodied prior learning and online reinforcement learning components for VLM-based embodied agents.
-
-### thortils
-
-`tool` `AI2-THOR` `utilities`
-
-Links: [Code](https://github.com/zkytony/thortils)
-
-thortils provides utility functions for working with AI2-THOR, aiming to make common simulator operations reusable across projects. It is a practical support library for AI2-THOR experimentation and scripting.
-
-### AI2Thor Keyboard Player
-
-`tool` `AI2-THOR` `data collection`
-
-Links: [Code](https://github.com/ByZ0e/AI2Thor_keyboard_player)
-
-AI2Thor Keyboard Player is a keyboard-based interaction and data-collection tool for AI2-THOR. It can help users manually inspect scenes, collect demonstrations, or debug simulator actions.
-
-### AI2 ObjectNav Evaluation
-
-`ObjectNav` `evaluation` `RoboTHOR`
-
-Links: [Code](https://github.com/allenai/object-nav-eval)
-
-object-nav-eval provides evaluation tasks for ObjectNav models in the AllenAI embodied-AI ecosystem. It is useful infrastructure for benchmarking AI2-THOR-family navigation agents.
-
-### RobustNav
-
-`navigation` `corruptions` `RoboTHOR`
-
-Links: [Code](https://github.com/allenai/robustnav)
-
-RobustNav evaluates pretrained navigation agents under visual corruptions and distribution shifts. It is relevant to AI2-THOR-family navigation because it builds on RoboTHOR-style embodied evaluation.
-
-### ADVISOR
-
-`AllenAI` `training` `RoboTHOR`
-
-Links: [Code](https://github.com/allenai/advisor)
-
-ADVISOR is an AllenAI embodied-agent training codebase associated with AI2-THOR-family navigation research. It is useful for readers looking for training infrastructure beyond the core simulator.
-
-### PRIOR Data Package
-
-`AllenAI` `dataset distribution` `ProcTHOR`
-
-Links: [Code](https://github.com/allenai/prior)
-
-PRIOR is AllenAI infrastructure for seamless data distribution in AI workflows. It is useful around AI2-THOR-family datasets such as ProcTHOR resources and embodied-agent assets.
-
-## Tutorials and Notes
-
-*Secondary and community learning resources. Prefer primary paper, project, or code links for academic entries.*
-
-### CSDN AI2-THOR tutorial
-
-`tutorial` `community note` `AI2-THOR`
-
-Links: [Tutorial](https://blog.csdn.net/u010705932/article/details/104472316)
-
-A community tutorial for getting familiar with AI2-THOR usage. Keep this as a learning resource rather than a paper citation.
-
-### AI2-THOR Documentation
-
-`official docs` `API` `getting started`
-
-Links: [Code](https://github.com/allenai/ai2thor) · [Tutorial](https://ai2thor.allenai.org/ithor/documentation/)
-
-The official AI2-THOR documentation covers installation, controller usage, actions, event metadata, scenes, and object interaction APIs. It is the most reliable starting point for reproducing papers or building new simulator experiments.
-
-### AllenAct ObjectNav Tutorial
-
-`tutorial` `AllenAct` `ObjectNav`
-
-Links: [Code](https://github.com/allenai/allenact) · [Tutorial](https://allenact.org/tutorials/robothor-tutorial/)
-
-This AllenAct tutorial walks through RoboTHOR ObjectNav training and evaluation with the AllenAct framework. It is useful for readers who want to move from the curated paper list to a concrete reproducible navigation baseline.
-
-### ALFRED Documentation and Leaderboards
-
-`ALFRED` `documentation` `leaderboard`
-
-Links: [Code](https://github.com/askforalfred/alfred) · [Tutorial](https://askforalfred.com/)
-
-The official ALFRED site links the benchmark paper, dataset, leaderboard, challenge information, and implementation resources. It is a practical reference for understanding the AI2-THOR-based instruction-following benchmark and its evaluation protocol.
-
-### Cook2LTL CSDN note
-
-`tutorial` `community note` `Cook2LTL`
-
-Links: [Note](https://blog.csdn.net/muyulingfengye/article/details/144618712) · [Official code](https://github.com/angmavrogiannis/Cook2LTL)
-
-A secondary Chinese note about Cook2LTL. Prefer citing the official paper and repository in academic or project documentation.
+| Year | Paper / resource | Env | Links |
+| :--: | --- | :--: | --- |
+| 2026 | <a id="towards-a-systematic-study-of-embodied-system-2-over-full-task-execution-cycles"></a>**Towards a Systematic Study of Embodied System 2 over Full Task Execution Cycles** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>SCOPER-bench: planning, execution, and recovery across full task cycles</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.17657-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.17657) |
+| 2026 | <a id="evonav-bench-benchmarking-lifelong-navigation-in-evolving-environments"></a>**EvoNav-Bench: Benchmarking Lifelong Navigation in Evolving Environments** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Lifelong navigation in ProcTHOR houses that change between tasks</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.08292-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.08292) |
+| 2026 | <a id="seeing-less-is-not-seeing-safely-privacy-leakage-from-task-scoped-robot-perception-exports"></a>**Seeing Less Is Not Seeing Safely: Privacy Leakage from Task-Scoped Robot Perception Exports** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Measure privacy leakage from task-scoped robot perception exports</sub> | AI2-THOR<br>ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.03055-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.03055) |
+| 2026 | <a id="if-then-otherwise-diagnosing-conditional-branching-in-vision-language-navigation"></a>**If, Then, Otherwise: Diagnosing Conditional Branching in Vision-Language Navigation** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Diagnose conditional branching in vision-language navigation instructions</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2608.17318-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.17318) |
+| 2026 | <a id="breaking-planner-integrity-boundary-enviroment-state-text-injection-attack-on-llm-driven-embodied-agents"></a>**Breaking Planner Integrity Boundary: Enviroment State-Text Injection Attack on LLM-Driven Embodied Agents** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Attack LLM embodied agents by injecting false environment-state text</sub> | AI2-THOR<br>iTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2608.16806-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.16806) |
+
+<details>
+<summary>All 35 entries (27 more below)</summary>
+
+| Year | Paper / resource | Env | Links |
+| :--: | --- | :--: | --- |
+| 2026 | <a id="trace-a-multi-layer-benchmark-for-human-ai-controller-coordination-under-drift-and-failure"></a>**TRACE: A Multi-Layer Benchmark for Human AI Controller Coordination Under Drift and Failure** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Diagnose layer-wise drift in ALFRED-derived execution traces</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.06657-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.06657) |
+| 2026 | <a id="unietp-unifying-environments-for-generalizable-embodied-task-planning"></a>**UniETP: Unifying Environments for Generalizable Embodied Task Planning** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Unify AI2-THOR, VirtualHome, Habitat, and BEHAVIOR for task planning</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.18062-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.18062) [![Code](https://img.shields.io/github/stars/woyut/UniETP?style=flat-square&label=code&color=1F2A30)](https://github.com/woyut/UniETP) |
+| 2026 | <a id="groundcontrol-anticipating-navigation-failures-in-vision-language-agents-via-trajectory-consistent-uncertainty-estimates"></a>**GroundControl: Anticipating Navigation Failures in Vision-Language Agents via Trajectory-Consistent Uncertainty Estimates**<br><sub>Anticipate navigation failure with trajectory-consistent uncertainty</sub> | EmbodiedBench | [![arXiv](https://img.shields.io/badge/arXiv-2606.20479-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.20479) |
+| 2026 | <a id="where-to-look-can-foundation-models-reach-a-target-viewpoint-through-active-exploration"></a>**Where to Look: Can Foundation Models Reach a Target Viewpoint Through Active Exploration?**<br><sub>Move until the current view matches a target image</sub> | AI2-THOR<br>ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2606.01247-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.01247) [![Code](https://img.shields.io/github/stars/aim-uofa/TVRBench?style=flat-square&label=code&color=1F2A30)](https://github.com/aim-uofa/TVRBench) |
+| 2026 | <a id="do-llms-build-world-models-from-text-a-multilingual-diagnostic-of-spatial-reasoning"></a>**Do LLMs Build World Models From Text? A Multilingual Diagnostic of Spatial Reasoning**<br><sub>Diagnose multilingual spatial reasoning from textual world descriptions</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2605.28277-B31B1B?style=flat-square)](https://arxiv.org/abs/2605.28277) |
+| 2026 | <a id="safetyalfred-evaluating-safety-conscious-planning-of-multimodal-large-language-models"></a>**SafetyALFRED: Evaluating Safety-Conscious Planning of Multimodal Large Language Models**<br><sub>Evaluate safety-conscious planning around kitchen hazards</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2604.19638-B31B1B?style=flat-square)](https://arxiv.org/abs/2604.19638) [![Code](https://img.shields.io/github/stars/sled-group/SafetyALFRED?style=flat-square&label=code&color=1F2A30)](https://github.com/sled-group/SafetyALFRED) |
+| 2026 | <a id="pre-execution-safety-gate-task-safety-contracts-for-llm-controlled-robot-systems"></a>**Pre-Execution Safety Gate &amp; Task Safety Contracts for LLM-Controlled Robot Systems**<br><sub>Gate actions with pre-execution checks and task safety contracts</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2604.05427-B31B1B?style=flat-square)](https://arxiv.org/abs/2604.05427) |
+| 2026 | <a id="asgardbench"></a>**AsgardBench**<br><sub>Adapt household plans from visual observations and execution feedback</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2603.15888-B31B1B?style=flat-square)](https://arxiv.org/abs/2603.15888) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://www.microsoft.com/en-us/research/blog/asgardbench-a-benchmark-for-visually-grounded-interactive-planning/) [![Code](https://img.shields.io/github/stars/microsoft/AsgardBench?style=flat-square&label=code&color=1F2A30)](https://github.com/microsoft/AsgardBench) |
+| 2026 | <a id="agentsafe-benchmarking-the-safety-of-embodied-agents-on-hazardous-instructions"></a>**AGENTSAFE: Benchmarking the Safety of Embodied Agents on Hazardous Instructions**<br><sub>Diagnose unsafe instructions in the SAFE-THOR sandbox</sub> | AI2-THOR | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://openaccess.thecvf.com/content/CVPR2026/papers/Ying_AGENTSAFE_Benchmarking_the_Safety_of_Embodied_Agents_on_Hazardous_Instructions_CVPR_2026_paper.pdf) [![arXiv](https://img.shields.io/badge/arXiv-2506.14697-B31B1B?style=flat-square)](https://arxiv.org/abs/2506.14697) |
+| 2025 | <a id="detecting-non-optimal-decisions-of-embodied-agents-via-diversity-guided-metamorphic-testing"></a>**Detecting Non-Optimal Decisions of Embodied Agents via Diversity-Guided Metamorphic Testing**<br><sub>Detect poor decisions with diversity-guided metamorphic tests</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2512.20083-B31B1B?style=flat-square)](https://arxiv.org/abs/2512.20083) |
+| 2025 | <a id="sentinel-a-multi-level-formal-framework-for-safety-evaluation-of-foundation-model-based-embodied-agents"></a>**SENTINEL: A Multi-Level Formal Framework for Safety Evaluation of Foundation Model-based Embodied Agents**<br><sub>Evaluate embodied safety through multiple formal abstraction levels</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2510.12985-B31B1B?style=flat-square)](https://arxiv.org/abs/2510.12985) |
+| 2025 | <a id="embodied-web-agents"></a>**Embodied Web Agents**<br><sub>Combine household interaction with web information access</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2506.15677-B31B1B?style=flat-square)](https://arxiv.org/abs/2506.15677) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://embodied-web-agent.github.io/) |
+| 2024 | <a id="safeagentbench-a-benchmark-for-safe-task-planning-of-embodied-llm-agents"></a>**SafeAgentBench: A Benchmark for Safe Task Planning of Embodied LLM Agents**<br><sub>Test household plans against hazardous actions and physical risks</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2412.13178-B31B1B?style=flat-square)](https://arxiv.org/abs/2412.13178) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://safeagentbench.github.io/) [![Code](https://img.shields.io/github/stars/shengyin1224/SafeAgentBench?style=flat-square&label=code&color=1F2A30)](https://github.com/shengyin1224/SafeAgentBench) [![Dataset](https://img.shields.io/badge/data-download-5E8C61?style=flat-square)](https://huggingface.co/datasets/safeagentbench/SafeAgentBench) |
+| 2024 | <a id="robustness-testing-of-multi-modal-models-in-varied-home-environments-for-assistive-robots"></a>**Robustness Testing of Multi-Modal Models in Varied Home Environments for Assistive Robots**<br><sub>Test multimodal robustness across varied home environments</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2406.12443-B31B1B?style=flat-square)](https://arxiv.org/abs/2406.12443) |
+| 2024 | <a id="lota-bench-benchmarking-language-oriented-task-planners-for-embodied-agents"></a>**LoTa-Bench: Benchmarking Language-oriented Task Planners for Embodied Agents**<br><sub>Compare language planners with closed-loop household execution</sub> | ALFRED | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://openreview.net/forum?id=ADSxCpCu9s) [![arXiv](https://img.shields.io/badge/arXiv-2402.08178-B31B1B?style=flat-square)](https://arxiv.org/abs/2402.08178) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://choi-jaewoo.github.io/LoTa-Bench/) [![Code](https://img.shields.io/github/stars/lbaa2022/LLMTaskPlanning?style=flat-square&label=code&color=1F2A30)](https://github.com/lbaa2022/LLMTaskPlanning) |
+| 2024 | <a id="cl-alfred-online-continual-learning-for-interactive-instruction-following-agents"></a>**CL-ALFRED: Online Continual Learning for Interactive Instruction Following Agents**<br><sub>Continual instruction following across changing tasks and environments</sub> | ALFRED | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://openreview.net/forum?id=7M0EzjugaN) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://bhkim94.github.io/projects/CL-ALFRED/) [![Code](https://img.shields.io/github/stars/snumprlab/cl-alfred?style=flat-square&label=code&color=1F2A30)](https://github.com/snumprlab/cl-alfred) |
+| 2024 | <a id="embodied-agent-interface-benchmarking-llms-for-embodied-decision-making"></a>**Embodied Agent Interface: Benchmarking LLMs for Embodied Decision Making**<br><sub>Separate goal interpretation, action generation, and state modeling</sub> | AI2-THOR | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://openreview.net/forum?id=iSwK1YqO7v) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://embodied-agent-interface.github.io/) |
+| 2024 | <a id="realfred-an-embodied-instruction-following-benchmark-in-photo-realistic-environments"></a>**ReALFRED: An Embodied Instruction Following Benchmark in Photo-Realistic Environments**<br><sub>ALFRED-derived tasks in scanned photorealistic environments</sub> | ReALFRED | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/1610_ECCV_2024_paper.php) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://twoongg.github.io/projects/realfred/) [![Code](https://img.shields.io/github/stars/snumprlab/realfred?style=flat-square&label=code&color=1F2A30)](https://github.com/snumprlab/realfred) |
+| 2023 | <a id="maea-multimodal-attribution-for-embodied-ai"></a>**MAEA: Multimodal Attribution for Embodied AI**<br><sub>Attribute multimodal information in embodied decisions</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2307.13850-B31B1B?style=flat-square)](https://arxiv.org/abs/2307.13850) |
+| 2023 | <a id="2023-ai2-thor-rearrangement-challenge"></a>**2023 AI2-THOR Rearrangement Challenge**<br><sub>Task samplers, metrics, and baselines for room rearrangement</sub> | AI2-THOR | [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://ai2thor.allenai.org/rearrangement/) [![Code](https://img.shields.io/github/stars/allenai/ai2thor-rearrangement?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/ai2thor-rearrangement) |
+| 2022 | <a id="dialog-acts-for-task-driven-embodied-agents"></a>**Dialog Acts for Task-Driven Embodied Agents**<br><sub>Annotate dialogue acts for task-driven agents</sub> | TEACh | [![arXiv](https://img.shields.io/badge/arXiv-2209.12953-B31B1B?style=flat-square)](https://arxiv.org/abs/2209.12953) [![Code](https://img.shields.io/github/stars/alexa/teach?style=flat-square&label=code&color=1F2A30)](https://github.com/alexa/teach) |
+| 2022 | <a id="cows-on-pasture-baselines-and-benchmarks-for-language-driven-zero-shot-object-navigation"></a>**CoWs on Pasture: Baselines and Benchmarks for Language-Driven Zero-Shot Object Navigation**<br><sub>Benchmark language-driven zero-shot object navigation</sub> | RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2203.10421-B31B1B?style=flat-square)](https://arxiv.org/abs/2203.10421) [![Code](https://img.shields.io/github/stars/real-stanford/cow?style=flat-square&label=code&color=1F2A30)](https://github.com/real-stanford/cow) |
+| 2022 | <a id="dialfred-dialogue-enabled-agents-for-embodied-instruction-following"></a>**DialFRED: Dialogue-Enabled Agents for Embodied Instruction Following**<br><sub>Ask clarification questions while following household instructions</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2202.13330-B31B1B?style=flat-square)](https://arxiv.org/abs/2202.13330) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://eval.ai/web/challenges/challenge-page/1859/overview) [![Code](https://img.shields.io/github/stars/xfgao/DialFRED?style=flat-square&label=code&color=1F2A30)](https://github.com/xfgao/DialFRED) |
+| 2022 | <a id="act-thor-a-controlled-benchmark-for-embodied-action-understanding-in-simulated-environments"></a>**ACT-Thor: A Controlled Benchmark for Embodied Action Understanding in Simulated Environments**<br><sub>Reason about visual changes caused by actions</sub> | AI2-THOR | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://aclanthology.org/2022.coling-1.495/) [![Code](https://img.shields.io/github/stars/hannamw/ACT-Thor?style=flat-square&label=code&color=1F2A30)](https://github.com/hannamw/ACT-Thor) [![Dataset](https://img.shields.io/badge/data-download-5E8C61?style=flat-square)](https://huggingface.co/datasets/mwhanna/ACT-Thor) |
+| 2021 | <a id="alfworld-aligning-text-and-embodied-environments-for-interactive-learning"></a>**ALFWorld: Aligning Text and Embodied Environments for Interactive Learning**<br><sub>Align text-game planning with visual household execution</sub> | ALFWorld<br>ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2010.03768-B31B1B?style=flat-square)](https://arxiv.org/abs/2010.03768) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://alfworld.github.io/) [![Code](https://img.shields.io/github/stars/alfworld/alfworld?style=flat-square&label=code&color=1F2A30)](https://github.com/alfworld/alfworld) |
+| 2019 | <a id="two-body-problem-collaborative-visual-task-completion"></a>**Two Body Problem: Collaborative Visual Task Completion**<br><sub>Collaborative visual task completion with communicating agents</sub> | AI2-THOR | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://openaccess.thecvf.com/content_CVPR_2019/html/Jain_Two_Body_Problem_Collaborative_Visual_Task_Completion_CVPR_2019_paper.html) |
+| 2018 | <a id="iqa-visual-question-answering-in-interactive-environments"></a>**IQA: Visual Question Answering in Interactive Environments**<br><sub>Answer visual questions through navigation and interaction</sub> | AI2-THOR | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://openaccess.thecvf.com/content_cvpr_2018/html/Gordon_IQA_Visual_Question_CVPR_2018_paper.html) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://prior.allenai.org/projects/iqa) [![Code](https://img.shields.io/github/stars/danielgordon10/thor-iqa-cvpr-2018?style=flat-square&label=code&color=1F2A30)](https://github.com/danielgordon10/thor-iqa-cvpr-2018) |
+
+</details>
+
+<a id="instruction-following-and-household-tasks"></a>
+
+## <img src="assets/rooms/instructions.svg" width="88" height="28" alt="" align="absmiddle"> Instruction following and household tasks
+
+ALFRED, TEACh, and language-grounded execution. 54 entries.
+
+#### MOCA: Factorizing Perception and Policy for Interactive Instruction Following
+
+ICCV 2021 · ALFRED
+
+[![arXiv](https://img.shields.io/badge/arXiv-2012.03208-B31B1B?style=flat-square)](https://arxiv.org/abs/2012.03208) [![Code](https://img.shields.io/github/stars/gistvision/moca?style=flat-square&label=code&color=1F2A30)](https://github.com/gistvision/moca)
+
+Splits ALFRED instruction following into perception and policy streams, connecting object-centric grounding to executable household actions.
+
+#### HLSM: Hierarchical Language-conditioned Spatial Model for Embodied Instruction Following
+
+CoRL 2021 · ALFRED
+
+[![arXiv](https://img.shields.io/badge/arXiv-2107.05612-B31B1B?style=flat-square)](https://arxiv.org/abs/2107.05612) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://hlsm-alfred.github.io/) [![Code](https://img.shields.io/github/stars/valtsblukis/hlsm?style=flat-square&label=code&color=1F2A30)](https://github.com/valtsblukis/hlsm)
+
+Maintains semantic spatial maps in ALFRED, giving hierarchical planners persistent state for long-horizon household instructions.
+
+#### FILM: Following Instructions in Language with Modular Methods
+
+ICLR 2022 · ALFRED
+
+[![arXiv](https://img.shields.io/badge/arXiv-2110.07342-B31B1B?style=flat-square)](https://arxiv.org/abs/2110.07342) [![Code](https://img.shields.io/github/stars/soyeonm/FILM?style=flat-square&label=code&color=1F2A30)](https://github.com/soyeonm/FILM)
+
+Combines language parsing, semantic maps, search, and execution in ALFRED, providing a modular reference for instruction-following agents.
+
+**Latest entries**
+
+| Year | Paper / resource | Env | Links |
+| :--: | --- | :--: | --- |
+| 2026 | <a id="on-device-robotic-planning-eliminating-inference-redundancy-for-efficient-decision-making"></a>**On-Device Robotic Planning: Eliminating Inference Redundancy for Efficient Decision-Making**<br><sub>Remove redundant inference from on-device robotic planning</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2605.31460-B31B1B?style=flat-square)](https://arxiv.org/abs/2605.31460) |
+| 2026 | <a id="enabling-extensible-embodied-capabilities-with-tools"></a>**Enabling Extensible Embodied Capabilities with Tools**<br><sub>Extend embodied capabilities through tools</sub> | ALFRED<br>EmbodiedBench | [![arXiv](https://img.shields.io/badge/arXiv-2605.26637-B31B1B?style=flat-square)](https://arxiv.org/abs/2605.26637) |
+| 2026 | <a id="replan-bot-multi-level-replanning-for-embodied-instruction-following"></a>**RePlan-Bot: Multi-Level Replanning for Embodied Instruction Following**<br><sub>Audit high-level plans and correct local execution</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2605.25851-B31B1B?style=flat-square)](https://arxiv.org/abs/2605.25851) |
+| 2026 | <a id="machine-intelligence-that-understands-visual-and-linguistic-information-and-interacts-with-humans-and-environments"></a>**Machine Intelligence that Understands Visual and Linguistic Information and Interacts with Humans and Environments**<br><sub>Study visually and linguistically grounded environmental interaction</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2605.24020-B31B1B?style=flat-square)](https://arxiv.org/abs/2605.24020) |
+| 2026 | <a id="recapa-hierarchical-predictive-correction-to-mitigate-cascading-failures"></a>**ReCAPA: Hierarchical Predictive Correction to Mitigate Cascading Failures**<br><sub>Hierarchical predictive correction for cascading execution failures</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2604.21232-B31B1B?style=flat-square)](https://arxiv.org/abs/2604.21232) |
+
+<details>
+<summary>All 54 entries (46 more below)</summary>
+
+| Year | Paper / resource | Env | Links |
+| :--: | --- | :--: | --- |
+| 2026 | <a id="environmental-understanding-vision-language-model-for-embodied-agent"></a>**Environmental Understanding Vision-Language Model for Embodied Agent**<br><sub>Model environment context for vision-language embodied agents</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2604.19839-B31B1B?style=flat-square)](https://arxiv.org/abs/2604.19839) |
+| 2026 | <a id="gala-hypergraph-guided-visual-language-models-for-procedural-planning"></a>**GaLa: Hypergraph-Guided Visual Language Models for Procedural Planning**<br><sub>Guide procedural plans with hypergraphs</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2604.17241-B31B1B?style=flat-square)](https://arxiv.org/abs/2604.17241) |
+| 2026 | <a id="brainmem-brain-inspired-evolving-memory-for-embodied-agent-task-planning"></a>**BrainMem: Brain-Inspired Evolving Memory for Embodied Agent Task Planning**<br><sub>Evolve memory for household task planning</sub> | ALFRED<br>EmbodiedBench | [![arXiv](https://img.shields.io/badge/arXiv-2604.16331-B31B1B?style=flat-square)](https://arxiv.org/abs/2604.16331) |
+| 2026 | <a id="elite-experiential-learning-and-intent-aware-transfer-for-self-improving-embodied-agents"></a>**ELITE: Experiential Learning and Intent-Aware Transfer for Self-improving Embodied Agents**<br><sub>Transfer embodied experience according to task intent</sub> | ALFRED<br>EmbodiedBench | [![arXiv](https://img.shields.io/badge/arXiv-2603.24018-B31B1B?style=flat-square)](https://arxiv.org/abs/2603.24018) |
+| 2026 | <a id="multi-robot-learning-informed-task-planning-under-uncertainty"></a>**Multi-Robot Learning-Informed Task Planning Under Uncertainty**<br><sub>Plan multi-robot tasks under uncertainty with learned guidance</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2603.20544-B31B1B?style=flat-square)](https://arxiv.org/abs/2603.20544) |
+| 2026 | <a id="svll-staged-vision-language-learning-for-physically-grounded-embodied-task-planning"></a>**SVLL: Staged Vision-Language Learning for Physically Grounded Embodied Task Planning**<br><sub>Stage vision-language learning for physically grounded plans</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2603.11563-B31B1B?style=flat-square)](https://arxiv.org/abs/2603.11563) |
+| 2026 | <a id="aligning-agentic-world-models-via-knowledgeable-experience-learning"></a>**Aligning Agentic World Models via Knowledgeable Experience Learning**<br><sub>Align world models through experience learning</sub> | ALFRED<br>EmbodiedBench | [![arXiv](https://img.shields.io/badge/arXiv-2601.13247-B31B1B?style=flat-square)](https://arxiv.org/abs/2601.13247) |
+| 2026 | <a id="towards-zero-knowledge-task-planning-via-a-language-based-approach"></a>**Towards Zero-Knowledge Task Planning via a Language-based Approach**<br><sub>Language-based task planning without prior task knowledge</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2601.03398-B31B1B?style=flat-square)](https://arxiv.org/abs/2601.03398) |
+| 2026 | <a id="recurrent-reasoning-with-vision-language-models-for-estimating-long-horizon-embodied-task-progress"></a>**Recurrent Reasoning with Vision-Language Models for Estimating Long-Horizon Embodied Task Progress**<br><sub>Estimate task progress through recurrent visual reasoning</sub> | AI2-THOR | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://openaccess.thecvf.com/content/CVPR2026/html/Zhang_Recurrent_Reasoning_with_Vision-Language_Models_for_Estimating_Long-Horizon_Embodied_Task_CVPR_2026_paper.html) |
+| 2026 | <a id="roboagent-chaining-basic-capabilities-for-embodied-task-planning"></a>**RoboAgent: Chaining Basic Capabilities for Embodied Task Planning**<br><sub>Chain basic capabilities into longer household procedures</sub> | AI2-THOR | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://openaccess.thecvf.com/content/CVPR2026/html/Xu_RoboAgent_Chaining_Basic_Capabilities_for_Embodied_Task_Planning_CVPR_2026_paper.html) |
+| 2025 | <a id="madra-multi-agent-debate-for-risk-aware-embodied-planning"></a>**MADRA: Multi-Agent Debate for Risk-Aware Embodied Planning**<br><sub>Debate among agents for risk-aware embodied plans</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2511.21460-B31B1B?style=flat-square)](https://arxiv.org/abs/2511.21460) |
+| 2025 | <a id="reactree-hierarchical-llm-agent-trees-with-control-flow-for-long-horizon-task-planning"></a>**ReAcTree: Hierarchical LLM Agent Trees with Control Flow for Long-Horizon Task Planning**<br><sub>Structure long-horizon plans as hierarchical control-flow trees</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2511.02424-B31B1B?style=flat-square)](https://arxiv.org/abs/2511.02424) |
+| 2025 | <a id="exploratory-retrieval-augmented-planning-for-continual-embodied-instruction-following"></a>**Exploratory Retrieval-Augmented Planning For Continual Embodied Instruction Following**<br><sub>Retrieve exploratory experience for continual instruction following</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2509.08222-B31B1B?style=flat-square)](https://arxiv.org/abs/2509.08222) |
+| 2025 | <a id="llapa-a-vision-language-model-framework-for-counterfactual-aware-procedural-planning"></a>**LLaPa: A Vision-Language Model Framework for Counterfactual-Aware Procedural Planning**<br><sub>Plan procedures with counterfactual-aware visual-language reasoning</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2507.08496-B31B1B?style=flat-square)](https://arxiv.org/abs/2507.08496) |
+| 2025 | <a id="world-aware-planning-narratives-enhance-large-vision-language-model-planner"></a>**World-aware Planning Narratives Enhance Large Vision-Language Model Planner**<br><sub>Use world-aware narratives to guide visual-language planners</sub> | ALFRED<br>EmbodiedBench | [![arXiv](https://img.shields.io/badge/arXiv-2506.21230-B31B1B?style=flat-square)](https://arxiv.org/abs/2506.21230) |
+| 2025 | <a id="graphormer-guided-task-planning-beyond-static-rules-with-llm-safety-perception"></a>**Graphormer-Guided Task Planning: Beyond Static Rules with LLM Safety Perception**<br><sub>Guide task planning with graph transformers and safety perception</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2503.06866-B31B1B?style=flat-square)](https://arxiv.org/abs/2503.06866) |
+| 2025 | <a id="planning-with-affordances-integrating-learned-affordance-models-and-symbolic-planning"></a>**Planning with affordances: Integrating learned affordance models and symbolic planning**<br><sub>Integrate learned affordance models with symbolic planning</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2502.02768-B31B1B?style=flat-square)](https://arxiv.org/abs/2502.02768) |
+| 2025 | <a id="dual-preference-optimization-for-embodied-multimodal-agent"></a>**Dual Preference Optimization for Embodied Multimodal Agent**<br><sub>Optimize action-level and trajectory-level preferences</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2502.02024-B31B1B?style=flat-square)](https://arxiv.org/abs/2502.02024) [![Code](https://img.shields.io/github/stars/7pinkdylan/DeMo?style=flat-square&label=code&color=1F2A30)](https://github.com/7pinkdylan/DeMo) |
+| 2025 | <a id="thinkbot-embodied-instruction-following-with-thought-chain-reasoning"></a>**ThinkBot: Embodied Instruction Following with Thought Chain Reasoning**<br><sub>Recover implicit subgoals through thought-chain reasoning</sub> | ALFRED | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://openreview.net/forum?id=tFDTHA3odg) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://guanxinglu.github.io/thinkbot/) [![arXiv](https://img.shields.io/badge/arXiv-2312.07062-B31B1B?style=flat-square)](https://arxiv.org/abs/2312.07062) |
+| 2024 | <a id="hindsight-planner-a-closed-loop-few-shot-planner-for-embodied-instruction-following"></a>**Hindsight Planner: A Closed-Loop Few-Shot Planner for Embodied Instruction Following**<br><sub>Few-shot replanning with hindsight feedback</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2412.19562-B31B1B?style=flat-square)](https://arxiv.org/abs/2412.19562) |
+| 2024 | <a id="embodied-cot-distillation-from-llm-to-off-the-shelf-agents"></a>**Embodied CoT Distillation From LLM To Off-the-shelf Agents**<br><sub>Distill embodied reasoning chains into existing agents</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2412.11499-B31B1B?style=flat-square)](https://arxiv.org/abs/2412.11499) |
+| 2024 | <a id="simulating-user-agents-for-embodied-conversational-ai"></a>**Simulating User Agents for Embodied Conversational-AI**<br><sub>Simulate users for conversational embodied tasks</sub> | TEACh | [![arXiv](https://img.shields.io/badge/arXiv-2410.23535-B31B1B?style=flat-square)](https://arxiv.org/abs/2410.23535) |
+| 2024 | <a id="lamma-p-generalizable-multi-agent-long-horizon-task-allocation-and-planning-with-lm-driven-pddl-planner"></a>**LaMMA-P: Generalizable Multi-Agent Long-Horizon Task Allocation and Planning with LM-Driven PDDL Planner**<br><sub>Allocate long-horizon multi-agent tasks through language-driven PDDL planning</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2409.20560-B31B1B?style=flat-square)](https://arxiv.org/abs/2409.20560) [![Code](https://img.shields.io/github/stars/tasl-lab/LaMMA-P?style=flat-square&label=code&color=1F2A30)](https://github.com/tasl-lab/LaMMA-P) |
+| 2024 | <a id="multi-agent-planning-using-visual-language-models"></a>**Multi-Agent Planning Using Visual Language Models**<br><sub>Plan multi-agent tasks with visual language models</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2408.05478-B31B1B?style=flat-square)](https://arxiv.org/abs/2408.05478) |
+| 2024 | <a id="wonderful-team-zero-shot-physical-task-planning-with-visual-llms"></a>**Wonderful Team: Zero-Shot Physical Task Planning with Visual LLMs**<br><sub>Zero-shot physical plans from visual object states</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2407.19094-B31B1B?style=flat-square)](https://arxiv.org/abs/2407.19094) [![Code](https://img.shields.io/github/stars/jeongeun980906/Wonderful-Team?style=flat-square&label=code&color=1F2A30)](https://github.com/jeongeun980906/Wonderful-Team) |
+| 2024 | <a id="disco-embodied-navigation-and-interaction-via-differentiable-scene-semantics-and-dual-level-control"></a>**DISCO: Embodied Navigation and Interaction via Differentiable Scene Semantics and Dual-level Control**<br><sub>Differentiable scene semantics with coarse-to-fine control</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2407.14758-B31B1B?style=flat-square)](https://arxiv.org/abs/2407.14758) [![Code](https://img.shields.io/github/stars/AllenXuuu/DISCO?style=flat-square&label=code&color=1F2A30)](https://github.com/AllenXuuu/DISCO) |
+| 2024 | <a id="vlm-agents-generate-their-own-memories-distilling-experience-into-embodied-programs-of-thought"></a>**VLM Agents Generate Their Own Memories: Distilling Experience into Embodied Programs of Thought**<br><sub>Distill experience into memory programs for embodied agents</sub> | TEACh | [![arXiv](https://img.shields.io/badge/arXiv-2406.14596-B31B1B?style=flat-square)](https://arxiv.org/abs/2406.14596) |
+| 2024 | <a id="vlm-act-a-benchmark-for-vision-language-action-models"></a>**VLM-Act: A Benchmark for Vision-Language-Action Models**<br><sub>Evaluate vision-language-action models on household execution</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2404.08700-B31B1B?style=flat-square)](https://arxiv.org/abs/2404.08700) [![Code](https://img.shields.io/github/stars/OSU-NLP-Group/VLM-Act?style=flat-square&label=code&color=1F2A30)](https://github.com/OSU-NLP-Group/VLM-Act) |
+| 2024 | <a id="cook2ltl-translating-cooking-recipes-to-ltl-formulae-using-large-language-models"></a>**Cook2LTL: Translating Cooking Recipes to LTL Formulae using Large Language Models**<br><sub>Translate cooking recipes into executable temporal-logic specifications</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2310.00163-B31B1B?style=flat-square)](https://arxiv.org/abs/2310.00163) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://prg.cs.umd.edu/cook2ltl) [![Code](https://img.shields.io/github/stars/angmavrogiannis/Cook2LTL?style=flat-square&label=code&color=1F2A30)](https://github.com/angmavrogiannis/Cook2LTL) |
+| 2024 | <a id="sprint-scalable-policy-pre-training-via-language-instruction-relabeling"></a>**SPRINT: Scalable Policy Pre-Training via Language Instruction Relabeling**<br><sub>Relabel and chain trajectories for reusable skill pretraining</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2306.11886-B31B1B?style=flat-square)](https://arxiv.org/abs/2306.11886) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://clvrai.github.io/sprint/) [![Code](https://img.shields.io/github/stars/clvrai/sprint?style=flat-square&label=code&color=1F2A30)](https://github.com/clvrai/sprint) |
+| 2023 | <a id="lacma-language-aligning-contrastive-learning-with-meta-actions"></a>**LACMA: Language-Aligning Contrastive Learning with Meta-Actions**<br><sub>Align language with policy states through meta-actions</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2310.12344-B31B1B?style=flat-square)](https://arxiv.org/abs/2310.12344) [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://aclanthology.org/2023.emnlp-main.77/) [![Code](https://img.shields.io/github/stars/joeyy5588/LACMA?style=flat-square&label=code&color=1F2A30)](https://github.com/joeyy5588/LACMA) |
+| 2023 | <a id="heterogeneous-embodied-multi-agent-collaboration"></a>**Heterogeneous Embodied Multi-Agent Collaboration**<br><sub>Coordinate embodied agents with heterogeneous capabilities</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2307.13957-B31B1B?style=flat-square)](https://arxiv.org/abs/2307.13957) |
+| 2023 | <a id="egocentric-planning-for-scalable-embodied-task-achievement"></a>**Egocentric Planning for Scalable Embodied Task Achievement**<br><sub>Scale task achievement through egocentric planning</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2306.01295-B31B1B?style=flat-square)](https://arxiv.org/abs/2306.01295) |
+| 2023 | <a id="multimodal-contextualized-plan-prediction-for-embodied-task-completion"></a>**Multimodal Contextualized Plan Prediction for Embodied Task Completion**<br><sub>Predict plans from multimodal dialogue context</sub> | TEACh | [![arXiv](https://img.shields.io/badge/arXiv-2305.06485-B31B1B?style=flat-square)](https://arxiv.org/abs/2305.06485) |
+| 2023 | <a id="embodied-concept-learner-self-supervised-learning-of-concepts-and-mapping-through-instruction-following"></a>**Embodied Concept Learner: Self-supervised Learning of Concepts and Mapping through Instruction Following**<br><sub>Learn concepts and maps through instruction following</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2304.03767-B31B1B?style=flat-square)](https://arxiv.org/abs/2304.03767) |
+| 2023 | <a id="implicit-and-explicit-commonsense-for-multi-sentence-video-captioning"></a>**Implicit and Explicit Commonsense for Multi-sentence Video Captioning**<br><sub>Combine implicit and explicit commonsense for video captions</sub> | AI2-THOR<br>ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2303.07545-B31B1B?style=flat-square)](https://arxiv.org/abs/2303.07545) |
+| 2023 | <a id="multimodal-speech-recognition-for-language-guided-embodied-agents"></a>**Multimodal Speech Recognition for Language-Guided Embodied Agents**<br><sub>Recognize spoken instructions for language-guided agents</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2302.14030-B31B1B?style=flat-square)](https://arxiv.org/abs/2302.14030) |
+| 2023 | <a id="embodied-concept-learner-self-supervised-learning-of-concepts-and-mapping-for-instruction-following"></a>**Embodied Concept Learner: Self-supervised Learning of Concepts and Mapping for Instruction Following**<br><sub>Learn semantic concepts and maps through embodied interaction</sub> | ALFRED | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://proceedings.mlr.press/v205/ding23b.html) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://dingmyu.github.io/ecl/) |
+| 2023 | <a id="llm-planner-few-shot-grounded-planning-for-embodied-agents-with-large-language-models"></a>**LLM-Planner: Few-Shot Grounded Planning for Embodied Agents with Large Language Models**<br><sub>Few-shot language planning grounded in executable steps</sub> | AI2-THOR | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://openaccess.thecvf.com/content/ICCV2023/html/Song_LLM-Planner_Few-Shot_Grounded_Planning_for_Embodied_Agents_with_Large_Language_Models_ICCV_2023_paper.html) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://dki-lab.github.io/LLM-Planner/) [![Code](https://img.shields.io/github/stars/OSU-NLP-Group/LLM-Planner?style=flat-square&label=code&color=1F2A30)](https://github.com/OSU-NLP-Group/LLM-Planner) |
+| 2022 | <a id="danli-deliberative-agent-for-following-natural-language-instructions"></a>**DANLI: Deliberative Agent for Following Natural Language Instructions**<br><sub>Track symbolic state and subgoals during instruction execution</sub> | TEACh | [![arXiv](https://img.shields.io/badge/arXiv-2210.12485-B31B1B?style=flat-square)](https://arxiv.org/abs/2210.12485) [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://aclanthology.org/2022.emnlp-main.83/) [![Code](https://img.shields.io/github/stars/sled-group/DANLI?style=flat-square&label=code&color=1F2A30)](https://github.com/sled-group/DANLI) |
+| 2021 | <a id="embodied-bert-a-transformer-model-for-embodied-language-guided-visual-task-completion"></a>**Embodied BERT: A Transformer Model for Embodied, Language-guided Visual Task Completion**<br><sub>Transformer modeling of language and panoramic object context</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2108.04927-B31B1B?style=flat-square)](https://arxiv.org/abs/2108.04927) |
+| 2021 | <a id="look-wide-and-interpret-twice"></a>**Look Wide and Interpret Twice**<br><sub>Refine tentative plans using panoramic and object-centric observations</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2106.00596-B31B1B?style=flat-square)](https://arxiv.org/abs/2106.00596) [![Code](https://img.shields.io/github/stars/quangvnai/lwit-alfred?style=flat-square&label=code&color=1F2A30)](https://github.com/quangvnai/lwit-alfred) |
+| 2021 | <a id="episodic-transformer-for-vision-and-language-navigation"></a>**Episodic Transformer for Vision-and-Language Navigation**<br><sub>Attend over complete language, vision, and action histories</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2105.06453-B31B1B?style=flat-square)](https://arxiv.org/abs/2105.06453) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://sites.google.com/view/episodictransformer) [![Code](https://img.shields.io/github/stars/alexpashevich/E.T.?style=flat-square&label=code&color=1F2A30)](https://github.com/alexpashevich/E.T.) |
+| 2021 | <a id="are-we-there-yet-learning-to-localize-in-embodied-instruction-following"></a>**Are We There Yet? Learning to Localize in Embodied Instruction Following**<br><sub>Localize instruction subgoals with multiple viewing angles</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2101.03431-B31B1B?style=flat-square)](https://arxiv.org/abs/2101.03431) |
+| 2021 | <a id="agent-with-the-big-picture"></a>**Agent with the Big Picture**<br><sub>Use observations from nearby navigable directions</sub> | ALFRED | [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://askforalfred.com/EAI21/) [![Code](https://img.shields.io/github/stars/snumprlab/abp?style=flat-square&label=code&color=1F2A30)](https://github.com/snumprlab/abp) [![Dataset](https://img.shields.io/badge/data-download-5E8C61?style=flat-square)](https://huggingface.co/datasets/byeonghwikim/abp_dataset) |
+| 2021 | <a id="hitut-hierarchical-task-learning-from-language-instructions-with-unified-transformers-and-self-monitoring"></a>**HiTUT: Hierarchical Task Learning from Language Instructions with Unified Transformers and Self-Monitoring**<br><sub>Hierarchical subgoals, navigation, and manipulation with self-monitoring</sub> | ALFRED | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://aclanthology.org/2021.findings-acl.368/) [![Code](https://img.shields.io/github/stars/594zyc/HiTUT?style=flat-square&label=code&color=1F2A30)](https://github.com/594zyc/HiTUT) |
+
+</details>
+
+<a id="navigation"></a>
+
+## <img src="assets/rooms/navigation.svg" width="88" height="28" alt="" align="absmiddle"> Navigation
+
+ObjectNav, exploration, and sim-to-real transfer. 84 entries.
+
+#### Target-driven Visual Navigation in Indoor Scenes using Deep Reinforcement Learning
+
+ICRA 2017 · AI2-THOR
+
+[![arXiv](https://img.shields.io/badge/arXiv-1609.05143-B31B1B?style=flat-square)](https://arxiv.org/abs/1609.05143) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://prior.allenai.org/projects/target-driven-visual-navigation) [![Code](https://img.shields.io/github/stars/caomw/icra2017-visual-navigation-1?style=flat-square&label=code&color=1F2A30)](https://github.com/caomw/icra2017-visual-navigation-1)
+
+Learns target-conditioned policies from egocentric AI2-THOR views, establishing a visual navigation baseline for unseen indoor scenes.
+
+#### SAVN: Self-Adaptive Visual Navigation Using Meta-Learning
+
+CVPR Oral 2019 · AI2-THOR
+
+[![arXiv](https://img.shields.io/badge/arXiv-1812.00971-B31B1B?style=flat-square)](https://arxiv.org/abs/1812.00971) [![Code](https://img.shields.io/github/stars/allenai/savn?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/savn)
+
+Adapts navigation policies during AI2-THOR test episodes through self-supervised interaction, addressing the gap between training and unfamiliar rooms.
+
+#### PoliFormer: Scaling On-Policy RL with Transformers Results in Masterful Navigators
+
+arXiv 2024 · ProcTHOR
+
+[![arXiv](https://img.shields.io/badge/arXiv-2406.20083-B31B1B?style=flat-square)](https://arxiv.org/abs/2406.20083) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://poliformer.allen.ai/) [![Code](https://img.shields.io/github/stars/allenai/PoliFormer?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/PoliFormer)
+
+Scales transformer policies with on-policy reinforcement learning in ProcTHOR, studying how training scenes and model capacity affect ObjectNav.
+
+**Latest entries**
+
+| Year | Paper / resource | Env | Links |
+| :--: | --- | :--: | --- |
+| 2026 | <a id="f2a-objectnav-an-adaptive-agentic-architecture-for-object-goal-navigation"></a>**F2A-ObjectNav: An Adaptive Agentic Architecture for Object-Goal Navigation** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Coordinate ObjectNav modules with a rule-based supervisor and mission memory</sub> | AI2-THOR<br>RoboTHOR<br>ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.19618-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.19618) |
+| 2026 | <a id="from-failures-to-learnable-worlds-policy-conditioned-environment-generation-for-navigation-agents"></a>**From Failures to Learnable Worlds: Policy-Conditioned Environment Generation for Navigation Agents** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Generate training houses that target a navigation policy&#x27;s failures</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.19420-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.19420) |
+| 2026 | <a id="strategic-transformer-for-resource-constrained-multi-object-navigation-in-ultra-large-scale-environments"></a>**Strategic Transformer for Resource-Constrained Multi-Object Navigation in Ultra-Large-Scale Environments** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Lightweight Transformer for multi-object navigation under resource limits</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.20227-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.20227) |
+| 2026 | <a id="graph-mambanav-spatial-temporal-graph-mamba-leveraging-object-relation-knowledge-for-object-goal-navigation"></a>**Graph-MambaNav: Spatial-Temporal Graph Mamba Leveraging Object-Relation Knowledge for Object-Goal Navigation** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Graph Mamba that orders objects by relevance for ObjectNav</sub> | AI2-THOR<br>RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2608.13723-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.13723) |
+| 2026 | <a id="difference-based-relational-learning-for-zero-shot-object-goal-visual-navigation-with-direct-sim-to-real-transfer"></a>**Difference-Based Relational Learning for Zero-Shot Object-Goal Visual Navigation With Direct Sim-to-Real Transfer** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Zero-shot object-goal navigation with Siamese difference features and sim-to-real transfer</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.15642-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.15642) |
+
+<details>
+<summary>All 84 entries (76 more below)</summary>
+
+| Year | Paper / resource | Env | Links |
+| :--: | --- | :--: | --- |
+| 2026 | <a id="sage-nav-leveraging-llm-planning-and-alignment-fusion-for-hierarchical-scene-graph-guided-navigation"></a>**SAGE-Nav: Leveraging LLM Planning and Alignment Fusion for Hierarchical Scene Graph-Guided Navigation**<br><sub>Guide navigation with hierarchical scene graphs and language planning</sub> | RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2606.25497-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.25497) |
+| 2026 | <a id="embodiskill-skill-aware-reflection-for-self-evolving-embodied-agents"></a>**EmbodiSkill: Skill-Aware Reflection for Self-Evolving Embodied Agents**<br><sub>Reflect on skills to improve embodied agents</sub> | EmbodiedBench | [![arXiv](https://img.shields.io/badge/arXiv-2605.10332-B31B1B?style=flat-square)](https://arxiv.org/abs/2605.10332) |
+| 2026 | <a id="from-reactive-to-map-based-ai-tuned-local-llms-for-semantic-zone-inference-in-object-goal-navigation"></a>**From Reactive to Map-Based AI: Tuned Local LLMs for Semantic Zone Inference in Object-Goal Navigation**<br><sub>Infer semantic zones using local language models and maps</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2603.08086-B31B1B?style=flat-square)](https://arxiv.org/abs/2603.08086) |
+| 2026 | <a id="effective-task-planning-with-missing-objects-using-learning-informed-object-search"></a>**Effective Task Planning with Missing Objects using Learning-Informed Object Search**<br><sub>Search for missing objects during task planning</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2602.11468-B31B1B?style=flat-square)](https://arxiv.org/abs/2602.11468) |
+| 2026 | <a id="aion-aerial-indoor-object-goal-navigation-using-dual-policy-reinforcement-learning"></a>**AION: Aerial Indoor Object-Goal Navigation Using Dual-Policy Reinforcement Learning**<br><sub>Separate aerial object search from goal-reaching control</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2601.15614-B31B1B?style=flat-square)](https://arxiv.org/abs/2601.15614) [![Code](https://img.shields.io/github/stars/Zichen-Yan/AION?style=flat-square&label=code&color=1F2A30)](https://github.com/Zichen-Yan/AION) |
+| 2025 | <a id="seenav-agent-enhancing-vision-language-navigation-with-visual-prompt-and-step-level-policy-optimization"></a>**SeeNav-Agent: Enhancing Vision-Language Navigation with Visual Prompt and Step-Level Policy Optimization**<br><sub>Optimize navigation with visual prompts and step-level policy updates</sub> | EmbodiedBench | [![arXiv](https://img.shields.io/badge/arXiv-2512.02631-B31B1B?style=flat-square)](https://arxiv.org/abs/2512.02631) |
+| 2025 | <a id="vistav2-world-imagination-for-indoor-vision-and-language-navigation"></a>**VISTAv2: World Imagination for Indoor Vision-and-Language Navigation**<br><sub>Imagine indoor worlds for vision-language navigation</sub> | RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2512.00041-B31B1B?style=flat-square)](https://arxiv.org/abs/2512.00041) |
+| 2025 | <a id="plan-verification-for-llm-based-embodied-task-completion-agents"></a>**Plan Verification for LLM-Based Embodied Task Completion Agents**<br><sub>Verify plans during language-model task completion</sub> | TEACh | [![arXiv](https://img.shields.io/badge/arXiv-2509.02761-B31B1B?style=flat-square)](https://arxiv.org/abs/2509.02761) |
+| 2025 | <a id="cogddn-a-cognitive-demand-driven-navigation-with-decision-optimization-and-dual-process-thinking"></a>**CogDDN: A Cognitive Demand-Driven Navigation with Decision Optimization and Dual-Process Thinking**<br><sub>Navigate from implicit human demands and semantic matching</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2507.11334-B31B1B?style=flat-square)](https://arxiv.org/abs/2507.11334) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://yuehaohuang.github.io/CogDDN/) |
+| 2025 | <a id="vista-generative-visual-imagination-for-vision-and-language-navigation"></a>**VISTA: Generative Visual Imagination for Vision-and-Language Navigation**<br><sub>Generate imagined views for vision-language navigation</sub> | RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2505.07868-B31B1B?style=flat-square)](https://arxiv.org/abs/2505.07868) |
+| 2025 | <a id="strive-structured-representation-integrating-vlm-reasoning-for-efficient-object-navigation"></a>**STRIVE: Structured Representation Integrating VLM Reasoning for Efficient Object Navigation**<br><sub>Structure visual-language reasoning for efficient object navigation</sub> | RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2505.06729-B31B1B?style=flat-square)](https://arxiv.org/abs/2505.06729) |
+| 2025 | <a id="collision-aware-object-goal-visual-navigation-via-two-stage-deep-reinforcement-learning"></a>**Collision-Aware Object-Goal Visual Navigation via Two-Stage Deep Reinforcement Learning**<br><sub>Two-stage reinforcement learning for collision-aware object navigation</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2502.13498-B31B1B?style=flat-square)](https://arxiv.org/abs/2502.13498) |
+| 2025 | <a id="visual-reaction-learning-to-play-catch-with-your-drone"></a>**Visual Reaction: Learning to Play Catch with Your Drone**<br><sub>Train reactive aerial control for catching tasks</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2403.11705-B31B1B?style=flat-square)](https://arxiv.org/abs/2403.11705) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://visualreaction.github.io/) [![Code](https://img.shields.io/github/stars/RuohanGao/visualreaction?style=flat-square&label=code&color=1F2A30)](https://github.com/RuohanGao/visualreaction) |
+| 2025 | <a id="nolo-navigate-only-look-once"></a>**NOLO: Navigate Only Look Once**<br><sub>Released object-navigation implementation</sub> | AI2-THOR | [![Code](https://img.shields.io/github/stars/zhoubohan0/NOLO?style=flat-square&label=code&color=1F2A30)](https://github.com/zhoubohan0/NOLO) |
+| 2025 | <a id="strive-project-page"></a>**STRIVE project page**<br><sub>Project resources for structured visual-language navigation</sub> | RoboTHOR<br>ProcTHOR | [![Code](https://img.shields.io/github/stars/igzat1no/STRIVE?style=flat-square&label=code&color=1F2A30)](https://github.com/igzat1no/STRIVE) |
+| 2024 | <a id="the-one-ring-a-robotic-indoor-navigation-generalist"></a>**The One RING: a Robotic Indoor Navigation Generalist**<br><sub>Generalist policies for indoor robot navigation</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2412.14401-B31B1B?style=flat-square)](https://arxiv.org/abs/2412.14401) |
+| 2024 | <a id="efficient-policy-adaptation-with-contrastive-prompt-ensemble-for-embodied-agents"></a>**Efficient Policy Adaptation with Contrastive Prompt Ensemble for Embodied Agents**<br><sub>Adapt policies using contrastive prompt ensembles</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2412.11484-B31B1B?style=flat-square)](https://arxiv.org/abs/2412.11484) |
+| 2024 | <a id="cognav-cognitive-process-modeling-for-object-goal-navigation-with-llms"></a>**CogNav: Cognitive Process Modeling for Object Goal Navigation with LLMs**<br><sub>Model cognitive processes for language-guided object navigation</sub> | RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2412.10439-B31B1B?style=flat-square)](https://arxiv.org/abs/2412.10439) |
+| 2024 | <a id="grounding-video-models-to-actions-through-goal-conditioned-exploration"></a>**Grounding Video Models to Actions through Goal Conditioned Exploration**<br><sub>Ground video models in goal-conditioned exploratory actions</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2411.07223-B31B1B?style=flat-square)](https://arxiv.org/abs/2411.07223) |
+| 2024 | <a id="exploring-the-reliability-of-foundation-model-based-frontier-selection-in-zero-shot-object-goal-navigation"></a>**Exploring the Reliability of Foundation Model-Based Frontier Selection in Zero-Shot Object Goal Navigation**<br><sub>Audit foundation-model frontier selection in zero-shot navigation</sub> | RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2410.21037-B31B1B?style=flat-square)](https://arxiv.org/abs/2410.21037) |
+| 2024 | <a id="zero-shot-object-navigation-with-vision-language-models-reasoning"></a>**Zero-shot Object Navigation with Vision-Language Models Reasoning**<br><sub>Reason with vision-language models during zero-shot object search</sub> | RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2410.18570-B31B1B?style=flat-square)](https://arxiv.org/abs/2410.18570) |
+| 2024 | <a id="sg-nav-online-3d-scene-graph-prompting-for-llm-based-zero-shot-object-navigation"></a>**SG-Nav: Online 3D Scene Graph Prompting for LLM-based Zero-shot Object Navigation**<br><sub>Prompt language planners with online 3D scene graphs</sub> | RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2410.08189-B31B1B?style=flat-square)](https://arxiv.org/abs/2410.08189) |
+| 2024 | <a id="efficient-strategy-learning-by-decoupling-searching-and-pathfinding-for-object-navigation"></a>**Efficient Strategy Learning by Decoupling Searching and Pathfinding for Object Navigation**<br><sub>Decouple searching from pathfinding in object navigation</sub> | AI2-THOR<br>RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2406.14103-B31B1B?style=flat-square)](https://arxiv.org/abs/2406.14103) |
+| 2024 | <a id="leveraging-unknown-objects-to-construct-labeled-unlabeled-meta-relationships-for-zero-shot-object-navigation"></a>**Leveraging Unknown Objects to Construct Labeled-Unlabeled Meta-Relationships for Zero-Shot Object Navigation**<br><sub>Relate labeled and unlabeled objects for zero-shot navigation</sub> | RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2405.15222-B31B1B?style=flat-square)](https://arxiv.org/abs/2405.15222) |
+| 2024 | <a id="tdanet-target-directed-attention-network-for-object-goal-visual-navigation-with-zero-shot-ability"></a>**TDANet: Target-Directed Attention Network For Object-Goal Visual Navigation With Zero-Shot Ability**<br><sub>Direct attention toward targets for zero-shot visual navigation</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2404.08353-B31B1B?style=flat-square)](https://arxiv.org/abs/2404.08353) |
+| 2024 | <a id="commonsense-scene-graph-based-target-localization-for-object-search"></a>**Commonsense Scene Graph-based Target Localization for Object Search**<br><sub>Localize search targets through commonsense scene graphs</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2404.00343-B31B1B?style=flat-square)](https://arxiv.org/abs/2404.00343) |
+| 2024 | <a id="advancing-object-goal-navigation-through-llm-enhanced-object-affinities-transfer"></a>**Advancing Object Goal Navigation Through LLM-enhanced Object Affinities Transfer**<br><sub>Transfer language-model object affinities into navigation</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2403.09971-B31B1B?style=flat-square)](https://arxiv.org/abs/2403.09971) |
+| 2024 | <a id="aligning-knowledge-graph-with-visual-perception-for-object-goal-navigation"></a>**Aligning Knowledge Graph with Visual Perception for Object-goal Navigation**<br><sub>Align knowledge graphs with visual observations for object search</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2402.18892-B31B1B?style=flat-square)](https://arxiv.org/abs/2402.18892) [![Code](https://img.shields.io/github/stars/nuoxu/AKGVP?style=flat-square&label=code&color=1F2A30)](https://github.com/nuoxu/AKGVP) |
+| 2024 | <a id="rdmae-nav"></a>**RDMAE-Nav**<br><sub>Robust navigation under visual corruption</sub> | RoboTHOR | [![Code](https://img.shields.io/github/stars/danelpeng/RDMAE_Nav?style=flat-square&label=code&color=1F2A30)](https://github.com/danelpeng/RDMAE_Nav) |
+| 2023 | <a id="promptable-behaviors-personalizing-multi-objective-rewards-from-human-preferences"></a>**Promptable Behaviors: Personalizing Multi-Objective Rewards from Human Preferences**<br><sub>Personalize multi-objective rewards from human preferences</sub> | RoboTHOR<br>ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2312.09337-B31B1B?style=flat-square)](https://arxiv.org/abs/2312.09337) |
+| 2023 | <a id="building-category-graphs-representation-with-spatial-and-temporal-attention-for-visual-navigation"></a>**Building Category Graphs Representation with Spatial and Temporal Attention for Visual Navigation**<br><sub>Attend over spatial and temporal category graphs</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2312.03327-B31B1B?style=flat-square)](https://arxiv.org/abs/2312.03327) |
+| 2023 | <a id="robogpt-an-intelligent-agent-of-making-embodied-long-term-decisions-for-daily-instruction-tasks"></a>**RoboGPT: an intelligent agent of making embodied long-term decisions for daily instruction tasks**<br><sub>Make long-term household decisions with language models</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2311.15649-B31B1B?style=flat-square)](https://arxiv.org/abs/2311.15649) |
+| 2023 | <a id="selective-visual-representations-improve-convergence-and-generalization-for-embodied-ai"></a>**Selective Visual Representations Improve Convergence and Generalization for Embodied AI**<br><sub>Filter visual representations using task-conditioned bottlenecks</sub> | ProcTHOR<br>ArchitecTHOR<br>RoboTHOR<br>iTHOR<br>ManipulaTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2311.04193-B31B1B?style=flat-square)](https://arxiv.org/abs/2311.04193) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://embodied-codebook.github.io/) [![Code](https://img.shields.io/github/stars/allenai/procthor-rl?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/procthor-rl) |
+| 2023 | <a id="zero-shot-object-goal-visual-navigation-with-class-independent-relationship-network"></a>**Zero-Shot Object Goal Visual Navigation With Class-Independent Relationship Network**<br><sub>Navigate to unseen categories with class-independent relationships</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2310.09883-B31B1B?style=flat-square)](https://arxiv.org/abs/2310.09883) |
+| 2023 | <a id="find-what-you-want-learning-demand-conditioned-object-attribute-space-for-demand-driven-navigation"></a>**Find What You Want: Learning Demand-conditioned Object Attribute Space for Demand-driven Navigation**<br><sub>Condition object-attribute search on human demands</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2309.08138-B31B1B?style=flat-square)](https://arxiv.org/abs/2309.08138) [![Code](https://img.shields.io/github/stars/whcpumpkin/Demand-driven-navigation?style=flat-square&label=code&color=1F2A30)](https://github.com/whcpumpkin/Demand-driven-navigation) |
+| 2023 | <a id="saynav-grounding-large-language-models-for-dynamic-planning-to-navigation-in-new-environments"></a>**SayNav: Grounding Large Language Models for Dynamic Planning to Navigation in New Environments**<br><sub>Ground dynamic language plans in unfamiliar environments</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2309.04077-B31B1B?style=flat-square)](https://arxiv.org/abs/2309.04077) [![Code](https://img.shields.io/github/stars/arajv/SayNav?style=flat-square&label=code&color=1F2A30)](https://github.com/arajv/SayNav) |
+| 2023 | <a id="implicit-obstacle-map-driven-indoor-navigation-model-for-robust-obstacle-avoidance"></a>**Implicit Obstacle Map-driven Indoor Navigation Model for Robust Obstacle Avoidance**<br><sub>Avoid obstacles using implicit obstacle maps</sub> | AI2-THOR<br>RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2308.12845-B31B1B?style=flat-square)](https://arxiv.org/abs/2308.12845) |
+| 2023 | <a id="cartier-cartographic-language-reasoning-targeted-at-instruction-execution-for-robots"></a>**CARTIER: Cartographic lAnguage Reasoning Targeted at Instruction Execution for Robots**<br><sub>Use cartographic language reasoning to execute instructions</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2307.11865-B31B1B?style=flat-square)](https://arxiv.org/abs/2307.11865) |
+| 2023 | <a id="privacy-risks-in-reinforcement-learning-for-household-robots"></a>**Privacy Risks in Reinforcement Learning for Household Robots**<br><sub>Analyze privacy risks in household reinforcement learning</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2306.09273-B31B1B?style=flat-square)](https://arxiv.org/abs/2306.09273) |
+| 2023 | <a id="moving-forward-by-moving-backward-embedding-action-impact-over-action-semantics"></a>**Moving Forward by Moving Backward: Embedding Action Impact over Action Semantics**<br><sub>Represent actions through their effects on the environment</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2304.12289-B31B1B?style=flat-square)](https://arxiv.org/abs/2304.12289) |
+| 2023 | <a id="when-learning-is-out-of-reach-reset-generalization-in-autonomous-visuomotor-reinforcement-learning"></a>**When Learning Is Out of Reach, Reset: Generalization in Autonomous Visuomotor Reinforcement Learning**<br><sub>Use resets to study generalization in autonomous visual control</sub> | RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2303.17600-B31B1B?style=flat-square)](https://arxiv.org/abs/2303.17600) [![Code](https://img.shields.io/github/stars/zcczhang/rmrl?style=flat-square&label=code&color=1F2A30)](https://github.com/zcczhang/rmrl) |
+| 2023 | <a id="zero-shot-object-searching-using-large-scale-object-relationship-prior"></a>**Zero-Shot Object Searching Using Large-scale Object Relationship Prior**<br><sub>Search for unseen objects using large-scale relation priors</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2303.06228-B31B1B?style=flat-square)](https://arxiv.org/abs/2303.06228) |
+| 2023 | <a id="can-an-embodied-agent-find-your-cat-shaped-mug-llm-guided-exploration-for-zero-shot-object-navigation"></a>**Can an Embodied Agent Find Your &quot;Cat-shaped Mug&quot;? LLM-Guided Exploration for Zero-Shot Object Navigation**<br><sub>Guide exploration using language descriptions of unusual objects</sub> | RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2303.03480-B31B1B?style=flat-square)](https://arxiv.org/abs/2303.03480) |
+| 2023 | <a id="elba-learning-by-asking-for-embodied-visual-navigation-and-task-completion"></a>**ELBA: Learning by Asking for Embodied Visual Navigation and Task Completion**<br><sub>Ask questions during visual navigation and task completion</sub> | TEACh | [![arXiv](https://img.shields.io/badge/arXiv-2302.04865-B31B1B?style=flat-square)](https://arxiv.org/abs/2302.04865) |
+| 2023 | <a id="multiple-thinking-achieving-meta-ability-decoupling-for-object-navigation"></a>**Multiple Thinking Achieving Meta-Ability Decoupling for Object Navigation**<br><sub>Decouple navigation abilities through multiple reasoning processes</sub> | AI2-THOR<br>RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2302.01520-B31B1B?style=flat-square)](https://arxiv.org/abs/2302.01520) |
+| 2023 | <a id="esc-exploration-with-soft-commonsense-constraints-for-zero-shot-object-navigation"></a>**ESC: Exploration with Soft Commonsense Constraints for Zero-shot Object Navigation**<br><sub>Apply soft commonsense constraints to zero-shot exploration</sub> | RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2301.13166-B31B1B?style=flat-square)](https://arxiv.org/abs/2301.13166) |
+| 2023 | <a id="generalized-object-search"></a>**Generalized Object Search**<br><sub>Generalize object search across target queries</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2301.10121-B31B1B?style=flat-square)](https://arxiv.org/abs/2301.10121) |
+| 2023 | <a id="lgx-language-guided-exploration"></a>**LGX: Language-Guided Exploration**<br><sub>Released language-guided zero-shot exploration code</sub> | RoboTHOR | [![Code](https://img.shields.io/github/stars/vdorbala/LGX?style=flat-square&label=code&color=1F2A30)](https://github.com/vdorbala/LGX) |
+| 2023 | <a id="search-for-or-navigate-to-dual-adaptive-thinking-for-object-navigation"></a>**Search for or Navigate to? Dual Adaptive Thinking for Object Navigation**<br><sub>Switch between object search and goal-reaching policies</sub> | AI2-THOR | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://openaccess.thecvf.com/content/ICCV2023/html/Dang_Search_for_or_Navigate_to_Dual_Adaptive_Thinking_for_Object_ICCV_2023_paper.html) |
+| 2022 | <a id="role-of-reward-shaping-in-object-goal-navigation"></a>**Role of reward shaping in object-goal navigation**<br><sub>Analyze reward shaping for object-goal navigation</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2207.08021-B31B1B?style=flat-square)](https://arxiv.org/abs/2207.08021) |
+| 2022 | <a id="zero-shot-object-goal-visual-navigation"></a>**Zero-shot object goal visual navigation**<br><sub>Navigate to object goals without category-specific training</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2206.07423-B31B1B?style=flat-square)](https://arxiv.org/abs/2206.07423) |
+| 2022 | <a id="on-the-limits-of-evaluating-embodied-agent-model-generalization-using-validation-sets"></a>**On the Limits of Evaluating Embodied Agent Model Generalization Using Validation Sets**<br><sub>Examine limits of validation-based generalization evaluation</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2205.09249-B31B1B?style=flat-square)](https://arxiv.org/abs/2205.09249) |
+| 2022 | <a id="unbiased-directed-object-attention-graph-for-object-navigation"></a>**Unbiased Directed Object Attention Graph for Object Navigation**<br><sub>Reduce object-attention bias with directed graphs</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2204.04421-B31B1B?style=flat-square)](https://arxiv.org/abs/2204.04421) |
+| 2022 | <a id="object-memory-transformer-for-object-goal-navigation"></a>**Object Memory Transformer for Object Goal Navigation**<br><sub>Attend to long-term object observations during search</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2203.14708-B31B1B?style=flat-square)](https://arxiv.org/abs/2203.14708) |
+| 2022 | <a id="lebp----language-expectation-binding-policy-a-two-stream-framework-for-embodied-vision-and-language-interaction-task-learning-agents"></a>**LEBP -- Language Expectation &amp; Binding Policy: A Two-Stream Framework for Embodied Vision-and-Language Interaction Task Learning Agents**<br><sub>Separate language expectation and binding policies</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2203.04637-B31B1B?style=flat-square)](https://arxiv.org/abs/2203.04637) |
+| 2022 | <a id="learning-to-act-with-affordance-aware-multimodal-neural-slam"></a>**Learning to Act with Affordance-Aware Multimodal Neural SLAM**<br><sub>Combine affordance awareness with multimodal neural SLAM</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2201.09862-B31B1B?style=flat-square)](https://arxiv.org/abs/2201.09862) |
+| 2022 | <a id="what-do-navigation-agents-learn-about-their-environment"></a>**What Do Navigation Agents Learn About Their Environment?**<br><sub>Probe spatial information encoded by navigation agents</sub> | AI2-THOR | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://openaccess.thecvf.com/content/CVPR2022/papers/Dwivedi_What_Do_Navigation_Agents_Learn_About_Their_Environment_CVPR_2022_paper.pdf) |
+| 2021 | <a id="agent-centric-relation-graph-for-object-visual-navigation"></a>**Agent-Centric Relation Graph for Object Visual Navigation**<br><sub>Model object relations relative to the navigating agent</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2111.14422-B31B1B?style=flat-square)](https://arxiv.org/abs/2111.14422) |
+| 2021 | <a id="simple-but-effective-clip-embeddings-for-embodied-ai"></a>**Simple but Effective: CLIP Embeddings for Embodied AI**<br><sub>Use pretrained CLIP embeddings for embodied navigation</sub> | iTHOR<br>RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2111.09888-B31B1B?style=flat-square)](https://arxiv.org/abs/2111.09888) [![Code](https://img.shields.io/github/stars/allenai/embodied-clip?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/embodied-clip) |
+| 2021 | <a id="towards-optimal-correlational-object-search"></a>**Towards Optimal Correlational Object Search**<br><sub>Use object correlations to guide search</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2110.09991-B31B1B?style=flat-square)](https://arxiv.org/abs/2110.09991) |
+| 2021 | <a id="hierarchical-object-to-zone-graph-for-object-navigation"></a>**Hierarchical Object-to-Zone Graph for Object Navigation**<br><sub>Link objects and zones through hierarchical graphs</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2109.02066-B31B1B?style=flat-square)](https://arxiv.org/abs/2109.02066) [![Code](https://img.shields.io/github/stars/sx-zhang/HOZ?style=flat-square&label=code&color=1F2A30)](https://github.com/sx-zhang/HOZ) |
+| 2021 | <a id="communicative-learning-with-natural-gestures-for-embodied-navigation-agents-with-human-in-the-scene"></a>**Communicative Learning with Natural Gestures for Embodied Navigation Agents with Human-in-the-Scene**<br><sub>Guide navigation with human gestures in Ges-THOR</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2108.02846-B31B1B?style=flat-square)](https://arxiv.org/abs/2108.02846) |
+| 2021 | <a id="learning-embeddings-that-capture-spatial-semantics-for-indoor-navigation"></a>**Learning Embeddings that Capture Spatial Semantics for Indoor Navigation**<br><sub>Embed spatial semantics for indoor navigation</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2108.00159-B31B1B?style=flat-square)](https://arxiv.org/abs/2108.00159) |
+| 2021 | <a id="vtnet-visual-transformer-network-for-object-goal-navigation"></a>**VTNet: Visual Transformer Network for Object Goal Navigation**<br><sub>Transformer-based visual representations for object-goal navigation</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2105.09447-B31B1B?style=flat-square)](https://arxiv.org/abs/2105.09447) |
+| 2021 | <a id="pushing-it-out-of-the-way-interactive-visual-navigation"></a>**Pushing it out of the Way: Interactive Visual Navigation**<br><sub>Push obstacles and predict physical action effects</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2104.14040-B31B1B?style=flat-square)](https://arxiv.org/abs/2104.14040) |
+| 2021 | <a id="learning-for-visual-navigation-by-imagining-the-success"></a>**Learning for Visual Navigation by Imagining the Success**<br><sub>Imagine successful outcomes to learn visual navigation</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2103.00446-B31B1B?style=flat-square)](https://arxiv.org/abs/2103.00446) |
+| 2020 | <a id="learning-object-relation-graph-and-tentative-policy-for-visual-navigation"></a>**Learning Object Relation Graph and Tentative Policy for Visual Navigation**<br><sub>Combine object relations, tentative policies, and episodic memory</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2007.11018-B31B1B?style=flat-square)](https://arxiv.org/abs/2007.11018) [![Code](https://img.shields.io/github/stars/xiaobaishu0097/ECCV-VN?style=flat-square&label=code&color=1F2A30)](https://github.com/xiaobaishu0097/ECCV-VN) |
+| 2020 | <a id="dynamic-value-estimation-for-single-task-multi-scene-reinforcement-learning"></a>**Dynamic Value Estimation for Single-Task Multi-Scene Reinforcement Learning**<br><sub>Estimate dynamic values across scenes in reinforcement learning</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2005.12254-B31B1B?style=flat-square)](https://arxiv.org/abs/2005.12254) |
+| 2020 | <a id="improving-target-driven-visual-navigation-with-attention-on-3d-spatial-relationships"></a>**Improving Target-driven Visual Navigation with Attention on 3D Spatial Relationships**<br><sub>Attend to 3D spatial relations for target-driven navigation</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2005.02153-B31B1B?style=flat-square)](https://arxiv.org/abs/2005.02153) |
+| 2020 | <a id="optimistic-agent-accurate-graph-based-value-estimation-for-more-successful-visual-navigation"></a>**Optimistic Agent: Accurate Graph-Based Value Estimation for More Successful Visual Navigation**<br><sub>Estimate navigation values on graphs</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2004.03222-B31B1B?style=flat-square)](https://arxiv.org/abs/2004.03222) |
+| 2019 | <a id="reinforcement-learning-based-visual-navigation-with-information-theoretic-regularization"></a>**Reinforcement Learning-based Visual Navigation with Information-Theoretic Regularization**<br><sub>Regularize visual navigation policies with information-theoretic objectives</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-1912.04078-B31B1B?style=flat-square)](https://arxiv.org/abs/1912.04078) |
+| 2019 | <a id="unsupervised-reinforcement-learning-of-transferable-meta-skills-for-embodied-navigation"></a>**Unsupervised Reinforcement Learning of Transferable Meta-Skills for Embodied Navigation**<br><sub>Learn reusable navigation skills without target annotations</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-1911.07450-B31B1B?style=flat-square)](https://arxiv.org/abs/1911.07450) |
+| 2019 | <a id="vusfavariational-universal-successor-features-approximator-to-improve-transfer-drl-for-target-driven-visual-navigation"></a>**VUSFA:Variational Universal Successor Features Approximator to Improve Transfer DRL for Target Driven Visual Navigation**<br><sub>Transfer navigation policies with universal successor features</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-1908.06376-B31B1B?style=flat-square)](https://arxiv.org/abs/1908.06376) |
+| 2019 | <a id="vision-based-navigation-using-deep-reinforcement-learning"></a>**Vision-based Navigation Using Deep Reinforcement Learning**<br><sub>Learn visual navigation through deep reinforcement learning</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-1908.03627-B31B1B?style=flat-square)](https://arxiv.org/abs/1908.03627) |
+| 2018 | <a id="visual-semantic-navigation-using-scene-priors"></a>**Visual Semantic Navigation using Scene Priors**<br><sub>Guide object search with semantic relation graphs</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-1810.06543-B31B1B?style=flat-square)](https://arxiv.org/abs/1810.06543) |
+| 2018 | <a id="active-object-perceiver-recognition-guided-policy-learning-for-object-searching-on-mobile-robots"></a>**Active Object Perceiver: Recognition-guided Policy Learning for Object Searching on Mobile Robots**<br><sub>Guide object-search policies with recognition feedback</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-1807.11174-B31B1B?style=flat-square)](https://arxiv.org/abs/1807.11174) |
+
+</details>
+
+<a id="planning-memory-and-multi-agent-systems"></a>
+
+## <img src="assets/rooms/planning.svg" width="88" height="28" alt="" align="absmiddle"> Planning, memory, and multi-agent systems
+
+Replanning, spatial memory, and collaboration. 50 entries.
+
+#### TIDEE: Tidying Up Novel Rooms using Visuo-Semantic Commonsense Priors
+
+ECCV 2022 · AI2-THOR
+
+[![arXiv](https://img.shields.io/badge/arXiv-2207.10761-B31B1B?style=flat-square)](https://arxiv.org/abs/2207.10761) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://tidee-agent.github.io/) [![Code](https://img.shields.io/github/stars/Gabesarch/TIDEE?style=flat-square&label=code&color=1F2A30)](https://github.com/Gabesarch/TIDEE)
+
+Finds misplaced objects in AI2-THOR and moves them to plausible locations using visual commonsense, graph memory, and search.
+
+#### HELPER: Open-Ended Instructable Embodied Agents with Memory-Augmented Large Language Models
+
+Findings of EMNLP 2023 · TEACh
+
+[![arXiv](https://img.shields.io/badge/arXiv-2310.15127-B31B1B?style=flat-square)](https://arxiv.org/abs/2310.15127) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://helper-agent-llm.github.io/) [![Code](https://img.shields.io/github/stars/Gabesarch/HELPER?style=flat-square&label=code&color=1F2A30)](https://github.com/Gabesarch/HELPER)
+
+Retrieves language-program memories for TEACh household requests, allowing an embodied planner to reuse experience and adapt to user routines.
+
+#### LLaMAR: Long-Horizon Planning for Multi-Agent Robots in Partially Observable Environments
+
+NeurIPS 2024 · MAP-THOR
+
+[![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://proceedings.neurips.cc/paper_files/paper/2024/hash/7d6e85e88495104442af94c98e899659-Abstract-Conference.html) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://nsidn98.github.io/LLaMAR/) [![Code](https://img.shields.io/github/stars/nsidn98/LLaMAR?style=flat-square&label=code&color=1F2A30)](https://github.com/nsidn98/LLaMAR)
+
+Coordinates robots in MAP-THOR through planning, action, correction, and verification, handling long household tasks with partial observations.
+
+**Latest entries**
+
+| Year | Paper / resource | Env | Links |
+| :--: | --- | :--: | --- |
+| 2026 | <a id="mind-instruction-conditioned-incremental-grounding-for-robots"></a>**MIND: Instruction-Conditioned Incremental Grounding for Robots** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Revise target-room choices as instruction-relevant events unfold</sub> | ProcTHOR<br>AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.19262-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.19262) |
+| 2026 | <a id="sage-symbolic-action-gating-and-editing-for-llm-task-planners"></a>**SAGE: Symbolic Action-Gating and Editing for LLM Task Planners** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Gate LLM household plans with symbolic precondition checks</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.34268-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.34268) [![Code](https://img.shields.io/github/stars/mtbui2010/sage_release?style=flat-square&label=code&color=1F2A30)](https://github.com/mtbui2010/sage_release) |
+| 2026 | <a id="practice-from-experience-to-expertise-in-self-evolving-embodied-agents"></a>**PRACTICE: From Experience to Expertise in Self-Evolving Embodied Agents** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Grow a persistent skill library from past embodied trajectories</sub> | EmbodiedBench<br>ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.30760-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.30760) |
+| 2026 | <a id="graphthink-graph-enhanced-llm-thinking-for-long-horizon-embodied-task-planning"></a>**GraphThink: Graph-Enhanced LLM Thinking for Long-Horizon Embodied Task Planning** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Long-horizon household planning with task graphs and scene-graph replanning</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.07905-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.07905) |
+| 2026 | <a id="mimir-a-neuro-symbolic-memory-system-with-dynamic-grounding-for-embodied-agents-in-interactive-environments"></a>**Mimir: A Neuro-Symbolic Memory System with Dynamic Grounding for Embodied Agents in Interactive Environments** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Neuro-symbolic memory that grounds goals before each action</sub> | EmbodiedBench<br>ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.04933-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.04933) |
+
+<details>
+<summary>All 50 entries (42 more below)</summary>
+
+| Year | Paper / resource | Env | Links |
+| :--: | --- | :--: | --- |
+| 2026 | <a id="memento-memory-guided-memetic-code-as-policy-evolution"></a>**MEMENTO: Memory-Guided Memetic Code-as-Policy Evolution** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Evolve code-as-policy programs with memory-guided search</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.22832-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.22832) [![Code](https://img.shields.io/github/stars/sygkounas/MEMENTO?style=flat-square&label=code&color=1F2A30)](https://github.com/sygkounas/MEMENTO) |
+| 2026 | <a id="mosaic-runtime-efficient-multi-agent-embodied-planning"></a>**Mosaic: Runtime-Efficient Multi-Agent Embodied Planning** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Faster multi-agent planning with shared memory and ILP action allocation</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.09603-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.09603) |
+| 2026 | <a id="agentspec-understanding-embodied-agent-scaffolds-through-controlled-composition"></a>**AgentSpec: Understanding Embodied Agent Scaffolds Through Controlled Composition**<br><sub>Control scaffold composition to study reasoning and memory modules</sub> | ALFRED<br>RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2606.14674-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.14674) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://agentspec-embodied.github.io/) |
+| 2026 | <a id="emem-a-hybrid-spatio-temporal-memory-system-for-embodied-agents"></a>**eMEM: A Hybrid Spatio-Temporal Memory System For Embodied Agents**<br><sub>Combine spatial and temporal memory for embodied decisions</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2606.03374-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.03374) |
+| 2026 | <a id="escape-episodic-spatial-memory-and-adaptive-execution-policy-for-long-horizon-mobile-manipulation"></a>**ESCAPE: Episodic Spatial Memory and Adaptive Execution Policy for Long-Horizon Mobile Manipulation**<br><sub>Combine episodic spatial memory with adaptive manipulation policies</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2604.13633-B31B1B?style=flat-square)](https://arxiv.org/abs/2604.13633) |
+| 2026 | <a id="statelinformer-stateful-training-enhancing-long-term-memory-in-navigation"></a>**StateLinFormer: Stateful Training Enhancing Long-term Memory in Navigation**<br><sub>Train stateful navigation models for long-term memory</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2603.23571-B31B1B?style=flat-square)](https://arxiv.org/abs/2603.23571) |
+| 2026 | <a id="scale-plan-scalable-language-enabled-task-planning-for-heterogeneous-multi-robot-teams"></a>**Scale-Plan: Scalable Language-Enabled Task Planning for Heterogeneous Multi-Robot Teams**<br><sub>Filter actions and objects before heterogeneous multi-robot planning</sub> | MAT2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2603.08814-B31B1B?style=flat-square)](https://arxiv.org/abs/2603.08814) |
+| 2026 | <a id="keep-a-kv-cache-centric-memory-management-system-for-efficient-embodied-planning"></a>**KEEP: A KV-Cache-Centric Memory Management System for Efficient Embodied Planning**<br><sub>Manage planner memory around the KV cache</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2602.23592-B31B1B?style=flat-square)](https://arxiv.org/abs/2602.23592) |
+| 2025 | <a id="emergence-overcoming-privileged-information-bias-in-asymmetric-embodied-agents-via-active-querying"></a>**Emergence: Overcoming Privileged Information Bias in Asymmetric Embodied Agents via Active Querying**<br><sub>Compare active queries and leader instructions under asymmetric information</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2512.15776-B31B1B?style=flat-square)](https://arxiv.org/abs/2512.15776) |
+| 2025 | <a id="spatial-policy-guiding-visuomotor-robotic-manipulation-with-spatial-aware-modeling-and-reasoning"></a>**Spatial Policy: Guiding Visuomotor Robotic Manipulation with Spatial-Aware Modeling and Reasoning**<br><sub>Guide visuomotor manipulation with spatial modeling and reasoning</sub> | iTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2508.15874-B31B1B?style=flat-square)](https://arxiv.org/abs/2508.15874) |
+| 2025 | <a id="flexible-agent-alignment-with-goal-inference-from-open-ended-dialog"></a>**Flexible Agent Alignment with Goal Inference from Open-Ended Dialog**<br><sub>Infer goals from open-ended dialogue for agent alignment</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2508.15119-B31B1B?style=flat-square)](https://arxiv.org/abs/2508.15119) |
+| 2025 | <a id="scene-graph-guided-proactive-replanning-for-failure-resilient-embodied-agent"></a>**Scene Graph-Guided Proactive Replanning for Failure-Resilient Embodied Agent**<br><sub>Trigger replanning by comparing current and reference scene graphs</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2508.11286-B31B1B?style=flat-square)](https://arxiv.org/abs/2508.11286) |
+| 2024 | <a id="embodiedrag-dynamic-3d-scene-graph-retrieval-for-efficient-and-scalable-robot-task-planning"></a>**EmbodiedRAG: Dynamic 3D Scene Graph Retrieval for Efficient and Scalable Robot Task Planning**<br><sub>Retrieve dynamic 3D scene graphs for task planning</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2410.23968-B31B1B?style=flat-square)](https://arxiv.org/abs/2410.23968) |
+| 2024 | <a id="goal-inference-from-open-ended-dialog"></a>**Goal Inference from Open-Ended Dialog**<br><sub>Infer goals from open-ended dialogue</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2410.13957-B31B1B?style=flat-square)](https://arxiv.org/abs/2410.13957) |
+| 2024 | <a id="videoagent-self-improving-video-generation"></a>**VideoAgent: Self-Improving Video Generation**<br><sub>Self-improve video generation through agent interaction</sub> | iTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2410.10076-B31B1B?style=flat-square)](https://arxiv.org/abs/2410.10076) |
+| 2024 | <a id="karma-augmenting-embodied-ai-agents-with-long-and-short-term-memory-systems"></a>**KARMA: Augmenting Embodied AI Agents with Long-and-short Term Memory Systems**<br><sub>Combine long-term scene graphs with short-term state memory</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2409.14908-B31B1B?style=flat-square)](https://arxiv.org/abs/2409.14908) [![Code](https://img.shields.io/github/stars/WZX0Swarm0Robotics/KARMA?style=flat-square&label=code&color=1F2A30)](https://github.com/WZX0Swarm0Robotics/KARMA) |
+| 2024 | <a id="helper-x-a-unified-instructable-embodied-agent"></a>**HELPER-X: A Unified Instructable Embodied Agent**<br><sub>Share retrieved examples across instruction, dialogue, and reorganization tasks</sub> | ALFRED<br>TEACh | [![arXiv](https://img.shields.io/badge/arXiv-2404.19065-B31B1B?style=flat-square)](https://arxiv.org/abs/2404.19065) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://helper-agent-llm.github.io/) |
+| 2024 | <a id="socratic-planner-inquiry-based-zero-shot-planning-for-embodied-instruction-following"></a>**Socratic Planner: Inquiry-Based Zero-Shot Planning for Embodied Instruction Following**<br><sub>Decompose instructions through self-questioning and visual feedback</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2404.15190-B31B1B?style=flat-square)](https://arxiv.org/abs/2404.15190) |
+| 2024 | <a id="smart-help-strategic-opponent-modeling-for-proactive-and-adaptive-robot-assistance-in-households"></a>**Smart Help: Strategic Opponent Modeling for Proactive and Adaptive Robot Assistance in Households**<br><sub>Model human capabilities and goals for proactive assistance</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2404.09001-B31B1B?style=flat-square)](https://arxiv.org/abs/2404.09001) |
+| 2024 | <a id="recover-a-neuro-symbolic-framework-for-failure-detection-and-recovery"></a>**Recover: A Neuro-Symbolic Framework for Failure Detection and Recovery**<br><sub>Detect and recover from failures with neuro-symbolic reasoning</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2404.00756-B31B1B?style=flat-square)](https://arxiv.org/abs/2404.00756) |
+| 2024 | <a id="cordial-sync"></a>**Cordial Sync**<br><sub>Released code for multi-agent embodied coordination</sub> | AI2-THOR | [![Code](https://img.shields.io/github/stars/allenai/cordial-sync?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/cordial-sync) |
+| 2024 | <a id="embodied-reasoner"></a>**Embodied-Reasoner**<br><sub>Connect visual search, reasoning, and action</sub> | AI2-THOR | [![Code](https://img.shields.io/github/stars/zwq2018/embodied_reasoner?style=flat-square&label=code&color=1F2A30)](https://github.com/zwq2018/embodied_reasoner) |
+| 2023 | <a id="dialmat-dialogue-enabled-transformer-with-moment-based-adversarial-training"></a>**DialMAT: Dialogue-Enabled Transformer with Moment-Based Adversarial Training**<br><sub>Dialogue transformers trained with moment-based adversarial objectives</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2311.06855-B31B1B?style=flat-square)](https://arxiv.org/abs/2311.06855) |
+| 2023 | <a id="mass-a-simple-approach-for-visual-rearrangement"></a>**MaSS: A Simple Approach for Visual Rearrangement**<br><sub>Rearrange rooms with voxel maps and semantic search</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2206.13396-B31B1B?style=flat-square)](https://arxiv.org/abs/2206.13396) [![Code](https://img.shields.io/github/stars/brandontrabucco/mass?style=flat-square&label=code&color=1F2A30)](https://github.com/brandontrabucco/mass) |
+| 2023 | <a id="capeam-context-aware-planning-and-environment-aware-memory"></a>**CAPEAM: Context-Aware Planning and Environment-Aware Memory**<br><sub>Track object-state changes with environment-aware memory</sub> | ALFRED | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://openaccess.thecvf.com/content/ICCV2023/html/Kim_Context-Aware_Planning_and_Environment-Aware_Memory_for_Instruction_Following_Embodied_Agents_ICCV_2023_paper.html) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://bhkim94.github.io/projects/CAPEAM/) [![Code](https://img.shields.io/github/stars/snumprlab/capeam?style=flat-square&label=code&color=1F2A30)](https://github.com/snumprlab/capeam) |
+| 2023 | <a id="smart-llm"></a>**SMART-LLM**<br><sub>Released multi-agent language-model planning code</sub> | AI2-THOR | [![Code](https://img.shields.io/github/stars/SMARTlab-Purdue/SMART-LLM?style=flat-square&label=code&color=1F2A30)](https://github.com/SMARTlab-Purdue/SMART-LLM) |
+| 2023 | <a id="tapa"></a>**TaPA**<br><sub>Released language-model task planning code</sub> | AI2-THOR | [![Code](https://img.shields.io/github/stars/Gary3410/TaPA?style=flat-square&label=code&color=1F2A30)](https://github.com/Gary3410/TaPA) |
+| 2022 | <a id="prompter-utilizing-llm-prompting-for-data-efficient-embodied-instruction-following"></a>**Prompter: Utilizing LLM Prompting for Data-Efficient Embodied Instruction Following**<br><sub>Use language-model knowledge for data-efficient instruction following</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2211.03267-B31B1B?style=flat-square)](https://arxiv.org/abs/2211.03267) |
+| 2022 | <a id="embodied-referring-expression-for-manipulation-question-answering-in-interactive-environment"></a>**Embodied Referring Expression for Manipulation Question Answering in Interactive Environment**<br><sub>Ground referring expressions for interactive manipulation questions</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2210.02709-B31B1B?style=flat-square)](https://arxiv.org/abs/2210.02709) |
+| 2022 | <a id="jarvis-a-neuro-symbolic-commonsense-reasoning-framework-for-conversational-embodied-agents"></a>**JARVIS: A Neuro-Symbolic Commonsense Reasoning Framework for Conversational Embodied Agents**<br><sub>Connect household dialogue to symbolic actions through commonsense</sub> | TEACh | [![arXiv](https://img.shields.io/badge/arXiv-2208.13266-B31B1B?style=flat-square)](https://arxiv.org/abs/2208.13266) |
+| 2022 | <a id="doro-disambiguation-of-referred-object-for-embodied-agents"></a>**DoRO: Disambiguation of referred object for embodied agents**<br><sub>Disambiguate objects referred to in instructions</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2207.14205-B31B1B?style=flat-square)](https://arxiv.org/abs/2207.14205) |
+| 2022 | <a id="matching-options-to-tasks-using-option-indexed-hierarchical-reinforcement-learning"></a>**Matching options to tasks using Option-Indexed Hierarchical Reinforcement Learning**<br><sub>Match options to tasks through hierarchical reinforcement learning</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2206.05750-B31B1B?style=flat-square)](https://arxiv.org/abs/2206.05750) |
+| 2022 | <a id="sgl-symbolic-goal-learning-in-a-hybrid-modular-framework-for-human-instruction-following"></a>**SGL: Symbolic Goal Learning in a Hybrid, Modular Framework for Human Instruction Following**<br><sub>Learn symbolic goals for modular instruction following</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2202.12912-B31B1B?style=flat-square)](https://arxiv.org/abs/2202.12912) |
+| 2022 | <a id="towards-disturbance-free-visual-mobile-manipulation"></a>**Towards Disturbance-Free Visual Mobile Manipulation**<br><sub>Complete mobile manipulation while limiting environmental disturbance</sub> | ManipulaTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2112.12612-B31B1B?style=flat-square)](https://arxiv.org/abs/2112.12612) |
+| 2021 | <a id="shaping-embodied-agent-behavior-with-activity-context-priors-from-egocentric-video"></a>**Shaping embodied agent behavior with activity-context priors from egocentric video**<br><sub>Transfer activity-context priors from egocentric video to agent behavior</sub> | iTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2110.07692-B31B1B?style=flat-square)](https://arxiv.org/abs/2110.07692) |
+| 2021 | <a id="piglet-language-grounding-through-neuro-symbolic-interaction-in-a-3d-world"></a>**PIGLeT: Language Grounding Through Neuro-Symbolic Interaction in a 3D World**<br><sub>Ground language in object interactions and state transitions</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2106.00188-B31B1B?style=flat-square)](https://arxiv.org/abs/2106.00188) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://piglet.cs.umass.edu/) [![Code](https://img.shields.io/github/stars/rowanz/piglet?style=flat-square&label=code&color=1F2A30)](https://github.com/rowanz/piglet) |
+| 2020 | <a id="reinforcement-learning-for-sparse-reward-object-interaction-tasks-in-a-first-person-simulated-3d-environment"></a>**Reinforcement Learning for Sparse-Reward Object-Interaction Tasks in a First-person Simulated 3D Environment**<br><sub>Learn sparse-reward object interaction in first-person 3D scenes</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2010.15195-B31B1B?style=flat-square)](https://arxiv.org/abs/2010.15195) |
+| 2019 | <a id="robocse-robot-common-sense-embedding"></a>**RoboCSE: Robot Common Sense Embedding**<br><sub>Embed robot commonsense relations</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-1903.00412-B31B1B?style=flat-square)](https://arxiv.org/abs/1903.00412) |
+| 2017 | <a id="automata-guided-hierarchical-reinforcement-learning-for-skill-composition"></a>**Automata-Guided Hierarchical Reinforcement Learning for Skill Composition**<br><sub>Compose skills with automata-guided hierarchical reinforcement learning</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-1711.00129-B31B1B?style=flat-square)](https://arxiv.org/abs/1711.00129) |
+| 2017 | <a id="visual-semantic-planning-using-deep-successor-representations"></a>**Visual Semantic Planning using Deep Successor Representations**<br><sub>Plan object-state changes with successor representations</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-1705.08080-B31B1B?style=flat-square)](https://arxiv.org/abs/1705.08080) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://prior.allenai.org/projects/visual-semantic-planning) |
+| — | <a id="ask4help"></a>**Ask4Help**<br><sub>Learn when a navigating agent should ask for help</sub> | RoboTHOR | [![Code](https://img.shields.io/github/stars/allenai/ask4help?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/ask4help) |
+| — | <a id="ogamus-online-grounding-of-action-models-in-unknown-situations"></a>**OGAMUS: Online Grounding of Action Models in Unknown Situations**<br><sub>Ground action models online in unknown situations</sub> | AI2-THOR | [![Code](https://img.shields.io/github/stars/LamannaLeonardo/OGAMUS?style=flat-square&label=code&color=1F2A30)](https://github.com/LamannaLeonardo/OGAMUS) |
+
+</details>
+
+<details>
+<summary>ALFWorld-adjacent work (text-only, 13)</summary>
+
+These papers use ALFWorld text tasks; this does not establish execution in the THOR visual simulator. They are excluded from room counts.
+
+| Year | Paper / resource | Env | Links |
+| :--: | --- | :--: | --- |
+| 2026 | <a id="pr-opd-privileged-representation-on-policy-self-distillation-for-agentic-reinforcement-learning"></a>**PR-OPD: Privileged Representation On-policy Self-Distillation for Agentic Reinforcement Learning**<br><sub>Self-distill agent hidden states from a skill-conditioned teacher</sub> | ALFWorld | [![arXiv](https://img.shields.io/badge/arXiv-2609.36642-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.36642) [![Code](https://img.shields.io/github/stars/balibata/PR-OPD?style=flat-square&label=code&color=1F2A30)](https://github.com/balibata/PR-OPD) |
+| 2026 | <a id="triage-role-typed-credit-assignment-for-agentic-reinforcement-learning"></a>**TRIAGE: Role-Typed Credit Assignment for Agentic Reinforcement Learning**<br><sub>Assign reinforcement credit by text-agent roles</sub> | ALFWorld | [![arXiv](https://img.shields.io/badge/arXiv-2606.32017-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.32017) |
+| 2026 | <a id="self-evolving-world-models-for-llm-agent-planning"></a>**Self-Evolving World Models for LLM Agent Planning**<br><sub>Evolve world models for text-agent planning</sub> | ALFWorld | [![arXiv](https://img.shields.io/badge/arXiv-2606.30639-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.30639) |
+| 2026 | <a id="duomem-towards-capable-on-device-memory-agents-via-dual-space-distillation"></a>**DuoMem: Towards Capable On-Device Memory Agents via Dual-Space Distillation**<br><sub>Distill compact text-agent memory across dual representation spaces</sub> | ALFWorld | [![arXiv](https://img.shields.io/badge/arXiv-2606.29961-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.29961) |
+| 2026 | <a id="ucob-learning-to-utilize-and-evolve-agentic-skills-via-credit-aware-on-policy-bidirectional-self-distillation"></a>**UCOB: Learning to Utilize and Evolve Agentic Skills via Credit-Aware On-Policy Bidirectional Self-Distillation**<br><sub>Evolve text-agent skills with credit-aware bidirectional distillation</sub> | ALFWorld | [![arXiv](https://img.shields.io/badge/arXiv-2606.29502-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.29502) |
+| 2026 | <a id="selective-memory-retention-for-long-horizon-llm-agents"></a>**Selective Memory Retention for Long-Horizon LLM Agents**<br><sub>Select which memories to retain during long text tasks</sub> | ALFWorld | [![arXiv](https://img.shields.io/badge/arXiv-2606.29178-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.29178) |
+| 2026 | <a id="atod-annealed-turn-aware-on-policy-distillation-for-multi-turn-autonomous-agents"></a>**ATOD: Annealed Turn-aware On-policy Distillation for Multi-turn Autonomous Agents**<br><sub>Distill multi-turn text agents with turn-aware annealing</sub> | ALFWorld | [![arXiv](https://img.shields.io/badge/arXiv-2606.27814-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.27814) |
+| 2026 | <a id="opid-on-policy-skill-distillation-for-agentic-reinforcement-learning"></a>**OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning**<br><sub>Distill reusable text-agent skills on-policy</sub> | ALFWorld | [![arXiv](https://img.shields.io/badge/arXiv-2606.26790-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.26790) |
+| 2026 | <a id="skill-disco-distilling-and-compiling-agent-traces-into-reusable-procedural-skills"></a>**SKILL-DISCO: Distilling and Compiling Agent Traces into Reusable Procedural Skills**<br><sub>Compile text-agent traces into reusable procedural skills</sub> | ALFWorld | [![arXiv](https://img.shields.io/badge/arXiv-2606.26669-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.26669) |
+| 2026 | <a id="semantic-consistency-policy-optimization-for-reinforcement-learning-of-llm-agents"></a>**Semantic Consistency Policy Optimization for Reinforcement Learning of LLM Agents**<br><sub>Optimize text-agent policies for semantic consistency</sub> | ALFWorld | [![arXiv](https://img.shields.io/badge/arXiv-2606.25852-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.25852) |
+| 2026 | <a id="bipace-bisimulation-guided-policy-optimization-with-action-counterfactual-estimation-for-llm-agents"></a>**BiPACE: Bisimulation-Guided Policy Optimization with Action Counterfactual Estimation for LLM Agents**<br><sub>Optimize text-agent policies with bisimulation and action counterfactuals</sub> | ALFWorld | [![arXiv](https://img.shields.io/badge/arXiv-2606.25556-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.25556) |
+| 2026 | <a id="the-interplay-of-harness-design-and-post-training-in-llm-agents"></a>**The Interplay of Harness Design and Post-Training in LLM Agents**<br><sub>Analyze agent harness design alongside post-training</sub> | ALFWorld | [![arXiv](https://img.shields.io/badge/arXiv-2606.25447-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.25447) |
+| 2026 | <a id="group-graph-policy-optimization-for-long-horizon-agentic-reinforcement-learning"></a>**Group-Graph Policy Optimization for Long-Horizon Agentic Reinforcement Learning**<br><sub>Optimize long-horizon text-agent policies through group graphs</sub> | ALFWorld | [![arXiv](https://img.shields.io/badge/arXiv-2606.22995-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.22995) |
+
+</details>
+
+<a id="rl-trained-vlm-agents"></a>
+
+## <img src="assets/rooms/rl-agents.svg" width="88" height="28" alt="" align="absmiddle"> RL-trained VLM agents
+
+Policy training and embodied reasoning. 17 entries.
+
+#### ERA: Transforming VLMs into Embodied Agents via Embodied Prior Learning and Online Reinforcement Learning
+
+arXiv 2025 · EmbodiedBench / ALFRED
+
+[![arXiv](https://img.shields.io/badge/arXiv-2510.12693-B31B1B?style=flat-square)](https://arxiv.org/abs/2510.12693) [![Code](https://img.shields.io/github/stars/Embodied-Reasoning-Agent/Embodied-Reasoning-Agent?style=flat-square&label=code&color=1F2A30)](https://github.com/Embodied-Reasoning-Agent/Embodied-Reasoning-Agent)
+
+Combines embodied prior learning and online reinforcement learning in EB-ALFRED and EB-Manipulation, training visual agents for sparse-reward tasks.
+
+#### ESearch-R1: Learning Cost-Aware MLLM Agents for Interactive Embodied Search via Reinforcement Learning
+
+arXiv 2025 · AI2-THOR
+
+[![arXiv](https://img.shields.io/badge/arXiv-2512.18571-B31B1B?style=flat-square)](https://arxiv.org/abs/2512.18571)
+
+Trains AI2-THOR search agents to balance navigation, memory retrieval, and questions, making exploration and human-attention costs part of the objective.
+
+**Latest entries**
+
+| Year | Paper / resource | Env | Links |
+| :--: | --- | :--: | --- |
+| 2026 | <a id="think-twice-act-once-verifier-guided-action-selection-for-embodied-agents"></a>**Think Twice, Act Once: Verifier-Guided Action Selection for Embodied Agents**<br><sub>Select candidate actions with a failure-trained generative verifier</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2605.12620-B31B1B?style=flat-square)](https://arxiv.org/abs/2605.12620) |
+| 2026 | <a id="memcompiler-compile-dont-inject----state-conditioned-memory-for-embodied-agents"></a>**MemCompiler: Compile, Don&#x27;t Inject -- State-Conditioned Memory for Embodied Agents**<br><sub>Compile state-conditioned memory for embodied decisions</sub> | EmbodiedBench | [![arXiv](https://img.shields.io/badge/arXiv-2605.07594-B31B1B?style=flat-square)](https://arxiv.org/abs/2605.07594) |
+| 2026 | <a id="when-should-a-robot-think-resource-aware-reasoning-via-reinforcement-learning-for-embodied-robotic-decision-making"></a>**When Should a Robot Think? Resource-Aware Reasoning via Reinforcement Learning for Embodied Robotic Decision-Making**<br><sub>Allocate reasoning effort through resource-aware reinforcement learning</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2603.16673-B31B1B?style=flat-square)](https://arxiv.org/abs/2603.16673) |
+| 2026 | <a id="rendermem-rendering-as-spatial-memory-retrieval"></a>**RenderMem: Rendering as Spatial Memory Retrieval**<br><sub>Retrieve spatial memories by rendering</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2603.14669-B31B1B?style=flat-square)](https://arxiv.org/abs/2603.14669) |
+| 2026 | <a id="memctrl-using-mllms-as-active-memory-controllers-on-embodied-agents"></a>**MemCtrl: Using MLLMs as Active Memory Controllers on Embodied Agents**<br><sub>Let multimodal models control memory operations</sub> | EmbodiedBench | [![arXiv](https://img.shields.io/badge/arXiv-2601.20831-B31B1B?style=flat-square)](https://arxiv.org/abs/2601.20831) |
+
+<details>
+<summary>All 17 entries (10 more below)</summary>
+
+| Year | Paper / resource | Env | Links |
+| :--: | --- | :--: | --- |
+| 2026 | <a id="toward-agentic-ai-task-oriented-communication-for-hierarchical-planning-of-long-horizon-tasks"></a>**Toward Agentic AI: Task-Oriented Communication for Hierarchical Planning of Long-Horizon Tasks**<br><sub>Communicate task information across hierarchical planning levels</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2601.13685-B31B1B?style=flat-square)](https://arxiv.org/abs/2601.13685) |
+| 2026 | <a id="robogpt-r1-enhancing-robot-task-planning-with-reinforcement-learning"></a>**RoboGPT-R1: Enhancing Robot Task Planning with Reinforcement Learning**<br><sub>Fine-tune visual task planners with expert sequences and reinforcement learning</sub> | EmbodiedBench | [![arXiv](https://img.shields.io/badge/arXiv-2510.14828-B31B1B?style=flat-square)](https://arxiv.org/abs/2510.14828) |
+| 2025 | <a id="robomemory-a-brain-inspired-multi-memory-agentic-framework-for-interactive-environmental-learning-in-physical-embodied-systems"></a>**RoboMemory: A Brain-inspired Multi-memory Agentic Framework for Interactive Environmental Learning in Physical Embodied Systems**<br><sub>Coordinate multiple memories for interactive environmental learning</sub> | EmbodiedBench | [![arXiv](https://img.shields.io/badge/arXiv-2508.01415-B31B1B?style=flat-square)](https://arxiv.org/abs/2508.01415) |
+| 2025 | <a id="reinforced-reasoning-for-embodied-planning"></a>**Reinforced Reasoning for Embodied Planning**<br><sub>Distill decisions before reinforcement fine-tuning of embodied planners</sub> | EmbodiedBench | [![arXiv](https://img.shields.io/badge/arXiv-2505.22050-B31B1B?style=flat-square)](https://arxiv.org/abs/2505.22050) |
+| 2024 | <a id="splatr-experience-goal-visual-rearrangement-with-3d-gaussian-splatting-and-dense-feature-matching"></a>**SplatR : Experience Goal Visual Rearrangement with 3D Gaussian Splatting and Dense Feature Matching**<br><sub>Visual rearrangement with Gaussian splatting and dense feature matching</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2411.14322-B31B1B?style=flat-square)](https://arxiv.org/abs/2411.14322) |
+| 2024 | <a id="selu-self-learning-embodied-mllms-in-unknown-environments"></a>**SELU: Self-Learning Embodied MLLMs in Unknown Environments**<br><sub>Self-learn embodied multimodal policies in unknown environments</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2410.03303-B31B1B?style=flat-square)](https://arxiv.org/abs/2410.03303) |
+| 2024 | <a id="automating-transfer-of-robot-task-plans-using-functorial-data-migrations"></a>**Automating Transfer of Robot Task Plans using Functorial Data Migrations**<br><sub>Transfer robot task plans through functorial data migrations</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2406.15961-B31B1B?style=flat-square)](https://arxiv.org/abs/2406.15961) |
+| 2022 | <a id="asc-me-to-do-anything-multi-task-training-for-embodied-ai"></a>**ASC me to Do Anything: Multi-task Training for Embodied AI**<br><sub>Train shared embodied policies across multiple tasks</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2202.06987-B31B1B?style=flat-square)](https://arxiv.org/abs/2202.06987) |
+| 2021 | <a id="gridtopix-training-embodied-agents-with-minimal-supervision"></a>**GridToPix: Training Embodied Agents with Minimal Supervision**<br><sub>Transfer grid-world supervision to pixel-based embodied policies</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2105.00931-B31B1B?style=flat-square)](https://arxiv.org/abs/2105.00931) |
+| 2018 | <a id="neural-task-graphs-generalizing-to-unseen-tasks-from-a-single-video-demonstration"></a>**Neural Task Graphs: Generalizing to Unseen Tasks from a Single Video Demonstration**<br><sub>Infer reusable task graphs from one video demonstration</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-1807.03480-B31B1B?style=flat-square)](https://arxiv.org/abs/1807.03480) |
+
+</details>
+
+<a id="perception-physics-and-scene-graphs"></a>
+
+## <img src="assets/rooms/perception.svg" width="88" height="28" alt="" align="absmiddle"> Perception, physics, and scene graphs
+
+Objects, affordances, and physical reasoning. 27 entries.
+
+#### Learning About Objects by Learning to Interact with Them
+
+NeurIPS 2020 · AI2-THOR
+
+[![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://proceedings.neurips.cc/paper/2020/hash/291597a100aadd814d197af4f4bab3a7-Abstract.html) [![Code](https://img.shields.io/github/stars/allenai/learning_from_interaction?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/learning_from_interaction)
+
+Learns object extent and physical properties through interaction in AI2-THOR, connecting perception to the consequences of actions.
+
+#### ESCA: Contextualizing Embodied Agents via Scene-Graph Generation
+
+NeurIPS 2025 · AI2-THOR
+
+[![arXiv](https://img.shields.io/badge/arXiv-2510.15963-B31B1B?style=flat-square)](https://arxiv.org/abs/2510.15963) [![Code](https://img.shields.io/github/stars/video-fm/ESCA?style=flat-square&label=code&color=1F2A30)](https://github.com/video-fm/ESCA) [![Code](https://img.shields.io/github/stars/video-fm/LASER?style=flat-square&label=code&color=1F2A30)](https://github.com/video-fm/LASER)
+
+Builds spatial-temporal scene graphs for embodied agents, grounding object relations and state changes for AI2-THOR-family planning workflows.
+
+**Latest entries**
+
+| Year | Paper / resource | Env | Links |
+| :--: | --- | :--: | --- |
+| 2026 | <a id="safevantage-vantage-aware-memory-for-reliable-embodied-decisions"></a>**SafeVantage: Vantage-Aware Memory for Reliable Embodied Decisions** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Viewpoint-aware memory for yes, no, or abstain decisions</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.36906-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.36906) [![Code](https://img.shields.io/badge/code-view-1F2A30?style=flat-square)](https://safevantage.github.io) |
+| 2026 | <a id="dsg-dynamic-3d-scene-graph-construction-for-embodied-agents-in-changing-indoor-environments"></a>**DSG: Dynamic 3D Scene Graph Construction for Embodied Agents in Changing Indoor Environments** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Update 3D scene graphs as objects move, with the DynTHOR benchmark</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.00619-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.00619) |
+| 2026 | <a id="memory-for-attention-language-conditioned-re-perception-with-a-vision--language--motion-map"></a>**Memory for Attention: Language-Conditioned Re-Perception with a Vision--Language--Motion Map** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Re-perceive scenes by allocating attention over a vision-language-motion map</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.23797-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.23797) |
+| 2026 | <a id="vision-language-motion-maps-an-open-vocabulary-uncertainty-aware-queryable-motion-attribute-for-3d-scene-maps"></a>**Vision-Language-Motion Maps: An Open-Vocabulary, Uncertainty-Aware, Queryable Motion Attribute for 3D Scene Maps** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Open-vocabulary 3D maps with per-object motion attributes</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.16173-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.16173) |
+| 2026 | <a id="embodied-active-learning-under-limited-annotation-and-navigation-budget-for-object-detection"></a>**Embodied Active Learning under Limited Annotation and Navigation Budget for Object Detection** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>Choose trajectories and images to retrain detectors on a budget</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.15974-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.15974) |
+
+<details>
+<summary>All 27 entries (20 more below)</summary>
+
+| Year | Paper / resource | Env | Links |
+| :--: | --- | :--: | --- |
+| 2026 | <a id="funfact-building-probabilistic-functional-3d-scene-graphs-via-factor-graph-reasoning"></a>**FunFact: Building Probabilistic Functional 3D Scene Graphs via Factor-Graph Reasoning**<br><sub>Infer probabilistic functional scene graphs with factor graphs</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2604.03696-B31B1B?style=flat-square)](https://arxiv.org/abs/2604.03696) |
+| 2026 | <a id="see-symbolize-act-grounding-vlms-with-spatial-representations-for-better-gameplay"></a>**See, Symbolize, Act: Grounding VLMs with Spatial Representations for Better Gameplay**<br><sub>Ground visual decisions in symbolic spatial representations</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2603.11601-B31B1B?style=flat-square)](https://arxiv.org/abs/2603.11601) |
+| 2026 | <a id="corelin-constraint-based-reasoning-for-zero-shot-lifelong-interactive-navigation"></a>**CoReLIN: Constraint-based Reasoning for Zero-shot Lifelong Interactive Navigation**<br><sub>Constrain zero-shot lifelong interactive navigation</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2602.20055-B31B1B?style=flat-square)](https://arxiv.org/abs/2602.20055) |
+| 2025 | <a id="grip-a-unified-framework-for-grid-based-relay-and-co-occurrence-aware-planning-in-dynamic-environments"></a>**GRIP: A Unified Framework for Grid-Based Relay and Co-Occurrence-Aware Planning in Dynamic Environments**<br><sub>Combine grid relays with co-occurrence-aware dynamic planning</sub> | AI2-THOR<br>RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2510.10865-B31B1B?style=flat-square)](https://arxiv.org/abs/2510.10865) |
+| 2025 | <a id="investigating-domain-gaps-for-indoor-3d-object-detection"></a>**Investigating Domain Gaps for Indoor 3D Object Detection**<br><sub>Analyze synthetic-to-real gaps in indoor 3D detection</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2508.17439-B31B1B?style=flat-square)](https://arxiv.org/abs/2508.17439) |
+| 2025 | <a id="integrating-vision-foundation-models-with-reinforcement-learning-for-enhanced-object-interaction"></a>**Integrating Vision Foundation Models with Reinforcement Learning for Enhanced Object Interaction**<br><sub>Combine foundation-model perception with reinforcement-learned interaction</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2508.05838-B31B1B?style=flat-square)](https://arxiv.org/abs/2508.05838) |
+| 2025 | <a id="a-unified-framework-for-real-time-failure-handling-in-robotics-using-vision-language-models-reactive-planner-and-behavior-trees"></a>**A Unified Framework for Real-Time Failure Handling in Robotics Using Vision-Language Models, Reactive Planner and Behavior Trees**<br><sub>Handle failures with reactive planning and behavior trees</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2503.15202-B31B1B?style=flat-square)](https://arxiv.org/abs/2503.15202) |
+| 2025 | <a id="physbench-benchmarking-and-enhancing-vision-language-models-for-physical-world-understanding"></a>**PhysBench: Benchmarking and Enhancing Vision-Language Models for Physical World Understanding**<br><sub>Evaluate physical properties, relations, and dynamics in visual reasoning</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2501.16411-B31B1B?style=flat-square)](https://arxiv.org/abs/2501.16411) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://physbench.github.io/) |
+| 2024 | <a id="discovering-object-attributes-by-prompting-large-language-models-with-perception-action-apis"></a>**Discovering Object Attributes by Prompting Large Language Models with Perception-Action APIs**<br><sub>Discover object attributes through perception-action APIs</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2409.15505-B31B1B?style=flat-square)](https://arxiv.org/abs/2409.15505) |
+| 2024 | <a id="behind-the-veil-enhanced-indoor-3d-scene-reconstruction-with-occluded-surfaces-completion"></a>**Behind the Veil: Enhanced Indoor 3D Scene Reconstruction with Occluded Surfaces Completion**<br><sub>Complete occluded surfaces in indoor 3D reconstruction</sub> | iTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2404.03070-B31B1B?style=flat-square)](https://arxiv.org/abs/2404.03070) |
+| 2024 | <a id="segment-any-object-model-saom-real-to-simulation-fine-tuning-strategy-for-multi-class-multi-instance-segmentation"></a>**Segment Any Object Model (SAOM): Real-to-Simulation Fine-Tuning Strategy for Multi-Class Multi-Instance Segmentation**<br><sub>Fine-tune real-to-simulation models for multi-instance segmentation</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2403.10780-B31B1B?style=flat-square)](https://arxiv.org/abs/2403.10780) |
+| 2024 | <a id="odin-a-single-model-for-2d-and-3d-segmentation"></a>**ODIN: A Single Model for 2D and 3D Segmentation**<br><sub>Unify segmentation of 2D images and 3D scenes</sub> | TEACh | [![arXiv](https://img.shields.io/badge/arXiv-2401.02416-B31B1B?style=flat-square)](https://arxiv.org/abs/2401.02416) |
+| 2023 | <a id="segmatron-embodied-adaptive-semantic-segmentation-for-indoor-environment"></a>**SegmATRon: Embodied Adaptive Semantic Segmentation for Indoor Environment**<br><sub>Adapt semantic segmentation through embodied observations</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2310.12031-B31B1B?style=flat-square)](https://arxiv.org/abs/2310.12031) |
+| 2023 | <a id="learning-concept-based-causal-transition-and-symbolic-reasoning-for-visual-planning"></a>**Learning Concept-Based Causal Transition and Symbolic Reasoning for Visual Planning**<br><sub>Learn causal transitions for symbolic visual planning</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2310.03325-B31B1B?style=flat-square)](https://arxiv.org/abs/2310.03325) |
+| 2023 | <a id="actionet-a-multimodal-dataset-for-human-activities-using-ai2-thor"></a>**ActioNet: A Multimodal Dataset for Human Activities Using AI2-THOR**<br><sub>Synthetic multimodal egocentric observations of household activities</sub> | AI2-THOR | [![Paper](https://img.shields.io/badge/paper-read-B31B1B?style=flat-square)](https://ieeexplore.ieee.org/document/10222876) [![arXiv](https://img.shields.io/badge/arXiv-2306.04692-B31B1B?style=flat-square)](https://arxiv.org/abs/2306.04692) [![Code](https://img.shields.io/github/stars/Alee08/ActioNet?style=flat-square&label=code&color=1F2A30)](https://github.com/Alee08/ActioNet) |
+| 2022 | <a id="moment-based-adversarial-training-for-embodied-language-comprehension"></a>**Moment-based Adversarial Training for Embodied Language Comprehension**<br><sub>Train embodied language understanding with moment-based adversarial objectives</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2204.00889-B31B1B?style=flat-square)](https://arxiv.org/abs/2204.00889) |
+| 2021 | <a id="ifr-explore-learning-inter-object-functional-relationships-in-3d-indoor-scenes"></a>**IFR-Explore: Learning Inter-object Functional Relationships in 3D Indoor Scenes**<br><sub>Explore functional relationships between indoor objects</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2112.05298-B31B1B?style=flat-square)](https://arxiv.org/abs/2112.05298) |
+| 2020 | <a id="learning-affordance-landscapes-for-interaction-exploration-in-3d-environments"></a>**Learning Affordance Landscapes for Interaction Exploration in 3D Environments**<br><sub>Explore interactions through learned affordance landscapes</sub> | iTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2008.09241-B31B1B?style=flat-square)](https://arxiv.org/abs/2008.09241) |
+| 2020 | <a id="towards-embodied-scene-description"></a>**Towards Embodied Scene Description**<br><sub>Describe scenes through embodied observations</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2004.14638-B31B1B?style=flat-square)](https://arxiv.org/abs/2004.14638) |
+| 2019 | <a id="leveraging-semantics-for-incremental-learning-in-multi-relational-embeddings"></a>**Leveraging Semantics for Incremental Learning in Multi-Relational Embeddings**<br><sub>Incrementally learn multi-relational embeddings with semantics</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-1905.12181-B31B1B?style=flat-square)](https://arxiv.org/abs/1905.12181) |
+
+</details>
+
+<a id="datasets-and-assets"></a>
+
+## <img src="assets/rooms/datasets.svg" width="88" height="28" alt="" align="absmiddle"> Datasets and assets
+
+Scene corpora, object assets, and task data. 10 entries.
+
+#### Objaverse-THOR / Objathor
+
+AI2-THOR / ProcTHOR
+
+[![Code](https://img.shields.io/github/stars/allenai/objathor?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/objathor) [![Dataset](https://img.shields.io/badge/data-download-5E8C61?style=flat-square)](https://github.com/allenai/objathor/tree/main/objathor/dataset)
+
+Imports and annotates 3D objects for AI2-THOR and ProcTHOR, providing the asset tooling needed to populate generated interactive scenes.
+
+#### ProcTHOR-10K
+
+ProcTHOR
+
+[![Dataset](https://img.shields.io/badge/data-download-5E8C61?style=flat-square)](https://huggingface.co/datasets/allenai/procthor-10k) [![Code](https://img.shields.io/github/stars/allenai/procthor?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/procthor)
+
+Releases 10,000 interactive ProcTHOR houses as a reusable corpus for navigation, rearrangement, and embodied-agent evaluation.
+
+| Year | Paper / resource | Env | Links |
+| :--: | --- | :--: | --- |
+| 2025 | <a id="video2layout-recall-and-reconstruct-metric-grounded-cognitive-map-for-spatial-reasoning"></a>**Video2Layout: Recall and Reconstruct Metric-Grounded Cognitive Map for Spatial Reasoning**<br><sub>Reconstruct metric-grounded cognitive maps from video</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2511.16160-B31B1B?style=flat-square)](https://arxiv.org/abs/2511.16160) |
+| 2024 | <a id="mm-conv-a-multi-modal-conversational-dataset-for-virtual-humans"></a>**MM-Conv: A Multi-modal Conversational Dataset for Virtual Humans**<br><sub>Multimodal conversations for virtual humans</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2410.00253-B31B1B?style=flat-square)](https://arxiv.org/abs/2410.00253) |
+| 2024 | <a id="dstruct2design-data-and-benchmarks-for-data-structure-driven-generative-floor-plan-design"></a>**DStruct2Design: Data and Benchmarks for Data Structure Driven Generative Floor Plan Design**<br><sub>Generate floor plans from structured data</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2407.15723-B31B1B?style=flat-square)](https://arxiv.org/abs/2407.15723) |
+| 2023 | <a id="habitat-synthetic-scenes-dataset-hssd-200-an-analysis-of-3d-scene-scale-and-realism-tradeoffs-for-objectgoal-navigation"></a>**Habitat Synthetic Scenes Dataset (HSSD-200): An Analysis of 3D Scene Scale and Realism Tradeoffs for ObjectGoal Navigation**<br><sub>Compare scene scale and realism for object navigation</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2306.11290-B31B1B?style=flat-square)](https://arxiv.org/abs/2306.11290) |
+| 2022 | <a id="procthor-10k-repository"></a>**ProcTHOR-10K Repository**<br><sub>Dataset files and tools for procedural houses</sub> | ProcTHOR | [![Code](https://img.shields.io/github/stars/allenai/procthor-10k?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/procthor-10k) |
+| — | <a id="map-thor"></a>**MAP-THOR**<br><sub>Multi-agent household planning under partial observability</sub> | MAP-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2407.10031-B31B1B?style=flat-square)](https://arxiv.org/abs/2407.10031) [![Code](https://img.shields.io/github/stars/nsidn98/LLaMAR?style=flat-square&label=code&color=1F2A30)](https://github.com/nsidn98/LLaMAR) |
+| — | <a id="ai2-thor-objectnav-evaluation-datasets"></a>**AI2-THOR ObjectNav Evaluation Datasets**<br><sub>Standard ObjectNav task instances and evaluation splits</sub> | RoboTHOR | [![Dataset](https://img.shields.io/badge/data-download-5E8C61?style=flat-square)](https://ai2thor.allenai.org/robothor/objectnav-dataset/) [![Code](https://img.shields.io/github/stars/allenai/robothor-challenge?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/robothor-challenge) |
+| — | <a id="semantic2thor-dataset"></a>**Semantic2Thor Dataset**<br><sub>Semantic embeddings and affordances for simulator objects</sub> | AI2-THOR | [![Code](https://img.shields.io/github/stars/maxzuo/semantic-ai2thor-dataset?style=flat-square&label=code&color=1F2A30)](https://github.com/maxzuo/semantic-ai2thor-dataset) |
+
+<a id="tools-and-environments"></a>
+
+## <img src="assets/rooms/tools.svg" width="88" height="28" alt="" align="absmiddle"> Tools and environments
+
+Training frameworks, wrappers, and utilities. 24 entries.
+
+#### AllenAct
+
+2020 · AI2-THOR
+
+[![arXiv](https://img.shields.io/badge/arXiv-2008.12760-B31B1B?style=flat-square)](https://arxiv.org/abs/2008.12760) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://allenact.org/) [![Code](https://img.shields.io/github/stars/allenai/allenact?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/allenact)
+
+Provides modular training and evaluation components for AI2-THOR-family agents, supporting reproducible navigation and manipulation experiments.
+
+#### AI2-THOR Docker
+
+AI2-THOR
+
+[![Code](https://img.shields.io/github/stars/allenai/ai2thor-docker?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/ai2thor-docker)
+
+Packages AI2-THOR rendering in containers, supporting headless and GPU-backed simulator experiments on servers.
+
+**Latest entries**
+
+| Year | Paper / resource | Env | Links |
+| :--: | --- | :--: | --- |
+| 2022 | <a id="prior-data-package"></a>**PRIOR Data Package**<br><sub>Distribute scene datasets and embodied assets</sub> | ProcTHOR | [![Code](https://img.shields.io/github/stars/allenai/prior?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/prior) |
+| — | <a id="advisor"></a>**ADVISOR**<br><sub>Embodied-agent training infrastructure and policies</sub> | AI2-THOR<br>RoboTHOR | [![Code](https://img.shields.io/github/stars/allenai/advisor?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/advisor) |
+| — | <a id="ai2-objectnav-evaluation"></a>**AI2 ObjectNav Evaluation**<br><sub>Evaluate ObjectNav models on standard tasks</sub> | AI2-THOR<br>RoboTHOR | [![Code](https://img.shields.io/github/stars/allenai/object-nav-eval?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/object-nav-eval) |
+| — | <a id="ai2-thor-colab"></a>**AI2-THOR Colab**<br><sub>Display and X-server utilities for notebook demos</sub> | AI2-THOR | [![Code](https://img.shields.io/github/stars/allenai/ai2thor-colab?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/ai2thor-colab) |
+| — | <a id="ai2-thor-examples"></a>**AI2-THOR Examples**<br><sub>Runnable examples of controller setup and object interaction</sub> | AI2-THOR | [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://ai2thor.allenai.org/examples/) [![Code](https://img.shields.io/github/stars/allenai/ai2thor?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/ai2thor) |
+
+<details>
+<summary>All 24 entries (17 more below)</summary>
+
+| Year | Paper / resource | Env | Links |
+| :--: | --- | :--: | --- |
+| — | <a id="ai2-thor-publications-index"></a>**AI2-THOR Publications Index**<br><sub>Official bibliography of simulator research</sub> | AI2-THOR | [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://ai2thor.allenai.org/publications/) |
+| — | <a id="ai2thor-keyboard-player"></a>**AI2Thor Keyboard Player**<br><sub>Inspect scenes and collect interactions with keyboard controls</sub> | AI2-THOR | [![Code](https://img.shields.io/github/stars/ByZ0e/AI2Thor_keyboard_player?style=flat-square&label=code&color=1F2A30)](https://github.com/ByZ0e/AI2Thor_keyboard_player) |
+| — | <a id="ai2thor-gym"></a>**ai2thor-gym**<br><sub>Gymnasium wrapper with object-search and cooking rewards</sub> | AI2-THOR | [![Code](https://img.shields.io/github/stars/m-barker/ai2thor-gym?style=flat-square&label=code&color=1F2A30)](https://github.com/m-barker/ai2thor-gym) |
+| — | <a id="ai2thor-task-planner"></a>**ai2thor-task-planner**<br><sub>Ground PDDL plans with neural perception and simulator metadata</sub> | iTHOR | [![Code](https://img.shields.io/github/stars/xHugo21/ai2thor-task-planner?style=flat-square&label=code&color=1F2A30)](https://github.com/xHugo21/ai2thor-task-planner) |
+| — | <a id="ai2thor-web"></a>**ai2thor-web**<br><sub>Remote simulator control and human data collection in browsers</sub> | AI2-THOR | [![Code](https://img.shields.io/github/stars/zkytony/ai2thor-web?style=flat-square&label=code&color=1F2A30)](https://github.com/zkytony/ai2thor-web) |
+| — | <a id="alfred-rl"></a>**ALFRED-RL**<br><sub>Online and offline reinforcement-learning stack for household tasks</sub> | ALFRED | [![Code](https://img.shields.io/github/stars/clvrai/sprint?style=flat-square&label=code&color=1F2A30)](https://github.com/clvrai/sprint) |
+| — | <a id="cups-rl"></a>**cups-rl**<br><sub>Study domain and task transfer in household interaction</sub> | AI2-THOR | [![Code](https://img.shields.io/github/stars/TheMTank/cups-rl?style=flat-square&label=code&color=1F2A30)](https://github.com/TheMTank/cups-rl) |
+| — | <a id="embodied-reasoning-agent"></a>**Embodied Reasoning Agent**<br><sub>Released implementation of embodied priors and online policy training</sub> | EmbodiedBench | [![Code](https://img.shields.io/github/stars/Embodied-Reasoning-Agent/Embodied-Reasoning-Agent?style=flat-square&label=code&color=1F2A30)](https://github.com/Embodied-Reasoning-Agent/Embodied-Reasoning-Agent) |
+| — | <a id="indoor-scene-generation-for-eai-luminous-for-alfred"></a>**Indoor Scene Generation for EAI / Luminous-for-ALFRED**<br><sub>Generate indoor scenes and household trajectories</sub> | ALFRED | [![Code](https://img.shields.io/github/stars/amazon-science/indoor-scene-generation-eai?style=flat-square&label=code&color=1F2A30)](https://github.com/amazon-science/indoor-scene-generation-eai) |
+| — | <a id="procthor-rl"></a>**ProcTHOR RL**<br><sub>Official policy training and evaluation in procedural houses</sub> | ProcTHOR | [![Code](https://img.shields.io/github/stars/allenai/procthor-rl?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/procthor-rl) |
+| — | <a id="procthor-nav-vis"></a>**ProcTHOR-Nav-Vis**<br><sub>Annotate actions and render multi-view scene replays</sub> | ProcTHOR | [![Code](https://img.shields.io/github/stars/khm159/ProcthorNavVis?style=flat-square&label=code&color=1F2A30)](https://github.com/khm159/ProcthorNavVis) |
+| — | <a id="rl-thor"></a>**RL-THOR**<br><sub>Customizable reinforcement-learning tasks with a Gym-like interface</sub> | AI2-THOR | [![Code](https://img.shields.io/github/stars/Kajiih/rl_thor?style=flat-square&label=code&color=1F2A30)](https://github.com/Kajiih/rl_thor) |
+| — | <a id="robothor-objectnav-challenge"></a>**RoboTHOR ObjectNav Challenge**<br><sub>Official navigation challenge scripts, baselines, and submissions</sub> | RoboTHOR | [![Code](https://img.shields.io/github/stars/allenai/robothor-challenge?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/robothor-challenge) |
+| — | <a id="robustnav"></a>**RobustNav**<br><sub>Test navigation under visual corruptions and distribution shifts</sub> | RoboTHOR | [![Code](https://img.shields.io/github/stars/allenai/robustnav?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/robustnav) |
+| — | <a id="teach-tatc"></a>**TEACh TATC**<br><sub>Two-agent Commander–Follower task completion</sub> | TEACh | [![Code](https://img.shields.io/github/stars/GLAMOR-USC/teach_tatc?style=flat-square&label=code&color=1F2A30)](https://github.com/GLAMOR-USC/teach_tatc) |
+| — | <a id="thor2blender"></a>**thor2blender**<br><sub>Transfer simulator scenes into Blender rendering workflows</sub> | AI2-THOR | [![Code](https://img.shields.io/github/stars/Tomoya-Matsubara/thor2blender?style=flat-square&label=code&color=1F2A30)](https://github.com/Tomoya-Matsubara/thor2blender) |
+| — | <a id="thortils"></a>**thortils**<br><sub>Reusable utilities for simulator scripting</sub> | AI2-THOR | [![Code](https://img.shields.io/github/stars/zkytony/thortils?style=flat-square&label=code&color=1F2A30)](https://github.com/zkytony/thortils) |
+
+</details>
+
+<a id="tutorials-and-notes"></a>
+
+## <img src="assets/rooms/tutorials.svg" width="88" height="28" alt="" align="absmiddle"> Tutorials and notes
+
+Installation, first scenes, and reproducible baselines. 5 entries.
+
+#### AI2-THOR Documentation
+
+AI2-THOR
+
+[![Tutorial](https://img.shields.io/badge/tutorial-read-7A7A72?style=flat-square)](https://ai2thor.allenai.org/ithor/documentation/) [![Code](https://img.shields.io/github/stars/allenai/ai2thor?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/ai2thor)
+
+Documents AI2-THOR installation, controllers, actions, and event metadata, helping readers run a first scene and inspect object interactions.
+
+#### AllenAct ObjectNav Tutorial
+
+RoboTHOR
+
+[![Tutorial](https://img.shields.io/badge/tutorial-read-7A7A72?style=flat-square)](https://allenact.org/tutorials/robothor-tutorial/) [![Code](https://img.shields.io/github/stars/allenai/allenact?style=flat-square&label=code&color=1F2A30)](https://github.com/allenai/allenact)
+
+Walks through RoboTHOR ObjectNav training and evaluation with AllenAct, connecting simulator setup to a reproducible navigation baseline.
+
+| Year | Paper / resource | Env | Links |
+| :--: | --- | :--: | --- |
+| — | <a id="alfred-documentation-and-leaderboards"></a>**ALFRED Documentation and Leaderboards**<br><sub>Official benchmark resources, evaluation protocol, and leaderboards</sub> | ALFRED | [![Tutorial](https://img.shields.io/badge/tutorial-read-7A7A72?style=flat-square)](https://askforalfred.com/) [![Code](https://img.shields.io/github/stars/askforalfred/alfred?style=flat-square&label=code&color=1F2A30)](https://github.com/askforalfred/alfred) |
+| — | <a id="cook2ltl-csdn-note"></a>**Cook2LTL CSDN note**<br><sub>Chinese learning note on recipe-to-temporal-logic planning</sub> | AI2-THOR | [![Tutorial](https://img.shields.io/badge/tutorial-read-7A7A72?style=flat-square)](https://blog.csdn.net/muyulingfengye/article/details/144618712) [![Code](https://img.shields.io/github/stars/angmavrogiannis/Cook2LTL?style=flat-square&label=code&color=1F2A30)](https://github.com/angmavrogiannis/Cook2LTL) |
+| — | <a id="csdn-ai2-thor-tutorial"></a>**CSDN AI2-THOR tutorial**<br><sub>Community walkthrough of simulator usage in Chinese</sub> | AI2-THOR | [![Tutorial](https://img.shields.io/badge/tutorial-read-7A7A72?style=flat-square)](https://blog.csdn.net/u010705932/article/details/104472316) |
+
+## By the numbers
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/timeline-dark.svg">
+  <img src="assets/timeline-light.svg" alt="Entries by publication year" width="1200">
+</picture>
+
+AI2-THOR 164 / ALFRED 67 / ProcTHOR 37 / RoboTHOR 34 / EmbodiedBench 18 / TEACh 13 / iTHOR 9 / ManipulaTHOR 3 / MAP-THOR 2 / infinity-THOR 1 / ALFWorld 1 / ReALFRED 1 / ArchitecTHOR 1 / MAT2-THOR 1
+
+344 tracked records: 318 simulator-family resources, 13 text-only papers, and 13 candidates awaiting verification.
+
+Undated resources are omitted from the chart; ecosystem labels can overlap. Presentation updates and source verification dates are tracked separately.
 
 ## Contributing
 
-Edit `data.yml` first, then regenerate this README:
+Edit `data.yml`, then validate and regenerate every view:
 
 ```bash
-python scripts/validate_data.py
-python scripts/generate_readme.py
+python -m pip install -r requirements.txt
+make check
 ```
 
-Entry format:
+[Contribution guide](CONTRIBUTING.md)
 
-```markdown
-### Title
+## Star history
 
-`year` `venue/status` `topic` `ecosystem`
+[![Star history](https://api.star-history.com/svg?repos=XUJay111/awesome-ai2-thor&type=Date)](https://star-history.com/#XUJay111/awesome-ai2-thor&Date)
 
-Links: [Paper](paper-url) · [Project](project-url) · [Code](repo-url)
+## License
 
-One concise paragraph explaining how the work uses, extends, benchmarks, or supports AI2-THOR-family systems.
-```
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for scope, verification rules, status labels, and review policy.
+[CC0-1.0](LICENSE). Archivo: [SIL Open Font License](assets/fonts/OFL.txt).

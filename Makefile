@@ -1,10 +1,17 @@
-.PHONY: validate generate check
+.PHONY: validate generate test check preview
+PYTHON ?= python3
 
 validate:
-	python scripts/validate_data.py
+	$(PYTHON) scripts/validate_data.py
 
 generate:
-	python scripts/generate_readme.py
+	$(PYTHON) scripts/generate_readme.py
 
-check: validate generate
-	git diff --exit-code README.md
+test:
+	$(PYTHON) -m unittest discover -s tests -v
+
+check: validate test
+	$(PYTHON) scripts/check_generated.py
+
+preview:
+	$(PYTHON) -m http.server 8000 --bind 127.0.0.1 --directory docs

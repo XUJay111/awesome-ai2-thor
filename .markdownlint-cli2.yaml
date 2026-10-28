@@ -3,9 +3,14 @@ config:
   MD033: false
   MD034: false
   MD041: false
+  # Must-read entries intentionally use H4; route labels use bold paragraphs.
+  MD001: false
+  MD036: false
   MD024:
     siblings_only: true
 globs:
   - "**/*.md"
 ignores:
   - ".git"
+  - "node_modules"
+  - ".venv"

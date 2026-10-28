@@ -1,0 +1,11 @@
+{
+  "name": "awesome-ai2-thor-checks",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/site.test.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0",
+    "mermaid": "11.12.0"
+  }
+}
