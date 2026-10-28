@@ -1,3 +1,4 @@
+exclude_loopback = true
 max_retries = 3
 timeout = 30
 max_concurrency = 8
@@ -5,6 +6,13 @@ accept = [200, 202, 204, 206, 429]
 
 # CSDN often rate-limits automated requests; these are secondary community notes.
 exclude = [
+  # These exact official project pages return HTTP 403 to automated clients.
+  '^https://allenai\.org/project/phone2proc/?$',
+  '^https://prior\.allenai\.org/projects/iqa/?$',
+  '^https://prior\.allenai\.org/projects/target-driven-visual-navigation/?$',
+  '^https://prior\.allenai\.org/projects/visual-semantic-planning/?$',
+  # This dataset endpoint requires authentication (HTTP 401).
+  '^https://huggingface\.co/datasets/allenai/procthor-10k/?$',
   # The Pages endpoint is created by the separate deployment workflow and may
   # not exist yet while this branch's link check runs before the first deploy.
   '^https://xujay111\.github\.io/awesome-ai2-thor/?$',

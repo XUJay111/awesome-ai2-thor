@@ -1179,7 +1179,7 @@ entries:
   added: '2026-06-22'
 - title: 'VLM-Act: A Benchmark for Vision-Language-Action Models'
   year: '2024'
-  status: verified-paper
+  status: needs-verification
   venue: ICLR Workshop
   category: Instruction Following and Household Tasks
   tags:
@@ -1189,12 +1189,11 @@ entries:
   - ALFRED
   links:
     paper: https://arxiv.org/abs/2404.08700
-    code: https://github.com/OSU-NLP-Group/VLM-Act
   ai2thor_connection: ALFRED
-  summary: VLM-Act evaluates vision-language-action models on action prediction and long-horizon embodied task execution.
-    It includes ALFRED as one of its central benchmarks, using AI2-THOR-style household instruction following to
-    test whether VLM representations transfer into executable actions.
-  last_verified: '2026-06-25'
+  summary: 'Verify the paper identity and THOR experiments before restoring this record: the previously supplied
+    arXiv link resolves to DyKnow: Dynamically Verifying Time-Sensitive Factual Knowledge in LLMs, and the
+    claimed code repository is unavailable.'
+  last_verified: '2026-10-28'
   scope: thor-native
   section: instructions
   env:
@@ -1272,14 +1271,14 @@ entries:
   - ICCV
   - LLM planning
   links:
-    paper: https://openaccess.thecvf.com/content/ICCV2023/html/Song_LLM-Planner_Few-Shot_Grounded_Planning_for_Embodied_Agents_with_Large_Language_Models_ICCV_2023_paper.html
+    paper: https://openaccess.thecvf.com/content/ICCV2023/html/Song_LLM-Planner_Few-Shot_Grounded_Planning_for_Embodied_Agents_with_Large_Language_ICCV_2023_paper.html
     project: https://dki-lab.github.io/LLM-Planner/
     code: https://github.com/OSU-NLP-Group/LLM-Planner
   ai2thor_connection: AI2-THOR-family
-  summary: LLM-Planner uses few-shot prompting to turn large language models into grounded high-level planners for
-    embodied agents. It provides prompt-generation and end-to-end examples that connect language model plans to
-    executable embodied task steps.
-  last_verified: '2026-06-23'
+  summary: LLM-Planner uses few-shot prompting to turn large language models into grounded high-level planners
+    for embodied agents. It provides prompt-generation and end-to-end examples that connect language model
+    plans to executable embodied task steps.
+  last_verified: '2026-10-28'
   scope: thor-native
   section: instructions
   env:
@@ -1302,12 +1301,12 @@ entries:
   - AI2-THOR
   links:
     paper: https://arxiv.org/abs/2407.19094
-    code: https://github.com/jeongeun980906/Wonderful-Team
+    code: https://github.com/wonderful-team-robotics/wonderful_team_robotics
   ai2thor_connection: AI2-THOR
   summary: Wonderful Team studies zero-shot physical task planning with visual LLMs, using AI2-THOR to evaluate
-    whether agents can infer object states and feasible household action sequences from visual observations. It
-    is useful for comparing direct multimodal planning against more modular embodied pipelines.
-  last_verified: '2026-06-25'
+    whether agents can infer object states and feasible household action sequences from visual observations.
+    It is useful for comparing direct multimodal planning against more modular embodied pipelines.
+  last_verified: '2026-10-28'
   scope: thor-native
   section: instructions
   env:
@@ -1406,7 +1405,7 @@ entries:
   added: '2026-06-22'
 - title: Dual Preference Optimization for Embodied Multimodal Agent
   year: '2025'
-  status: verified-paper
+  status: needs-verification
   venue: arXiv
   category: Instruction Following and Household Tasks
   tags:
@@ -1416,12 +1415,11 @@ entries:
   - ALFRED
   links:
     paper: https://arxiv.org/abs/2502.02024
-    code: https://github.com/7pinkdylan/DeMo
   ai2thor_connection: ALFRED
-  summary: This work applies dual preference optimization to embodied multimodal agents, combining action-level
-    and trajectory-level preferences for instruction following. Its evaluation includes ALFRED, making it relevant
-    to preference-aligned policies for AI2-THOR household task execution.
-  last_verified: '2026-06-25'
+  summary: 'Verify the paper identity and THOR experiments before restoring this record: the previously supplied
+    arXiv link resolves to UD-Mamba: A pixel-level uncertainty-driven Mamba model for medical image segmentation,
+    and the claimed code repository is unavailable.'
+  last_verified: '2026-10-28'
   scope: thor-native
   section: instructions
   env:
@@ -1858,13 +1856,12 @@ entries:
   - ObjectNav
   links:
     paper: https://arxiv.org/abs/2406.20083
-    project: https://poliformer.allen.ai/
     code: https://github.com/allenai/PoliFormer
   ai2thor_connection: ProcTHOR
-  summary: PoliFormer scales on-policy reinforcement learning with transformer policies for ObjectNav. It uses large
-    ProcTHOR training corpora and studies how model scale, environment scale, and embodiment choices affect navigation
-    performance.
-  last_verified: '2026-06-23'
+  summary: PoliFormer scales on-policy reinforcement learning with transformer policies for ObjectNav. It uses
+    large ProcTHOR training corpora and studies how model scale, environment scale, and embodiment choices
+    affect navigation performance.
+  last_verified: '2026-10-28'
   scope: thor-native
   section: navigation
   env:
@@ -1931,24 +1928,23 @@ entries:
   highlight_zh: 通过本地语言模型与地图推断语义区域。
   added: '2026-06-22'
 - title: 'Visual Reaction: Learning to Play Catch with Your Drone'
-  year: '2025'
+  year: '2020'
   status: verified-paper
-  venue: ICRA
+  venue: CVPR
   category: Navigation
   tags:
-  - '2025'
-  - ICRA
+  - '2020'
+  - CVPR
   - drone navigation
   - AI2-THOR
   links:
-    paper: https://arxiv.org/abs/2403.11705
-    project: https://visualreaction.github.io/
-    code: https://github.com/RuohanGao/visualreaction
+    paper: https://arxiv.org/abs/1912.02155
+    code: https://github.com/KuoHaoZeng/Visual_Reaction
   ai2thor_connection: AI2-THOR
-  summary: Visual Reaction uses AI2-THOR-style indoor scenes to train and evaluate reactive aerial navigation for
-    a drone catching task. It broadens the navigation coverage beyond ground robots and ObjectNav toward fast visual
-    control and dynamic target interception.
-  last_verified: '2026-06-25'
+  summary: Visual Reaction uses AI2-THOR-style indoor scenes to train and evaluate reactive aerial navigation
+    for a drone catching task. It broadens the navigation coverage beyond ground robots and ObjectNav toward
+    fast visual control and dynamic target interception.
+  last_verified: '2026-10-28'
   scope: thor-native
   section: navigation
   env:
@@ -2027,13 +2023,13 @@ entries:
   - AI2-THOR
   links:
     paper: https://arxiv.org/abs/2106.00188
-    project: https://piglet.cs.umass.edu/
+    project: https://rowanzellers.com/piglet
     code: https://github.com/rowanz/piglet
   ai2thor_connection: AI2-THOR
-  summary: PIGLeT learns grounded language and action consequences by interacting with objects in AI2-THOR. It combines
-    symbolic object-state reasoning with neural language models, making it an early bridge between embodied interaction
-    and language-grounded commonsense prediction.
-  last_verified: '2026-06-25'
+  summary: PIGLeT learns grounded language and action consequences by interacting with objects in AI2-THOR.
+    It combines symbolic object-state reasoning with neural language models, making it an early bridge between
+    embodied interaction and language-grounded commonsense prediction.
+  last_verified: '2026-10-28'
   scope: thor-native
   section: planning
   env:
@@ -2688,34 +2684,33 @@ entries:
     to the consequences of actions.
   highlight_zh: 在 AI2-THOR 中通过交互学习物体范围与物理属性，将感知连接到动作后果。
   added: '2026-06-22'
-- title: 'ActioNet: A Multimodal Dataset for Human Activities Using AI2-THOR'
-  year: '2023'
+- title: 'Actionet: An Interactive End-To-End Platform For Task-Based Data Collection And Augmentation In 3D
+    Environment'
+  year: '2020'
   status: verified-paper
   venue: ICIP
   category: Perception, Physics, and Scene Graphs
   tags:
-  - '2023'
+  - '2020'
   - ICIP
-  - activity recognition
+  - task data collection
   - AI2-THOR
   links:
-    paper: https://ieeexplore.ieee.org/document/10222876
-    arxiv: https://arxiv.org/abs/2306.04692
-    code: https://github.com/Alee08/ActioNet
+    paper: https://arxiv.org/abs/2010.01357
+    code: https://github.com/SamsonYuBaiJian/actionet
   ai2thor_connection: AI2-THOR
-  summary: ActioNet uses AI2-THOR to generate multimodal egocentric observations for human activity recognition,
-    including RGB, depth, segmentation, and metadata-style signals. It is useful for perception-focused work that
-    needs controlled household activities rather than only navigation or task-success labels.
-  last_verified: '2026-06-25'
+  summary: ActioNet collects and augments household task demonstrations in a customized AI2-THOR environment.
+    Its interface records action sequences and generates task variations for hierarchical task planning.
+  last_verified: '2026-10-28'
   scope: thor-native
   section: perception
   env:
   - AI2-THOR
   must_read: false
-  short: Synthetic multimodal egocentric observations of household activities
-  short_zh: 家务活动的合成多模态第一视角观察
-  highlight: Synthetic multimodal egocentric observations of household activities (AI2-THOR).
-  highlight_zh: 家务活动的合成多模态第一视角观察。
+  short: Collects and augments household task demonstrations in customized AI2-THOR scenes
+  short_zh: 在定制 AI2-THOR 场景中收集并增强家务任务演示
+  highlight: Collects and augments household task demonstrations in customized AI2-THOR scenes.
+  highlight_zh: 在定制 AI2-THOR 场景中收集并增强家务任务演示。
   added: '2026-06-25'
 - title: Integrating Vision Foundation Models with Reinforcement Learning for Enhanced Object Interaction
   year: '2025'
@@ -2922,13 +2917,13 @@ entries:
   - ObjectNav
   - evaluation
   links:
-    dataset: https://ai2thor.allenai.org/robothor/objectnav-dataset/
+    dataset: https://github.com/allenai/robothor-challenge#dataset
     code: https://github.com/allenai/robothor-challenge
   ai2thor_connection: RoboTHOR
-  summary: The official ObjectNav evaluation datasets support RoboTHOR and AI2-THOR-family ObjectNav challenge workflows.
-    They provide the task instances and split definitions needed to compare navigation agents under standard evaluation
-    conditions.
-  last_verified: '2026-06-25'
+  summary: The official ObjectNav evaluation datasets support RoboTHOR and AI2-THOR-family ObjectNav challenge
+    workflows. They provide the task instances and split definitions needed to compare navigation agents under
+    standard evaluation conditions.
+  last_verified: '2026-10-28'
   scope: thor-native
   section: datasets
   env:
@@ -3082,13 +3077,13 @@ entries:
   - documentation
   - controller API
   links:
-    project: https://ai2thor.allenai.org/examples/
+    project: https://ai2thor.allenai.org/ithor/documentation/
     code: https://github.com/allenai/ai2thor
   ai2thor_connection: AI2-THOR
   summary: The official AI2-THOR examples page gives runnable snippets for controller setup, navigation, object
-    metadata, image observations, and interaction actions. It is one of the best practical entry points for new
-    users learning the simulator API.
-  last_verified: '2026-06-25'
+    metadata, image observations, and interaction actions. It is one of the best practical entry points for
+    new users learning the simulator API.
+  last_verified: '2026-10-28'
   scope: thor-native
   section: tools
   env:
@@ -8256,12 +8251,12 @@ entries:
   - AllenAct
   - ObjectNav
   links:
-    tutorial: https://allenact.org/tutorials/robothor-tutorial/
+    tutorial: https://allenact.org/tutorials/distributed-objectnav-tutorial/
     code: https://github.com/allenai/allenact
   ai2thor_connection: RoboTHOR
-  summary: Walks through RoboTHOR ObjectNav training and evaluation with AllenAct, connecting simulator setup to
-    a reproducible navigation baseline.
-  last_verified: '2026-06-25'
+  summary: Walks through RoboTHOR ObjectNav training and evaluation with AllenAct, connecting simulator setup
+    to a reproducible navigation baseline.
+  last_verified: '2026-10-28'
   scope: thor-native
   section: tutorials
   env:
