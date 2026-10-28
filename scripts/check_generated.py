@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """Fail when tracked outputs differ from a fresh, deterministic generation."""
+import argparse
+from datetime import date
 import subprocess
 import sys
 from catalog import ROOT, ROOMS
@@ -15,8 +17,15 @@ def snapshot():
     return {path: (ROOT / path).read_bytes() if (ROOT / path).exists() else None for path in OUTPUTS}
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--as-of", type=date.fromisoformat,
+                        help="Reference date forwarded to the generator (YYYY-MM-DD).")
+    args = parser.parse_args()
+    command = [sys.executable, str(ROOT / "scripts/generate_readme.py")]
+    if args.as_of:
+        command += ["--as-of", args.as_of.isoformat()]
     before = snapshot()
-    subprocess.run([sys.executable, str(ROOT / "scripts/generate_readme.py")], cwd=ROOT, check=True)
+    subprocess.run(command, cwd=ROOT, check=True)
     after = snapshot()
     changed = [path for path in OUTPUTS if before[path] != after[path]]
     if changed:

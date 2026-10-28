@@ -1,0 +1,52 @@
+name: Refresh generated views
+
+on:
+  schedule:
+    - cron: "30 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  # GITHUB_TOKEN pushes do not trigger push workflows; explicitly dispatch Pages.
+  actions: write
+
+concurrency:
+  group: refresh-generated-views
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    env:
+      # Match the generator date and the bot commit date, including manual runs.
+      TZ: Asia/Shanghai
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python scripts/generate_readme.py
+      - run: make check PYTHON=python
+      - name: Commit refreshed views on main
+        id: refresh
+        shell: bash
+        run: |
+          git add README.md README.zh-CN.md assets docs
+          if git diff --cached --quiet; then
+            echo "Generated views are already current."
+          elif [ "$GITHUB_REF" = refs/heads/main ]; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Refresh generated views'
+            git push origin HEAD:main
+            echo 'pushed=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'Dry run outside main; generated changes:'
+            git diff --cached --stat
+          fi
+      - name: Deploy refreshed Pages
+        if: steps.refresh.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --ref main
