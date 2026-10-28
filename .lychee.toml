@@ -5,6 +5,9 @@ accept = [200, 202, 204, 206, 429]
 
 # CSDN often rate-limits automated requests; these are secondary community notes.
 exclude = [
+  # The Pages endpoint is created by the separate deployment workflow and may
+  # not exist yet while this branch's link check runs before the first deploy.
+  '^https://xujay111\.github\.io/awesome-ai2-thor/?$',
   "https://blog.csdn.net/u010705932/article/details/104472316",
   "https://blog.csdn.net/muyulingfengye/article/details/144618712",
 ]

@@ -6,12 +6,14 @@ from __future__ import annotations
 import re
 import sys
 from collections import Counter
+from datetime import date
 from pathlib import Path
 from urllib.parse import urlparse
 
 import yaml
 
 from link_schema import DUPLICATE_CHECK_LINKS, PRIMARY_LINKS
+from catalog import ROOMS, ROOM_BY_CATEGORY, banned_phrases, today
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -49,6 +51,8 @@ REQUIRED_FIELDS = {
     "ai2thor_connection",
     "summary",
     "last_verified",
+    "section", "env", "scope", "must_read", "highlight", "short",
+    "highlight_zh", "short_zh", "added",
 }
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 MONTH_RE = re.compile(r"^\d{4}-\d{2}$")
@@ -170,6 +174,60 @@ def validate_entry(index: int, entry: dict, minimum_verified: str | None) -> lis
     if status == "tutorial" and category != "Tutorials and Notes":
         errors.append(f"{label}: tutorial status is only allowed in Tutorials and Notes")
 
+    room = ROOM_BY_CATEGORY.get(category)
+    if room and entry.get("section") != room[1]:
+        errors.append(f"{label}: section must match category ({room[1]})")
+    scope = entry.get("scope")
+    if scope not in {"thor-native", "alfworld-adjacent"}:
+        errors.append(f"{label}: scope must be thor-native or alfworld-adjacent")
+    if not isinstance(entry.get("must_read"), bool):
+        errors.append(f"{label}: must_read must be a boolean")
+    elif entry["must_read"] and (scope != "thor-native" or not active_entry(entry)):
+        errors.append(f"{label}: only active thor-native entries may be must_read")
+    if scope == "alfworld-adjacent" and (category != ROOMS[4][0] or entry.get("env") != ["ALFWorld"]):
+        errors.append(f"{label}: adjacent entries belong in Planning with env: [ALFWorld]")
+    env = entry.get("env")
+    if not isinstance(env, list) or not env or not all(isinstance(e, str) and e.strip() for e in env):
+        errors.append(f"{label}: env must be a non-empty list of environment names")
+    elif len(env) != len(set(env)):
+        errors.append(f"{label}: env must not contain duplicates")
+    for field, limit in [("highlight", 30), ("short", 15)]:
+        value = entry.get(field)
+        if not isinstance(value, str) or not value.strip():
+            errors.append(f"{label}: {field} must be non-empty")
+        elif len(value.split()) > limit:
+            errors.append(f"{label}: {field} must be at most {limit} words")
+    # Academic titles and venue names are verbatim source metadata. These
+    # editorial rules apply to our own prose, including retained summaries.
+    for field in ("summary", "highlight", "short", "highlight_zh", "short_zh"):
+        value = entry.get(field)
+        if not isinstance(value, str) or not value.strip():
+            errors.append(f"{label}: {field} must be non-empty")
+        else:
+            if "\n" in value or "|" in value:
+                errors.append(f"{label}: {field} must be one paragraph without table delimiters")
+            for phrase in banned_phrases(value):
+                errors.append(f"{label}: {field} contains banned editorial phrase {phrase!r}")
+            if field in {"short", "highlight"} and re.match(r"^(this paper|this work|we)\b", value, re.I):
+                errors.append(f"{label}: {field} must start with the contribution")
+    added = entry.get("added")
+    try:
+        if not isinstance(added, str) or not DATE_RE.fullmatch(added):
+            raise ValueError
+        if date.fromisoformat(added) > today():
+            errors.append(f"{label}: added cannot be in the future")
+    except ValueError:
+        errors.append(f"{label}: added must be a real YYYY-MM-DD date")
+
+    return errors
+
+
+def validate_curation(entries: list[dict]) -> list[str]:
+    errors = []
+    counts = Counter(e.get("category") for e in entries if e.get("must_read") and active_entry(e) and e.get("scope") == "thor-native")
+    for category, *_ in ROOMS:
+        if not 2 <= counts[category] <= 4:
+            errors.append(f"{category}: requires 2–4 native must-read entries, got {counts[category]}")
     return errors
 
 
@@ -213,7 +271,17 @@ def main() -> int:
             errors.append(f"entry #{index + 1}: must be a mapping")
             continue
         errors.extend(validate_entry(index, entry, minimum_verified))
-    errors.extend(validate_duplicates(entries))
+    mappings = [entry for entry in entries if isinstance(entry, dict)]
+    errors.extend(validate_duplicates(mappings))
+    errors.extend(validate_curation(mappings))
+    try:
+        updated = data.get("updated")
+        if not isinstance(updated, str) or not DATE_RE.fullmatch(updated):
+            raise ValueError
+        if date.fromisoformat(updated) > today():
+            raise ValueError
+    except ValueError:
+        errors.append("updated must be a real YYYY-MM-DD date, no later than today")
 
     if errors:
         for error in errors:

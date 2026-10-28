@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="A map of papers, benchmarks, and tools built on AI2-THOR and its family. Explore the research by room, year, or environment.">
+<title>Awesome AI2-THOR — A map of the THOR family</title>
+<style>
+@font-face{font-family:Archivo;src:url(data:font/woff2;base64,__FONT__) format('woff2');font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+:root{--paper:#F6F7F5;--ink:#1F2A30;--hall:#E4E3DD;--muted:#536068;--accent:#2D5BE3;--line:#C5C8C4;--room-fill:var(--fill);font-family:Archivo,Arial,sans-serif;color:var(--ink);background:var(--paper);font-size:16px;line-height:1.55;font-variant-numeric:tabular-nums;color-scheme:light dark}
+*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}a{color:inherit;text-underline-offset:4px}a:hover{color:var(--accent)}button{cursor:pointer}button:disabled{cursor:default}button,input,select{border-radius:3px}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}h1,h2,h3,p{margin:0}h1{font-size:40px;line-height:1.12;letter-spacing:-1.4px;font-weight:700}h2{font-size:28px;line-height:1.2;letter-spacing:-.5px}h3{font-size:20px;line-height:1.35;font-weight:600}small{font-size:14px}button{color:var(--ink)}.skip{position:absolute;left:20px;top:-80px;z-index:10;background:var(--paper);padding:12px}.skip:focus{top:8px}.header{border-bottom:1px solid var(--line)}.header-inner{max-width:1280px;margin:auto;padding:24px 40px;display:flex;align-items:center;gap:28px}.brand{font-size:20px;font-weight:700;letter-spacing:-.5px;text-decoration:none;white-space:nowrap}.search-wrap{position:relative;flex:1;margin-left:auto;max-width:460px}.search-wrap svg{position:absolute;left:14px;top:14px;width:20px;height:20px;pointer-events:none}#search{width:100%;height:48px;border:1px solid var(--line);background:transparent;color:var(--ink);padding:10px 16px 10px 44px}#search::placeholder{color:var(--muted);opacity:1}.repo{font-size:14px;white-space:nowrap}.layout{display:grid;grid-template-columns:minmax(330px,.88fr) minmax(0,1.25fr);gap:64px;max-width:1280px;margin:auto;padding:48px 40px 80px}.sidebar{position:sticky;top:24px;align-self:start;max-height:calc(100vh - 48px);overflow-y:auto;scrollbar-width:thin;padding:4px 6px 8px 0}.intro{margin:16px 0 24px;max-width:44ch;color:var(--muted)}.plan{position:relative;isolation:isolate;height:360px;margin:0 0 12px;background:var(--paper)}.room{position:absolute;left:var(--x);top:var(--y);width:var(--w);height:var(--h);border:0;border-radius:0;background:var(--room-fill);padding:12px 14px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;line-height:1.15;transition:background-color 150ms;overflow:hidden}.room-label{font-size:16px;font-stretch:75%;font-weight:600}.room-count{font-size:28px;font-weight:600;margin-top:3px;line-height:1.05}.room-name{font-size:14px;color:var(--ink);margin-top:3px;opacity:.8}.room[data-room="navigation"] .room-count{font-size:40px}.room[aria-pressed="true"]{background:color-mix(in srgb,var(--room-fill),var(--ink) 12%);outline:4px solid var(--ink);outline-offset:-3px}.room:focus-visible{z-index:3;outline:2px solid var(--accent);outline-offset:-5px}.walls{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:1}.wall{fill:none;stroke:var(--ink);stroke-width:3;stroke-dasharray:1500;stroke-dashoffset:1500;animation:draw 950ms ease forwards;animation-delay:var(--delay);vector-effect:non-scaling-stroke}.door{fill:none;stroke:var(--ink);stroke-width:1;vector-effect:non-scaling-stroke}@keyframes draw{to{stroke-dashoffset:0}}.plan-note{font-size:14px;color:var(--muted);display:flex;justify-content:space-between;gap:12px}.text-button{border:0;border-bottom:1px solid currentColor;background:transparent;padding:0;border-radius:0;font-size:14px;white-space:nowrap}.filters{margin-top:28px;border-top:1px solid var(--line);padding-top:20px}.filter-head{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:14px;font-weight:600}#year{accent-color:var(--accent);width:100%;margin:14px 0 0}.env-title{font-size:14px;margin-top:20px;font-weight:600}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.chip{background:transparent;border:1px solid var(--line);padding:4px 9px;font-size:14px;line-height:1.4}.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}.more-env{margin-top:10px;font-size:14px}.more-env summary{cursor:pointer;text-decoration:underline;text-underline-offset:4px}.include{display:flex;align-items:flex-start;gap:8px;font-size:14px;margin-top:18px;color:var(--muted)}.include input{margin:5px 0 0;accent-color:var(--accent)}.results{min-width:0}.results-header{border-bottom:2px solid var(--ink);padding:0 0 22px}.results-heading{display:flex;align-items:baseline;justify-content:space-between;gap:20px}.result-count{color:var(--muted);font-size:20px}.result-note{margin-top:12px;color:var(--muted);font-size:14px}.year-group{margin-top:28px}.year-title{font-size:14px;font-weight:600;display:flex;align-items:center;gap:14px;margin-bottom:2px}.year-title:after{content:'';height:1px;flex:1;background:var(--line)}.entries{list-style:none;padding:0;margin:0}.entry{padding:22px 0;border-bottom:1px solid var(--hall);position:relative}.entry.must-read{border-left:4px solid var(--fill);padding-left:16px}.entry-short{font-size:16px;color:var(--muted);margin-top:8px;max-width:72ch}.entry-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;font-size:14px;margin-top:12px}.entry-facts{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;color:var(--muted)}.entry-links{display:flex;flex-wrap:wrap;gap:4px 16px;font-weight:600}.entry-links a{text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px}.entry-links a:hover{border-bottom-color:currentColor}.entry-room{display:inline-flex;align-items:center;gap:6px;color:var(--ink)}.entry-room i{width:10px;height:10px;background:var(--fill);outline:1px solid var(--ink);outline-offset:-1px}.recent-toggle{margin-top:14px;display:flex;align-items:baseline;gap:10px;font-size:14px}.recent-toggle button{border:1px solid var(--line);background:transparent;padding:4px 10px;font-size:14px}.recent-toggle button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}.recent-toggle span{color:var(--muted)}.must-label{font-size:14px;font-weight:600}.new-label{font-size:14px;color:var(--accent);font-weight:600}.adjacent-label{font-size:14px;color:var(--muted)}.empty{padding:40px 0;color:var(--muted)}.empty button{display:block;margin-top:16px}.footer{border-top:1px solid var(--line);padding:24px 40px;font-size:14px;color:var(--muted)}.footer-inner{max-width:1200px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer a{margin-left:16px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.room{--room-fill:var(--fill)}.room-name{opacity:1}.room.compact{padding:6px 12px}.room.compact .room-label{font-size:14px}.room.compact .room-count{font-size:20px}.room.compact .room-name{display:none}
+@media(prefers-color-scheme:dark){:root{--paper:#172025;--ink:#E6E9E7;--hall:#354047;--muted:#B0BBBF;--accent:#7A9BFF;--line:#526068}.room{--room-fill:var(--fill-dark)}.entry.must-read{border-left-color:var(--fill-dark)}.entry-room i{background:var(--fill-dark)}}
+@media(prefers-reduced-motion:reduce){.wall{animation:none;stroke-dashoffset:0}.room{transition:none}}
+@media(max-width:1050px) and (min-width:768px){.layout{gap:32px;padding:36px 24px}.header-inner{padding:20px 24px}.room-name{display:none}.room-label{font-size:14px}.room-count{font-size:20px}.plan{height:330px}h1{font-size:28px}}
+@media(max-width:767px){.header-inner{padding:20px;gap:16px;flex-wrap:wrap}.brand{font-size:20px}.repo{margin-left:auto}.search-wrap{order:3;flex-basis:100%;max-width:none}.layout{display:block;padding:28px 20px 48px}.sidebar{position:static;max-height:none;overflow:visible;padding:0}.intro{margin:12px 0 20px}h1{font-size:28px;letter-spacing:-.5px}.plan{height:220px;margin-top:20px}.room{left:calc(var(--mobile-x) + .7%);top:var(--mobile-y);width:18.6%;height:46%;padding:10px 7px;border:2px solid var(--ink);justify-content:center}.room-label{font-size:14px;overflow-wrap:anywhere}.room-count,.room[data-room="navigation"] .room-count{font-size:28px}.room-name{display:none}.walls{display:none}.filters{margin-top:24px}.results{margin-top:40px}.footer{padding:24px 20px}.footer a:first-child{margin-left:0}.result-count{font-size:16px}.results-heading{gap:12px}h2{font-size:28px}h3{font-size:20px}.entry{padding:20px 0}}
+</style>
+</head>
+<body>
+<a class="skip" href="#results">Skip to papers</a>
+<header class="header"><div class="header-inner">
+<a class="brand" href="./">Awesome AI2-THOR</a>
+<div class="search-wrap"><label class="sr-only" for="search">Search titles and highlights</label><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="Search papers and tools…" autocomplete="off"></div>
+<a class="repo" href="https://github.com/XUJay111/awesome-ai2-thor">GitHub</a>
+</div></header>
+<main class="layout">
+<aside class="sidebar" aria-label="Research rooms and filters">
+<h1>A map of the<br>THOR family.</h1>
+<p class="intro">Papers, benchmarks, and tools for interactive indoor worlds. Choose a room to explore a research direction.</p>
+<div class="plan" role="group" aria-label="Choose a research room">
+__ROOM_BUTTONS__
+<svg class="walls" viewBox="0 0 600 420" preserveAspectRatio="none" aria-hidden="true">__WALLS__</svg>
+</div>
+<div class="plan-note"><span>Each room is a section.</span><button class="text-button" id="all-rooms" type="button">All rooms</button></div>
+<div class="filters">
+<div class="filter-head"><label for="year">Publication year</label><output id="year-value" for="year"></output></div>
+<input type="range" id="year" aria-label="Earliest publication year" step="1">
+<p class="env-title" id="env-label">Environment</p>
+<div class="chips" id="environments" role="group" aria-labelledby="env-label"></div>
+<details class="more-env"><summary>More environments</summary><div class="chips" id="more-environments" role="group" aria-label="More environment filters"></div></details>
+<label class="include"><input id="include-adjacent" type="checkbox"><span>Include ALFWorld text-only papers<br><small>Separate from simulator-family room counts.</small></span></label>
+</div>
+</aside>
+<section class="results" id="results" tabindex="-1" aria-labelledby="results-title">
+<div class="results-header"><div class="results-heading"><h2 id="results-title">All rooms</h2><span class="result-count" id="result-count" role="status" aria-live="polite"></span></div><p class="result-note" id="result-note">__NATIVE_COUNT__ simulator-family entries across ten research directions.</p><div class="recent-toggle" id="recent-wrap" hidden><button type="button" id="recent" aria-pressed="false"></button><span id="recent-note"></span></div></div>
+<div id="entry-list"></div>
+<noscript><p class="empty">Enable JavaScript to filter this catalog, or <a href="https://github.com/XUJay111/awesome-ai2-thor#contents">read the full index on GitHub</a>.</p></noscript>
+</section>
+</main>
+<footer class="footer"><div class="footer-inner"><span>Papers through __UPDATED__ / __NATIVE_COUNT__ simulator-family entries</span><span><a href="https://github.com/XUJay111/awesome-ai2-thor/blob/main/CONTRIBUTING.md">Contribute</a><a href="https://github.com/XUJay111/awesome-ai2-thor/blob/main/README.zh-CN.md">中文</a><a href="https://github.com/XUJay111/awesome-ai2-thor/blob/main/LICENSE">CC0</a></span></div></footer>
+<script type="application/json" id="catalog-data">__DATA__</script>
+<script>
+'use strict';
+const entries = JSON.parse(document.getElementById('catalog-data').textContent);
+const rooms = __ROOMS__;
+const native = entries.filter(e => e.scope === 'thor-native');
+const knownYears = native.map(e => Number(e.year)).filter(Boolean);
+const firstYear = Math.min(...knownYears), lastYear = Math.max(...knownYears);
+const envs = [...new Set(entries.flatMap(e => e.env))].sort();
+const $ = id => document.getElementById(id);
+const search = $('search'), year = $('year'), include = $('include-adjacent');
+let state = {room:'', env:'', q:'', year:firstYear, adjacent:false, recent:false};
+const recentCount = entries.filter(e => e.new).length;
+const coreEnvs = ['AI2-THOR','iTHOR','RoboTHOR','ProcTHOR','ALFRED','TEACh','EmbodiedBench'];
+function loadState(){
+  const p = new URLSearchParams(location.search);
+  const number = Number(p.get('year') || firstYear);
+  const env = envs.find(value=>value.toLowerCase()===(p.get('env')||'').toLowerCase())||'';
+  state = {room:rooms.some(r=>r.key===p.get('room'))?p.get('room'):'', env, q:(p.get('q')||'').slice(0,500), year:Math.max(firstYear,Math.min(lastYear,Number.isFinite(number)?Math.trunc(number):firstYear)), adjacent:p.get('text')==='1', recent:p.get('new')==='1'&&recentCount>0};
+  search.value=state.q; year.min=firstYear; year.max=lastYear; year.value=state.year; include.checked=state.adjacent;
+}
+function saveState(){
+  const p = new URLSearchParams();
+  if(state.room)p.set('room',state.room);
+  if(state.env)p.set('env',state.env.toLowerCase());
+  if(state.q)p.set('q',state.q);
+  if(state.year!==firstYear)p.set('year',state.year);
+  if(state.adjacent)p.set('text','1');
+  if(state.recent)p.set('new','1');
+  history.replaceState(null,'',location.pathname+(p.size?'?'+p.toString():'')+location.hash);
+}
+function element(tag, className, text){
+  const el=document.createElement(tag);
+  if(className)el.className=className;
+  if(text!==undefined)el.textContent=text;
+  return el;
+}
+function reset(){state={room:'',env:'',q:'',year:firstYear,adjacent:false,recent:false};search.value='';year.value=firstYear;include.checked=false;render(true);}
+function makeEntry(e){
+  const room=rooms.find(r=>r.key===e.section);
+  const li=element('li','entry'+(e.must_read?' must-read':''));li.id=e.anchor;li.style.setProperty('--fill',room.color);
+  li.style.setProperty('--fill-dark',room.color.replace(/[0-9a-f]{2}/gi,v=>Math.round(parseInt(v,16)*.45).toString(16).padStart(2,'0')));
+  li.append(element('h3','',e.title),element('p','entry-short',e.must_read?e.highlight:e.short));
+  const meta=element('div','entry-meta'), facts=element('div','entry-facts'), links=element('div','entry-links');
+  if(e.new)facts.append(element('span','new-label','New'));
+  if(e.must_read)facts.append(element('span','must-label','Must-read'));
+  if(!state.room){const tag=element('span','entry-room');tag.style.setProperty('--fill',room.color);tag.append(element('i'),document.createTextNode(room.short));facts.append(tag);}
+  if(e.scope==='alfworld-adjacent')facts.append(element('span','adjacent-label','Text-only ALFWorld'));
+  facts.append(element('span','entry-env',e.env.join(' / ')));
+  if(e.venue)facts.append(element('span','entry-env',e.venue));
+  const labels={paper:'Paper',arxiv:'arXiv',project:'Project',code:'Code',dataset:'Dataset',tutorial:'Tutorial',note:'Note',official_code:'Official code',dataset_tools:'Dataset tools',sgclip_code:'SGCLIP code',acl_anthology:'Paper',challenge:'Challenge',workshop:'Workshop'};
+  for(const [type,url] of Object.entries(e.links)){
+    const a=element('a','',labels[type]||'Resource');a.href=url;a.setAttribute('aria-label',(labels[type]||'Resource')+' for '+e.title);links.append(a);
+  }
+  meta.append(facts,links);li.append(meta);return li;
+}
+function render(writeURL=false){
+  const query=state.q.trim().toLocaleLowerCase();
+  const filtered=entries.filter(e => (state.adjacent||e.scope==='thor-native') && (!state.room||e.section===state.room) && (!state.env||e.env.includes(state.env)) && (!e.year?state.year===firstYear:Number(e.year)>=state.year) && (!query||(e.title+' '+e.short+' '+e.highlight).toLocaleLowerCase().includes(query)) && (!state.recent||e.new));
+  filtered.sort((a,b)=>(Number(b.year)||0)-(Number(a.year)||0)||Number(b.must_read)-Number(a.must_read)||b.order-a.order||a.title.localeCompare(b.title));
+  $('recent').setAttribute('aria-pressed',String(state.recent));
+  for(const button of document.querySelectorAll('.room'))button.setAttribute('aria-pressed',String(button.dataset.room===state.room));
+  for(const button of document.querySelectorAll('.chip'))button.setAttribute('aria-pressed',String(button.dataset.env===state.env));
+  $('year-value').textContent=state.year+'–'+lastYear;
+  const room=rooms.find(r=>r.key===state.room);
+  $('results-title').textContent=room?room.label:'All rooms';
+  $('result-count').textContent=filtered.length+(filtered.length===1?' entry':' entries');
+  $('result-note').textContent=(room?room.note:'Papers, benchmarks, datasets, and tools from the AI2-THOR family.')+(state.year>firstYear?' Undated resources are hidden.':'')+(state.adjacent?' Includes separately labeled text-only work.':'');
+  const content=document.createDocumentFragment();let currentYear=null,list;
+  for(const e of filtered){
+    const group=e.year||'Undated resources';
+    if(group!==currentYear){
+      currentYear=group;const section=element('section','year-group');const heading=element('h3','year-title',String(group));
+      heading.id='year-'+String(group).replaceAll(' ','-');section.setAttribute('aria-labelledby',heading.id);
+      list=element('ul','entries');section.append(heading,list);content.append(section);
+    }
+    list.append(makeEntry(e));
+  }
+  if(!filtered.length){const empty=element('p','empty','No entries match these filters.');const button=element('button','text-button','Reset filters');button.type='button';button.addEventListener('click',reset);empty.append(button);content.append(empty);}
+  $('entry-list').replaceChildren(content);
+  if(writeURL)saveState();
+}
+for(const env of ['',...coreEnvs,...envs.filter(e=>!coreEnvs.includes(e))]){
+  const button=element('button','chip',env||'All');button.type='button';button.dataset.env=env;button.setAttribute('aria-pressed','false');
+  button.addEventListener('click',()=>{state.env=state.env===env?'':env;render(true);});
+  (env && !coreEnvs.includes(env)?$('more-environments'):$('environments')).append(button);
+}
+for(const button of document.querySelectorAll('.room'))button.addEventListener('click',()=>{state.room=state.room===button.dataset.room?'':button.dataset.room;render(true);});
+$('all-rooms').addEventListener('click',()=>{state.room='';render(true);});
+search.addEventListener('input',()=>{state.q=search.value;render(true);});
+if(recentCount){$('recent-wrap').hidden=false;$('recent').textContent='Recently added ('+recentCount+')';$('recent-note').textContent='in the last 30 days';$('recent').addEventListener('click',()=>{state.recent=!state.recent;render(true);});}
+year.addEventListener('input',()=>{state.year=Number(year.value);render(true);});
+include.addEventListener('change',()=>{state.adjacent=include.checked;render(true);});
+window.addEventListener('popstate',()=>{loadState();render();});
+loadState();render();
+</script>
+</body>
+</html>
