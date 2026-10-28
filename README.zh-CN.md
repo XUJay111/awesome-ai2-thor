@@ -8,7 +8,7 @@
 
 AI2-THOR 及其家族的论文、基准与工具地图。
 
-[![Awesome](https://img.shields.io/badge/awesome-AI2--THOR-1F2A30?style=flat-square)](https://awesome.re) ![Entries](https://img.shields.io/badge/entries-316-1F2A30?style=flat-square) ![Papers through](https://img.shields.io/badge/papers%20through-2026--10-1F2A30?style=flat-square) [![Stars](https://img.shields.io/github/stars/XUJay111/awesome-ai2-thor?style=flat-square&color=1F2A30)](https://github.com/XUJay111/awesome-ai2-thor) [![Link check](https://img.shields.io/github/actions/workflow/status/XUJay111/awesome-ai2-thor/link-check.yml?branch=main&style=flat-square&label=link%20check&color=1F2A30)](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/link-check.yml)
+[![Awesome](https://img.shields.io/badge/awesome-AI2--THOR-1F2A30?style=flat-square)](https://awesome.re) ![Entries](https://img.shields.io/badge/entries-322-1F2A30?style=flat-square) ![Papers through](https://img.shields.io/badge/papers%20through-2026--10-1F2A30?style=flat-square) [![Stars](https://img.shields.io/github/stars/XUJay111/awesome-ai2-thor?style=flat-square&color=1F2A30)](https://github.com/XUJay111/awesome-ai2-thor) [![Link check](https://img.shields.io/github/actions/workflow/status/XUJay111/awesome-ai2-thor/link-check.yml?branch=main&style=flat-square&label=link%20check&color=1F2A30)](https://github.com/XUJay111/awesome-ai2-thor/actions/workflows/link-check.yml)
 
 [网站](https://xujay111.github.io/awesome-ai2-thor/) / [English](README.md) / [参与贡献](CONTRIBUTING.md)
 
@@ -80,33 +80,38 @@ flowchart LR
 
 ## 最近新增
 
-2026-10-28 新增 24 条，覆盖 2026-07 to 2026-10 的 arXiv 论文。
+2026-10-28 新增 30 条，覆盖 2026-07 to 2026-10 的 arXiv 论文。
 
 | 论文 | 房间 | 环境 | 链接 |
 | --- | :--: | :--: | --- |
 | [**F2A-ObjectNav: An Adaptive Agentic Architecture for Object-Goal Navigation**](#f2a-objectnav-an-adaptive-agentic-architecture-for-object-goal-navigation)<br><sub>用规则监督器与任务记忆协调目标导航的各个模块</sub> | 导航 | AI2-THOR<br>RoboTHOR<br>ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.19618-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.19618) |
-| [**From Failures to Learnable Worlds: Policy-Conditioned Environment Generation for Navigation Agents**](#from-failures-to-learnable-worlds-policy-conditioned-environment-generation-for-navigation-agents)<br><sub>针对导航策略诊断出的弱点生成训练环境</sub> | 导航 | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.19420-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.19420) |
-| [**MIND: Instruction-Conditioned Incremental Grounding for Robots**](#mind-instruction-conditioned-incremental-grounding-for-robots)<br><sub>在与指令相关的事件发生后，增量更新机器人的目标房间决策</sub> | 规划 | ProcTHOR<br>AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.19262-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.19262) |
+| [**From Failures to Learnable Worlds: Policy-Conditioned Environment Generation for Navigation Agents**](#from-failures-to-learnable-worlds-policy-conditioned-environment-generation-for-navigation-agents)<br><sub>针对导航策略诊断出的弱点生成训练环境</sub> | 导航 | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.19420-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.19420) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://zhangyuejoslin.github.io/WEDGE/) |
+| [**MIND: Instruction-Conditioned Incremental Grounding for Robots**](#mind-instruction-conditioned-incremental-grounding-for-robots)<br><sub>在与指令相关的事件发生后，增量更新机器人的目标房间决策</sub> | 规划 | ProcTHOR<br>AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.19262-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.19262) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://mind-icra27.github.io/) |
 | [**Towards a Systematic Study of Embodied System 2 over Full Task Execution Cycles**](#towards-a-systematic-study-of-embodied-system-2-over-full-task-execution-cycles)<br><sub>评测具身智能体基于观测的规划、执行与失败恢复全流程</sub> | 基准 | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.17657-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.17657) |
-| [**SafeVantage: Vantage-Aware Memory for Reliable Embodied Decisions**](#safevantage-vantage-aware-memory-for-reliable-embodied-decisions)<br><sub>保留每个主张的视角证据，输出是、否或弃权的具身决策</sub> | 感知 | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.36906-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.36906) [![Code](https://img.shields.io/badge/code-view-1F2A30?style=flat-square)](https://safevantage.github.io) |
-| [**SAGE: Symbolic Action-Gating and Editing for LLM Task Planners**](#sage-symbolic-action-gating-and-editing-for-llm-task-planners)<br><sub>用符号前置条件检查在执行前拦截LLM家务规划中的错误动作</sub> | 规划 | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.34268-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.34268) [![Code](https://img.shields.io/github/stars/mtbui2010/sage_release?style=flat-square&label=code&color=1F2A30)](https://github.com/mtbui2010/sage_release) |
+| [**Look Before You Move: Agent-Interface-Aligned Supervision for Open-World Mobile Manipulation**](#look-before-you-move-agent-interface-aligned-supervision-for-open-world-mobile-manipulation)<br><sub>收集与智能体接口一致的演示，训练主动视觉与具身导航</sub> | 导航 | AI2-THOR<br>EB-Navigation | [![arXiv](https://img.shields.io/badge/arXiv-2610.15572-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.15572) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://connerqiu.github.io/look-before-you-move/) |
+| [**EMHO: EMbodied Agent Harness Optimization via Experience Traces**](#emho-embodied-agent-harness-optimization-via-experience-traces)<br><sub>根据执行轨迹和稀疏反馈修订冻结模型的智能体框架</sub> | 规划 | EB-Navigation | [![arXiv](https://img.shields.io/badge/arXiv-2610.08432-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.08432) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://hyunjung00.github.io/emho/) |
 
 <details>
-<summary>其余 18 条新增</summary>
+<summary>其余 24 条新增</summary>
 
 | 论文 | 房间 | 环境 | 链接 |
 | --- | :--: | :--: | --- |
+| [**SafeVantage: Vantage-Aware Memory for Reliable Embodied Decisions**](#safevantage-vantage-aware-memory-for-reliable-embodied-decisions)<br><sub>保留每个主张的视角证据，输出是、否或弃权的具身决策</sub> | 感知 | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.36906-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.36906) [![Code](https://img.shields.io/github/stars/seanhlewis/safevantage?style=flat-square&label=code&color=1F2A30)](https://github.com/seanhlewis/safevantage) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://safevantage.github.io) |
+| [**SAGE: Symbolic Action-Gating and Editing for LLM Task Planners**](#sage-symbolic-action-gating-and-editing-for-llm-task-planners)<br><sub>用符号前置条件检查在执行前拦截LLM家务规划中的错误动作</sub> | 规划 | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.34268-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.34268) [![Code](https://img.shields.io/github/stars/mtbui2010/sage_release?style=flat-square&label=code&color=1F2A30)](https://github.com/mtbui2010/sage_release) |
+| [**RoboFoundry: System-as-Policy Evolution for Self-Learning Embodied Agents**](#robofoundry-system-as-policy-evolution-for-self-learning-embodied-agents)<br><sub>根据验证后的具身执行轨迹进化持久上下文与技能系统</sub> | 规划 | EB-ALFRED<br>EB-Navigation | [![arXiv](https://img.shields.io/badge/arXiv-2609.32862-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.32862) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://jingsongliang.com/robofoundry) [![Code](https://img.shields.io/github/stars/robofoundry2026/RoboFoundry?style=flat-square&label=code&color=1F2A30)](https://github.com/robofoundry2026/RoboFoundry) |
 | [**Strategic Transformer for Resource-Constrained Multi-Object Navigation in Ultra-Large-Scale Environments**](#strategic-transformer-for-resource-constrained-multi-object-navigation-in-ultra-large-scale-environments)<br><sub>用轻量Transformer规划资源受限的多目标导航</sub> | 导航 | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.20227-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.20227) |
 | [**EvoNav-Bench: Benchmarking Lifelong Navigation in Evolving Environments**](#evonav-bench-benchmarking-lifelong-navigation-in-evolving-environments)<br><sub>在ProcTHOR中构建环境变化下的终身导航基准</sub> | 基准 | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.08292-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.08292) |
 | [**Seeing Less Is Not Seeing Safely: Privacy Leakage from Task-Scoped Robot Perception Exports**](#seeing-less-is-not-seeing-safely-privacy-leakage-from-task-scoped-robot-perception-exports)<br><sub>评估机器人任务感知输出的隐私泄露风险，并在AI2-THOR中验证</sub> | 基准 | AI2-THOR<br>ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.03055-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.03055) |
 | [**DSG: Dynamic 3D Scene Graph Construction for Embodied Agents in Changing Indoor Environments**](#dsg-dynamic-3d-scene-graph-construction-for-embodied-agents-in-changing-indoor-environments)<br><sub>在物体移动后更新三维场景图，并发布基于AI2-THOR的DynTHOR</sub> | 感知 | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.00619-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.00619) |
-| [**PRACTICE: From Experience to Expertise in Self-Evolving Embodied Agents**](#practice-from-experience-to-expertise-in-self-evolving-embodied-agents)<br><sub>训练技能学习器，从历史轨迹维护持久技能库</sub> | 规划 | EmbodiedBench<br>ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.30760-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.30760) |
-| [**If, Then, Otherwise: Diagnosing Conditional Branching in Vision-Language Navigation**](#if-then-otherwise-diagnosing-conditional-branching-in-vision-language-navigation)<br><sub>在四个场景数据集上诊断视觉语言导航中的条件分支</sub> | 基准 | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2608.17318-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.17318) |
+| [**PRACTICE: From Experience to Expertise in Self-Evolving Embodied Agents**](#practice-from-experience-to-expertise-in-self-evolving-embodied-agents)<br><sub>训练技能学习器，从历史轨迹维护持久技能库</sub> | 规划 | EmbodiedBench<br>ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.30760-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.30760) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://baai-agents.github.io/PRACTICE) |
+| [**If, Then, Otherwise: Diagnosing Conditional Branching in Vision-Language Navigation**](#if-then-otherwise-diagnosing-conditional-branching-in-vision-language-navigation)<br><sub>在四个场景数据集上诊断视觉语言导航中的条件分支</sub> | 基准 | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2608.17318-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.17318) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://condvln.github.io/) |
 | [**Breaking Planner Integrity Boundary: Enviroment State-Text Injection Attack on LLM-Driven Embodied Agents**](#breaking-planner-integrity-boundary-enviroment-state-text-injection-attack-on-llm-driven-embodied-agents)<br><sub>注入虚假环境状态文本，在闭环中攻击LLM驱动的具身智能体</sub> | 基准 | AI2-THOR<br>iTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2608.16806-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.16806) |
 | [**Graph-MambaNav: Spatial-Temporal Graph Mamba Leveraging Object-Relation Knowledge for Object-Goal Navigation**](#graph-mambanav-spatial-temporal-graph-mamba-leveraging-object-relation-knowledge-for-object-goal-navigation)<br><sub>在图Mamba中按目标相关性排序物体，用于目标导航</sub> | 导航 | AI2-THOR<br>RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2608.13723-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.13723) |
+| [**Action- and Language-Conditioned Video Assessment for Embodied Control**](#action--and-language-conditioned-video-assessment-for-embodied-control)<br><sub>为动作条件视频评分，为家务策略优化提供反馈</sub> | 感知 | ALFRED<br>AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2608.08273-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.08273) |
 | [**GraphThink: Graph-Enhanced LLM Thinking for Long-Horizon Embodied Task Planning**](#graphthink-graph-enhanced-llm-thinking-for-long-horizon-embodied-task-planning)<br><sub>用任务图和场景图重规划完成长程家务任务</sub> | 规划 | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.07905-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.07905) |
 | [**TRACE: A Multi-Layer Benchmark for Human AI Controller Coordination Under Drift and Failure**](#trace-a-multi-layer-benchmark-for-human-ai-controller-coordination-under-drift-and-failure)<br><sub>基于ALFRED轨迹注入漂移，构建多层故障诊断基准</sub> | 基准 | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.06657-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.06657) |
 | [**Mimir: A Neuro-Symbolic Memory System with Dynamic Grounding for Embodied Agents in Interactive Environments**](#mimir-a-neuro-symbolic-memory-system-with-dynamic-grounding-for-embodied-agents-in-interactive-environments)<br><sub>加入神经符号记忆，在每步动作前把目标绑定到世界状态</sub> | 规划 | EmbodiedBench<br>ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.04933-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.04933) |
+| [**Long-Horizon Embodied Decision-Making via Multimodal Memory Compression**](#long-horizon-embodied-decision-making-via-multimodal-memory-compression)<br><sub>压缩与偏好相关的多模态记忆，支持长程房屋选择</sub> | 基准 | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2608.01456-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.01456) |
 | [**Memory for Attention: Language-Conditioned Re-Perception with a Vision--Language--Motion Map**](#memory-for-attention-language-conditioned-re-perception-with-a-vision--language--motion-map)<br><sub>将机器人的重新感知视为在持久视觉-语言-运动地图上的注意力分配</sub> | 感知 | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.23797-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.23797) |
 | [**MEMENTO: Memory-Guided Memetic Code-as-Policy Evolution**](#memento-memory-guided-memetic-code-as-policy-evolution)<br><sub>用记忆引导的爬山与宏变异进化代码策略程序</sub> | 规划 | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.22832-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.22832) [![Code](https://img.shields.io/github/stars/sygkounas/MEMENTO?style=flat-square&label=code&color=1F2A30)](https://github.com/sygkounas/MEMENTO) |
 | [**UniETP: Unifying Environments for Generalizable Embodied Task Planning**](#unietp-unifying-environments-for-generalizable-embodied-task-planning)<br><sub>将AI2-THOR等四个模拟器统一为具身任务规划基准</sub> | 基准 | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.18062-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.18062) [![Code](https://img.shields.io/github/stars/woyut/UniETP?style=flat-square&label=code&color=1F2A30)](https://github.com/woyut/UniETP) |
@@ -114,23 +119,24 @@ flowchart LR
 | [**Embodied Active Learning under Limited Annotation and Navigation Budget for Object Detection**](#embodied-active-learning-under-limited-annotation-and-navigation-budget-for-object-detection)<br><sub>在导航和标注预算约束下选择轨迹与图像，用于微调检测器</sub> | 感知 | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.15974-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.15974) |
 | [**Difference-Based Relational Learning for Zero-Shot Object-Goal Visual Navigation With Direct Sim-to-Real Transfer**](#difference-based-relational-learning-for-zero-shot-object-goal-visual-navigation-with-direct-sim-to-real-transfer)<br><sub>用孪生差分网络实现零样本目标导航，并迁移到真实机器人</sub> | 导航 | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.15642-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.15642) |
 | [**Mosaic: Runtime-Efficient Multi-Agent Embodied Planning**](#mosaic-runtime-efficient-multi-agent-embodied-planning)<br><sub>用智能体中心记忆和整数线性规划分配动作，加速多智能体规划</sub> | 规划 | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.09603-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.09603) |
+| [**Multi-scale Mixture of World Models for Embodied Agents in Evolving Environments**](#multi-scale-mixture-of-world-models-for-embodied-agents-in-evolving-environments)<br><sub>在环境变化时，按尺度路由并更新具身世界模型</sub> | 规划 | EB-Navigation | [![arXiv](https://img.shields.io/badge/arXiv-2607.00457-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.00457) |
 
 </details>
 
 ## 目录
 
 - [平台与环境生成](#platforms-and-environment-generation) <sub>12</sub> — 模拟器与场景生成。
-- [基准与评测](#benchmarks-and-evaluation) <sub>35</sub> — 任务、安全与评测协议。
+- [基准与评测](#benchmarks-and-evaluation) <sub>36</sub> — 任务、安全与评测协议。
 - [指令跟随与家务任务](#instruction-following-and-household-tasks) <sub>52</sub> — ALFRED、TEACh 与语言驱动的执行。
-- [导航](#navigation) <sub>84</sub> — 目标导航、探索与仿真迁移。
-- [规划、记忆与多智能体](#planning-memory-and-multi-agent-systems) <sub>50</sub> — 重规划、空间记忆与协作。
+- [导航](#navigation) <sub>85</sub> — 目标导航、探索与仿真迁移。
+- [规划、记忆与多智能体](#planning-memory-and-multi-agent-systems) <sub>53</sub> — 重规划、空间记忆与协作。
 - [强化学习训练的 VLM 智能体](#rl-trained-vlm-agents) <sub>17</sub> — 策略训练与具身推理。
-- [感知、物理与场景图](#perception-physics-and-scene-graphs) <sub>27</sub> — 物体、可供性与物理推理。
+- [感知、物理与场景图](#perception-physics-and-scene-graphs) <sub>28</sub> — 物体、可供性与物理推理。
 - [数据集与资产](#datasets-and-assets) <sub>10</sub> — 场景、物体资产与任务数据。
 - [工具与环境](#tools-and-environments) <sub>24</sub> — 训练框架、封装与实用工具。
 - [教程与笔记](#tutorials-and-notes) <sub>5</sub> — 安装、首个场景与可复现基线。
 
-316 条模拟器家族资源；另附 13 条 ALFWorld 文本环境工作。
+322 条模拟器家族资源；另附 13 条 ALFWorld 文本环境工作。
 
 <a id="platforms-and-environment-generation"></a>
 
@@ -185,7 +191,7 @@ Holodeck 结合语言与 Objaverse 资产构建兼容 AI2-THOR 的交互场景�
 
 ## <img src="assets/rooms/benchmarks.svg" width="88" height="28" alt="" align="absmiddle"> 基准与评测
 
-任务、安全与评测协议。 35 条。
+任务、安全与评测协议。 36 条。
 
 #### ALFRED: A Benchmark for Interpreting Grounded Instructions for Everyday Tasks
 
@@ -218,15 +224,16 @@ EmbodiedBench 包含 EB-ALFRED 等任务，区分多模态智能体的高层规�
 | 2026 | <a id="towards-a-systematic-study-of-embodied-system-2-over-full-task-execution-cycles"></a>**Towards a Systematic Study of Embodied System 2 over Full Task Execution Cycles** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>评测具身智能体基于观测的规划、执行与失败恢复全流程</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.17657-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.17657) |
 | 2026 | <a id="evonav-bench-benchmarking-lifelong-navigation-in-evolving-environments"></a>**EvoNav-Bench: Benchmarking Lifelong Navigation in Evolving Environments** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>在ProcTHOR中构建环境变化下的终身导航基准</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.08292-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.08292) |
 | 2026 | <a id="seeing-less-is-not-seeing-safely-privacy-leakage-from-task-scoped-robot-perception-exports"></a>**Seeing Less Is Not Seeing Safely: Privacy Leakage from Task-Scoped Robot Perception Exports** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>评估机器人任务感知输出的隐私泄露风险，并在AI2-THOR中验证</sub> | AI2-THOR<br>ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.03055-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.03055) |
-| 2026 | <a id="if-then-otherwise-diagnosing-conditional-branching-in-vision-language-navigation"></a>**If, Then, Otherwise: Diagnosing Conditional Branching in Vision-Language Navigation** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>在四个场景数据集上诊断视觉语言导航中的条件分支</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2608.17318-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.17318) |
+| 2026 | <a id="if-then-otherwise-diagnosing-conditional-branching-in-vision-language-navigation"></a>**If, Then, Otherwise: Diagnosing Conditional Branching in Vision-Language Navigation** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>在四个场景数据集上诊断视觉语言导航中的条件分支</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2608.17318-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.17318) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://condvln.github.io/) |
 | 2026 | <a id="breaking-planner-integrity-boundary-enviroment-state-text-injection-attack-on-llm-driven-embodied-agents"></a>**Breaking Planner Integrity Boundary: Enviroment State-Text Injection Attack on LLM-Driven Embodied Agents** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>注入虚假环境状态文本，在闭环中攻击LLM驱动的具身智能体</sub> | AI2-THOR<br>iTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2608.16806-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.16806) |
 
 <details>
-<summary>全部 35 条（另 27 条）</summary>
+<summary>全部 36 条（另 28 条）</summary>
 
 | 年份 | 论文或资源 | 环境 | 链接 |
 | :--: | --- | :--: | --- |
 | 2026 | <a id="trace-a-multi-layer-benchmark-for-human-ai-controller-coordination-under-drift-and-failure"></a>**TRACE: A Multi-Layer Benchmark for Human AI Controller Coordination Under Drift and Failure** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>基于ALFRED轨迹注入漂移，构建多层故障诊断基准</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.06657-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.06657) |
+| 2026 | <a id="long-horizon-embodied-decision-making-via-multimodal-memory-compression"></a>**Long-Horizon Embodied Decision-Making via Multimodal Memory Compression** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>压缩与偏好相关的多模态记忆，支持长程房屋选择</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2608.01456-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.01456) |
 | 2026 | <a id="unietp-unifying-environments-for-generalizable-embodied-task-planning"></a>**UniETP: Unifying Environments for Generalizable Embodied Task Planning** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>将AI2-THOR等四个模拟器统一为具身任务规划基准</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.18062-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.18062) [![Code](https://img.shields.io/github/stars/woyut/UniETP?style=flat-square&label=code&color=1F2A30)](https://github.com/woyut/UniETP) |
 | 2026 | <a id="groundcontrol-anticipating-navigation-failures-in-vision-language-agents-via-trajectory-consistent-uncertainty-estimates"></a>**GroundControl: Anticipating Navigation Failures in Vision-Language Agents via Trajectory-Consistent Uncertainty Estimates**<br><sub>利用轨迹一致性不确定度预判导航失败</sub> | EmbodiedBench | [![arXiv](https://img.shields.io/badge/arXiv-2606.20479-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.20479) |
 | 2026 | <a id="where-to-look-can-foundation-models-reach-a-target-viewpoint-through-active-exploration"></a>**Where to Look: Can Foundation Models Reach a Target Viewpoint Through Active Exploration?**<br><sub>移动至当前视角与目标图像匹配</sub> | AI2-THOR<br>ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2606.01247-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.01247) [![Code](https://img.shields.io/github/stars/aim-uofa/TVRBench?style=flat-square&label=code&color=1F2A30)](https://github.com/aim-uofa/TVRBench) |
@@ -352,7 +359,7 @@ FILM 在 ALFRED 中结合语言解析、语义地图、搜索与执行，提供�
 
 ## <img src="assets/rooms/navigation.svg" width="88" height="28" alt="" align="absmiddle"> 导航
 
-目标导航、探索与仿真迁移。 84 条。
+目标导航、探索与仿真迁移。 85 条。
 
 #### Target-driven Visual Navigation in Indoor Scenes using Deep Reinforcement Learning
 
@@ -383,16 +390,17 @@ PoliFormer 在 ProcTHOR 中扩展同策略强化学习的 Transformer 策略，�
 | 年份 | 论文或资源 | 环境 | 链接 |
 | :--: | --- | :--: | --- |
 | 2026 | <a id="f2a-objectnav-an-adaptive-agentic-architecture-for-object-goal-navigation"></a>**F2A-ObjectNav: An Adaptive Agentic Architecture for Object-Goal Navigation** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>用规则监督器与任务记忆协调目标导航的各个模块</sub> | AI2-THOR<br>RoboTHOR<br>ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.19618-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.19618) |
-| 2026 | <a id="from-failures-to-learnable-worlds-policy-conditioned-environment-generation-for-navigation-agents"></a>**From Failures to Learnable Worlds: Policy-Conditioned Environment Generation for Navigation Agents** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>针对导航策略诊断出的弱点生成训练环境</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.19420-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.19420) |
+| 2026 | <a id="from-failures-to-learnable-worlds-policy-conditioned-environment-generation-for-navigation-agents"></a>**From Failures to Learnable Worlds: Policy-Conditioned Environment Generation for Navigation Agents** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>针对导航策略诊断出的弱点生成训练环境</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.19420-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.19420) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://zhangyuejoslin.github.io/WEDGE/) |
+| 2026 | <a id="look-before-you-move-agent-interface-aligned-supervision-for-open-world-mobile-manipulation"></a>**Look Before You Move: Agent-Interface-Aligned Supervision for Open-World Mobile Manipulation** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>收集与智能体接口一致的演示，训练主动视觉与具身导航</sub> | AI2-THOR<br>EB-Navigation | [![arXiv](https://img.shields.io/badge/arXiv-2610.15572-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.15572) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://connerqiu.github.io/look-before-you-move/) |
 | 2026 | <a id="strategic-transformer-for-resource-constrained-multi-object-navigation-in-ultra-large-scale-environments"></a>**Strategic Transformer for Resource-Constrained Multi-Object Navigation in Ultra-Large-Scale Environments** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>用轻量Transformer规划资源受限的多目标导航</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.20227-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.20227) |
 | 2026 | <a id="graph-mambanav-spatial-temporal-graph-mamba-leveraging-object-relation-knowledge-for-object-goal-navigation"></a>**Graph-MambaNav: Spatial-Temporal Graph Mamba Leveraging Object-Relation Knowledge for Object-Goal Navigation** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>在图Mamba中按目标相关性排序物体，用于目标导航</sub> | AI2-THOR<br>RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2608.13723-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.13723) |
-| 2026 | <a id="difference-based-relational-learning-for-zero-shot-object-goal-visual-navigation-with-direct-sim-to-real-transfer"></a>**Difference-Based Relational Learning for Zero-Shot Object-Goal Visual Navigation With Direct Sim-to-Real Transfer** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>用孪生差分网络实现零样本目标导航，并迁移到真实机器人</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.15642-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.15642) |
 
 <details>
-<summary>全部 84 条（另 76 条）</summary>
+<summary>全部 85 条（另 77 条）</summary>
 
 | 年份 | 论文或资源 | 环境 | 链接 |
 | :--: | --- | :--: | --- |
+| 2026 | <a id="difference-based-relational-learning-for-zero-shot-object-goal-visual-navigation-with-direct-sim-to-real-transfer"></a>**Difference-Based Relational Learning for Zero-Shot Object-Goal Visual Navigation With Direct Sim-to-Real Transfer** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>用孪生差分网络实现零样本目标导航，并迁移到真实机器人</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.15642-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.15642) |
 | 2026 | <a id="sage-nav-leveraging-llm-planning-and-alignment-fusion-for-hierarchical-scene-graph-guided-navigation"></a>**SAGE-Nav: Leveraging LLM Planning and Alignment Fusion for Hierarchical Scene Graph-Guided Navigation**<br><sub>结合层次场景图与语言规划引导导航</sub> | RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2606.25497-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.25497) |
 | 2026 | <a id="embodiskill-skill-aware-reflection-for-self-evolving-embodied-agents"></a>**EmbodiSkill: Skill-Aware Reflection for Self-Evolving Embodied Agents**<br><sub>通过技能反思改进具身智能体</sub> | EmbodiedBench | [![arXiv](https://img.shields.io/badge/arXiv-2605.10332-B31B1B?style=flat-square)](https://arxiv.org/abs/2605.10332) |
 | 2026 | <a id="from-reactive-to-map-based-ai-tuned-local-llms-for-semantic-zone-inference-in-object-goal-navigation"></a>**From Reactive to Map-Based AI: Tuned Local LLMs for Semantic Zone Inference in Object-Goal Navigation**<br><sub>通过本地语言模型与地图推断语义区域</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2603.08086-B31B1B?style=flat-square)](https://arxiv.org/abs/2603.08086) |
@@ -476,7 +484,7 @@ PoliFormer 在 ProcTHOR 中扩展同策略强化学习的 Transformer 策略，�
 
 ## <img src="assets/rooms/planning.svg" width="88" height="28" alt="" align="absmiddle"> 规划、记忆与多智能体
 
-重规划、空间记忆与协作。 50 条。
+重规划、空间记忆与协作。 53 条。
 
 #### TIDEE: Tidying Up Novel Rooms using Visuo-Semantic Commonsense Priors
 
@@ -506,19 +514,22 @@ LLaMAR 在 MAP-THOR 中通过规划、行动、修正与验证协调机器人，
 
 | 年份 | 论文或资源 | 环境 | 链接 |
 | :--: | --- | :--: | --- |
-| 2026 | <a id="mind-instruction-conditioned-incremental-grounding-for-robots"></a>**MIND: Instruction-Conditioned Incremental Grounding for Robots** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>在与指令相关的事件发生后，增量更新机器人的目标房间决策</sub> | ProcTHOR<br>AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.19262-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.19262) |
+| 2026 | <a id="mind-instruction-conditioned-incremental-grounding-for-robots"></a>**MIND: Instruction-Conditioned Incremental Grounding for Robots** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>在与指令相关的事件发生后，增量更新机器人的目标房间决策</sub> | ProcTHOR<br>AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2610.19262-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.19262) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://mind-icra27.github.io/) |
+| 2026 | <a id="emho-embodied-agent-harness-optimization-via-experience-traces"></a>**EMHO: EMbodied Agent Harness Optimization via Experience Traces** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>根据执行轨迹和稀疏反馈修订冻结模型的智能体框架</sub> | EB-Navigation | [![arXiv](https://img.shields.io/badge/arXiv-2610.08432-B31B1B?style=flat-square)](https://arxiv.org/abs/2610.08432) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://hyunjung00.github.io/emho/) |
 | 2026 | <a id="sage-symbolic-action-gating-and-editing-for-llm-task-planners"></a>**SAGE: Symbolic Action-Gating and Editing for LLM Task Planners** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>用符号前置条件检查在执行前拦截LLM家务规划中的错误动作</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.34268-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.34268) [![Code](https://img.shields.io/github/stars/mtbui2010/sage_release?style=flat-square&label=code&color=1F2A30)](https://github.com/mtbui2010/sage_release) |
-| 2026 | <a id="practice-from-experience-to-expertise-in-self-evolving-embodied-agents"></a>**PRACTICE: From Experience to Expertise in Self-Evolving Embodied Agents** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>训练技能学习器，从历史轨迹维护持久技能库</sub> | EmbodiedBench<br>ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.30760-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.30760) |
-| 2026 | <a id="graphthink-graph-enhanced-llm-thinking-for-long-horizon-embodied-task-planning"></a>**GraphThink: Graph-Enhanced LLM Thinking for Long-Horizon Embodied Task Planning** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>用任务图和场景图重规划完成长程家务任务</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.07905-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.07905) |
-| 2026 | <a id="mimir-a-neuro-symbolic-memory-system-with-dynamic-grounding-for-embodied-agents-in-interactive-environments"></a>**Mimir: A Neuro-Symbolic Memory System with Dynamic Grounding for Embodied Agents in Interactive Environments** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>加入神经符号记忆，在每步动作前把目标绑定到世界状态</sub> | EmbodiedBench<br>ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.04933-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.04933) |
+| 2026 | <a id="robofoundry-system-as-policy-evolution-for-self-learning-embodied-agents"></a>**RoboFoundry: System-as-Policy Evolution for Self-Learning Embodied Agents** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>根据验证后的具身执行轨迹进化持久上下文与技能系统</sub> | EB-ALFRED<br>EB-Navigation | [![arXiv](https://img.shields.io/badge/arXiv-2609.32862-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.32862) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://jingsongliang.com/robofoundry) [![Code](https://img.shields.io/github/stars/robofoundry2026/RoboFoundry?style=flat-square&label=code&color=1F2A30)](https://github.com/robofoundry2026/RoboFoundry) |
+| 2026 | <a id="practice-from-experience-to-expertise-in-self-evolving-embodied-agents"></a>**PRACTICE: From Experience to Expertise in Self-Evolving Embodied Agents** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>训练技能学习器，从历史轨迹维护持久技能库</sub> | EmbodiedBench<br>ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.30760-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.30760) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://baai-agents.github.io/PRACTICE) |
 
 <details>
-<summary>全部 50 条（另 42 条）</summary>
+<summary>全部 53 条（另 45 条）</summary>
 
 | 年份 | 论文或资源 | 环境 | 链接 |
 | :--: | --- | :--: | --- |
+| 2026 | <a id="graphthink-graph-enhanced-llm-thinking-for-long-horizon-embodied-task-planning"></a>**GraphThink: Graph-Enhanced LLM Thinking for Long-Horizon Embodied Task Planning** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>用任务图和场景图重规划完成长程家务任务</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.07905-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.07905) |
+| 2026 | <a id="mimir-a-neuro-symbolic-memory-system-with-dynamic-grounding-for-embodied-agents-in-interactive-environments"></a>**Mimir: A Neuro-Symbolic Memory System with Dynamic Grounding for Embodied Agents in Interactive Environments** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>加入神经符号记忆，在每步动作前把目标绑定到世界状态</sub> | EmbodiedBench<br>ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2608.04933-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.04933) |
 | 2026 | <a id="memento-memory-guided-memetic-code-as-policy-evolution"></a>**MEMENTO: Memory-Guided Memetic Code-as-Policy Evolution** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>用记忆引导的爬山与宏变异进化代码策略程序</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.22832-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.22832) [![Code](https://img.shields.io/github/stars/sygkounas/MEMENTO?style=flat-square&label=code&color=1F2A30)](https://github.com/sygkounas/MEMENTO) |
 | 2026 | <a id="mosaic-runtime-efficient-multi-agent-embodied-planning"></a>**Mosaic: Runtime-Efficient Multi-Agent Embodied Planning** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>用智能体中心记忆和整数线性规划分配动作，加速多智能体规划</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.09603-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.09603) |
+| 2026 | <a id="multi-scale-mixture-of-world-models-for-embodied-agents-in-evolving-environments"></a>**Multi-scale Mixture of World Models for Embodied Agents in Evolving Environments** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>在环境变化时，按尺度路由并更新具身世界模型</sub> | EB-Navigation | [![arXiv](https://img.shields.io/badge/arXiv-2607.00457-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.00457) |
 | 2026 | <a id="agentspec-understanding-embodied-agent-scaffolds-through-controlled-composition"></a>**AgentSpec: Understanding Embodied Agent Scaffolds Through Controlled Composition**<br><sub>控制架构组件组合以研究推理与记忆模块</sub> | ALFRED<br>RoboTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2606.14674-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.14674) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://agentspec-embodied.github.io/) |
 | 2026 | <a id="emem-a-hybrid-spatio-temporal-memory-system-for-embodied-agents"></a>**eMEM: A Hybrid Spatio-Temporal Memory System For Embodied Agents**<br><sub>结合空间与时间记忆进行具身决策</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2606.03374-B31B1B?style=flat-square)](https://arxiv.org/abs/2606.03374) |
 | 2026 | <a id="escape-episodic-spatial-memory-and-adaptive-execution-policy-for-long-horizon-mobile-manipulation"></a>**ESCAPE: Episodic Spatial Memory and Adaptive Execution Policy for Long-Horizon Mobile Manipulation**<br><sub>结合情景空间记忆与自适应操作策略</sub> | ALFRED | [![arXiv](https://img.shields.io/badge/arXiv-2604.13633-B31B1B?style=flat-square)](https://arxiv.org/abs/2604.13633) |
@@ -639,7 +650,7 @@ ESearch-R1 训练 AI2-THOR 搜索智能体权衡导航、记忆检索与提问�
 
 ## <img src="assets/rooms/perception.svg" width="88" height="28" alt="" align="absmiddle"> 感知、物理与场景图
 
-物体、可供性与物理推理。 27 条。
+物体、可供性与物理推理。 28 条。
 
 #### Learning About Objects by Learning to Interact with Them
 
@@ -661,17 +672,18 @@ ESCA 为具身智能体构建时空场景图，描述物体关系与状态变化
 
 | 年份 | 论文或资源 | 环境 | 链接 |
 | :--: | --- | :--: | --- |
-| 2026 | <a id="safevantage-vantage-aware-memory-for-reliable-embodied-decisions"></a>**SafeVantage: Vantage-Aware Memory for Reliable Embodied Decisions** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>保留每个主张的视角证据，输出是、否或弃权的具身决策</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.36906-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.36906) [![Code](https://img.shields.io/badge/code-view-1F2A30?style=flat-square)](https://safevantage.github.io) |
+| 2026 | <a id="safevantage-vantage-aware-memory-for-reliable-embodied-decisions"></a>**SafeVantage: Vantage-Aware Memory for Reliable Embodied Decisions** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>保留每个主张的视角证据，输出是、否或弃权的具身决策</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.36906-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.36906) [![Code](https://img.shields.io/github/stars/seanhlewis/safevantage?style=flat-square&label=code&color=1F2A30)](https://github.com/seanhlewis/safevantage) [![Project](https://img.shields.io/badge/project-page-2D5BE3?style=flat-square)](https://safevantage.github.io) |
 | 2026 | <a id="dsg-dynamic-3d-scene-graph-construction-for-embodied-agents-in-changing-indoor-environments"></a>**DSG: Dynamic 3D Scene Graph Construction for Embodied Agents in Changing Indoor Environments** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>在物体移动后更新三维场景图，并发布基于AI2-THOR的DynTHOR</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2609.00619-B31B1B?style=flat-square)](https://arxiv.org/abs/2609.00619) |
+| 2026 | <a id="action--and-language-conditioned-video-assessment-for-embodied-control"></a>**Action- and Language-Conditioned Video Assessment for Embodied Control** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>为动作条件视频评分，为家务策略优化提供反馈</sub> | ALFRED<br>AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2608.08273-B31B1B?style=flat-square)](https://arxiv.org/abs/2608.08273) |
 | 2026 | <a id="memory-for-attention-language-conditioned-re-perception-with-a-vision--language--motion-map"></a>**Memory for Attention: Language-Conditioned Re-Perception with a Vision--Language--Motion Map** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>将机器人的重新感知视为在持久视觉-语言-运动地图上的注意力分配</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.23797-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.23797) |
 | 2026 | <a id="vision-language-motion-maps-an-open-vocabulary-uncertainty-aware-queryable-motion-attribute-for-3d-scene-maps"></a>**Vision-Language-Motion Maps: An Open-Vocabulary, Uncertainty-Aware, Queryable Motion Attribute for 3D Scene Maps** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>构建带有逐物体运动属性和不确定性的开放词汇三维地图</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.16173-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.16173) |
-| 2026 | <a id="embodied-active-learning-under-limited-annotation-and-navigation-budget-for-object-detection"></a>**Embodied Active Learning under Limited Annotation and Navigation Budget for Object Detection** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>在导航和标注预算约束下选择轨迹与图像，用于微调检测器</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.15974-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.15974) |
 
 <details>
-<summary>全部 27 条（另 20 条）</summary>
+<summary>全部 28 条（另 21 条）</summary>
 
 | 年份 | 论文或资源 | 环境 | 链接 |
 | :--: | --- | :--: | --- |
+| 2026 | <a id="embodied-active-learning-under-limited-annotation-and-navigation-budget-for-object-detection"></a>**Embodied Active Learning under Limited Annotation and Navigation Budget for Object Detection** ![NEW](https://img.shields.io/badge/new-2D5BE3?style=flat-square)<br><sub>在导航和标注预算约束下选择轨迹与图像，用于微调检测器</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2607.15974-B31B1B?style=flat-square)](https://arxiv.org/abs/2607.15974) |
 | 2026 | <a id="funfact-building-probabilistic-functional-3d-scene-graphs-via-factor-graph-reasoning"></a>**FunFact: Building Probabilistic Functional 3D Scene Graphs via Factor-Graph Reasoning**<br><sub>利用因子图推断概率功能场景图</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2604.03696-B31B1B?style=flat-square)](https://arxiv.org/abs/2604.03696) |
 | 2026 | <a id="see-symbolize-act-grounding-vlms-with-spatial-representations-for-better-gameplay"></a>**See, Symbolize, Act: Grounding VLMs with Spatial Representations for Better Gameplay**<br><sub>将视觉决策落地到符号空间表征</sub> | AI2-THOR | [![arXiv](https://img.shields.io/badge/arXiv-2603.11601-B31B1B?style=flat-square)](https://arxiv.org/abs/2603.11601) |
 | 2026 | <a id="corelin-constraint-based-reasoning-for-zero-shot-lifelong-interactive-navigation"></a>**CoReLIN: Constraint-based Reasoning for Zero-shot Lifelong Interactive Navigation**<br><sub>对零样本终身交互导航施加约束</sub> | ProcTHOR | [![arXiv](https://img.shields.io/badge/arXiv-2602.20055-B31B1B?style=flat-square)](https://arxiv.org/abs/2602.20055) |
@@ -820,9 +832,9 @@ AllenAct 教程带读者完成 RoboTHOR 目标导航训练与评测，将模拟�
   <img src="assets/timeline-light.svg" alt="按发表年份统计的资源" width="1200">
 </picture>
 
-AI2-THOR 164 / ALFRED 65 / ProcTHOR 37 / RoboTHOR 34 / EmbodiedBench 18 / TEACh 13 / iTHOR 9 / ManipulaTHOR 3 / MAP-THOR 2 / infinity-THOR 1 / ALFWorld 1 / ReALFRED 1 / ArchitecTHOR 1 / MAT2-THOR 1
+AI2-THOR 166 / ALFRED 66 / ProcTHOR 38 / RoboTHOR 34 / EmbodiedBench 18 / TEACh 13 / iTHOR 9 / EB-Navigation 4 / ManipulaTHOR 3 / MAP-THOR 2 / infinity-THOR 1 / ALFWorld 1 / ReALFRED 1 / ArchitecTHOR 1 / MAT2-THOR 1 / EB-ALFRED 1
 
-共跟踪 344 条：316 条模拟器家族资源，13 条文本环境工作，15 条待核实。
+共跟踪 350 条：322 条模拟器家族资源，13 条文本环境工作，15 条待核实。
 
 年份未知的资源不计入柱状图；生态标签可重叠。展示更新日期与论文核验日期分别记录。
 

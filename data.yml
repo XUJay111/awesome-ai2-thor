@@ -8436,8 +8436,8 @@ entries:
   links:
     arxiv: https://arxiv.org/abs/2608.06657
   ai2thor_connection: ALFRED
-  summary: The authors inject controlled drift into 1,918 traces derived from ALFRED and label each step across five execution
-    layers. They pair the dataset with a leak-aware protocol and baseline model families.
+  summary: The authors inject controlled drift into 1,918 traces derived from ALFRED and label each step across
+    five execution layers. They pair the dataset with a leak-aware protocol and baseline model families.
   last_verified: '2026-10-28'
   scope: thor-native
   section: benchmarks
@@ -8461,9 +8461,10 @@ entries:
   - ALFRED
   links:
     arxiv: https://arxiv.org/abs/2608.30760
+    project: https://baai-agents.github.io/PRACTICE
   ai2thor_connection: EmbodiedBench / ALFRED
-  summary: PRACTICE trains a skill learner that adds, refines, merges, or removes skills while the task executor stays frozen.
-    It is evaluated on EB-ALFRED and EB-Habitat from EmbodiedBench.
+  summary: PRACTICE trains a skill learner that adds, refines, merges, or removes skills while the task executor
+    stays frozen. It is evaluated on EB-ALFRED and EB-Habitat from EmbodiedBench.
   last_verified: '2026-10-28'
   scope: thor-native
   section: planning
@@ -8591,8 +8592,8 @@ entries:
     arxiv: https://arxiv.org/abs/2609.34268
     code: https://github.com/mtbui2010/sage_release
   ai2thor_connection: AI2-THOR
-  summary: SAGE pairs a zero-token symbolic gate with local suffix editing for LLM household planners. It is evaluated on
-    a 75-task AI2-THOR benchmark, and its verifier is also studied on ALFWorld.
+  summary: SAGE pairs a zero-token symbolic gate with local suffix editing for LLM household planners. It is
+    evaluated on a 75-task AI2-THOR benchmark, and its verifier is also studied on ALFWorld.
   last_verified: '2026-10-28'
   scope: thor-native
   section: planning
@@ -8641,10 +8642,11 @@ entries:
   - ProcTHOR
   links:
     arxiv: https://arxiv.org/abs/2609.36906
-    code: https://safevantage.github.io
+    code: https://github.com/seanhlewis/safevantage
+    project: https://safevantage.github.io
   ai2thor_connection: ProcTHOR
-  summary: SafeVantage stores supporting views and camera poses in semantic memory and chooses viewpoints by expected reduction
-    in decision loss. Its category-presence benchmark spans 232 unseen ProcTHOR houses.
+  summary: SafeVantage stores supporting views and camera poses in semantic memory and chooses viewpoints by
+    expected reduction in decision loss. Its category-presence benchmark spans 232 unseen ProcTHOR houses.
   last_verified: '2026-10-28'
   scope: thor-native
   section: perception
@@ -8693,9 +8695,10 @@ entries:
   - AI2-THOR
   links:
     arxiv: https://arxiv.org/abs/2610.19262
+    project: https://mind-icra27.github.io/
   ai2thor_connection: ProcTHOR / AI2-THOR
-  summary: MIND compiles each instruction into semantic dependencies and refreshes only the judgments affected by event footprints.
-    It is checked on 240 ProcTHOR sequences and in 32 closed-loop AI2-THOR episodes.
+  summary: MIND compiles each instruction into semantic dependencies and refreshes only the judgments affected
+    by event footprints. It is checked on 240 ProcTHOR sequences and in 32 closed-loop AI2-THOR episodes.
   last_verified: '2026-10-28'
   scope: thor-native
   section: planning
@@ -8719,9 +8722,10 @@ entries:
   - ProcTHOR
   links:
     arxiv: https://arxiv.org/abs/2610.19420
+    project: https://zhangyuejoslin.github.io/WEDGE/
   ai2thor_connection: ProcTHOR
-  summary: WEDGE uses an LLM to turn failure rollouts into validated weakness features and varies environment factors to match
-    them. Adaptation is evaluated on ProcTHOR, with transfer checks on HM3D.
+  summary: WEDGE uses an LLM to turn failure rollouts into validated weakness features and varies environment
+    factors to match them. Adaptation is evaluated on ProcTHOR, with transfer checks on HM3D.
   last_verified: '2026-10-28'
   scope: thor-native
   section: navigation
@@ -8841,17 +8845,17 @@ entries:
 - title: Embodied Active Learning under Limited Annotation and Navigation Budget for Object Detection
   year: '2026'
   status: verified-paper
-  venue: arXiv
+  venue: IROS
   category: Perception, Physics, and Scene Graphs
   tags:
   - '2026'
-  - arXiv
+  - IROS
   - AI2-THOR
   links:
     arxiv: https://arxiv.org/abs/2607.15974
   ai2thor_connection: AI2-THOR
-  summary: The approach uses spatial inconsistency between labels to choose informative robot trajectories and images. Experiments
-    run on large AI2-THOR scenes and on a Boston Dynamics Spot robot.
+  summary: The approach uses spatial inconsistency between labels to choose informative robot trajectories
+    and images. Experiments run on large AI2-THOR scenes and on a Boston Dynamics Spot robot.
   last_verified: '2026-10-28'
   scope: thor-native
   section: perception
@@ -8866,17 +8870,17 @@ entries:
 - title: 'Mosaic: Runtime-Efficient Multi-Agent Embodied Planning'
   year: '2026'
   status: verified-paper
-  venue: arXiv
+  venue: ICML
   category: Planning, Memory, and Multi-Agent Systems
   tags:
   - '2026'
-  - arXiv
+  - ICML
   - AI2-THOR
   links:
     arxiv: https://arxiv.org/abs/2607.09603
   ai2thor_connection: AI2-THOR
-  summary: Mosaic stores objects in agent-relative coordinates and allocates actions at each step with Integer Linear Programming.
-    Benchmarks on AI2-THOR and search-and-rescue show faster execution and fewer LLM calls.
+  summary: Mosaic stores objects in agent-relative coordinates and allocates actions at each step with Integer
+    Linear Programming. Benchmarks on AI2-THOR and search-and-rescue show faster execution and fewer LLM calls.
   last_verified: '2026-10-28'
   scope: thor-native
   section: planning
@@ -8888,21 +8892,23 @@ entries:
   highlight: Faster multi-agent planning with shared memory and ILP action allocation.
   highlight_zh: 用智能体中心记忆和整数线性规划分配动作，加速多智能体规划。
   added: '2026-10-28'
-- title: 'Graph-MambaNav: Spatial-Temporal Graph Mamba Leveraging Object-Relation Knowledge for Object-Goal Navigation'
+- title: 'Graph-MambaNav: Spatial-Temporal Graph Mamba Leveraging Object-Relation Knowledge for Object-Goal
+    Navigation'
   year: '2026'
   status: verified-paper
-  venue: arXiv
+  venue: IEEE RA-L
   category: Navigation
   tags:
   - '2026'
-  - arXiv
+  - IEEE RA-L
   - AI2-THOR
   - RoboTHOR
   links:
     arxiv: https://arxiv.org/abs/2608.13723
   ai2thor_connection: AI2-THOR / RoboTHOR
-  summary: Graph-MambaNav orders object nodes by their relevance to the target and models their temporal history with Mamba.
-    Experiments on AI2-THOR and RoboTHOR report improved navigation, with a real robot deployment as a further check.
+  summary: Graph-MambaNav orders object nodes by their relevance to the target and models their temporal history
+    with Mamba. Experiments on AI2-THOR and RoboTHOR report improved navigation, with a real robot deployment
+    as a further check.
   last_verified: '2026-10-28'
   scope: thor-native
   section: navigation
@@ -8926,9 +8932,10 @@ entries:
   - AI2-THOR
   links:
     arxiv: https://arxiv.org/abs/2608.17318
+    project: https://condvln.github.io/
   ai2thor_connection: AI2-THOR
-  summary: CondVLN generates conditional instructions whose branch conditions are grounded in 3D scene-graph predicates. Four
-    VLN agents are scored on branch selection accuracy and conditional success rate.
+  summary: CondVLN generates conditional instructions whose branch conditions are grounded in 3D scene-graph
+    predicates. Four VLN agents are scored on branch selection accuracy and conditional success rate.
   last_verified: '2026-10-28'
   scope: thor-native
   section: benchmarks
@@ -8965,5 +8972,189 @@ entries:
   highlight: Long-horizon household planning with task graphs and scene-graph replanning.
   highlight_zh: 用任务图和场景图重规划完成长程家务任务。
   added: '2026-10-28'
+- title: Long-Horizon Embodied Decision-Making via Multimodal Memory Compression
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Benchmarks and Evaluation
+  tags:
+  - '2026'
+  - arXiv
+  - ProcTHOR
+  links:
+    paper: https://arxiv.org/abs/2608.01456
+  ai2thor_connection: ProcTHOR
+  summary: DunphyBench evaluates preference-guided house selection using ProcTHOR environments and automatically
+    checked household features. MeMento compresses multimodal histories into preference-conditioned memory
+    tokens to improve decisions under a fixed memory budget.
+  last_verified: '2026-10-28'
+  scope: thor-native
+  section: benchmarks
+  env:
+  - ProcTHOR
+  must_read: false
+  short: Compresses preference-relevant multimodal memories for long-horizon house selection
+  short_zh: 压缩与偏好相关的多模态记忆，支持长程房屋选择
+  highlight: Compresses preference-relevant multimodal memories for long-horizon house selection.
+  highlight_zh: 压缩与偏好相关的多模态记忆，支持长程房屋选择。
+  added: '2026-10-28'
+  evidence: We convert each ProcTHOR environment into a structured feature vector capturing global layout,
+    room attributes, object inventory, and spatial adjacency.
+  evidence_url: https://arxiv.org/html/2608.01456
+- title: Action- and Language-Conditioned Video Assessment for Embodied Control
+  year: '2026'
+  status: verified-paper
+  venue: Sensors
+  category: Perception, Physics, and Scene Graphs
+  tags:
+  - '2026'
+  - Sensors
+  - ALFRED
+  - AI2-THOR
+  links:
+    paper: https://arxiv.org/abs/2608.08273
+  ai2thor_connection: ALFRED, AI2-THOR
+  summary: ALVA summarizes action-conditioned visual transitions and scores trajectory progress against language
+    instructions. Experiments use forty tasks from four unseen ALFRED floor plans in AI2-THOR, and test the
+    scores as terminal feedback for policy optimization.
+  last_verified: '2026-10-28'
+  scope: thor-native
+  section: perception
+  env:
+  - ALFRED
+  - AI2-THOR
+  must_read: false
+  short: Scores action-conditioned videos to provide feedback for household policy optimization
+  short_zh: 为动作条件视频评分，为家务策略优化提供反馈
+  highlight: Scores action-conditioned videos to provide feedback for household policy optimization.
+  highlight_zh: 为动作条件视频评分，为家务策略优化提供反馈。
+  added: '2026-10-28'
+  evidence: 'We evaluate ALVA on a set of visually grounded household tasks sampled from four ALFRED environments:
+    Kitchen, Bathroom, Living Room, and Bedroom.'
+  evidence_url: https://arxiv.org/html/2608.08273
+- title: 'Look Before You Move: Agent-Interface-Aligned Supervision for Open-World Mobile Manipulation'
+  year: '2026'
+  status: verified-paper
+  venue: CoRL
+  category: Navigation
+  tags:
+  - '2026'
+  - CoRL
+  - AI2-THOR
+  - EB-Navigation
+  links:
+    paper: https://arxiv.org/abs/2610.15572
+    project: https://connerqiu.github.io/look-before-you-move/
+  ai2thor_connection: AI2-THOR, EB-Navigation
+  summary: AIDA records demonstrations through the deployed skill interface and adds spatial-state supervision.
+    Besides mobile manipulation, its navigation experiments train on 1,200 episodes and evaluate language-conditioned
+    single-room tasks in AI2-THOR through EmbodiedBench.
+  last_verified: '2026-10-28'
+  scope: thor-native
+  section: navigation
+  env:
+  - AI2-THOR
+  - EB-Navigation
+  must_read: false
+  short: Collects interface-aligned demonstrations for active vision and embodied navigation
+  short_zh: 收集与智能体接口一致的演示，训练主动视觉与具身导航
+  highlight: Collects interface-aligned demonstrations for active vision and embodied navigation.
+  highlight_zh: 收集与智能体接口一致的演示，训练主动视觉与具身导航。
+  added: '2026-10-28'
+  evidence: the navigation subset of EmbodiedBench used in our evaluation, which consists of language-conditioned,
+    single-room tasks in AI2-THOR
+  evidence_url: https://arxiv.org/html/2610.15572
+- title: 'EMHO: EMbodied Agent Harness Optimization via Experience Traces'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2026'
+  - arXiv
+  - EB-Navigation
+  links:
+    paper: https://arxiv.org/abs/2610.08432
+    project: https://hyunjung00.github.io/emho/
+  ai2thor_connection: EB-Navigation
+  summary: EMHO revises planning, context, visual-tool use, and recovery logic while keeping the embodied model
+    frozen. EmbodiedBench navigation and manipulation experiments compare successive harness revisions and
+    a shared harness optimized across subtasks.
+  last_verified: '2026-10-28'
+  scope: thor-native
+  section: planning
+  env:
+  - EB-Navigation
+  must_read: false
+  short: Revises frozen-model agent harnesses from execution traces and sparse feedback
+  short_zh: 根据执行轨迹和稀疏反馈修订冻结模型的智能体框架
+  highlight: Revises frozen-model agent harnesses from execution traces and sparse feedback.
+  highlight_zh: 根据执行轨迹和稀疏反馈修订冻结模型的智能体框架。
+  added: '2026-10-28'
+  evidence: We conduct experiments on EmbodiedBench, covering both navigation and manipulation tasks.
+  evidence_url: https://arxiv.org/html/2610.08432
+  environment_source: https://github.com/EmbodiedBench/EmbodiedBench/tree/master/embodiedbench/envs/eb_navigation
+- title: 'RoboFoundry: System-as-Policy Evolution for Self-Learning Embodied Agents'
+  year: '2026'
+  status: verified-paper
+  venue: arXiv
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2026'
+  - arXiv
+  - EB-ALFRED
+  - EB-Navigation
+  links:
+    paper: https://arxiv.org/abs/2609.32862
+    project: https://jingsongliang.com/robofoundry
+    code: https://github.com/robofoundry2026/RoboFoundry
+  ai2thor_connection: EB-ALFRED, EB-Navigation
+  summary: RoboFoundry turns execution traces into tested changes to context, memory, and skill systems. Its
+    EmbodiedBench evaluation includes EB-ALFRED and EB-Navigation, with separate comparisons of task-specific
+    updates and promoted general-system changes.
+  last_verified: '2026-10-28'
+  scope: thor-native
+  section: planning
+  env:
+  - EB-ALFRED
+  - EB-Navigation
+  must_read: false
+  short: Evolves persistent context and skill systems from validated embodied execution traces
+  short_zh: 根据验证后的具身执行轨迹进化持久上下文与技能系统
+  highlight: Evolves persistent context and skill systems from validated embodied execution traces.
+  highlight_zh: 根据验证后的具身执行轨迹进化持久上下文与技能系统。
+  added: '2026-10-28'
+  evidence: one quarter of the held-in tasks already reaches 78.0% on EB-ALFRED
+  evidence_url: https://arxiv.org/html/2609.32862
+- title: Multi-scale Mixture of World Models for Embodied Agents in Evolving Environments
+  year: '2026'
+  status: verified-paper
+  venue: ECCV
+  category: Planning, Memory, and Multi-Agent Systems
+  tags:
+  - '2026'
+  - ECCV
+  - EB-Navigation
+  links:
+    paper: https://arxiv.org/abs/2607.00457
+  ai2thor_connection: EB-Navigation
+  summary: MuSix routes observations through world models at different scales and adapts their knowledge at
+    scale-dependent rates. Experiments include the AI2-THOR-backed EB-Navigation suite, alongside EB-Habitat
+    and HAZARD.
+  last_verified: '2026-10-28'
+  scope: thor-native
+  section: planning
+  env:
+  - EB-Navigation
+  must_read: false
+  short: Routes between world models at different scales as embodied environments evolve
+  short_zh: 在环境变化时，按尺度路由并更新具身世界模型
+  highlight: Routes between world models at different scales as embodied environments evolve.
+  highlight_zh: 在环境变化时，按尺度路由并更新具身世界模型。
+  added: '2026-10-28'
+  evidence: Evaluation result on EB-Habitat and EB-Navigation. We report success rate (%) for each capability
+    subset within EB-Habitat and EB-Navigation environments.
+  evidence_url: https://arxiv.org/html/2607.00457
+  environment_source: https://github.com/EmbodiedBench/EmbodiedBench/tree/master/embodiedbench/envs/eb_navigation
 updated: '2026-10-28'
 added_date_source: First committed occurrence of each title in the repository history.
