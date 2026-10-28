@@ -6,7 +6,7 @@ from catalog import ROOT, ROOMS
 
 OUTPUTS = [
     "README.md", "README.zh-CN.md", "assets/floorplan-light.svg",
-    "assets/floorplan-dark.svg", "assets/timeline-light.svg", "assets/timeline-dark.svg",
+    "assets/floorplan-dark.svg", "assets/timeline-light.svg", "assets/timeline-dark.svg", "assets/social-preview.svg",
     *(f"assets/rooms/{room[1]}.svg" for room in ROOMS),
     "assets/fonts/Archivo.woff2", "docs/index.html", "docs/.nojekyll",
 ]
