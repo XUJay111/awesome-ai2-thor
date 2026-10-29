@@ -1,0 +1,29 @@
+name: Verify arXiv titles
+
+on:
+  schedule:
+    - cron: "0 2 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: arxiv-title-audit
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Verify titles and open a review Issue for mismatches
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/verify_arxiv_titles.py --create-issue

@@ -193,15 +193,16 @@ class GitHub:
                 return known
             page += 1
 
-    def create_issue(self, title: str, body: str):
+    def create_issue(self, title: str, body: str, *, label: str = 'arxiv-scan',
+                     description: str = 'arXiv candidates awaiting human review'):
         try:
-            self.request('/labels/' + quote('arxiv-scan', safe=''))
+            self.request('/labels/' + quote(label, safe=''))
         except HTTPError as exc:
             if exc.code != 404:
                 raise
-            self.request('/labels', {'name': 'arxiv-scan', 'color': '2D5BE3',
-                                     'description': 'arXiv candidates awaiting human review'})
-        return self.request('/issues', {'title': title, 'body': body, 'labels': ['arxiv-scan']})
+            self.request('/labels', {'name': label, 'color': '2D5BE3',
+                                     'description': description})
+        return self.request('/issues', {'title': title, 'body': body, 'labels': [label]})
 
 
 def markdown_text(text: str) -> str:
