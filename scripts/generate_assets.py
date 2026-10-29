@@ -10,7 +10,9 @@ from fontTools import subset
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.ttLib import TTFont
 from fontTools.varLib.instancer import instantiateVariableFont
-from catalog import ROOT, ROOMS, ROOM_BY_KEY, floorplan_layout, load_data, native_entries, papers_through, room_counts, today
+from catalog import (BOTTOM_WING, PLAN_BOX, ROOT, ROOMS, ROOM_BY_KEY, SHORT_LABELS, TOP_WING, floorplan_layout,
+                     hallway, load_data, native_entries, papers_through, room_counts, today)
+import floorplan as fp
 
 ASSETS = ROOT / 'assets'
 FONT = ASSETS / 'fonts' / 'Archivo.ttf'
@@ -70,95 +72,72 @@ def outlined(text: str, x: float, y: float, size: float, color: str, width: int 
         offset += font['hmtx'][glyph][0]
     return f'<g fill="{color}" opacity="{opacity}" aria-label="{escape(text, quote=True)}">' + ''.join(uses) + '</g>'
 
-def darken(color: str) -> str:
-    return '#' + ''.join(f'{round(int(color[i:i+2], 16) * .45):02X}' for i in (1, 3, 5))
+darken = fp.darken
 
 PALETTE = {
     False: {'paper': '#F6F7F5', 'ink': '#1F2A30', 'accent': '#2D5BE3'},
     True: {'paper': '#172025', 'ink': '#E6E9E7', 'accent': '#7A9BFF'},
 }
 
-def window(x: float, y: float, length: float, horizontal: bool, paper: str, ink: str) -> str:
-    """Architectural window: the 6px exterior wall opens into two thin panes."""
-    if horizontal:
-        return (f'<rect x="{x:.1f}" y="{y - 4:.1f}" width="{length:.1f}" height="8" fill="{paper}"/>'
-                f'<path d="M{x:.1f} {y - 3:.1f}h{length:.1f}M{x:.1f} {y + 3:.1f}h{length:.1f}M{x:.1f} {y:.1f}h{length:.1f}" stroke="{ink}" stroke-width="1" fill="none"/>'
-                f'<path d="M{x:.1f} {y - 4:.1f}v8M{x + length:.1f} {y - 4:.1f}v8" stroke="{ink}" stroke-width="2"/>')
-    return (f'<rect x="{x - 4:.1f}" y="{y:.1f}" width="8" height="{length:.1f}" fill="{paper}"/>'
-            f'<path d="M{x - 3:.1f} {y:.1f}v{length:.1f}M{x + 3:.1f} {y:.1f}v{length:.1f}M{x:.1f} {y:.1f}v{length:.1f}" stroke="{ink}" stroke-width="1" fill="none"/>'
-            f'<path d="M{x - 4:.1f} {y:.1f}h8M{x - 4:.1f} {y + length:.1f}h8" stroke="{ink}" stroke-width="2"/>')
-
-def plan_body(entries: list[dict], dark: bool = False) -> list[str]:
-    """Rooms, doors, walls, and windows in the 1200 x 360 plan frame."""
+def room_labels(entries: list[dict], dark: bool) -> list[str]:
+    """Outlined section name, household room name, and count for every room."""
     counts, layout = room_counts(entries), floorplan_layout(room_counts(entries))
-    paper, ink = PALETTE[dark]['paper'], PALETTE[dark]['ink']
-    body = []
-    hall_y = None
-    for category, key, label, _, room_name, fill, *_ in ROOMS:
-        x, y, width, height = layout[key]
-        top_wing = y == 24
-        if top_wing:
-            hall_y = y + height
-        color = darken(fill) if dark else fill
-        body.append(f'<g id="room-{key}"><title>{escape(label)}: {counts[category]} entries ({room_name})</title>')
-        body.append(f'<rect x="{x:.2f}" y="{y:.2f}" width="{width:.2f}" height="{height:.2f}" fill="{color}" stroke="{ink}" stroke-width="3"/>')
-        font_size = 22 if height > 140 else 17
-        font_size = min(font_size, *(max(11, (width - 32) / text_width(line, 1)) for line in LABELS[key]))
-        for i, line in enumerate(LABELS[key]):
-            body.append(outlined(line, x + 16, y + 16 + font_size + i * (font_size + 4), font_size, ink))
-        count, count_size = str(counts[category]), (38 if height > 140 else 26)
-        body.append(outlined(count, x + 16, y + height - 16, count_size, ink))
-        # The room's household name sits on the count baseline, like a plan tag.
-        tag_size = 14 if top_wing else 12
-        tag_w = text_width(room_name, tag_size, 100, 400)
-        if 16 + text_width(count, count_size, 75, 600) + 12 + tag_w + 16 <= width:
-            body.append(outlined(room_name, x + width - 16 - tag_w, y + height - 16, tag_size, ink, width=100, weight=400, opacity=.62))
-        door_x, door_y = x + width - 42, y + height if top_wing else y
-        # Doors swing into the shared hall, keeping labels unobstructed.
-        inward = 1 if top_wing else -1
-        body.extend([
-            f'<path d="M{door_x:.2f} {door_y:.2f}h22" stroke="{paper}" stroke-width="5"/>',
-            f'<path d="M{door_x:.2f} {door_y:.2f}v{inward * 22}" stroke="{ink}" stroke-width="1.5" fill="none"/>',
-            f'<path d="M{door_x + 22:.2f} {door_y:.2f}A22 22 0 0 {0 if inward == -1 else 1} {door_x:.2f} {door_y + inward * 22:.2f}" stroke="{ink}" stroke-width="1" fill="none"/>',
-            '</g>',
-        ])
-    body.append(f'<path d="M24 24H1176V352H24Z" fill="none" stroke="{ink}" stroke-width="6"/>')
-    # One window per exterior room face; widths follow the room, capped so walls still read.
-    for category, key, *_ in ROOMS:
-        x, y, width, height = layout[key]
-        length = min(110, width * .34)
-        body.append(window(x + (width - length) / 2, 24 if y == 24 else 352, length, True, paper, ink))
-    nav, rl = layout['navigation'], layout['rl-agents']
-    body.append(window(24, nav[1] + nav[3] * .3, nav[3] * .4, False, paper, ink))
-    body.append(window(1176, rl[1] + rl[3] * .3, rl[3] * .4, False, paper, ink))
-    if hall_y is not None:
-        body.append(outlined('Hallway', 40, hall_y + 16.5, 11, ink, width=100, weight=400, opacity=.55))
-    return body
+    ink = PALETTE[dark]['ink']
+    out = []
+    for category, key, label, _, room_name, *_ in ROOMS:
+        x, y, w, h = layout[key]
+        top = key in TOP_WING
+        inner_top = (fp.EXTERIOR if top else fp.INTERIOR) / 2 + fp.PAD
+        inner_bottom = (fp.INTERIOR if top else fp.EXTERIOR) / 2 + fp.PAD
+        left = x + (fp.EXTERIOR if x == PLAN_BOX[0] else fp.INTERIOR) / 2 + fp.PAD - 2
+        name = SHORT_LABELS[key][0]
+        size, tag, num = (22, 13, 40) if top else (17, 11.5, 28)
+        size = min(size, (w - 2 * fp.PAD) / max(text_width(name, 1), 1))
+        out.append(f'<g id="room-{key}"><title>{escape(label)}: {counts[category]} entries ({room_name})</title>')
+        out.append(outlined(name, left, y + inner_top + size * .78, size, ink))
+        out.append(outlined(room_name, left, y + inner_top + size * .78 + tag + 6, tag, ink, width=100, weight=400, opacity=.58))
+        out.append(outlined(str(counts[category]), left, y + h - inner_bottom, num, ink, width=75, weight=500))
+        out.append('</g>')
+    return out
 
-def floorplan_svg(entries: list[dict], dark: bool = False, through: str = '') -> str:
-    paper, ink = PALETTE[dark]['paper'], PALETTE[dark]['ink']
-    body = plan_body(entries, dark)
-    body.append(outlined('Each room is a section. Numbers are entries.', 24, 392, 14, ink, width=100, weight=400, opacity=.6))
-    # Title block, as on an architectural sheet.
+
+def start_tag(entries: list[dict], dark: bool) -> list[str]:
+    ink = PALETTE[dark]['ink']
+    cx, cy = fp.entrance_point(entries)
+    text = 'Start here'
+    w = text_width(text, 12, 100, 500)
+    return [f'<path d="M{cx:.1f} {cy + 4:.1f}v10M{cx - 4:.1f} {cy + 8:.1f}l4 -4l4 4" stroke="{ink}" stroke-width="1.2" fill="none" opacity=".7"/>',
+            outlined(text, cx - w / 2, cy + 28, 12, ink, width=100, weight=500, opacity=.7)]
+
+
+def title_block(entries: list[dict], dark: bool, through: str, right: float = 1176, top: float = 370) -> list[str]:
+    ink = PALETTE[dark]['ink']
     cells = ['Awesome AI2-THOR', f'{len(entries)} entries', f'Papers through {through}' if through else '10 rooms']
-    sizes = [(14, 100, 600), (14, 100, 400), (14, 100, 400)]
-    widths = [text_width(t, s, w, g) + 28 for t, (s, w, g) in zip(cells, sizes)]
-    bx = 1176 - sum(widths)
-    body.append(f'<rect x="{bx:.1f}" y="368" width="{sum(widths):.1f}" height="36" fill="none" stroke="{ink}" stroke-width="1.5"/>')
+    sizes = [(13, 100, 600), (13, 100, 400), (13, 100, 400)]
+    widths = [text_width(t, s, w, g) + 26 for t, (s, w, g) in zip(cells, sizes)]
+    bx = right - sum(widths)
+    out = [f'<rect x="{bx:.1f}" y="{top}" width="{sum(widths):.1f}" height="32" fill="none" stroke="{ink}" stroke-width="1.2"/>']
     cx = bx
     for i, (text, (s, w, g)) in enumerate(zip(cells, sizes)):
         if i:
-            body.append(f'<path d="M{cx:.1f} 368v36" stroke="{ink}" stroke-width="1"/>')
-        body.append(outlined(text, cx + 14, 391, s, ink, width=w, weight=g, opacity=1 if i == 0 else .75))
+            out.append(f'<path d="M{cx:.1f} {top}v32" stroke="{ink}" stroke-width="1"/>')
+        out.append(outlined(text, cx + 13, top + 21, s, ink, width=w, weight=g, opacity=1 if i == 0 else .72))
         cx += widths[i]
+    return out
+
+
+def floorplan_svg(entries: list[dict], dark: bool = False, through: str = '') -> str:
+    paper = PALETTE[dark]['paper']
+    body = [fp.plan(entries, dark, prefix='b')] + room_labels(entries, dark) + start_tag(entries, dark) + title_block(entries, dark, through)
     head = [
         '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">',
         '<title id="title">A floor plan of the AI2-THOR research catalog</title>',
-        '<desc id="desc">Each room is a section. Areas and counts exclude text-only ALFWorld papers.</desc>',
+        '<desc id="desc">Each room is a research direction; larger rooms hold more papers. Counts exclude text-only ALFWorld papers.</desc>',
         glyph_defs(),
         f'<rect width="1200" height="420" fill="{paper}"/>',
     ]
     return '\n'.join(head + body + ['</svg>', ''])
+
 
 def social_preview_svg(entries: list[dict], through: str = '') -> str:
     """1280 x 640 card for link previews: the plan is the picture, the name is the caption."""
@@ -166,10 +145,10 @@ def social_preview_svg(entries: list[dict], through: str = '') -> str:
     title, sub = 'Awesome AI2-THOR', 'Papers, benchmarks, and tools for the AI2-THOR family'
     facts = f'{len(entries)} entries' + (f'  /  papers through {through}' if through else '')
     body = [
-        outlined(title, 64, 132, 76, ink, width=100, weight=700),
-        outlined(sub, 66, 184, 28, ink, width=100, weight=400, opacity=.72),
-        outlined(facts, 1216 - text_width(facts, 20, 100, 400), 132, 20, ink, width=100, weight=400, opacity=.62),
-        '<g transform="translate(40 244)">', *plan_body(entries), '</g>',
+        outlined(title, 64, 126, 72, ink, width=100, weight=700),
+        outlined(sub, 66, 174, 26, ink, width=100, weight=400, opacity=.72),
+        outlined(facts, 1216 - text_width(facts, 20, 100, 400), 126, 20, ink, width=100, weight=400, opacity=.62),
+        '<g transform="translate(40 226)">', fp.plan(entries, False, prefix='s'), *room_labels(entries, False), '</g>',
     ]
     head = [
         '<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-label="Awesome AI2-THOR: a floor plan of the research catalog">',
@@ -178,16 +157,24 @@ def social_preview_svg(entries: list[dict], through: str = '') -> str:
     ]
     return '\n'.join(head + body + ['</svg>', ''])
 
+
 def room_icon_svg(entries: list[dict], key: str) -> str:
     """A thumbnail of the plan with one room filled: 'you are here' for each section."""
     layout = floorplan_layout(room_counts(entries))
-    sx, sy = 84 / 1152, 24 / 328
+    x0, y0, x1, y1 = PLAN_BOX
+    sx, sy = 84 / (x1 - x0), 24 / (y1 - y0)
     parts = ['<svg xmlns="http://www.w3.org/2000/svg" width="88" height="28" viewBox="0 0 88 28" aria-hidden="true">']
-    for _, k, *_rest in ROOMS:
-        x, y, w, h = layout[k]
-        fill = ROOM_BY_KEY[k][5] if k == key else 'none'
-        rx, ry = 2 + (x - 24) * sx, 2 + (y - 24) * sy
-        parts.append(f'<rect x="{rx + .5:.1f}" y="{ry + .5:.1f}" width="{max(w * sx - 1, 1):.1f}" height="{max(h * sy - 1, 1):.1f}" fill="{fill}" stroke="#8A949A" stroke-width="1"/>')
+    x, y, w, h = layout[key]
+    parts.append(f'<rect x="{2 + (x - x0) * sx:.1f}" y="{2 + (y - y0) * sy:.1f}" width="{w * sx:.1f}" height="{h * sy:.1f}" fill="{fp.darken(ROOM_BY_KEY[key][5], .82)}"/>')
+    lines = []
+    for wing in (TOP_WING, BOTTOM_WING):
+        for k in wing[1:]:
+            rx, ry, rw, rh = layout[k]
+            lines.append(f'M{2 + (rx - x0) * sx:.1f} {2 + (ry - y0) * sy:.1f}v{rh * sy:.1f}')
+    hx, hy, hw, hh = hallway(layout)
+    lines.append(f'M2 {2 + (hy - y0) * sy:.1f}h84M2 {2 + (hy + hh - y0) * sy:.1f}h84')
+    parts.append(f'<path d="{"".join(lines)}" stroke="#8A949A" stroke-width="1" fill="none"/>')
+    parts.append('<rect x="2" y="2" width="84" height="24" fill="none" stroke="#8A949A" stroke-width="1.6"/>')
     return '\n'.join(parts + ['</svg>', ''])
 
 def timeline_svg(entries: list[dict], as_of: date, dark: bool = False) -> str:

@@ -24,16 +24,16 @@ FORBIDDEN_PHRASES = (
 # The category names stay stable for existing contributors and incoming links.
 # (category, URL key, label, Chinese label, room name, fill, description, Chinese description)
 ROOMS = [
-    ("Platforms and Environment Generation", "platforms", "Platforms and environment generation", "平台与环境生成", "Foyer", "#E4E3DD", "Simulators and generated worlds.", "模拟器与场景生成。"),
-    ("Benchmarks and Evaluation", "benchmarks", "Benchmarks and evaluation", "基准与评测", "Study", "#DDBFC2", "Shared tasks, safety, and evaluation protocols.", "任务、安全与评测协议。"),
-    ("Instruction Following and Household Tasks", "instructions", "Instruction following and household tasks", "指令跟随与家务任务", "Kitchen", "#B7CBB0", "ALFRED, TEACh, and language-grounded execution.", "ALFRED、TEACh 与语言驱动的执行。"),
-    ("Navigation", "navigation", "Navigation", "导航", "Living room", "#DCCFB8", "ObjectNav, exploration, and sim-to-real transfer.", "目标导航、探索与仿真迁移。"),
-    ("Planning, Memory, and Multi-Agent Systems", "planning", "Planning, memory, and multi-agent systems", "规划、记忆与多智能体", "Dining", "#CABEAA", "Replanning, spatial memory, and collaboration.", "重规划、空间记忆与协作。"),
-    ("RL-Trained VLM Agents", "rl-agents", "RL-trained VLM agents", "强化学习训练的 VLM 智能体", "Bedroom", "#C5C8E0", "Policy training and embodied reasoning.", "策略训练与具身推理。"),
-    ("Perception, Physics, and Scene Graphs", "perception", "Perception, physics, and scene graphs", "感知、物理与场景图", "Bathroom", "#A8D1D3", "Objects, affordances, and physical reasoning.", "物体、可供性与物理推理。"),
-    ("Datasets and Assets", "datasets", "Datasets and assets", "数据集与资产", "Storage", "#E4E3DD", "Scene corpora, object assets, and task data.", "场景、物体资产与任务数据。"),
-    ("Tools and Environments", "tools", "Tools and environments", "工具与环境", "Garage", "#D2D1CB", "Training frameworks, wrappers, and utilities.", "训练框架、封装与实用工具。"),
-    ("Tutorials and Notes", "tutorials", "Tutorials and notes", "教程与笔记", "Closet", "#E4E3DD", "Installation, first scenes, and reproducible baselines.", "安装、首个场景与可复现基线。"),
+    ("Platforms and Environment Generation", "platforms", "Platforms and environment generation", "平台与环境生成", "Foyer", "#E8E4DA", "Simulators and generated worlds.", "模拟器与场景生成。"),
+    ("Benchmarks and Evaluation", "benchmarks", "Benchmarks and evaluation", "基准与评测", "Study", "#EBD3D5", "Shared tasks, safety, and evaluation protocols.", "任务、安全与评测协议。"),
+    ("Instruction Following and Household Tasks", "instructions", "Instruction following and household tasks", "指令跟随与家务任务", "Kitchen", "#D3E0CC", "ALFRED, TEACh, and language-grounded execution.", "ALFRED、TEACh 与语言驱动的执行。"),
+    ("Navigation", "navigation", "Navigation", "导航", "Living room", "#EADCC3", "ObjectNav, exploration, and sim-to-real transfer.", "目标导航、探索与仿真迁移。"),
+    ("Planning, Memory, and Multi-Agent Systems", "planning", "Planning, memory, and multi-agent systems", "规划、记忆与多智能体", "Dining", "#F1D9C8", "Replanning, spatial memory, and collaboration.", "重规划、空间记忆与协作。"),
+    ("RL-Trained VLM Agents", "rl-agents", "RL-trained VLM agents", "强化学习训练的 VLM 智能体", "Bedroom", "#D8D9EE", "Policy training and embodied reasoning.", "策略训练与具身推理。"),
+    ("Perception, Physics, and Scene Graphs", "perception", "Perception, physics, and scene graphs", "感知、物理与场景图", "Bathroom", "#C9E2E2", "Objects, affordances, and physical reasoning.", "物体、可供性与物理推理。"),
+    ("Datasets and Assets", "datasets", "Datasets and assets", "数据集与资产", "Storage", "#E4E1D6", "Scene corpora, object assets, and task data.", "场景、物体资产与任务数据。"),
+    ("Tools and Environments", "tools", "Tools and environments", "工具与环境", "Garage", "#DCDBD5", "Training frameworks, wrappers, and utilities.", "训练框架、封装与实用工具。"),
+    ("Tutorials and Notes", "tutorials", "Tutorials and notes", "教程与笔记", "Closet", "#ECE5D8", "Installation, first scenes, and reproducible baselines.", "安装、首个场景与可复现基线。"),
 ]
 ROOM_BY_CATEGORY = {room[0]: room for room in ROOMS}
 ROOM_BY_KEY = {room[1]: room for room in ROOMS}
@@ -124,25 +124,41 @@ def banned_phrases(text: str) -> list[str]:
     return [phrase for phrase in FORBIDDEN_PHRASES if re.search(r"(?<!\w)" + re.escape(phrase) + r"(?!\w)", text, re.I)]
 
 
-def floorplan_layout(counts: Counter) -> dict[str, tuple[float, float, float, float]]:
-    """Two wings around a corridor, with area driven by native entry counts.
+PLAN_BOX = (24.0, 24.0, 1176.0, 344.0)  # exterior wall centerlines
+HALL_HEIGHT = 34.0
+TOP_WING = ["navigation", "planning", "instructions", "benchmarks"]
+BOTTOM_WING = ["platforms", "perception", "rl-agents", "tools", "datasets", "tutorials"]
 
-    A small minimum width keeps labels legible in the storage rooms. The larger
-    rooms remain proportional; no adjacent-only entries affect these dimensions.
+
+def floorplan_layout(counts: Counter) -> dict[str, tuple[float, float, float, float]]:
+    """Rooms on two wings of a hallway, sharing walls like a real plan.
+
+    Rectangles are wall-centerline cells. Areas follow entry counts on a
+    compressed scale (count ** 0.85) so the closet stays usable while the
+    living room still reads as the largest space.
     """
-    top = ["navigation", "instructions", "planning", "rl-agents"]
-    bottom = ["platforms", "benchmarks", "perception", "tools", "datasets", "tutorials"]
-    weights = {r[1]: max(counts[r[0]], 1) for r in ROOMS}
-    upper_fraction = sum(weights[k] for k in top) / sum(weights.values())
-    upper_h = max(165, min(212, 304 * upper_fraction))
+    x0, y0, x1, y1 = PLAN_BOX
+    weights = {r[1]: max(counts[r[0]], 1) ** 0.85 for r in ROOMS}
+    top_w = sum(weights[k] for k in TOP_WING)
+    rooms_h = (y1 - y0) - HALL_HEIGHT
+    upper_h = max(150.0, min(168.0, rooms_h * top_w / sum(weights.values())))
     result = {}
-    for keys, y, height in [(top, 24, upper_h), (bottom, 24 + upper_h + 24, 304 - upper_h)]:
-        available = 1152 - 8 * (len(keys) - 1)
-        minimum = 92 if keys == bottom else 130
-        spare = available - len(keys) * minimum
-        x = 24.0
+    for keys, y, height, minimum in [
+        (TOP_WING, y0, upper_h, 150.0),
+        (BOTTOM_WING, y0 + upper_h + HALL_HEIGHT, rooms_h - upper_h, 104.0),
+    ]:
+        spare = (x1 - x0) - minimum * len(keys)
+        total = sum(weights[k] for k in keys)
+        x = x0
         for key in keys:
-            width = minimum + spare * weights[key] / sum(weights[k] for k in keys)
+            width = minimum + spare * weights[key] / total
             result[key] = (x, y, width, height)
-            x += width + 8
+            x += width
     return result
+
+
+def hallway(layout: dict) -> tuple[float, float, float, float]:
+    """The hallway cell between the two wings of a layout."""
+    x0, _, x1, _ = PLAN_BOX
+    top = layout[TOP_WING[0]]
+    return x0, top[1] + top[3], x1 - x0, HALL_HEIGHT

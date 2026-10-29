@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="A map of papers, benchmarks, and tools built on AI2-THOR and its family. Explore the research by room, year, or environment.">
+<meta name="description" content="A map of papers, benchmarks, and tools built on AI2-THOR and its family. Start with the must-reads, or explore by room, year, or environment.">
 <title>Awesome AI2-THOR — A map of the THOR family</title>
 <meta property="og:type" content="website">
 <meta property="og:title" content="Awesome AI2-THOR">
@@ -16,61 +16,263 @@
 <meta name="twitter:card" content="summary_large_image">
 <style>
 @font-face{font-family:Archivo;src:url(data:font/woff2;base64,__FONT__) format('woff2');font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap}
-:root{--paper:#F6F7F5;--ink:#1F2A30;--hall:#E4E3DD;--muted:#536068;--accent:#2D5BE3;--line:#C5C8C4;--room-fill:var(--fill);font-family:Archivo,Arial,sans-serif;color:var(--ink);background:var(--paper);font-size:16px;line-height:1.55;font-variant-numeric:tabular-nums;color-scheme:light dark}
-*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}a{color:inherit;text-underline-offset:4px}a:hover{color:var(--accent)}button{cursor:pointer}button:disabled{cursor:default}button,input,select{border-radius:3px}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}h1,h2,h3,p{margin:0}h1{font-size:40px;line-height:1.12;letter-spacing:-1.4px;font-weight:700}h2{font-size:28px;line-height:1.2;letter-spacing:-.5px}h3{font-size:20px;line-height:1.35;font-weight:600}small{font-size:14px}button{color:var(--ink)}.skip{position:absolute;left:20px;top:-80px;z-index:10;background:var(--paper);padding:12px}.skip:focus{top:8px}.header{border-bottom:1px solid var(--line)}.header-inner{max-width:1280px;margin:auto;padding:24px 40px;display:flex;align-items:center;gap:28px}.brand{font-size:20px;font-weight:700;letter-spacing:-.5px;text-decoration:none;white-space:nowrap}.search-wrap{position:relative;flex:1;margin-left:auto;max-width:460px}.search-wrap svg{position:absolute;left:14px;top:14px;width:20px;height:20px;pointer-events:none}#search{width:100%;height:48px;border:1px solid var(--line);background:transparent;color:var(--ink);padding:10px 16px 10px 44px}#search::placeholder{color:var(--muted);opacity:1}.repo{font-size:14px;white-space:nowrap}.layout{display:grid;grid-template-columns:minmax(330px,.88fr) minmax(0,1.25fr);gap:64px;max-width:1280px;margin:auto;padding:48px 40px 80px}.sidebar{position:sticky;top:24px;align-self:start;max-height:calc(100vh - 48px);overflow-y:auto;scrollbar-width:thin;padding:4px 6px 8px 0}.intro{margin:16px 0 24px;max-width:44ch;color:var(--muted)}.plan{position:relative;isolation:isolate;height:360px;margin:0 0 12px;background:var(--paper)}.room{position:absolute;left:var(--x);top:var(--y);width:var(--w);height:var(--h);border:0;border-radius:0;background:var(--room-fill);padding:12px 14px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;line-height:1.15;transition:background-color 150ms;overflow:hidden}.room-label{font-size:16px;font-stretch:75%;font-weight:600}.room-count{font-size:28px;font-weight:600;margin-top:3px;line-height:1.05}.room-name{font-size:14px;color:var(--ink);margin-top:3px;opacity:.8}.room[data-room="navigation"] .room-count{font-size:40px}.room[aria-pressed="true"]{background:color-mix(in srgb,var(--room-fill),var(--ink) 12%);outline:4px solid var(--ink);outline-offset:-3px}.room:focus-visible{z-index:3;outline:2px solid var(--accent);outline-offset:-5px}.walls{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:1}.wall{fill:none;stroke:var(--ink);stroke-width:3;stroke-dasharray:1500;stroke-dashoffset:1500;animation:draw 950ms ease forwards;animation-delay:var(--delay);vector-effect:non-scaling-stroke}.door{fill:none;stroke:var(--ink);stroke-width:1;vector-effect:non-scaling-stroke}@keyframes draw{to{stroke-dashoffset:0}}.plan-note{font-size:14px;color:var(--muted);display:flex;justify-content:space-between;gap:12px}.text-button{border:0;border-bottom:1px solid currentColor;background:transparent;padding:0;border-radius:0;font-size:14px;white-space:nowrap}.filters{margin-top:28px;border-top:1px solid var(--line);padding-top:20px}.filter-head{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:14px;font-weight:600}#year{accent-color:var(--accent);width:100%;margin:14px 0 0}.env-title{font-size:14px;margin-top:20px;font-weight:600}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.chip{background:transparent;border:1px solid var(--line);padding:4px 9px;font-size:14px;line-height:1.4}.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}.more-env{margin-top:10px;font-size:14px}.more-env summary{cursor:pointer;text-decoration:underline;text-underline-offset:4px}.include{display:flex;align-items:flex-start;gap:8px;font-size:14px;margin-top:18px;color:var(--muted)}.include input{margin:5px 0 0;accent-color:var(--accent)}.results{min-width:0}.results-header{border-bottom:2px solid var(--ink);padding:0 0 22px}.results-heading{display:flex;align-items:baseline;justify-content:space-between;gap:20px}.result-count{color:var(--muted);font-size:20px}.result-note{margin-top:12px;color:var(--muted);font-size:14px}.year-group{margin-top:28px}.year-title{font-size:14px;font-weight:600;display:flex;align-items:center;gap:14px;margin-bottom:2px}.year-title:after{content:'';height:1px;flex:1;background:var(--line)}.entries{list-style:none;padding:0;margin:0}.entry{padding:22px 0;border-bottom:1px solid var(--hall);position:relative}.entry.must-read{border-left:4px solid var(--fill);padding-left:16px}.entry-short{font-size:16px;color:var(--muted);margin-top:8px;max-width:72ch}.entry-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;font-size:14px;margin-top:12px}.entry-facts{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;color:var(--muted)}.entry-links{display:flex;flex-wrap:wrap;gap:4px 16px;font-weight:600}.entry-links a{text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px}.entry-links a:hover{border-bottom-color:currentColor}.entry-room{display:inline-flex;align-items:center;gap:6px;color:var(--ink)}.entry-room i{width:10px;height:10px;background:var(--fill);outline:1px solid var(--ink);outline-offset:-1px}.recent-toggle{margin-top:14px;display:flex;align-items:baseline;gap:10px;font-size:14px}.recent-toggle button{border:1px solid var(--line);background:transparent;padding:4px 10px;font-size:14px}.recent-toggle button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}.recent-toggle span{color:var(--muted)}.must-label{font-size:14px;font-weight:600}.new-label{font-size:14px;color:var(--accent);font-weight:600}.adjacent-label{font-size:14px;color:var(--muted)}.empty{padding:40px 0;color:var(--muted)}.empty button{display:block;margin-top:16px}.footer{border-top:1px solid var(--line);padding:24px 40px;font-size:14px;color:var(--muted)}.footer-inner{max-width:1200px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer a{margin-left:16px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.room{--room-fill:var(--fill)}.room-name{opacity:1}.room.compact{padding:6px 12px}.room.compact .room-label{font-size:14px}.room.compact .room-count{font-size:20px}.room.compact .room-name{display:none}
-@media(prefers-color-scheme:dark){:root{--paper:#172025;--ink:#E6E9E7;--hall:#354047;--muted:#B0BBBF;--accent:#7A9BFF;--line:#526068}.room{--room-fill:var(--fill-dark)}.entry.must-read{border-left-color:var(--fill-dark)}.entry-room i{background:var(--fill-dark)}}
-@media(prefers-reduced-motion:reduce){.wall{animation:none;stroke-dashoffset:0}.room{transition:none}}
-@media(max-width:1050px) and (min-width:768px){.layout{gap:32px;padding:36px 24px}.header-inner{padding:20px 24px}.room-name{display:none}.room-label{font-size:14px}.room-count{font-size:20px}.plan{height:330px}h1{font-size:28px}}
-@media(max-width:767px){.header-inner{padding:20px;gap:16px;flex-wrap:wrap}.brand{font-size:20px}.repo{margin-left:auto}.search-wrap{order:3;flex-basis:100%;max-width:none}.layout{display:block;padding:28px 20px 48px}.sidebar{position:static;max-height:none;overflow:visible;padding:0}.intro{margin:12px 0 20px}h1{font-size:28px;letter-spacing:-.5px}.plan{height:220px;margin-top:20px}.room{left:calc(var(--mobile-x) + .7%);top:var(--mobile-y);width:18.6%;height:46%;padding:10px 7px;border:2px solid var(--ink);justify-content:center}.room-label{font-size:14px;overflow-wrap:anywhere}.room-count,.room[data-room="navigation"] .room-count{font-size:28px}.room-name{display:none}.walls{display:none}.filters{margin-top:24px}.results{margin-top:40px}.footer{padding:24px 20px}.footer a:first-child{margin-left:0}.result-count{font-size:16px}.results-heading{gap:12px}h2{font-size:28px}h3{font-size:20px}.entry{padding:20px 0}}
+:root{--paper:#F6F7F5;--ink:#1F2A30;--hall:#E4E3DD;--muted:#536068;--accent:#2D5BE3;--line:#C5C8C4;--wrap:1280px;font-family:Archivo,Arial,sans-serif;color:var(--ink);background:var(--paper);font-size:16px;line-height:1.55;font-variant-numeric:tabular-nums;color-scheme:light dark}
+*{box-sizing:border-box}
+body{margin:0}
+button,input{font:inherit;color:inherit}
+a{color:inherit;text-underline-offset:4px}
+a:hover{color:var(--accent)}
+button{cursor:pointer;border-radius:3px}
+button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+h1,h2,h3,p,ol{margin:0}
+h1{font-size:44px;line-height:1.08;letter-spacing:-1.6px;font-weight:700}
+h2{font-size:28px;line-height:1.2;letter-spacing:-.5px}
+h3{font-size:19px;line-height:1.35;font-weight:600}
+.skip{position:absolute;left:20px;top:-80px;z-index:10;background:var(--paper);padding:12px}
+.skip:focus{top:8px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* header */
+.header{border-bottom:1px solid var(--line)}
+.header-inner{max-width:var(--wrap);margin:auto;padding:20px 40px;display:flex;align-items:center;gap:28px}
+.brand{font-size:19px;font-weight:700;letter-spacing:-.4px;text-decoration:none;white-space:nowrap}
+.search-wrap{position:relative;flex:1;margin-left:auto;max-width:440px}
+.search-wrap svg{position:absolute;left:14px;top:13px;width:20px;height:20px;pointer-events:none}
+#search{width:100%;height:46px;border:1px solid var(--line);border-radius:3px;background:transparent;padding:10px 16px 10px 44px}
+#search::placeholder{color:var(--muted);opacity:1}
+.repo{font-size:14px;white-space:nowrap}
+
+/* hero: the plan is the page's one bold element */
+.hero{max-width:var(--wrap);margin:auto;padding:44px 40px 12px}
+.hero-top{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:28px}
+.intro{margin-top:14px;max-width:58ch;color:var(--muted);font-size:17px}
+.facts{text-align:right;font-size:14px;color:var(--muted);white-space:nowrap}
+.facts b{display:block;font-size:30px;line-height:1.1;color:var(--ink);font-weight:600;font-stretch:80%}
+.plan{position:relative;container-type:inline-size;aspect-ratio:1176/372;margin:0 -6px}
+.plan-art{position:absolute;inset:0;width:100%;height:100%;display:block}
+.plan-art.theme-dark{display:none}
+.plan-art .floor{transition:opacity .2s,filter .15s}
+.plan-art .furniture{transition:opacity .2s}
+.plan-art .floor.is-hover{filter:brightness(.95)}
+.plan.has-selection .plan-art .floor:not(.is-selected),.plan.has-selection .plan-art .furniture:not(.is-selected){opacity:.32}
+.plan-art .swing{stroke-dasharray:60;stroke-dashoffset:60;animation:swing .7s ease .25s forwards}
+@keyframes swing{to{stroke-dashoffset:0}}
+.room{position:absolute;left:var(--x);top:var(--y);width:var(--w);height:var(--h);border:0;border-radius:0;background:transparent;padding:0;text-align:left;line-height:1.1}
+.room-head{position:absolute;left:1.75cqw;top:1.75cqw;display:flex;flex-direction:column;gap:.3cqw}
+.room.top .room-head{top:2.05cqw}
+.room-label{font-weight:600;font-stretch:75%;font-size:max(12px,1.9cqw);white-space:nowrap}
+.room-name{font-size:max(11px,1.1cqw);color:var(--muted);white-space:nowrap}
+.room-count{position:absolute;left:1.75cqw;bottom:1.6cqw;font-weight:500;font-stretch:75%;font-size:max(15px,3.6cqw);line-height:1}
+.room.bottom .room-label{font-size:max(12px,1.45cqw)}
+.room.bottom .room-name{font-size:max(10px,.98cqw)}
+.room.bottom .room-count{font-size:max(14px,2.4cqw);bottom:1.9cqw}
+.room.top .room-count{bottom:2cqw}
+.room:hover .room-label,.room[aria-pressed="true"] .room-label{text-decoration:underline;text-underline-offset:.35em;text-decoration-thickness:2px}
+.plan.has-selection .room:not([aria-pressed="true"]) .room-head,.plan.has-selection .room:not([aria-pressed="true"]) .room-count{opacity:.45}
+.room:focus-visible{z-index:3;outline:2px solid var(--accent);outline-offset:-7px}
+.start-tag{position:absolute;transform:translate(-50%,0);display:flex;flex-direction:column;align-items:center;gap:2px;font-size:max(11px,1cqw);font-weight:500;color:var(--muted);text-decoration:none;white-space:nowrap}
+.start-tag svg{width:9px;height:11px;fill:none;stroke:currentColor;stroke-width:1.3}
+.plan-note{display:flex;justify-content:space-between;gap:16px;margin-top:6px;font-size:14px;color:var(--muted)}
+.text-button{border:0;border-bottom:1px solid currentColor;background:transparent;padding:0;border-radius:0;font-size:14px;white-space:nowrap}
+@container (max-width:860px){.room.narrow .room-name,.room.bottom .room-name{display:none}}
+@container (max-width:640px){.room-name,.start-tag{display:none}.room.narrow .room-label{font-size:11px}}
+@container (max-width:480px){.room-label{display:none}.room-count,.room.bottom .room-count{font-size:15px;left:8px;bottom:6px}}
+
+/* body */
+.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:64px;max-width:var(--wrap);margin:auto;padding:36px 40px 80px}
+.sidebar{position:sticky;top:24px;align-self:start}
+.filters-panel>summary{display:none}
+.filter-group+.filter-group{margin-top:26px}
+.filter-title{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;font-weight:600}
+#year{accent-color:var(--accent);width:100%;margin:12px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{background:transparent;border:1px solid var(--line);padding:4px 9px;font-size:14px;line-height:1.4}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.room-chip{display:inline-flex;align-items:center;gap:6px}
+.room-chip i{width:10px;height:10px;background:var(--fill);outline:1px solid currentColor;outline-offset:-1px}
+.room-chips{display:none}
+.more-env{margin-top:10px;font-size:14px}
+.more-env summary{cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.include{display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--muted)}
+.include input{margin:5px 0 0;accent-color:var(--accent)}
+.include small{font-size:13px}
+
+.block+.block{margin-top:64px}
+.block-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding-bottom:16px;border-bottom:2px solid var(--ink)}
+.block-note{color:var(--muted);font-size:14px}
+
+.routes{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:32px 36px;margin-top:24px}
+.route h3{font-size:16px;margin-bottom:10px}
+.route ol{padding-left:22px;font-size:15px}
+.route li{padding-left:4px}
+.route li+li{margin-top:8px}
+.route li::marker{color:var(--muted);font-weight:600}
+.route a{font-weight:600;text-decoration-color:var(--line)}
+.route span{color:var(--muted)}
+.more-routes{margin-top:20px;font-size:14px}
+.more-routes summary{cursor:pointer;color:var(--muted)}
+
+.pick-room{margin-top:30px}
+.pick-room-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.pick-room-head i{width:14px;height:14px;background:var(--fill);outline:1px solid var(--ink);outline-offset:-1px}
+.pick-room-head h3{font-size:17px}
+.pick-room-head span{color:var(--muted);font-size:14px}
+.picks{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0 36px}
+.pick{padding:16px 0 18px;border-bottom:1px solid var(--hall)}
+.pick h4{margin:0;font-size:17px;line-height:1.35}
+.pick h4 a{text-decoration:none}
+.pick h4 a:hover{text-decoration:underline}
+.pick p{color:var(--muted);font-size:15px;margin-top:6px}
+
+.results-head{padding-bottom:18px;border-bottom:2px solid var(--ink)}
+.results-heading{display:flex;align-items:baseline;justify-content:space-between;gap:20px}
+.result-count{color:var(--muted);font-size:18px}
+.result-note{margin-top:10px;color:var(--muted);font-size:14px}
+.recent-toggle{margin-top:14px;display:flex;align-items:baseline;gap:10px;font-size:14px}
+.recent-toggle button{border:1px solid var(--line);background:transparent;padding:4px 10px;font-size:14px}
+.recent-toggle button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.recent-toggle span{color:var(--muted)}
+.year-group{margin-top:28px}
+.year-title{font-size:14px;font-weight:600;display:flex;align-items:center;gap:14px;margin-bottom:2px}
+.year-title:after{content:'';height:1px;flex:1;background:var(--line)}
+.entries{list-style:none;padding:0;margin:0}
+.entry{padding:20px 0;border-bottom:1px solid var(--hall);position:relative;scroll-margin-top:20px}
+.entry:target{background:linear-gradient(90deg,color-mix(in srgb,var(--accent) 9%,transparent),transparent)}
+.entry.must-read{border-left:4px solid var(--fill);padding-left:16px}
+.entry-short{font-size:16px;color:var(--muted);margin-top:6px;max-width:72ch}
+.entry-meta,.pick-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;font-size:14px;margin-top:10px}
+.entry-facts{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;color:var(--muted)}
+.entry-links{display:flex;flex-wrap:wrap;gap:4px 16px;font-weight:600}
+.entry-links a{text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px}
+.entry-links a:hover{border-bottom-color:currentColor}
+.entry-room{display:inline-flex;align-items:center;gap:6px;color:var(--ink)}
+.entry-room i{width:10px;height:10px;background:var(--fill);outline:1px solid var(--ink);outline-offset:-1px}
+.must-label{font-weight:600;color:var(--ink)}
+.new-label{color:var(--accent);font-weight:600}
+.adjacent-label{color:var(--muted)}
+.empty{padding:40px 0;color:var(--muted)}
+.empty button{display:block;margin-top:16px}
+.footer{border-top:1px solid var(--line);padding:24px 40px;font-size:14px;color:var(--muted)}
+.footer-inner{max-width:var(--wrap);margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer a{margin-left:16px}
+
+@media(prefers-color-scheme:dark){
+  :root{--paper:#172025;--ink:#E6E9E7;--hall:#2C373D;--muted:#B0BBBF;--accent:#7A9BFF;--line:#526068}
+  .plan-art.theme-light{display:none}.plan-art.theme-dark{display:block}
+  .entry.must-read{border-left-color:var(--fill-dark)}
+  .entry-room i,.room-chip i,.pick-room-head i{background:var(--fill-dark)}
+  .recent-toggle button[aria-pressed="true"]{color:#172025}
+}
+@media(prefers-reduced-motion:reduce){.plan-art .swing{animation:none;stroke-dashoffset:0}.plan-art .floor,.plan-art .furniture{transition:none}}
+@media(max-width:1000px){
+  .header-inner,.hero,.layout{padding-left:24px;padding-right:24px}
+  .layout{grid-template-columns:220px minmax(0,1fr);gap:36px}
+  h1{font-size:36px}
+}
+@media(max-width:760px){
+  .header-inner{flex-wrap:wrap;gap:14px;padding-top:16px;padding-bottom:16px}
+  .repo{margin-left:auto}
+  .search-wrap{order:3;flex-basis:100%;max-width:none}
+  .hero{padding:28px 20px 4px}
+  .hero-top{display:block;margin-bottom:18px}
+  h1{font-size:30px;letter-spacing:-.8px}
+  .intro{font-size:16px}
+  .facts{text-align:left;margin-top:14px;display:flex;align-items:baseline;gap:10px}
+  .facts b{display:inline;font-size:22px}
+  .plan{margin:0 -4px}
+  .plan-note{display:none}
+  .layout{display:block;padding:20px 20px 56px}
+  .sidebar{position:static;margin-bottom:36px}
+  .filters-panel{border:1px solid var(--line);border-radius:3px;padding:0 14px}
+  .filters-panel>summary{display:flex;justify-content:space-between;padding:12px 0;font-weight:600;cursor:pointer;list-style:none}
+  .filters-panel>summary::after{content:'+';color:var(--muted)}
+  .filters-panel[open]>summary::after{content:'–'}
+  .filters-panel[open]{padding-bottom:16px}
+  .room-chips{display:block}
+  h2{font-size:24px}
+  .block+.block{margin-top:48px}
+  .picks{grid-template-columns:1fr}
+  .footer{padding:24px 20px}
+  .footer a:first-child{margin-left:0}
+}
 </style>
 </head>
 <body>
-<a class="skip" href="#results">Skip to papers</a>
+<a class="skip" href="#content">Skip to papers</a>
 <header class="header"><div class="header-inner">
 <a class="brand" href="./">Awesome AI2-THOR</a>
 <div class="search-wrap"><label class="sr-only" for="search">Search titles and highlights</label><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="Search papers and tools…" autocomplete="off"></div>
 <a class="repo" href="https://github.com/XUJay111/awesome-ai2-thor">GitHub</a>
 </div></header>
-<main class="layout">
-<aside class="sidebar" aria-label="Research rooms and filters">
-<h1>A map of the<br>THOR family.</h1>
-<p class="intro">Papers, benchmarks, and tools for interactive indoor worlds. Choose a room to explore a research direction.</p>
-<div class="plan" role="group" aria-label="Choose a research room">
+
+<section class="hero" aria-labelledby="hero-title">
+<div class="hero-top">
+<div><h1 id="hero-title">A map of the THOR family</h1>
+<p class="intro">Papers, benchmarks, datasets, and tools built on AI2-THOR, iTHOR, RoboTHOR, ProcTHOR, ALFRED, and TEACh. Each room is a research direction; open one to see what lives there.</p></div>
+<p class="facts"><b>__NATIVE_COUNT__</b> entries, papers through __UPDATED__</p>
+</div>
+<div class="plan" id="plan" role="group" aria-label="Research rooms">
+__PLAN_SVGS__
 __ROOM_BUTTONS__
-<svg class="walls" viewBox="0 0 600 420" preserveAspectRatio="none" aria-hidden="true">__WALLS__</svg>
+__START_TAG__
 </div>
-<div class="plan-note"><span>Each room is a section.</span><button class="text-button" id="all-rooms" type="button">All rooms</button></div>
-<div class="filters">
-<div class="filter-head"><label for="year">Publication year</label><output id="year-value" for="year"></output></div>
-<input type="range" id="year" aria-label="Earliest publication year" step="1">
-<p class="env-title" id="env-label">Environment</p>
+<div class="plan-note"><span>Larger rooms hold more papers.</span><button class="text-button" id="all-rooms" type="button">Show all rooms</button></div>
+</section>
+
+<main class="layout" id="content">
+<aside class="sidebar" aria-label="Filters">
+<details class="filters-panel" id="filters-panel" open>
+<summary>Filters</summary>
+<div class="filter-group room-chips"><p class="filter-title">Room</p><div class="chips" id="room-chips" role="group" aria-label="Room filters"></div></div>
+<div class="filter-group"><div class="filter-title"><label for="year">Published from</label><output id="year-value" for="year"></output></div>
+<input type="range" id="year" aria-label="Earliest publication year" step="1"></div>
+<div class="filter-group"><p class="filter-title" id="env-label">Environment</p>
 <div class="chips" id="environments" role="group" aria-labelledby="env-label"></div>
-<details class="more-env"><summary>More environments</summary><div class="chips" id="more-environments" role="group" aria-label="More environment filters"></div></details>
-<label class="include"><input id="include-adjacent" type="checkbox"><span>Include ALFWorld text-only papers<br><small>Separate from simulator-family room counts.</small></span></label>
-</div>
+<details class="more-env"><summary>More environments</summary><div class="chips" id="more-environments" role="group" aria-label="More environment filters"></div></details></div>
+<div class="filter-group"><label class="include"><input id="include-adjacent" type="checkbox"><span>Include ALFWorld text-only papers<br><small>Kept out of room counts.</small></span></label></div>
+</details>
 </aside>
-<section class="results" id="results" tabindex="-1" aria-labelledby="results-title">
-<div class="results-header"><div class="results-heading"><h2 id="results-title">All rooms</h2><span class="result-count" id="result-count" role="status" aria-live="polite"></span></div><p class="result-note" id="result-note">__NATIVE_COUNT__ simulator-family entries across ten research directions.</p><div class="recent-toggle" id="recent-wrap" hidden><button type="button" id="recent" aria-pressed="false"></button><span id="recent-note"></span></div></div>
+
+<div class="content">
+<section class="block" id="start" aria-labelledby="start-title">
+<div class="block-head"><h2 id="start-title">Start here</h2><span class="block-note">Three steps each, in reading order</span></div>
+<div class="routes" id="routes"></div>
+</section>
+
+<section class="block" id="picks" aria-labelledby="picks-title">
+<div class="block-head"><h2 id="picks-title">Must-read</h2><span class="block-note">Two to four per room, chosen for lasting influence</span></div>
+<div id="pick-list"></div>
+</section>
+
+<section class="block results" id="results" tabindex="-1" aria-labelledby="results-title">
+<div class="results-head"><div class="results-heading"><h2 id="results-title">Everything</h2><span class="result-count" id="result-count" role="status" aria-live="polite"></span></div>
+<p class="result-note" id="result-note"></p>
+<div class="recent-toggle" id="recent-wrap" hidden><button type="button" id="recent" aria-pressed="false"></button><span id="recent-note"></span></div></div>
 <div id="entry-list"></div>
 <noscript><p class="empty">Enable JavaScript to filter this catalog, or <a href="https://github.com/XUJay111/awesome-ai2-thor#contents">read the full index on GitHub</a>.</p></noscript>
 </section>
+</div>
 </main>
+
 <footer class="footer"><div class="footer-inner"><span>Papers through __UPDATED__ / __NATIVE_COUNT__ simulator-family entries</span><span><a href="https://github.com/XUJay111/awesome-ai2-thor/blob/main/CONTRIBUTING.md">Contribute</a><a href="https://github.com/XUJay111/awesome-ai2-thor/blob/main/README.zh-CN.md">中文</a><a href="https://github.com/XUJay111/awesome-ai2-thor/blob/main/LICENSE">CC0</a></span></div></footer>
 <script type="application/json" id="catalog-data">__DATA__</script>
+<script type="application/json" id="route-data">__ROUTES__</script>
 <script>
 'use strict';
 const entries = JSON.parse(document.getElementById('catalog-data').textContent);
+const routes = JSON.parse(document.getElementById('route-data').textContent);
 const rooms = __ROOMS__;
 const native = entries.filter(e => e.scope === 'thor-native');
 const knownYears = native.map(e => Number(e.year)).filter(Boolean);
 const firstYear = Math.min(...knownYears), lastYear = Math.max(...knownYears);
-const envs = [...new Set(entries.flatMap(e => e.env))].sort();
+const envs = [...new Set(entries.flatMap(e => e.env))].filter(e => e !== 'Unconfirmed').sort();
 const $ = id => document.getElementById(id);
-const search = $('search'), year = $('year'), include = $('include-adjacent');
-let state = {room:'', env:'', q:'', year:firstYear, adjacent:false, recent:false};
+const search = $('search'), year = $('year'), include = $('include-adjacent'), plan = $('plan');
 const recentCount = entries.filter(e => e.new).length;
+let state = {room:'', env:'', q:'', year:firstYear, adjacent:false, recent:false};
 const coreEnvs = ['AI2-THOR','iTHOR','RoboTHOR','ProcTHOR','ALFRED','TEACh','EmbodiedBench'];
+const labels = {paper:'Paper',arxiv:'arXiv',project:'Project',code:'Code',dataset:'Dataset',tutorial:'Tutorial',note:'Note',official_code:'Official code',dataset_tools:'Dataset tools',sgclip_code:'SGCLIP code',acl_anthology:'Paper',challenge:'Challenge',workshop:'Workshop'};
+
 function loadState(){
   const p = new URLSearchParams(location.search);
   const number = Number(p.get('year') || firstYear);
@@ -94,37 +296,78 @@ function element(tag, className, text){
   if(text!==undefined)el.textContent=text;
   return el;
 }
+function filtering(){return Boolean(state.room||state.env||state.q.trim()||state.year!==firstYear||state.adjacent||state.recent);}
 function reset(){state={room:'',env:'',q:'',year:firstYear,adjacent:false,recent:false};search.value='';year.value=firstYear;include.checked=false;render(true);}
-function makeEntry(e){
-  const room=rooms.find(r=>r.key===e.section);
-  const li=element('li','entry'+(e.must_read?' must-read':''));li.id=e.anchor;li.style.setProperty('--fill',room.color);
-  li.style.setProperty('--fill-dark',room.color.replace(/[0-9a-f]{2}/gi,v=>Math.round(parseInt(v,16)*.45).toString(16).padStart(2,'0')));
-  li.append(element('h3','',e.title),element('p','entry-short',e.must_read?e.highlight:e.short));
-  const meta=element('div','entry-meta'), facts=element('div','entry-facts'), links=element('div','entry-links');
-  if(e.new)facts.append(element('span','new-label','New'));
-  if(e.must_read)facts.append(element('span','must-label','Must-read'));
-  if(!state.room){const tag=element('span','entry-room');tag.style.setProperty('--fill',room.color);tag.append(element('i'),document.createTextNode(room.short));facts.append(tag);}
-  if(e.scope==='alfworld-adjacent')facts.append(element('span','adjacent-label','Text-only ALFWorld'));
-  facts.append(element('span','entry-env',e.env.join(' / ')));
-  if(e.venue)facts.append(element('span','entry-env',e.venue));
-  const labels={paper:'Paper',arxiv:'arXiv',project:'Project',code:'Code',dataset:'Dataset',tutorial:'Tutorial',note:'Note',official_code:'Official code',dataset_tools:'Dataset tools',sgclip_code:'SGCLIP code',acl_anthology:'Paper',challenge:'Challenge',workshop:'Workshop'};
+function roomOf(e){return rooms.find(r=>r.key===e.section);}
+function paint(el, room){el.style.setProperty('--fill',room.color);el.style.setProperty('--fill-dark',room.dark);}
+function linkRow(e){
+  const links=element('div','entry-links');
   for(const [type,url] of Object.entries(e.links)){
     const a=element('a','',labels[type]||'Resource');a.href=url;a.setAttribute('aria-label',(labels[type]||'Resource')+' for '+e.title);links.append(a);
   }
-  meta.append(facts,links);li.append(meta);return li;
+  return links;
+}
+function makeEntry(e){
+  const room=roomOf(e);
+  const li=element('li','entry'+(e.must_read?' must-read':''));li.id=e.anchor;paint(li,room);
+  li.append(element('h3','',e.title),element('p','entry-short',e.must_read?e.highlight:e.short));
+  const meta=element('div','entry-meta'), facts=element('div','entry-facts');
+  if(e.new)facts.append(element('span','new-label','New'));
+  if(e.must_read)facts.append(element('span','must-label','Must-read'));
+  if(!state.room){const tag=element('span','entry-room');paint(tag,room);tag.append(element('i'),document.createTextNode(room.short));facts.append(tag);}
+  if(e.scope==='alfworld-adjacent')facts.append(element('span','adjacent-label','Text-only ALFWorld'));
+  facts.append(element('span','entry-env',e.env.join(' / ')));
+  if(e.venue)facts.append(element('span','entry-env',e.venue));
+  meta.append(facts,linkRow(e));li.append(meta);return li;
+}
+function renderRoutes(){
+  const box=$('routes');
+  routes.forEach((route,i)=>{
+    const div=element('div','route');div.append(element('h3','',route.name));
+    const ol=element('ol');
+    for(const step of route.steps){const li=element('li');const a=element('a','',step.label);a.href='#'+step.anchor;li.append(a,document.createTextNode(' '),element('span','','— '+step.note));ol.append(li);}
+    div.append(ol);box.append(div);
+  });
+}
+function renderPicks(){
+  const box=$('pick-list');
+  for(const room of rooms){
+    const picks=native.filter(e=>e.must_read&&e.section===room.key);
+    if(!picks.length)continue;
+    const group=element('section','pick-room');paint(group,room);
+    const head=element('div','pick-room-head');head.append(element('i'),element('h3','',room.short),element('span','',room.room));
+    const ul=element('ul','picks');
+    for(const e of picks){
+      const li=element('li','pick');
+      const h=element('h4');const a=element('a','',e.title);a.href='#'+e.anchor;h.append(a);
+      const meta=element('div','pick-meta');const facts=element('div','entry-facts');
+      facts.append(element('span','',[e.venue,e.year].filter(Boolean).join(' ')||'Resource'),element('span','',e.env.join(' / ')));
+      meta.append(facts,linkRow(e));
+      li.append(h,element('p','',e.highlight),meta);ul.append(li);
+    }
+    group.append(head,ul);box.append(group);
+  }
+}
+function syncPlan(){
+  plan.classList.toggle('has-selection',Boolean(state.room));
+  for(const el of plan.querySelectorAll('[data-floor],[data-for]'))el.classList.toggle('is-selected',(el.dataset.floor||el.dataset.for)===state.room);
+  for(const b of document.querySelectorAll('.room'))b.setAttribute('aria-pressed',String(b.dataset.room===state.room));
+  for(const b of document.querySelectorAll('[data-room-chip]'))b.setAttribute('aria-pressed',String(b.dataset.roomChip===state.room));
 }
 function render(writeURL=false){
   const query=state.q.trim().toLocaleLowerCase();
   const filtered=entries.filter(e => (state.adjacent||e.scope==='thor-native') && (!state.room||e.section===state.room) && (!state.env||e.env.includes(state.env)) && (!e.year?state.year===firstYear:Number(e.year)>=state.year) && (!query||(e.title+' '+e.short+' '+e.highlight).toLocaleLowerCase().includes(query)) && (!state.recent||e.new));
   filtered.sort((a,b)=>(Number(b.year)||0)-(Number(a.year)||0)||Number(b.must_read)-Number(a.must_read)||b.order-a.order||a.title.localeCompare(b.title));
+  const active=filtering();
+  $('start').hidden=active;$('picks').hidden=active;
+  syncPlan();
+  for(const button of document.querySelectorAll('.chip[data-env]'))button.setAttribute('aria-pressed',String(button.dataset.env===state.env));
   $('recent').setAttribute('aria-pressed',String(state.recent));
-  for(const button of document.querySelectorAll('.room'))button.setAttribute('aria-pressed',String(button.dataset.room===state.room));
-  for(const button of document.querySelectorAll('.chip'))button.setAttribute('aria-pressed',String(button.dataset.env===state.env));
-  $('year-value').textContent=state.year+'–'+lastYear;
+  $('year-value').textContent=state.year===firstYear?'Any year':state.year+'–'+lastYear;
   const room=rooms.find(r=>r.key===state.room);
-  $('results-title').textContent=room?room.label:'All rooms';
+  $('results-title').textContent=room?room.label:(active?'Results':'Everything');
   $('result-count').textContent=filtered.length+(filtered.length===1?' entry':' entries');
-  $('result-note').textContent=(room?room.note:'Papers, benchmarks, datasets, and tools from the AI2-THOR family.')+(state.year>firstYear?' Undated resources are hidden.':'')+(state.adjacent?' Includes separately labeled text-only work.':'');
+  $('result-note').textContent=(room?room.note:(active?'Matching papers, benchmarks, datasets, and tools.':'Every simulator-family entry, newest first.'))+(state.year>firstYear?' Undated resources are hidden.':'')+(state.adjacent?' Includes separately labeled text-only work.':'');
   const content=document.createDocumentFragment();let currentYear=null,list;
   for(const e of filtered){
     const group=e.year||'Undated resources';
@@ -139,19 +382,47 @@ function render(writeURL=false){
   $('entry-list').replaceChildren(content);
   if(writeURL)saveState();
 }
-for(const env of ['',...coreEnvs,...envs.filter(e=>!coreEnvs.includes(e))]){
+const media=q=>window.matchMedia?window.matchMedia(q):{matches:false};
+function chooseRoom(key){
+  state.room=state.room===key?'':key;render(true);
+  const target=$('results');
+  if(state.room&&target.scrollIntoView&&target.getBoundingClientRect().top>innerHeight*.6)target.scrollIntoView({behavior:media('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+}
+for(const env of ['',...coreEnvs.filter(e=>envs.includes(e)),...envs.filter(e=>!coreEnvs.includes(e))]){
   const button=element('button','chip',env||'All');button.type='button';button.dataset.env=env;button.setAttribute('aria-pressed','false');
   button.addEventListener('click',()=>{state.env=state.env===env?'':env;render(true);});
   (env && !coreEnvs.includes(env)?$('more-environments'):$('environments')).append(button);
 }
-for(const button of document.querySelectorAll('.room'))button.addEventListener('click',()=>{state.room=state.room===button.dataset.room?'':button.dataset.room;render(true);});
+for(const room of rooms){
+  const n=native.filter(e=>e.section===room.key).length;
+  const button=element('button','chip room-chip');button.type='button';button.dataset.roomChip=room.key;button.setAttribute('aria-pressed','false');paint(button,room);
+  button.append(element('i'),document.createTextNode(room.short+' '+n));
+  button.addEventListener('click',()=>chooseRoom(room.key));$('room-chips').append(button);
+}
+for(const button of document.querySelectorAll('.room')){
+  button.addEventListener('click',()=>chooseRoom(button.dataset.room));
+  const floors=()=>plan.querySelectorAll('[data-floor="'+button.dataset.room+'"]');
+  for(const [on,off] of [['pointerenter','pointerleave'],['focus','blur']]){
+    button.addEventListener(on,()=>floors().forEach(f=>f.classList.add('is-hover')));
+    button.addEventListener(off,()=>floors().forEach(f=>f.classList.remove('is-hover')));
+  }
+}
 $('all-rooms').addEventListener('click',()=>{state.room='';render(true);});
 search.addEventListener('input',()=>{state.q=search.value;render(true);});
-if(recentCount){$('recent-wrap').hidden=false;$('recent').textContent='Recently added ('+recentCount+')';$('recent-note').textContent='in the last 30 days';$('recent').addEventListener('click',()=>{state.recent=!state.recent;render(true);});}
 year.addEventListener('input',()=>{state.year=Number(year.value);render(true);});
 include.addEventListener('change',()=>{state.adjacent=include.checked;render(true);});
+if(recentCount){$('recent-wrap').hidden=false;$('recent').textContent='Recently added ('+recentCount+')';$('recent-note').textContent='in the last 30 days';$('recent').addEventListener('click',()=>{state.recent=!state.recent;render(true);});}
+// Route and must-read links point into the full list: clear filters first so the target exists.
+document.addEventListener('click',event=>{
+  const a=event.target.closest('a[href^="#"]');
+  if(!a||a.getAttribute('href')==='#start')return;
+  if(filtering()&&document.getElementById(a.getAttribute('href').slice(1))===null){reset();}
+});
+const mobile=media('(max-width:760px)');
+function syncPanel(){ $('filters-panel').open=!mobile.matches; }
+if(mobile.addEventListener)mobile.addEventListener('change',syncPanel);syncPanel();
 window.addEventListener('popstate',()=>{loadState();render();});
-loadState();render();
+renderRoutes();renderPicks();loadState();render();
 </script>
 </body>
 </html>
