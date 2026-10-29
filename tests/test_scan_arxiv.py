@@ -53,8 +53,41 @@ class ScanTests(unittest.TestCase):
         only = scanner.Paper('2610.12345', 'Text tasks', '2026-10-25', '', ['ALFWorld'], 'Evaluate on ALFWorld.')
         both = scanner.Paper('2610.12346', 'Visual tasks', '2026-10-25', '', ['ProcTHOR', 'ALFWorld'], 'Evaluate on ProcTHOR and ALFWorld.')
         body = scanner.issue_body([only, both], {}, self.since, self.until)
-        self.assertLess(body.index('Visual tasks'), body.index('### ALFWorld only'))
-        self.assertGreater(body.index('Text tasks'), body.index('### ALFWorld only'))
+        self.assertLess(body.index('Visual tasks'), body.index('<details>'))
+        self.assertGreater(body.index('Text tasks'), body.index('<details>'))
+        self.assertLess(body.index('Text tasks'), body.index('</details>'))
+        self.assertIn('<summary>ALFWorld only (text environment)</summary>\n\n', body)
+        self.assertEqual(scanner.issue_title([only, both], self.until),
+                         'arXiv scan 2026-10-28: 1 simulator, 1 ALFWorld')
+
+    def test_alfworld_only_scan_keeps_empty_simulator_group_and_creates_split_title(self):
+        only = scanner.Paper('2610.12345', 'Text tasks', '2026-10-25', '', ['ALFWorld'], 'Evaluate on ALFWorld.')
+        failures = {'ProcTHOR': 'HTTP 429 after 3 retries'}
+        body = scanner.issue_body([only], failures, self.since, self.until)
+        self.assertIn('### Simulator family\n\nNo new simulator-family papers this window.', body)
+        self.assertLess(body.index('No new simulator-family'), body.index('<details>'))
+        self.assertLess(body.index('</details>'), body.index('### Queries that did not finish'))
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'data.yml'
+            path.write_text('entries: []\n')
+            with patch.object(sys, 'argv', ['scan_arxiv.py', '--data', str(path), '--as-of', '2026-10-28',
+                                            '--create-issue', '--repository', 'test/repo']), \
+                 patch.dict(scanner.os.environ, {'GH_TOKEN': 'test-token'}), \
+                 patch.object(scanner.GitHub, 'previous_ids', return_value=set()), \
+                 patch.object(scanner.GitHub, 'create_issue', return_value={'html_url': 'issue'}) as create, \
+                 patch.object(scanner, 'scan', return_value=([only], {})), \
+                 patch('sys.stdout', new=io.StringIO()):
+                self.assertEqual(scanner.main(), 0)
+            self.assertEqual(create.call_args.args[0], 'arXiv scan 2026-10-28: 0 simulator, 1 ALFWorld')
+            self.assertIn('<details>', create.call_args.args[1])
+
+    def test_simulator_only_scan_counts_all_and_needs_no_fold(self):
+        papers = [scanner.Paper('2610.12345', 'Visual tasks', '2026-10-25', '', ['ProcTHOR'], 'Evaluate on ProcTHOR.')]
+        body = scanner.issue_body(papers, {}, self.since, self.until)
+        self.assertEqual(scanner.issue_title(papers, self.until), 'arXiv scan 2026-10-28: 1 simulator, 0 ALFWorld')
+        self.assertIn('### Simulator family', body)
+        self.assertNotIn('No new simulator-family', body)
+        self.assertNotIn('<details>', body)
 
     def test_dedup_catalog_versions_and_closed_issue_pagination(self):
         with tempfile.TemporaryDirectory() as directory:

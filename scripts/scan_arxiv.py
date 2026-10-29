@@ -214,18 +214,30 @@ def issue_body(papers: list[Paper], failures: dict[str, str], since: date, until
              'Tick the ones to add, then ask for them to be entered in data.yml.', '']
     for adjacent, heading in [(False, 'Simulator family'), (True, 'ALFWorld only (text environment)')]:
         group = [p for p in papers if p.alfworld_only == adjacent]
-        if not group:
-            continue
-        lines += [f'### {heading}', '']
+        if adjacent:
+            if not group:
+                continue
+            lines += ['<details>', f'<summary>{heading}</summary>', '']
+        else:
+            lines += [f'### {heading}', '']
+            if not group:
+                lines += ['No new simulator-family papers this window.', '']
         for paper in group:
             labels = ', '.join(paper.matched)
             lines += [f'- [ ] **[{markdown_text(paper.title)}](https://arxiv.org/abs/{paper.arxiv_id})** · {paper.submitted} · matched: {markdown_text(labels)}',
                       f'  > "{markdown_text(paper.evidence)}"', '']
+        if adjacent:
+            lines += ['</details>', '']
     if failures:
         lines += ['### Queries that did not finish', '']
         lines += [f'- {markdown_text(label)} ({markdown_text(reason)})' for label, reason in failures.items()]
         lines.append('')
     return '\n'.join(lines)
+
+
+def issue_title(papers: list[Paper], as_of: date) -> str:
+    alfworld = sum(paper.alfworld_only for paper in papers)
+    return f'arXiv scan {as_of}: {len(papers) - alfworld} simulator, {alfworld} ALFWorld'
 
 
 def scan(client: ArxivClient, labels: list[str], since: date, until: date, known: set[str]):
@@ -269,7 +281,7 @@ def main() -> int:
                                           'candidates': [asdict(p) for p in papers],
                                           'failures': failures}, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     if args.create_issue and papers:
-        issue = github.create_issue(f'arXiv scan {args.as_of}: {len(papers)} candidates', body)
+        issue = github.create_issue(issue_title(papers, args.as_of), body)
         print('Created ' + issue['html_url'])
     if os.getenv('GITHUB_STEP_SUMMARY'):
         with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as summary:
