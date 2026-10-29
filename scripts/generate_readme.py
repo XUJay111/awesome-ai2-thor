@@ -74,10 +74,10 @@ def render_family(entries: list[dict], zh: bool) -> list[str]:
         '  E --> G["Holodeck 2024"]', '  E --> H["SPOC 2024"]',
         '  A --> I["ALFRED 2020"]', '  A --> J["TEACh 2022"]',
         '  I --> K["ALFWorld 2021"]', '  A --> L["EmbodiedBench 2025"]',
-        '  classDef platform fill:#E4E3DD,color:#1F2A30,stroke:#1F2A30',
-        '  classDef navigation fill:#DCCFB8,color:#1F2A30,stroke:#1F2A30',
-        '  classDef household fill:#B7CBB0,color:#1F2A30,stroke:#1F2A30',
-        '  classDef evaluation fill:#DDBFC2,color:#1F2A30,stroke:#1F2A30',
+        f'  classDef platform fill:{ROOM_BY_KEY["platforms"][5]},color:#1F2A30,stroke:#1F2A30',
+        f'  classDef navigation fill:{ROOM_BY_KEY["navigation"][5]},color:#1F2A30,stroke:#1F2A30',
+        f'  classDef household fill:{ROOM_BY_KEY["instructions"][5]},color:#1F2A30,stroke:#1F2A30',
+        f'  classDef evaluation fill:{ROOM_BY_KEY["benchmarks"][5]},color:#1F2A30,stroke:#1F2A30',
         '  class A,B,D,E,F,G platform', '  class C,H navigation',
         '  class I,J,K household', '  class L evaluation', '```', '']
     refs = [('AI2-THOR:', 'AI2-THOR / iTHOR'), ('RoboTHOR:', 'RoboTHOR'), ('ManipulaTHOR:', 'ManipulaTHOR'), ('ProcTHOR:', 'ProcTHOR'), ('Selective Visual Representations', 'ArchitecTHOR evaluation'), ('Holodeck:', 'Holodeck'), ('SPOC:', 'SPOC'), ('ALFRED:', 'ALFRED'), ('TEACh:', 'TEACh'), ('ALFWorld:', 'ALFWorld'), ('EmbodiedBench:', 'EmbodiedBench')]

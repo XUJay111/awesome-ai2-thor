@@ -64,10 +64,10 @@ flowchart LR
   A --> J["TEACh 2022"]
   I --> K["ALFWorld 2021"]
   A --> L["EmbodiedBench 2025"]
-  classDef platform fill:#E4E3DD,color:#1F2A30,stroke:#1F2A30
-  classDef navigation fill:#DCCFB8,color:#1F2A30,stroke:#1F2A30
-  classDef household fill:#B7CBB0,color:#1F2A30,stroke:#1F2A30
-  classDef evaluation fill:#DDBFC2,color:#1F2A30,stroke:#1F2A30
+  classDef platform fill:#E8E4DA,color:#1F2A30,stroke:#1F2A30
+  classDef navigation fill:#EADCC3,color:#1F2A30,stroke:#1F2A30
+  classDef household fill:#D3E0CC,color:#1F2A30,stroke:#1F2A30
+  classDef evaluation fill:#EBD3D5,color:#1F2A30,stroke:#1F2A30
   class A,B,D,E,F,G platform
   class C,H navigation
   class I,J,K household
