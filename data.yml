@@ -9000,7 +9000,7 @@ entries:
   section: navigation
   env:
   - AI2-THOR
-  - EB-Navigation
+  - EmbodiedBench
   must_read: false
   short: Collects interface-aligned demonstrations for active vision and embodied navigation
   short_zh: 收集与智能体接口一致的演示，训练主动视觉与具身导航
@@ -9030,7 +9030,8 @@ entries:
   scope: thor-native
   section: planning
   env:
-  - EB-Navigation
+  - EmbodiedBench
+  - AI2-THOR
   must_read: false
   short: Revises frozen-model agent harnesses from execution traces and sparse feedback
   short_zh: 根据执行轨迹和稀疏反馈修订冻结模型的智能体框架
@@ -9062,8 +9063,9 @@ entries:
   scope: thor-native
   section: planning
   env:
-  - EB-ALFRED
-  - EB-Navigation
+  - EmbodiedBench
+  - ALFRED
+  - AI2-THOR
   must_read: false
   short: Evolves persistent context and skill systems from validated embodied execution traces
   short_zh: 根据验证后的具身执行轨迹进化持久上下文与技能系统
@@ -9091,7 +9093,8 @@ entries:
   scope: thor-native
   section: planning
   env:
-  - EB-Navigation
+  - EmbodiedBench
+  - AI2-THOR
   must_read: false
   short: Routes between world models at different scales as embodied environments evolve
   short_zh: 在环境变化时，按尺度路由并更新具身世界模型
