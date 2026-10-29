@@ -55,6 +55,28 @@ def render_links(links: dict) -> str:
         rendered.append(f'[![{label}]({image})]({url})')
     return ' '.join(rendered)
 
+def text_links(links: dict) -> str:
+    """Quiet text links for table rows; badges stay on the must-read cards."""
+    rendered = []
+    for kind, url in links.items():
+        if re.search(r'arxiv\.org/(?:abs|pdf)/', url):
+            label = 'arXiv'
+        elif kind in {'paper', 'acl_anthology'}:
+            label = 'Paper'
+        elif kind in {'code', 'official_code', 'sgclip_code'}:
+            label = 'Code'
+        elif kind in {'dataset', 'dataset_tools'}:
+            label = 'Data'
+        elif kind in {'tutorial', 'note'}:
+            label = 'Tutorial'
+        else:
+            label = 'Project'
+        rendered.append(f'[{label}]({url})')
+    return ' · '.join(rendered)
+
+def back_to_contents(zh: bool) -> list[str]:
+    return [f'<sub>[{"返回目录" if zh else "Back to contents"}](#contents)</sub>', '']
+
 def render_routes(entries: list[dict], zh: bool) -> list[str]:
     lines = ['## 开始阅读' if zh else '## Start here', '']
     for i, (name, name_zh, steps) in enumerate(ROUTES):
@@ -91,7 +113,7 @@ def render_table(entries: list[dict], zh: bool, as_of: date) -> list[str]:
         short = escape(entry['short_zh' if zh else 'short']).replace('|', '&#124;')
         mark = f' {NEW}' if entry['scope'] == 'thor-native' and is_new(entry, as_of) else ''
         env = '<br>'.join(entry['env'])
-        lines.append(f'| {entry["year"] or "—"} | <a id="{entry_anchor(entry)}"></a>**{title}**{mark}<br><sub>{short}</sub> | {env} | {render_links(entry["links"])} |')
+        lines.append(f'| {entry["year"] or "—"} | <a id="{entry_anchor(entry)}"></a>**{title}**{mark}<br><sub>{short}</sub> | {env} | {text_links(entry["links"])} |')
     return lines + ['']
 
 def render_must_read(entry: dict, zh: bool, as_of: date) -> list[str]:
@@ -119,11 +141,14 @@ def render_recent(native: list[dict], zh: bool, as_of: date) -> list[str]:
         room = SHORT_LABELS[e['section']][1 if zh else 0]
         title = escape(e['title']).replace('|', '&#124;')
         short = escape(e['short_zh' if zh else 'short']).replace('|', '&#124;')
-        return f'| [**{title}**](#{entry_anchor(e)})<br><sub>{short}</sub> | {room} | {"<br>".join(e["env"])} | {render_links(e["links"])} |'
-    lines += header + [row(e) for e in recent[:6]] + ['']
-    if len(recent) > 6:
-        lines += ['<details>', f'<summary>其余 {len(recent) - 6} 条新增</summary>' if zh else f'<summary>{len(recent) - 6} more additions</summary>', '']
-        lines += header + [row(e) for e in recent[6:]] + ['', '</details>', '']
+        return f'| [**{title}**](#{entry_anchor(e)})<br><sub>{short}</sub> | {room} | {"<br>".join(e["env"])} | {text_links(e["links"])} |'
+    lines += header + [row(e) for e in recent[:5]] + ['']
+    if len(recent) > 5:
+        more = recent[5:]
+        lines += ['<details>', f'<summary>其余 {len(more)} 条新增</summary>' if zh else f'<summary>{len(more)} more additions</summary>', '']
+        lines += [' · '.join(entry_link(e) for e in more)]
+        lines += ['', '</details>', '']
+    lines += [f'也可以在[网站]({SITE_URL}?new=1)上只看最近新增。' if zh else f'On the [website]({SITE_URL}?new=1), "Recently added" shows only these.', '']
     return lines
 
 def render_readme(data: dict, zh: bool, as_of: date) -> str:
@@ -137,13 +162,18 @@ def render_readme(data: dict, zh: bool, as_of: date) -> str:
         f'[![Stars](https://img.shields.io/github/stars/{REPO}?style=flat-square&color=1F2A30)](https://github.com/{REPO})',
         f'[![Link check](https://img.shields.io/github/actions/workflow/status/{REPO}/link-check.yml?branch=main&style=flat-square&label=link%20check&color=1F2A30)](https://github.com/{REPO}/actions/workflows/link-check.yml)',
     ]
-    lines = ['<!-- Generated from data.yml. Run python scripts/generate_readme.py. -->', '<picture>', '  <source media="(prefers-color-scheme: dark)" srcset="assets/floorplan-dark.svg">', '  <img src="assets/floorplan-light.svg" alt="Floor plan of the list: each room is a section, sized by number of entries" width="1200">', '</picture>', '', '# Awesome AI2-THOR', '', 'AI2-THOR 及其家族的论文、基准与工具地图。' if zh else 'A map of papers, benchmarks, and tools built on AI2-THOR and its family.', '', ' '.join(top_badges), '', f'[网站]({SITE_URL}) / [English](README.md) / [参与贡献](CONTRIBUTING.md)' if zh else f'[Website]({SITE_URL}) / [中文](README.zh-CN.md) / [Contribute](CONTRIBUTING.md)', '']
-    lines += render_routes(all_active, zh) + render_family(all_active, zh)
+    lines = ['<!-- Generated from data.yml. Run python scripts/generate_readme.py. -->', '<picture>', '  <source media="(prefers-color-scheme: dark)" srcset="assets/floorplan-dark.svg">', '  <img src="assets/floorplan-light.svg" alt="Floor plan of the list: each room is a research direction; larger rooms hold more papers" width="1200">', '</picture>', '', '# Awesome AI2-THOR', '', 'AI2-THOR 及其家族的论文、基准与工具地图。' if zh else 'A map of papers, benchmarks, and tools built on AI2-THOR and its family.', '', ' '.join(top_badges), '']
+    lines += [f'**[打开交互式户型图]({SITE_URL})**：按房间、年份或模拟器筛选，搜索标题，从必读论文读起。' if zh else f'**[Open the interactive map]({SITE_URL})** to search, filter by room, year, or simulator, and start from the must-reads.', '',
+              f'[English](README.md) / [参与贡献](CONTRIBUTING.md)' if zh else f'[中文](README.zh-CN.md) / [Contribute](CONTRIBUTING.md)', '']
+    # Contents first, as an index of rooms that mirrors the banner.
+    lines += ['<a id="contents"></a>', '', '## 目录' if zh else '## Contents', '',
+              '| | 房间 | 条目 | 收录内容 |' if zh else '| | Room | Entries | What lives here |', '| :-- | --- | --: | --- |']
+    for category, key, label, label_zh, _, _, note, note_zh in ROOMS:
+        icon = f'<img src="assets/rooms/{key}.svg" width="66" height="21" alt="">'
+        lines.append(f'| {icon} | [{label_zh if zh else label}](#{slugify(category)}) | {counts[category]} | {note_zh if zh else note} |')
+    lines += ['', f'共 {len(native)} 条模拟器家族资源；另有 {len(adjacent)} 条 ALFWorld 纯文本工作，收在规划一节末尾。' if zh else f'{len(native)} simulator-family resources. {len(adjacent)} text-only ALFWorld papers sit at the end of Planning.', '']
+    lines += render_routes(all_active, zh)
     lines += render_recent(native, zh, as_of)
-    lines += ['## 目录' if zh else '## Contents', '']
-    for category, _, label, label_zh, _, _, note, note_zh in ROOMS:
-        lines.append(f'- [{label_zh if zh else label}](#{slugify(category)}) <sub>{counts[category]}</sub> — {note_zh if zh else note}')
-    lines += ['', f'{len(native)} 条模拟器家族资源；另附 {len(adjacent)} 条 ALFWorld 文本环境工作。' if zh else f'{len(native)} simulator-family resources; {len(adjacent)} text-only ALFWorld papers appear in a separate appendix.', '']
     for category, key, label, label_zh, _, _, note, note_zh in ROOMS:
         # Explicit anchors keep Contents links stable even with the icon in the heading.
         lines += [f'<a id="{slugify(category)}"></a>', '']
@@ -162,8 +192,14 @@ def render_readme(data: dict, zh: bool, as_of: date) -> str:
         if key == 'planning' and adjacent:
             lines += ['<details>', f'<summary>ALFWorld 相关工作（纯文本，{len(adjacent)} 条）</summary>' if zh else f'<summary>ALFWorld-adjacent work (text-only, {len(adjacent)})</summary>', '', '这些论文使用 ALFWorld 文本任务，不据此认定其运行了 THOR 视觉模拟器；不计入房间条目数。' if zh else 'These papers use ALFWorld text tasks; this does not establish execution in the THOR visual simulator. They are excluded from room counts.', '']
             lines += render_table(adjacent, zh, as_of) + ['</details>', '']
+        lines += back_to_contents(zh)
+    lines += render_family(all_active, zh)
     envs = ecosystem_counts(native)
-    lines += ['## 数据一览' if zh else '## By the numbers', '', '<picture>', '  <source media="(prefers-color-scheme: dark)" srcset="assets/timeline-dark.svg">', f'  <img src="assets/timeline-light.svg" alt="{"按发表年份统计的资源" if zh else "Entries by publication year"}" width="1200">', '</picture>', '', ' / '.join(f'{env} {count}' for env, count in envs.most_common()), '', f'共跟踪 {len(data["entries"])} 条：{len(native)} 条模拟器家族资源，{len(adjacent)} 条文本环境工作，{len(data["entries"])-len(all_active)} 条待核实。' if zh else f'{len(data["entries"])} tracked records: {len(native)} simulator-family resources, {len(adjacent)} text-only papers, and {len(data["entries"])-len(all_active)} candidates awaiting verification.', '', '年份未知的资源不计入柱状图；生态标签可重叠。展示更新日期与论文核验日期分别记录。' if zh else 'Undated resources are omitted from the chart; ecosystem labels can overlap. Presentation updates and source verification dates are tracked separately.', '', '## 参与贡献' if zh else '## Contributing', '', '先编辑 `data.yml`，再校验并重新生成全部产物：' if zh else 'Edit `data.yml`, then validate and regenerate every view:', '', '```bash', 'python -m pip install -r requirements.txt', 'make check', '```', '', '[贡献指南](CONTRIBUTING.md)' if zh else '[Contribution guide](CONTRIBUTING.md)', '', '## Star history', '', f'[![Star history](https://api.star-history.com/svg?repos={REPO}&type=Date)](https://star-history.com/#{REPO}&Date)', '', '## 许可' if zh else '## License', '', '[CC0-1.0](LICENSE). Archivo: [SIL Open Font License](assets/fonts/OFL.txt).', '']
+    lines += ['## 数据一览' if zh else '## By the numbers', '', '<picture>', '  <source media="(prefers-color-scheme: dark)" srcset="assets/timeline-dark.svg">', f'  <img src="assets/timeline-light.svg" alt="{"按发表年份统计的资源" if zh else "Entries by publication year"}" width="1200">', '</picture>', '', ' / '.join(f'{env} {count}' for env, count in envs.most_common() if env not in {'ALFWorld', 'Unconfirmed'}), '', f'共跟踪 {len(data["entries"])} 条：{len(native)} 条模拟器家族资源，{len(adjacent)} 条文本环境工作，{len(data["entries"])-len(all_active)} 条待核实。' if zh else f'{len(data["entries"])} tracked records: {len(native)} simulator-family resources, {len(adjacent)} text-only papers, and {len(data["entries"])-len(all_active)} candidates awaiting verification.', '', '年份未知的资源不计入柱状图；生态标签可重叠。展示更新日期与论文核验日期分别记录。' if zh else 'Undated resources are omitted from the chart; ecosystem labels can overlap. Presentation updates and source verification dates are tracked separately.', '', '## 参与贡献' if zh else '## Contributing', '', '先编辑 `data.yml`，再校验并重新生成全部产物：' if zh else 'Edit `data.yml`, then validate and regenerate every view:', '', '```bash', 'python -m pip install -r requirements.txt', 'make check', '```', '', '[贡献指南](CONTRIBUTING.md)' if zh else '[Contribution guide](CONTRIBUTING.md)', '']
+    # The star chart is opt-in (data.yml: star_history: true) so an early, flat line never shows.
+    if data.get('star_history'):
+        lines += ['## Star history', '', f'[![Star history](https://api.star-history.com/svg?repos={REPO}&type=Date)](https://star-history.com/#{REPO}&Date)', '']
+    lines += ['## 许可' if zh else '## License', '', '[CC0-1.0](LICENSE). Archivo: [SIL Open Font License](assets/fonts/OFL.txt).', '']
     return '\n'.join(lines)
 
 def main() -> None:
