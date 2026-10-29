@@ -14,7 +14,7 @@ from catalog import (
     is_new, load_data, native_entries, room_counts, today,
 )
 from generate_readme import render_readme
-from validate_data import validate_curation, validate_entry
+from validate_data import VALID_ENVS, validate_curation, validate_entry
 from generate_assets import darken
 
 
@@ -68,6 +68,22 @@ class CatalogTests(unittest.TestCase):
         entry = deepcopy(original)
         entry.update(scope="alfworld-adjacent", env=["ALFWorld"], section="planning", category=ROOMS[4][0])
         self.assertTrue(any("must_read" in error for error in validate_entry(0, entry, None)))
+
+    def test_environment_labels_are_explicit_and_aliases_are_rejected(self):
+        entry = deepcopy(self.native[0])
+        for env in sorted(VALID_ENVS):
+            with self.subTest(env=env):
+                entry["env"] = [env]
+                self.assertFalse(validate_entry(0, entry, None))
+        for env in ["EB-Navigation", "EB-ALFRED", "ProcThor", "new-environment"]:
+            with self.subTest(env=env):
+                entry["env"] = [env]
+                self.assertTrue(any("unsupported env labels" in e for e in validate_entry(0, entry, None)))
+        entry["env"] = ["AI2-THOR", "AI2-THOR"]
+        self.assertTrue(any("duplicates" in e for e in validate_entry(0, entry, None)))
+        for env in [[], "AI2-THOR", [None]]:
+            entry["env"] = env
+            self.assertTrue(any("non-empty list" in e for e in validate_entry(0, entry, None)))
 
     def test_editorial_rule_does_not_change_official_paper_titles(self):
         entry = deepcopy(self.native[0])

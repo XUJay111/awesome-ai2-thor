@@ -1,0 +1,30 @@
+name: arXiv scan
+
+on:
+  schedule:
+    - cron: "0 1 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+# Serialize dispatches so concurrent scans cannot publish the same candidates.
+concurrency:
+  group: arxiv-scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Find candidates and open a review Issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/scan_arxiv.py --create-issue

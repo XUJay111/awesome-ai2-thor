@@ -27,7 +27,7 @@ LABELS = {
     'tutorials': ['Tutorials &', 'notes'],
 }
 
-@lru_cache(maxsize=3)
+@lru_cache(maxsize=8)
 def archivo(width: int = 75, weight: int = 600) -> TTFont:
     return instantiateVariableFont(TTFont(FONT, recalcTimestamp=False), {'wdth': width, 'wght': weight}, inplace=True)
 
@@ -88,7 +88,8 @@ def window(x: float, y: float, length: float, horizontal: bool, paper: str, ink:
             f'<path d="M{x - 3:.1f} {y:.1f}v{length:.1f}M{x + 3:.1f} {y:.1f}v{length:.1f}M{x:.1f} {y:.1f}v{length:.1f}" stroke="{ink}" stroke-width="1" fill="none"/>'
             f'<path d="M{x - 4:.1f} {y:.1f}h8M{x - 4:.1f} {y + length:.1f}h8" stroke="{ink}" stroke-width="2"/>')
 
-def floorplan_svg(entries: list[dict], dark: bool = False, through: str = '') -> str:
+def plan_body(entries: list[dict], dark: bool = False) -> list[str]:
+    """Rooms, doors, walls, and windows in the 1200 x 360 plan frame."""
     counts, layout = room_counts(entries), floorplan_layout(room_counts(entries))
     paper, ink = PALETTE[dark]['paper'], PALETTE[dark]['ink']
     body = []
@@ -132,6 +133,11 @@ def floorplan_svg(entries: list[dict], dark: bool = False, through: str = '') ->
     body.append(window(1176, rl[1] + rl[3] * .3, rl[3] * .4, False, paper, ink))
     if hall_y is not None:
         body.append(outlined('Hallway', 40, hall_y + 16.5, 11, ink, width=100, weight=400, opacity=.55))
+    return body
+
+def floorplan_svg(entries: list[dict], dark: bool = False, through: str = '') -> str:
+    paper, ink = PALETTE[dark]['paper'], PALETTE[dark]['ink']
+    body = plan_body(entries, dark)
     body.append(outlined('Each room is a section. Numbers are entries.', 24, 392, 14, ink, width=100, weight=400, opacity=.6))
     # Title block, as on an architectural sheet.
     cells = ['Awesome AI2-THOR', f'{len(entries)} entries', f'Papers through {through}' if through else '10 rooms']
@@ -151,6 +157,24 @@ def floorplan_svg(entries: list[dict], dark: bool = False, through: str = '') ->
         '<desc id="desc">Each room is a section. Areas and counts exclude text-only ALFWorld papers.</desc>',
         glyph_defs(),
         f'<rect width="1200" height="420" fill="{paper}"/>',
+    ]
+    return '\n'.join(head + body + ['</svg>', ''])
+
+def social_preview_svg(entries: list[dict], through: str = '') -> str:
+    """1280 x 640 card for link previews: the plan is the picture, the name is the caption."""
+    paper, ink = PALETTE[False]['paper'], PALETTE[False]['ink']
+    title, sub = 'Awesome AI2-THOR', 'Papers, benchmarks, and tools for the AI2-THOR family'
+    facts = f'{len(entries)} entries' + (f'  /  papers through {through}' if through else '')
+    body = [
+        outlined(title, 64, 132, 76, ink, width=100, weight=700),
+        outlined(sub, 66, 184, 28, ink, width=100, weight=400, opacity=.72),
+        outlined(facts, 1216 - text_width(facts, 20, 100, 400), 132, 20, ink, width=100, weight=400, opacity=.62),
+        '<g transform="translate(40 244)">', *plan_body(entries), '</g>',
+    ]
+    head = [
+        '<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-label="Awesome AI2-THOR: a floor plan of the research catalog">',
+        glyph_defs(),
+        f'<rect width="1280" height="640" fill="{paper}"/>',
     ]
     return '\n'.join(head + body + ['</svg>', ''])
 
@@ -195,6 +219,7 @@ def generate_assets(data: dict, as_of: date) -> None:
         suffix = 'dark' if dark else 'light'
         (ASSETS / f'floorplan-{suffix}.svg').write_text(floorplan_svg(entries, dark, through), encoding='utf-8')
         (ASSETS / f'timeline-{suffix}.svg').write_text(timeline_svg(entries, as_of, dark), encoding='utf-8')
+    (ASSETS / 'social-preview.svg').write_text(social_preview_svg(entries, through), encoding='utf-8')
     (ASSETS / 'rooms').mkdir(exist_ok=True)
     for _, key, *_ in ROOMS:
         (ASSETS / 'rooms' / f'{key}.svg').write_text(room_icon_svg(entries, key), encoding='utf-8')

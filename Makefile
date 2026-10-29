@@ -11,7 +11,7 @@ test:
 	$(PYTHON) -m unittest discover -s tests -v
 
 check: validate test
-	$(PYTHON) scripts/check_generated.py
+	$(PYTHON) scripts/check_generated.py $(if $(AS_OF),--as-of $(AS_OF))
 
 preview:
 	$(PYTHON) -m http.server 8000 --bind 127.0.0.1 --directory docs

@@ -40,6 +40,14 @@ VALID_CATEGORIES = {
     "Tutorials and Notes",
 }
 
+# Keep filter labels consistent; sub-benchmarks use their parent and simulator.
+VALID_ENVS = {
+    "AI2-THOR", "ALFRED", "ALFWorld", "ArchitecTHOR", "EmbodiedBench",
+    "MAP-THOR", "MAT2-THOR", "ManipulaTHOR", "ProcTHOR", "ReALFRED",
+    "RoboTHOR", "TEACh", "iTHOR", "infinity-THOR",
+    "Unconfirmed",  # Retained entries whose environment still needs verification.
+}
+
 REQUIRED_FIELDS = {
     "title",
     "year",
@@ -189,8 +197,12 @@ def validate_entry(index: int, entry: dict, minimum_verified: str | None) -> lis
     env = entry.get("env")
     if not isinstance(env, list) or not env or not all(isinstance(e, str) and e.strip() for e in env):
         errors.append(f"{label}: env must be a non-empty list of environment names")
-    elif len(env) != len(set(env)):
-        errors.append(f"{label}: env must not contain duplicates")
+    else:
+        if len(env) != len(set(env)):
+            errors.append(f"{label}: env must not contain duplicates")
+        unknown = set(env) - VALID_ENVS
+        if unknown:
+            errors.append(f"{label}: unsupported env labels: {', '.join(sorted(unknown))}")
     for field, limit in [("highlight", 30), ("short", 15)]:
         value = entry.get(field)
         if not isinstance(value, str) or not value.strip():

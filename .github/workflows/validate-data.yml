@@ -1,6 +1,7 @@
 name: Validate data
 
 on:
+  workflow_dispatch:
   pull_request:
   push:
     branches: [main, master]
@@ -9,13 +10,13 @@ jobs:
   validate-data:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
       - run: pip install -r requirements.txt
-      - run: make check PYTHON=python
-      - uses: actions/setup-node@v4
+      - run: make check PYTHON=python AS_OF="$(git log -1 --format=%cs)"
+      - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
