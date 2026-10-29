@@ -834,7 +834,7 @@ AllenAct 教程带读者完成 RoboTHOR 目标导航训练与评测，将模拟�
 
 AI2-THOR 166 / ALFRED 66 / ProcTHOR 38 / RoboTHOR 34 / EmbodiedBench 18 / TEACh 13 / iTHOR 9 / EB-Navigation 4 / ManipulaTHOR 3 / MAP-THOR 2 / infinity-THOR 1 / ALFWorld 1 / ReALFRED 1 / ArchitecTHOR 1 / MAT2-THOR 1 / EB-ALFRED 1
 
-共跟踪 350 条：322 条模拟器家族资源，13 条文本环境工作，15 条待核实。
+共跟踪 348 条：322 条模拟器家族资源，13 条文本环境工作，13 条待核实。
 
 年份未知的资源不计入柱状图；生态标签可重叠。展示更新日期与论文核验日期分别记录。
 

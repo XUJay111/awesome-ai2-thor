@@ -834,7 +834,7 @@ Walks through RoboTHOR ObjectNav training and evaluation with AllenAct, connecti
 
 AI2-THOR 166 / ALFRED 66 / ProcTHOR 38 / RoboTHOR 34 / EmbodiedBench 18 / TEACh 13 / iTHOR 9 / EB-Navigation 4 / ManipulaTHOR 3 / MAP-THOR 2 / infinity-THOR 1 / ALFWorld 1 / ReALFRED 1 / ArchitecTHOR 1 / MAT2-THOR 1 / EB-ALFRED 1
 
-350 tracked records: 322 simulator-family resources, 13 text-only papers, and 15 candidates awaiting verification.
+348 tracked records: 322 simulator-family resources, 13 text-only papers, and 13 candidates awaiting verification.
 
 Undated resources are omitted from the chart; ecosystem labels can overlap. Presentation updates and source verification dates are tracked separately.
 

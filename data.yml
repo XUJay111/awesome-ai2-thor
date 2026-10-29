@@ -1177,33 +1177,6 @@ entries:
   highlight: Track symbolic state and subgoals during instruction execution (TEACh).
   highlight_zh: 在指令执行中追踪符号状态与子目标。
   added: '2026-06-22'
-- title: 'VLM-Act: A Benchmark for Vision-Language-Action Models'
-  year: '2024'
-  status: needs-verification
-  venue: ICLR Workshop
-  category: Instruction Following and Household Tasks
-  tags:
-  - '2024'
-  - ICLR Workshop
-  - VLA benchmark
-  - ALFRED
-  links:
-    paper: https://arxiv.org/abs/2404.08700
-  ai2thor_connection: ALFRED
-  summary: 'Verify the paper identity and THOR experiments before restoring this record: the previously supplied
-    arXiv link resolves to DyKnow: Dynamically Verifying Time-Sensitive Factual Knowledge in LLMs, and the
-    claimed code repository is unavailable.'
-  last_verified: '2026-10-28'
-  scope: thor-native
-  section: instructions
-  env:
-  - ALFRED
-  must_read: false
-  short: Evaluate vision-language-action models on household execution
-  short_zh: 在家务执行中评测视觉语言动作模型
-  highlight: Evaluate vision-language-action models on household execution (ALFRED).
-  highlight_zh: 在家务执行中评测视觉语言动作模型。
-  added: '2026-06-25'
 - title: 'LACMA: Language-Aligning Contrastive Learning with Meta-Actions'
   year: '2023'
   status: verified-paper
@@ -1403,33 +1376,6 @@ entries:
   highlight: Recover implicit subgoals through thought-chain reasoning (ALFRED).
   highlight_zh: 通过思维链推理补全隐含子目标。
   added: '2026-06-22'
-- title: Dual Preference Optimization for Embodied Multimodal Agent
-  year: '2025'
-  status: needs-verification
-  venue: arXiv
-  category: Instruction Following and Household Tasks
-  tags:
-  - '2025'
-  - arXiv
-  - preference optimization
-  - ALFRED
-  links:
-    paper: https://arxiv.org/abs/2502.02024
-  ai2thor_connection: ALFRED
-  summary: 'Verify the paper identity and THOR experiments before restoring this record: the previously supplied
-    arXiv link resolves to UD-Mamba: A pixel-level uncertainty-driven Mamba model for medical image segmentation,
-    and the claimed code repository is unavailable.'
-  last_verified: '2026-10-28'
-  scope: thor-native
-  section: instructions
-  env:
-  - ALFRED
-  must_read: false
-  short: Optimize action-level and trajectory-level preferences
-  short_zh: 联合优化动作偏好与轨迹偏好
-  highlight: Optimize action-level and trajectory-level preferences (ALFRED).
-  highlight_zh: 联合优化动作偏好与轨迹偏好。
-  added: '2026-06-25'
 - title: 'Hindsight Planner: A Closed-Loop Few-Shot Planner for Embodied Instruction Following'
   year: '2024'
   status: verified-paper
